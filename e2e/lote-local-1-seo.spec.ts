@@ -22,7 +22,7 @@ const LOTE_LOCAL_1: Caso[] = [
   { path: "/tecnico-informatica-sao-jose-pinhais", indexavel: true, canonical: "/tecnico-informatica-sao-jose-pinhais", sitemap: true, pai: "/" },
   // Bairros âncora
   { path: "/bairros/batel", indexavel: true, canonical: "/bairros/batel", sitemap: true, pai: "/tecnico-informatica-curitiba" },
-  { path: "/bairros/cidade-industrial", indexavel: true, canonical: "/bairros/cidade-industrial", sitemap: true, pai: "/tecnico-informatica-curitiba" },
+  { path: "/bairros/cic", indexavel: true, canonical: "/bairros/cic", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/agua-verde", indexavel: true, canonical: "/bairros/agua-verde", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/centro", indexavel: true, canonical: "/bairros/centro", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/portao", indexavel: true, canonical: "/bairros/portao", sitemap: true, pai: "/tecnico-informatica-curitiba" },
@@ -33,6 +33,11 @@ const LOTE_LOCAL_1: Caso[] = [
   { path: "/servicos/remocao-de-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-de-virus", sitemap: false, pai: "/servicos/remocao-de-virus" },
   { path: "/servicos/recuperacao-de-dados/curitiba", indexavel: false, canonical: "/servicos/recuperacao-de-dados", sitemap: false, pai: "/servicos/recuperacao-de-dados" },
 ];
+
+// O contrato de indexação vive no HTML estático publicado (dist), não no
+// runtime: a trava VITE_SITE_INDEXING_ENABLED remove canonical/robots no
+// preview local. Por isso robots, canonical e JSON-LD são lidos do artefato.
+const STATIC_BASE = process.env.E2E_STATIC_URL ?? "http://localhost:4173";
 
 let sitemapPaths: Set<string> | null = null;
 
@@ -61,55 +66,57 @@ async function carregarSitemap(request: import("@playwright/test").APIRequestCon
 for (const caso of LOTE_LOCAL_1) {
   test(`contrato SEO — ${caso.path}`, async ({ page, request, baseURL }) => {
     const base = baseURL ?? "http://localhost:8080";
-    await page.goto(caso.path, { waitUntil: "domcontentloaded" });
-    await page.waitForLoadState("networkidle");
+
+    // Artefato publicado: fonte de verdade do contrato de indexação.
+    const estatico = await request.get(`${STATIC_BASE}${caso.path}`);
+    expect(estatico.ok(), `${caso.path} não existe no build`).toBe(true);
+    const html = await estatico.text();
 
     // 1. meta robots coerente com a política
-    const robots = (await page.locator('meta[name="robots"]').first().getAttribute("content")) ?? "";
+    const robots = html.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? "";
     expect(robots, `${caso.path} sem meta robots`).not.toBe("");
     expect(/noindex/i.test(robots), `${caso.path}: robots "${robots}"`).toBe(!caso.indexavel);
 
     // 2. canonical apontando para o alvo declarado
-    const canonical = await page.locator('link[rel="canonical"]').first().getAttribute("href");
+    const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1];
     expect(canonical, `${caso.path} sem canonical`).toBeTruthy();
     expect(new URL(canonical!, base).pathname.replace(/\/$/, "") || "/").toBe(caso.canonical);
 
     // 3. sitemap
-    const paths = await carregarSitemap(request, base);
+    const paths = await carregarSitemap(request, STATIC_BASE);
     expect(paths.has(caso.path.replace(/\/$/, "")), `${caso.path} no sitemap`).toBe(caso.sitemap);
 
-    // 4. breadcrumbs visíveis
-    await expect(page.locator('nav[aria-label*="rilha" i], nav[aria-label*="readcrumb" i]').first()).toBeVisible();
-
-    // 5. JSON-LD com BreadcrumbList e um nó de página/negócio
-    const tipos = await page.evaluate(() => {
-      const out: string[] = [];
-      const coleta = (n: unknown) => {
-        if (Array.isArray(n)) return n.forEach(coleta);
-        if (n && typeof n === "object") {
-          const o = n as Record<string, unknown>;
-          if (typeof o["@type"] === "string") out.push(o["@type"] as string);
-          if (Array.isArray(o["@type"])) out.push(...(o["@type"] as string[]));
-          if (o["@graph"]) coleta(o["@graph"]);
-        }
-      };
-      document.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
-        try {
-          coleta(JSON.parse(s.textContent || "null"));
-        } catch {
-          /* bloco inválido é coberto por outro gate */
-        }
-      });
-      return out;
-    });
+    // 4. JSON-LD com BreadcrumbList e um nó de página/negócio
+    const tipos: string[] = [];
+    for (const bloco of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+      try {
+        const coleta = (n: unknown): void => {
+          if (Array.isArray(n)) return n.forEach(coleta);
+          if (n && typeof n === "object") {
+            const o = n as Record<string, unknown>;
+            if (typeof o["@type"] === "string") tipos.push(o["@type"] as string);
+            if (Array.isArray(o["@type"])) tipos.push(...(o["@type"] as string[]));
+            if (o["@graph"]) coleta(o["@graph"]);
+          }
+        };
+        coleta(JSON.parse(bloco[1]));
+      } catch {
+        /* bloco inválido é coberto por outro gate */
+      }
+    }
     expect(tipos, `${caso.path} sem BreadcrumbList`).toContain("BreadcrumbList");
     expect(
       tipos.some((t) => ["WebPage", "LocalBusiness", "Service", "FAQPage"].includes(t)),
       `${caso.path} sem nó de página (tipos: ${tipos.join(", ")})`,
     ).toBe(true);
 
+    // 5. breadcrumbs visíveis na aplicação renderizada
+    await page.goto(caso.path, { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("networkidle");
+    await expect(page.locator('nav[aria-label*="rilha" i], nav[aria-label*="readcrumb" i]').first()).toBeVisible();
+
     // 6. link interno para o pai declarado
-    const linkPai = page.locator(`a[href="${caso.pai}"], a[href$="${caso.pai}"]`).first();
+    const linkPai = page.locator(`a[href="${caso.pai}"]`).first();
     await expect(linkPai, `${caso.path} sem link para o pai ${caso.pai}`).toHaveCount(1);
   });
 }

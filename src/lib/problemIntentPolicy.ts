@@ -39,7 +39,7 @@ export type Indexabilidade = "index" | "noindex" | "reavaliar";
 export const SUFIXO_LOCAL = "-curitiba";
 
 /** Menções à cidade toleradas por campo antes de virar excesso (Fase 11). */
-export const LIMITE_MENCOES_CIDADE = { title: 1, h1: 1, metaDescription: 1 } as const;
+export const LIMITE_MENCOES_CIDADE = { titulo: 1, h1: 1, metaDescription: 1 } as const;
 
 const normalizar = (t: string) =>
   t

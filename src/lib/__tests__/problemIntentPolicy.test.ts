@@ -89,7 +89,7 @@ describe("avaliarIntencao", () => {
       h1: "Computador lento em Curitiba, Curitiba e região",
     });
     const campos = desvios.filter((d) => d.regra === "EXCESSO_CIDADE").map((d) => d.detalhe);
-    expect(campos.some((d) => d.startsWith("title"))).toBe(true);
+    expect(campos.some((d) => d.startsWith("titulo"))).toBe(true);
     expect(campos.some((d) => d.startsWith("h1"))).toBe(true);
   });
 

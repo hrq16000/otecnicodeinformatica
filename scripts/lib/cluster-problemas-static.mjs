@@ -326,6 +326,70 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
       },
     ],
   },
+  {
+    path: "/problemas/windows-nao-inicia",
+    title: "Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática",
+    description:
+      "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização. Veja o que checar.",
+    h1: "Windows não inicia: para em logotipo, reinicia em loop ou pede reparo",
+    subtitulo:
+      "O hardware costuma estar vivo: o que falhou está entre a partida do disco e a carga do sistema.",
+    blocos: [
+      {
+        titulo: "Onde exatamente a partida quebra",
+        paragrafos: [
+          "Travar no logotipo com o círculo girando indica serviço ou driver que não conclui a carga — quase sempre tratável em modo de segurança, sem tocar nos arquivos. Reparo automático repetindo aponta estrutura de arquivos danificada, típica de desligamento abrupto. Mensagem de dispositivo de inicialização não encontrado significa que a placa não enxerga a unidade, o que pode ser ordem de boot, cabo ou conector, e não necessariamente disco morto.",
+          "Reinício antes da tela de senha mistura atualização mal aplicada com memória instável, e o teste de memória separa as duas em minutos. Tela preta com cursor mostra sistema carregado e interface que não subiu: perfil de usuário corrompido ou driver de vídeo.",
+        ],
+      },
+      {
+        titulo: "O que checar antes de aceitar formatação",
+        paragrafos: [
+          "Anote a mensagem exata da tela, inclusive o código iniciado por zero e x. Lembre o que mudou antes: atualização, driver, queda de energia ou troca de peça. Retire pendrive, HD externo e cartão de memória, porque mídia externa na ordem de partida provoca exatamente essa falha. Tente o modo de segurança: se abre, seus arquivos estão íntegros e o problema é de software.",
+          "Evite repetir reinícios forçados, utilitários de reparo baixados de sites desconhecidos e reinstalação por cima quando existir suspeita de disco defeituoso — a gravação nova ocupa justamente o espaço dos dados a recuperar.",
+        ],
+      },
+      {
+        titulo: "Como o atendimento é conduzido",
+        paragrafos: [
+          "Com o modo de segurança acessível, reversão de atualização, remoção de driver e verificação de integridade acontecem por acesso remoto. Quando a máquina não abre de forma alguma, o atendimento no endereço leva mídia de recuperação e leitura de saúde do disco.",
+          "Havendo sinal de falha na unidade, o disco é retirado, clonado e só então tratado: copiar antes de reparar é o que preserva o que é insubstituível. Diagnóstico, mão de obra e peça são informados separadamente antes de qualquer execução.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/problemas/computador-esquentando",
+    title: "Computador esquentando muito: causas e o que fazer | O Técnico de Informática",
+    description:
+      "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico. Veja as causas, o que medir antes e qual manutenção resolve.",
+    h1: "Computador ou notebook esquentando demais",
+    subtitulo:
+      "Todo equipamento aquece: o problema começa quando o próprio processador reduz a velocidade para se proteger.",
+    blocos: [
+      {
+        titulo: "Como o calor se manifesta",
+        paragrafos: [
+          "Ventoinha acelerada com a máquina parada mostra arrefecimento no limite. Desempenho que começa bem e cai depois de alguns minutos é a assinatura da redução automática de frequência por temperatura. Base do notebook quente demais para apoiar indica troca térmica acontecendo pela carcaça, e não pelo caminho projetado.",
+          "Travamento apenas em jogo, edição ou videochamada longa aponta qual componente aquece primeiro. Ar saindo morno e fraco, com cooler girando alto, denuncia radiador obstruído: o ar entra, mas não atravessa.",
+        ],
+      },
+      {
+        titulo: "Causas que aparecem na bancada",
+        paragrafos: [
+          "Radiador saturado de poeira e fiapo é a origem mais comum e não aparece em inspeção externa. Pasta térmica ressecada faz a mesma carga gerar dezenas de graus a mais. Ventoinha com rolamento gasto gira sem vencer a resistência do radiador, e a comparação entre rotação real e temperatura sob carga confirma isso.",
+          "Apoio e ambiente também pesam: notebook sobre cama ou almofada tem a entrada tapada, e desktop encostado na parede recircula o próprio ar quente. Em gabinete, ventoinhas soprando uma contra a outra e filtro entupido derrubam a troca térmica inteira. Quando um processo em segundo plano mantém carga alta sem uso aparente, o calor é consequência, não causa.",
+        ],
+      },
+      {
+        titulo: "O que checar e como resolvemos",
+        paragrafos: [
+          "Observe se o calor aparece em repouso ou só sob carga, confira o fluxo na saída de ar, verifique processos com uso alto e teste o equipamento em superfície rígida por um dia. Nunca sopre ar comprimido com a ventoinha girando livre, não use aspirador comum encostado na placa e não empilhe pasta térmica.",
+          "A avaliação remota mede temperatura sob carga, rotação e processos, separando causa de software de causa física. A limpeza técnica em bancada envolve desmontagem, limpeza das aletas, teste da ventoinha e troca de pasta, com medição antes e depois. Em desktop, revisar fluxo de ar no endereço costuma resolver sem levar o equipamento.",
+        ],
+      },
+    ],
+  },
 ];
 
 

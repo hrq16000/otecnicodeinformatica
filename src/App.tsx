@@ -8,6 +8,7 @@ import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 import { GeoAutoDetect } from "./components/GeoAutoDetect";
+import { MotionProvider } from "./components/MotionProvider";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -219,6 +220,7 @@ const HomeApp = () => {
 
   return (
     <AppErrorBoundary>
+      <MotionProvider>
       <AppInit />
       <GeoAutoDetect />
       <InstitutionalJsonLd />
@@ -234,6 +236,7 @@ const HomeApp = () => {
       <WhatsAppFunnel />
       <WhatsAppFloat />
       <ConsentBanner />
+      </MotionProvider>
     </AppErrorBoundary>
   );
 };

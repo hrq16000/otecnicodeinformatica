@@ -26,6 +26,7 @@
 - [Cluster PROBLEMAS — Onda 20](mem://features/cluster-problemas-onda-20) — 2 sintomas novos, 5 pontos obrigatórios por rota e CTAs contextuais por seção (sem tel:).
 - [Onda 4V — inventário 82 A](mem://features/onda-4v-inventario-82a) — Blocos extras serviço × bairro, 100% grade A e SmartImage no CFTV/admin.
 - [Onda 4W — estados de carregamento](mem://design/onda-4w-loading-states) — Token .skel obrigatório, esqueletos acessíveis em views com dados e aria-busy no envio.
+- [Onda 31 — revisão, permissões e auditoria](mem://features/onda-31-revisao-permissoes-auditoria) — Fluxo de status das fotos, perfis admin/revisor, admin_audit_log, export CSV/JSON dos gates e tendências locais.
 - [Onda 5C — cluster segurança](mem://features/onda-5c-editorial-seguranca) — Teto de 18 artigos indexáveis, antivírus e golpes on-line reescritos, capas licenciadas do Commons.
 - [Onda 5H — hardware e diagnóstico](mem://features/onda-5h-editorial-hardware) — Teto de 28 artigos, fonte de alimentação e placa-mãe reescritas, pilares computador-nao-liga e conserto-placa.
 - [Onda 5F — continuidade empresarial](mem://features/onda-5f-editorial-continuidade) — Teto de 24 artigos, ransomware e backup em nuvem reescritos, pilar backup-para-empresas.

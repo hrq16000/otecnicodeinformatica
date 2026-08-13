@@ -42,7 +42,7 @@ const MontagemPc = () => {
       {/* Hero Section */}
       <section className="pt-10 pb-10 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">

@@ -220,7 +220,7 @@ export const ServicesSection = () => {
             return (
               <article
                 key={service.title}
-                className="group relative flex flex-col glass-card gradient-border rounded-2xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl card-shine animated-border slide-up-stagger"
+                className="group relative flex flex-col glass-card gradient-border rounded-2xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl slide-up-stagger"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 {service.badge && (
@@ -283,7 +283,7 @@ export const ServicesSection = () => {
                     data-wa-medium="services_card"
                     onClick={() => trackServiceWhatsApp(service)}
                     aria-label={`Falar no WhatsApp sobre ${service.title}`}
-                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[hsl(var(--whatsapp))] px-3 py-2.5 text-sm font-bold text-primary-foreground shadow-[0_8px_20px_-8px_hsl(145_63%_42%/0.6)] transition-all hover:scale-[1.02] hover:bg-[hsl(var(--whatsapp-hover))]"
+                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[hsl(var(--whatsapp))] px-3 py-2.5 text-sm font-bold text-primary-foreground shadow-[0_8px_20px_-8px_hsl(145_63%_42%/0.6)] transition-all hover:bg-[hsl(var(--whatsapp-hover))]"
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp

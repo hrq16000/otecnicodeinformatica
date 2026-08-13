@@ -211,7 +211,7 @@ const CFTVPage = () => {
                 ))}
               </ul>
 
-              <Button variant="heroWhatsapp" size="xl" className="w-full sm:w-auto animate-pulse-soft" asChild>
+              <Button variant="heroWhatsapp" size="xl" className="w-full sm:w-auto" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick("oferta")}>
                   <MessageCircle className="h-6 w-6" />
                   Garantir Meu Kit Agora
@@ -361,7 +361,7 @@ const CFTVPage = () => {
             <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
               Proteja quem você ama e o que é seu. Kit completo Intelbras com instalação por <strong className="text-accent">R$ 1.350</strong>.
             </p>
-            <Button variant="heroWhatsapp" size="xl" className="animate-pulse-soft" asChild>
+            <Button variant="heroWhatsapp" size="xl" className="" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTAClick("cta_final")}>
                 <MessageCircle className="h-6 w-6" />
                 Quero Garantir Meu Atendimento Agora

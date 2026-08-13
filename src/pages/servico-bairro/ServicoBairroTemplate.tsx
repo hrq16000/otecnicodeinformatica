@@ -287,7 +287,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                       : data.servicoSlug.includes("montagem") ? IMAGES.desktopMontado
                       : IMAGES.tecnicoTrabalhando}
                     alt={`${data.servico} profissional no ${data.bairro}, ${data.cidade}`}
-                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-64 object-cover transition-transform duration-700 group-"
                     
                     width="800"
                     height="400"

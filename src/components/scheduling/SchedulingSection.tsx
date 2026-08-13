@@ -73,7 +73,7 @@ export const SchedulingSection = () => {
                 {benefits.map((benefit, index) => (
                    <div
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 group card-shine hover-streak slide-up-stagger"
+                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 group slide-up-stagger"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:rotate-3 transition-all duration-300 relative">
@@ -114,7 +114,7 @@ export const SchedulingSection = () => {
             </div>
 
             {/* Right - CTA Card */}
-            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl animated-border hover:shadow-[var(--shadow-xl)] transition-all duration-300 hover:-translate-y-1 glass-card">
+            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl hover:shadow-[var(--shadow-xl)] transition-all duration-300 hover:-translate-y-1 glass-card">
               <div className="text-center space-y-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full pulse-ring">
                   <CalendarDays className="h-8 w-8 text-primary" />
@@ -132,7 +132,7 @@ export const SchedulingSection = () => {
                 <div className="space-y-3">
                   <Button
                     size="lg"
-                    className="w-full text-lg py-6 ring-pulse hover:scale-[1.03] transition-all duration-300 elastic-click hover-streak"
+                    className="w-full text-lg py-6 transition-all duration-300"
                     onClick={() => setIsModalOpen(true)}
                   >
                     <CalendarDays className="mr-2 h-5 w-5" />

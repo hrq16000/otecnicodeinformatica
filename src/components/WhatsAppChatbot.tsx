@@ -549,8 +549,8 @@ export const WhatsAppChatbot = () => {
         )}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-            !isOpen ? "animate-pulse-soft" : ""
+          className={`bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+            !isOpen ? "" : ""
           }`}
           aria-label="Abrir assistente virtual"
         >

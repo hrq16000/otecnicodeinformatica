@@ -63,7 +63,7 @@ export const TechBrandsMarquee = () => {
             <Link
               key={b.key}
               to={`/marcas/${b.slug}`}
-              className={`${b.anim} select-none group flex flex-col items-center gap-1.5 hover:scale-110 transition-transform duration-300`}
+              className={`${b.anim} select-none group flex flex-col items-center gap-1.5 transition-transform duration-300`}
               title={`Assistência Técnica ${b.name}`}
             >
               <svg

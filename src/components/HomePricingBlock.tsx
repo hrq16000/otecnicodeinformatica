@@ -37,7 +37,7 @@ export const HomePricingBlock = () => {
             {precos.slice(0, 3).map((p, i) => (
               <div 
                 key={i} 
-                className="flex flex-col items-center text-center glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
+                className="flex flex-col items-center text-center glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-md)] hover:-translate-y-1.5 transition-all duration-300 group slide-up-stagger"
                 style={{ animationDelay: `${i * 70}ms` }}
               >
                 <div className="bg-accent/10 rounded-full p-1.5 mb-2 group-hover:bg-accent/20 transition-colors duration-300 relative">
@@ -54,7 +54,7 @@ export const HomePricingBlock = () => {
             {precos.slice(3).map((p, i) => (
               <div 
                 key={i + 3} 
-                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
+                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:-translate-y-1.5 transition-all duration-300 group slide-up-stagger"
                 style={{ animationDelay: `${(i + 3) * 70}ms` }}
               >
                 <div className="flex items-center gap-2.5">
@@ -70,7 +70,7 @@ export const HomePricingBlock = () => {
           </div>
 
           {/* Custo mínimo por região */}
-          <div className="bg-primary/5 border border-primary/15 rounded-xl p-5 mb-3 hover:border-primary/25 transition-colors duration-300 hover-streak">
+          <div className="bg-primary/5 border border-primary/15 rounded-xl p-5 mb-3 hover:border-primary/25 transition-colors duration-300">
             <div className="flex items-center gap-2 mb-3">
               <MapPin className="h-4 w-4 text-primary" />
               <Clock className="h-4 w-4 text-primary" />
@@ -99,7 +99,7 @@ export const HomePricingBlock = () => {
             </p>
           </div>
 
-          <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300 hover-streak">
+          <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300">
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               <Sparkles className="h-4 w-4 text-accent flex-shrink-0" />
               <span>
@@ -110,7 +110,7 @@ export const HomePricingBlock = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="cta" size="lg" className="hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300 elastic-click hover-streak" asChild>
+            <Button variant="cta" size="lg" className=" hover:shadow-[var(--shadow-accent)] transition-all duration-300" asChild>
               <Link to="/valores">
                 Ver Tabela Completa de Valores
                 <ArrowRight className="h-4 w-4 ml-1" />

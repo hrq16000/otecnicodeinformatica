@@ -130,7 +130,7 @@ const SejaParceiro = () => {
                   Receba chamados, cresça profissionalmente e atenda clientes qualificados.
                 </p>
                 <a href="#formulario">
-                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-8 py-6 text-base shadow-lg motion-surface hover:shadow-lg cta-pulse">
+                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-8 py-6 text-base shadow-lg motion-surface hover:shadow-lg">
                     Quero me cadastrar <ArrowRight className="h-4 w-4" />
                   </Button>
                 </a>
@@ -331,7 +331,7 @@ const SejaParceiro = () => {
                   >
                     <Button
                       disabled={!isFormValid}
-                      className="w-full gap-3 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-xl px-8 py-6 text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] transition-all duration-300 cta-pulse btn-feedback elastic-click"
+                      className="w-full gap-3 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-xl px-8 py-6 text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 btn-feedback"
                     >
                       <MessageCircle className="h-5 w-5" />
                       Enviar Cadastro pelo WhatsApp
@@ -355,7 +355,7 @@ const SejaParceiro = () => {
                       rel="noopener noreferrer"
                     >
                       <Button
-                        className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg hover:scale-[1.02] transition-all duration-300 font-semibold btn-feedback elastic-click"
+                        className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg transition-all duration-300 font-semibold btn-feedback"
                       >
                         <ExternalLink className="h-5 w-5" />
                         Faça o seu cadastro

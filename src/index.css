@@ -434,10 +434,10 @@
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
   }
-  .cta-pulse {
+  . {
     animation: ctaPulse 4s var(--anim-ease-in-out) infinite;
   }
-  .cta-pulse:hover {
+  .:hover {
     animation-play-state: paused;
   }
 
@@ -774,10 +774,10 @@
     0% { --border-angle: 0deg; }
     100% { --border-angle: 360deg; }
   }
-  .animated-border {
+  . {
     position: relative;
   }
-  .animated-border::before {
+  .::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -798,7 +798,7 @@
     opacity: 0;
     transition: opacity 0.4s ease;
   }
-  .animated-border:hover::before {
+  .:hover::before {
     opacity: 1;
     animation: borderRotate 3s linear infinite;
   }
@@ -938,7 +938,7 @@
     70% { box-shadow: 0 0 0 12px hsl(var(--accent) / 0); }
     100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0); }
   }
-  .ring-pulse {
+  . {
     animation: ringPulse 2.5s ease-out infinite;
   }
 
@@ -970,11 +970,11 @@
   }
 
   /* ── Hover card shine ── */
-  .card-shine {
+  . {
     position: relative;
     overflow: hidden;
   }
-  .card-shine::before {
+  .::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -990,7 +990,7 @@
     transition: opacity 0.4s ease;
     pointer-events: none;
   }
-  .card-shine:hover::before {
+  .:hover::before {
     opacity: 1;
   }
 
@@ -1099,11 +1099,11 @@
     50% { opacity: 1; }
     100% { left: 200%; opacity: 0; }
   }
-  .hover-streak {
+  . {
     position: relative;
     overflow: hidden;
   }
-  .hover-streak::after {
+  .::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1115,7 +1115,7 @@
     pointer-events: none;
     opacity: 0;
   }
-  .hover-streak:hover::after {
+  .:hover::after {
     animation: hoverStreak 0.7s ease-out;
   }
 
@@ -1163,10 +1163,10 @@
   }
 
   /* ── Elastic scale on click ── */
-  .elastic-click {
+  . {
     transition: transform 0.3s var(--anim-bounce);
   }
-  .elastic-click:active {
+  .:active {
     transform: scale(0.93);
   }
 
@@ -1536,7 +1536,7 @@
     filter: none !important;
   }
 
-  .cta-pulse,
+  .,
   .wa-pulse {
     animation: none !important;
   }

@@ -86,7 +86,7 @@ export const CitiesSection = () => {
           {cities.map((city, index) => (
             <article 
               key={city.slug} 
-              className="glass-card gradient-border rounded-xl p-6 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 group hover-streak animated-border slide-up-stagger"
+              className="glass-card gradient-border rounded-xl p-6 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 transition-all duration-300 group slide-up-stagger"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -150,7 +150,7 @@ export const CitiesSection = () => {
         </div>
 
         {/* SEO content */}
-        <div className="mt-12 glass-card gradient-border rounded-2xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] transition-shadow duration-300 hover-streak">
+        <div className="mt-12 glass-card gradient-border rounded-2xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] transition-shadow duration-300">
           <h3 className="text-xl font-heading font-bold text-foreground mb-4">
             Por que escolher nosso serviço de <span className="gradient-text">assistência técnica</span>?
           </h3>

@@ -87,7 +87,7 @@ const Contato = () => {
           <div className="container mx-auto relative z-10">
              <div className="max-w-2xl mx-auto">
                 {/* WhatsApp */}
-                <div className="group glass-card gradient-border rounded-2xl p-8 text-center hover:shadow-[var(--shadow-xl)] transition-all duration-300 animated-border">
+                <div className="group glass-card gradient-border rounded-2xl p-8 text-center hover:shadow-[var(--shadow-xl)] transition-all duration-300">
                   <div className="bg-[hsl(var(--whatsapp))] rounded-full p-4 w-fit mx-auto mb-4 group-hover:shadow-[0_0_28px_hsl(var(--glow-whatsapp)/0.4)] transition-all duration-300">
                     <MessageCircle className="h-10 w-10 text-white" />
                   </div>
@@ -172,7 +172,7 @@ const Contato = () => {
                 ].map((item, i) => {
                   const IconComp = item.icon;
                   return (
-                    <div key={i} className="group glass-card gradient-border rounded-xl p-6 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak" style={{ animationDelay: `${i * 80}ms` }}>
+                    <div key={i} className="group glass-card gradient-border rounded-xl p-6 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] transition-all duration-300" style={{ animationDelay: `${i * 80}ms` }}>
                       <div className="flex items-center gap-3 mb-3">
                         <IconComp className="h-6 w-6 text-accent transition-transform duration-300" />
                         <h3 className="font-semibold text-foreground">{item.title}</h3>
@@ -228,7 +228,7 @@ const Contato = () => {
               <Button
                   variant="heroWhatsapp"
                   size="lg"
-                  className="animate-pulse-soft"
+                  className=""
                   asChild
                 >
                   <a

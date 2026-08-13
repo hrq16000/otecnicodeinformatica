@@ -224,7 +224,7 @@ export const TopSearchedServicesSection = () => {
             <Link
               key={index}
               to={service.url}
-              className="group glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover-streak animated-border slide-up-stagger"
+              className="group glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-2 slide-up-stagger"
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start gap-4">
@@ -262,7 +262,7 @@ export const TopSearchedServicesSection = () => {
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={requestLocation}
-                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 elastic-click"
+                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent/90 transition-all duration-200"
                   >
                     <LocateFixed className="h-4 w-4" />
                     Usar minha localização
@@ -349,7 +349,7 @@ export const TopSearchedServicesSection = () => {
             </p>
             <Link
               to="/contato"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300 elastic-click hover-streak"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 hover:shadow-[var(--shadow-accent)] transition-all duration-300"
             >
               Consultar Disponibilidade
               <ArrowRight className="h-4 w-4" />

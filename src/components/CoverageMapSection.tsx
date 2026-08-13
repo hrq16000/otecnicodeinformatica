@@ -268,7 +268,7 @@ export const CoverageMapSection = () => {
 
           {/* Lista de Regiões com Tempos */}
           <div className="space-y-3">
-            <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 mb-4 hover-streak">
+            <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 mb-4">
               <div className="flex items-start gap-3">
                 <Clock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>

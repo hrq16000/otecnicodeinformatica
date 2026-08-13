@@ -1,3 +1,4 @@
+import { projetarEventoClique } from "@/lib/realtimeSafeFields";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -88,7 +89,7 @@ const AdminExperimentoWa = () => {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "click_events" },
         (payload) => {
-          const novo = payload.new as Evento;
+          const novo = projetarEventoClique<Evento>(payload.new);
           if (!novo.path?.startsWith("/problemas")) return;
           const [ok] = filtrarComerciais([novo]);
           if (!ok) return;

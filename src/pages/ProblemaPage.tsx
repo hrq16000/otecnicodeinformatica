@@ -12,6 +12,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
+import { canonicalDecidido } from "@/lib/problemDecisions4c";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick, trackProblemaServiceClick, trackProblemaLinkBroken } from "@/lib/funnelAnalytics";
 import { auditInternalLink } from "@/lib/internalLinkAudit";
@@ -68,7 +69,11 @@ const ProblemaPage = () => {
   const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
-  useCanonical(`${SITE_BASE_URL}/problemas/${data?.slug ?? slug ?? ""}`);
+  // Rodada 4C: URLs herdadas com sufixo local apontam canonical para o sintoma
+  // canônico decidido em src/lib/problemDecisions4c.ts (nenhuma URL é removida).
+  useCanonical(
+    `${SITE_BASE_URL}${canonicalDecidido(`/problemas/${data?.slug ?? slug ?? ""}`)}`,
+  );
 
   useEffect(() => {
     if (!slug) { setLoading(false); return; }

@@ -14,6 +14,8 @@
     "report:problem-interlinks": "bun scripts/report-problem-interlinks.ts",
     "check:problem-intent": "bun scripts/check-problem-intent.ts",
     "check:problem-interlinks": "bun scripts/check-problem-interlinks.ts",
+    "check:problem-decisions": "bun scripts/check-problem-decisions.ts",
+    "check:realtime-payload": "node scripts/check-realtime-payload.mjs",
     "report:lot1": "bun scripts/report-lot1-final.ts",
     "check:problem-duplicates": "node scripts/dedupe-problema-pages.mjs --check",
     "report:local-performance": "node scripts/report-local-performance.mjs",

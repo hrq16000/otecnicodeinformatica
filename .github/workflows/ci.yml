@@ -42,6 +42,10 @@ jobs:
         run: npm run check:problem-intent
       - name: Interlinks do Lote 1 (/problemas)
         run: npm run check:problem-interlinks
+      - name: Decisões da Rodada 4C (nenhuma página em "reavaliar")
+        run: npm run check:problem-decisions
+      - name: Payload de realtime sem PII (telemetria 4E.4)
+        run: npm run check:realtime-payload
       - name: Local hierarchy gate (bairros/cidades)
         run: npm run check:local-hierarchy
       - name: Gate de copy proibido (CNPJ, razão social, e-mail, telefone, "orçamento")

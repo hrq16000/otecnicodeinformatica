@@ -19,15 +19,33 @@
  */
 import { readFileSync } from "node:fs";
 import { CLUSTER_PROBLEMAS } from "../src/lib/clusterProblemas";
+import { CURATED_PATHS } from "./lib/curated-urls.mjs";
 
 const TETO_SOBREPOSICAO = 0.45;
 const strict = process.argv.includes("--strict");
 
 /** Rotas declaradas no router — fonte de verdade de "a URL existe". */
 function rotasDoRouter(): Set<string> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const src = readFileSync("src/LegacyApp.tsx", "utf8");
   const rotas = new Set<string>();
-  for (const m of src.matchAll(/path="([^"]+)"/g)) rotas.add(m[1]);
+  const dinamicas: RegExp[] = [];
+  for (const m of src.matchAll(/path="([^"]+)"/g)) {
+    const path = m[1];
+    if (path.includes(":") || path.includes("*")) {
+      // rota paramétrica: guarda o padrão para validar URLs concretas do sitemap
+      if (path.includes(":")) {
+        dinamicas.push(new RegExp(`^${path.replace(/:[^/]+/g, "[^/]+")}$`));
+      }
+      continue;
+    }
+    rotas.add(path);
+  }
+  // URLs concretas do sitemap curado que são servidas por rota paramétrica
+  for (const entry of CURATED_PATHS as (string | { path: string })[]) {
+    const path = typeof entry === "string" ? entry : entry.path;
+    if (dinamicas.some((re) => re.test(path))) rotas.add(path);
+  }
   return rotas;
 }
 

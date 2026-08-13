@@ -12,9 +12,10 @@
  *
  * Uso: bun scripts/check-problem-decisions.ts
  */
+import { readFileSync } from "node:fs";
 import { DECISOES_4C, decisao4cDe } from "../src/lib/problemDecisions4c";
 import { problemaPagesData } from "../src/lib/problemIntentSources";
-import { indexabilidadeRecomendada, temSufixoLocal, slugCanonico } from "../src/lib/problemIntentPolicy";
+import { temSufixoLocal } from "../src/lib/problemIntentPolicy";
 import { CURATED_PATHS } from "./lib/curated-urls.mjs";
 
 const curados = new Set(
@@ -25,18 +26,14 @@ const entradas = problemaPagesData();
 const urlsExistentes = new Set(entradas.map((e) => e.url));
 const erros: string[] = [];
 
-const reavaliar = entradas.filter(
-  (e) =>
-    indexabilidadeRecomendada({
-      url: e.url,
-      indexavel: e.indexavel,
-      risco: "ALTO",
-      temGemeoLimpo: urlsExistentes.has(slugCanonico(e.url)) && slugCanonico(e.url) !== e.url,
-    }).valor === "reavaliar",
-);
+/** Inventário congelado da Rodada 4 — fonte do estado "reavaliar". */
+const registros: { url: string; indexabilidadeRecomendada: string }[] = JSON.parse(
+  readFileSync("reports/problem-intent-map.json", "utf8"),
+).registros;
 
-for (const e of reavaliar) {
-  if (!decisao4cDe(e.url)) erros.push(`${e.url} — sem decisão registrada (estado "reavaliar")`);
+for (const r of registros) {
+  if (r.indexabilidadeRecomendada !== "reavaliar") continue;
+  if (!decisao4cDe(r.url)) erros.push(`${r.url} — sem decisão registrada (estado "reavaliar")`);
 }
 
 for (const d of DECISOES_4C) {

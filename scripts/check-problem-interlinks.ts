@@ -26,7 +26,6 @@ const strict = process.argv.includes("--strict");
 
 /** Rotas declaradas no router — fonte de verdade de "a URL existe". */
 function rotasDoRouter(): Set<string> {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const src = readFileSync("src/LegacyApp.tsx", "utf8");
   const rotas = new Set<string>();
   const dinamicas: RegExp[] = [];

@@ -72,6 +72,7 @@ const registros = metas.map((m) => {
   const foto = imagemPorPath.get(m.path) ?? null;
   const precisaFoto = grupo === "problemas" || grupo === "bairros";
 
+  const curada = metaPorPath.has(m.path);
   const checklist = {
     rascunho: Boolean(m.title && m.description),
     conteudo: m.temBlocos,
@@ -95,7 +96,14 @@ const registros = metas.map((m) => {
     foto: foto ? { src: foto.src ?? null, status: foto.status, exclusiva: foto.exclusiva } : null,
     checklist,
     pendencias,
-    estado: pendencias.length === 0 ? "pronto" : pendencias.length <= 1 ? "revisao" : "rascunho",
+    curada,
+    estado: !curada
+      ? "sem_meta_curada"
+      : pendencias.length === 0
+        ? "pronto"
+        : pendencias.length <= 1
+          ? "revisao"
+          : "rascunho",
   };
 });
 
@@ -106,6 +114,7 @@ const relatorio = {
   prontos: registros.filter((r) => r.estado === "pronto").length,
   revisao: registros.filter((r) => r.estado === "revisao").length,
   rascunho: registros.filter((r) => r.estado === "rascunho").length,
+  semMetaCurada: registros.filter((r) => r.estado === "sem_meta_curada").length,
   urls: registros,
 };
 
@@ -115,9 +124,9 @@ mkdirSync("reports", { recursive: true });
 writeFileSync("reports/publish-status.json", `${JSON.stringify(relatorio, null, 2)}\n`);
 
 console.log(
-  `Status de publicação: ${relatorio.prontos} prontos · ${relatorio.revisao} em revisão · ${relatorio.rascunho} rascunho (de ${relatorio.total})`,
+  `Status de publicação: ${relatorio.prontos} prontos · ${relatorio.revisao} em revisão · ${relatorio.rascunho} rascunho · ${relatorio.semMetaCurada} sem meta curada (de ${relatorio.total})`,
 );
-for (const r of registros.filter((x) => x.estado !== "pronto").slice(0, 15)) {
+for (const r of registros.filter((x) => x.estado === "revisao" || x.estado === "rascunho").slice(0, 15)) {
   console.log(`  · ${r.path} → ${r.pendencias.join(", ")}`);
 }
 if (!existsSync("reports/real-images.json")) {

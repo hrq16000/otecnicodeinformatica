@@ -1,10 +1,11 @@
 {
-  "generatedAt": "2026-08-13T00:42:48.235Z",
+  "generatedAt": "2026-08-13T00:42:59.696Z",
   "base": "https://otecnicodeinformatica.com.br",
   "total": 111,
   "prontos": 39,
   "revisao": 22,
-  "rascunho": 50,
+  "rascunho": 19,
+  "semMetaCurada": 31,
   "urls": [
     {
       "path": "/",
@@ -23,6 +24,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -42,6 +44,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -63,6 +66,7 @@
       "pendencias": [
         "metaDescription"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -82,6 +86,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -101,6 +106,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -122,6 +128,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -141,6 +148,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -160,6 +168,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -179,6 +188,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -198,6 +208,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -217,6 +228,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -236,6 +248,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -255,6 +268,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -274,6 +288,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -293,6 +308,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -312,6 +328,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -331,6 +348,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -350,6 +368,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -369,6 +388,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -388,6 +408,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -407,6 +428,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -426,6 +448,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -445,6 +468,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -464,6 +488,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -483,6 +508,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -502,6 +528,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -521,6 +548,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -540,6 +568,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -559,6 +588,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -578,6 +608,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -597,6 +628,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -618,6 +650,7 @@
       "pendencias": [
         "metaDescription"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -637,6 +670,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -656,6 +690,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -677,6 +712,7 @@
       "pendencias": [
         "metaDescription"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -698,6 +734,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -719,6 +756,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -740,6 +778,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -761,6 +800,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -782,6 +822,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -804,6 +845,7 @@
         "metaDescription",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -825,6 +867,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -846,6 +889,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -868,6 +912,7 @@
         "metaDescription",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -889,6 +934,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -910,6 +956,7 @@
       "pendencias": [
         "originalidade"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -929,6 +976,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -948,6 +996,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -967,6 +1016,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -986,6 +1036,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -1005,6 +1056,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -1024,6 +1076,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -1050,6 +1103,7 @@
         "fotos",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1077,6 +1131,7 @@
         "fotos",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1103,6 +1158,7 @@
         "fotos",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1129,6 +1185,7 @@
         "fotos",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1155,6 +1212,7 @@
         "fotos",
         "originalidade"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1176,6 +1234,7 @@
       "pendencias": [
         "fotos"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1197,6 +1256,7 @@
       "pendencias": [
         "fotos"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1220,6 +1280,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1245,6 +1306,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1272,6 +1334,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1299,6 +1362,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1325,6 +1389,7 @@
         "metaTitle",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1352,6 +1417,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1379,6 +1445,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1406,6 +1473,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1433,6 +1501,7 @@
         "metaDescription",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1459,6 +1528,7 @@
         "metaTitle",
         "fotos"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1481,6 +1551,7 @@
         "metaTitle",
         "metaDescription"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1502,6 +1573,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1523,6 +1595,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1544,6 +1617,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1563,6 +1637,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -1585,6 +1660,7 @@
         "metaTitle",
         "metaDescription"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1606,6 +1682,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1628,6 +1705,7 @@
         "metaTitle",
         "metaDescription"
       ],
+      "curada": true,
       "estado": "rascunho"
     },
     {
@@ -1647,6 +1725,7 @@
         "originalidade": true
       },
       "pendencias": [],
+      "curada": true,
       "estado": "pronto"
     },
     {
@@ -1668,6 +1747,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1689,6 +1769,7 @@
       "pendencias": [
         "metaTitle"
       ],
+      "curada": true,
       "estado": "revisao"
     },
     {
@@ -1713,7 +1794,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/quando-trocar-hd-por-ssd",
@@ -1737,7 +1819,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-saber-se-pc-tem-virus-malware",
@@ -1761,7 +1844,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/backup-como-proteger-seus-arquivos",
@@ -1785,7 +1869,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-melhorar-sinal-wifi-em-casa",
@@ -1809,7 +1894,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/notebook-superaquecendo-o-que-fazer",
@@ -1833,7 +1919,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/organizacao-de-ti-para-pequenos-escritorios",
@@ -1857,7 +1944,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-escolher-uma-workstation",
@@ -1881,7 +1969,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-instalar-windows-11-do-zero",
@@ -1905,7 +1994,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-resolver-tela-azul-windows",
@@ -1929,7 +2019,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-trocar-tela-notebook-passo-a-passo",
@@ -1953,7 +2044,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/notebook-nao-liga-o-que-fazer",
@@ -1977,7 +2069,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/computador-lento-causas-solucoes",
@@ -2001,7 +2094,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-recuperar-dados-hd-com-defeito",
@@ -2025,7 +2119,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-fazer-upgrade-ssd-nvme",
@@ -2049,7 +2144,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-configurar-roteador-wifi-iniciantes",
@@ -2073,7 +2169,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-saber-quem-esta-usando-meu-wifi",
@@ -2097,7 +2194,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-escolher-um-bom-antivirus",
@@ -2121,7 +2219,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-proteger-computador-golpes-internet",
@@ -2145,7 +2244,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-limpar-notebook-por-dentro",
@@ -2169,7 +2269,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-trocar-pasta-termica-notebook",
@@ -2193,7 +2294,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-clonar-hd-para-ssd",
@@ -2217,7 +2319,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-instalar-segundo-ssd-notebook",
@@ -2241,7 +2344,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/ransomware-como-proteger-empresa",
@@ -2265,7 +2369,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/backup-nuvem-empresas-qual-escolher",
@@ -2289,7 +2394,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-instalar-impressora-windows-passo-a-passo",
@@ -2313,7 +2419,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-conectar-wifi-tv-nao-conecta",
@@ -2337,7 +2444,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-testar-fonte-de-alimentacao-pc",
@@ -2361,7 +2469,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-diagnosticar-placa-mae-defeituosa",
@@ -2385,7 +2494,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/windows-11-lento-como-resolver",
@@ -2409,7 +2519,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     },
     {
       "path": "/blog/como-remover-virus-windows-iniciantes",
@@ -2433,7 +2544,8 @@
         "metaTitle",
         "metaDescription"
       ],
-      "estado": "rascunho"
+      "curada": false,
+      "estado": "sem_meta_curada"
     }
   ]
 }

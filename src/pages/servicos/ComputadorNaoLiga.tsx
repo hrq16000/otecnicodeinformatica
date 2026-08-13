@@ -135,7 +135,7 @@ const ComputadorNaoLiga = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto bg-destructive/5 border border-destructive/20 rounded-xl p-6">
             <h2 className="text-xl font-bold text-destructive mb-3 flex items-center gap-2">
-              <AlertCircle className="h-5 w-5 animate-pulse" /> Cuidado com Tentativas Amadoras
+              <AlertCircle className="h-5 w-5" /> Cuidado com Tentativas Amadoras
             </h2>
             <div className="text-sm text-muted-foreground space-y-2">
               <p>Abrir o computador sem conhecimento pode piorar o problema. Riscos comuns:</p>

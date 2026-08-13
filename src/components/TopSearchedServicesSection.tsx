@@ -278,7 +278,7 @@ export const TopSearchedServicesSection = () => {
             )}
 
             {geoState === "loading" && (
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground animate-pulse">
+              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
                 <LocateFixed className="h-4 w-4 animate-spin" />
                 Detectando sua localização...
               </div>

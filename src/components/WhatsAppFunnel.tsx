@@ -929,7 +929,7 @@ export const WhatsAppFunnel = () => {
                         onChange={(v) => setField(f.id, v)}
                       />
                     ))}
-                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>
+                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70" : ""}`}>
                       <p className="text-sm font-medium">Qual a urgência? <span className="text-destructive">*</span></p>
                       <div role="radiogroup" className="grid gap-1.5">
                         {URGENCY_OPTIONS.map((u) => {
@@ -1031,7 +1031,7 @@ export const WhatsAppFunnel = () => {
                         onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
                       />
                     ))}
-                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>
+                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70" : ""}`}>
                       <p className="text-sm font-medium">Qual a urgência? <span className="text-destructive">*</span></p>
                       <div role="radiogroup" className="grid gap-1.5">
                         {URGENCY_OPTIONS.map((u) => {

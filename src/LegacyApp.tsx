@@ -1053,6 +1053,7 @@ const App = () => (
             <Route path="/admin/fotos" element={<AdminFotos />} />
             <Route path="/admin/editor-local" element={<AdminEditorLocal />} />
             <Route path="/admin/performance-local" element={<AdminPerformanceLocal />} />
+            <Route path="/admin/auditoria-acessos" element={<AdminAuditoriaAcessos />} />
 
             <Route path="/conserto-impressora-curitiba" element={<ConsertoImpressoraCuritiba />} />
             <Route path="/assistencia-eletrodomesticos-inteligentes-curitiba" element={<AssistenciaEletrodomesticosInteligentesCuritiba />} />

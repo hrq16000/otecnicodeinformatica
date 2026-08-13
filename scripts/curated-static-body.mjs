@@ -18,6 +18,7 @@
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+import { imageObjectFor } from "./lib/fotos-rotas.mjs";
 import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
 import { BLOCOS_3U, CTA_3U } from "./lib/blocos-3u.mjs";
 import { BLOCOS_4A, CTA_4A } from "./lib/blocos-4a.mjs";
@@ -1130,6 +1131,10 @@ export function jsonLdFor(route) {
     });
   }
   if (bc) out.push(bc);
+  // Onda 30: fotografia real licenciada da rota vira ImageObject com crédito
+  // e licença — reforça relevância e permite indexação da imagem.
+  const img = imageObjectFor(path);
+  if (img) out.push(img);
   return out;
 }
 
@@ -1148,6 +1153,7 @@ export function slotFor(schema) {
   if (types.includes("FAQPage")) return "faq";
   if (types.includes("AboutPage")) return "about-page";
   if (types.includes("ContactPage")) return "contact-page";
+  if (types.includes("ImageObject")) return "image";
   return "web-page";
 }
 

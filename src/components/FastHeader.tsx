@@ -272,7 +272,9 @@ export const FastHeader = () => {
             decoding="sync"
             // @ts-ignore - fetchpriority is a valid HTML attribute
             fetchpriority="high"
-            className="h-11 w-auto object-scale-down transition-[height] duration-200 sm:h-12 md:h-14 [html[data-scrolled='1']_&]:h-9 [html[data-scrolled='1']_&]:md:h-10"
+            // A redução no scroll usa transform (composição), não altura:
+            // animar `height` aqui reflui a barra inteira e gerava CLS.
+            className="h-11 w-auto origin-left object-scale-down transition-transform duration-200 will-change-transform sm:h-12 md:h-14 [html[data-scrolled='1']_&]:scale-[0.82]"
           />
         </a>
 

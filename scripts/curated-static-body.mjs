@@ -18,6 +18,7 @@
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+import { imageObjectFor } from "./lib/fotos-rotas.mjs";
 import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
 import { BLOCOS_3U, CTA_3U } from "./lib/blocos-3u.mjs";
 import { BLOCOS_4A, CTA_4A } from "./lib/blocos-4a.mjs";

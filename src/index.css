@@ -56,15 +56,15 @@
     /* Contraste AA garantido para texto secundário sobre o off-white. */
     --muted-foreground: 191 18% 33%;
 
-    /* Verde técnico: cor de ação. 27% de luminosidade mantém AA para texto
+    /* Verde técnico: cor de ação. 24% de luminosidade mantém AA para texto
        branco sobre o acento e para o acento como texto sobre off-white. */
-    --accent: 171 78% 27%;
+    --accent: 171 78% 24%;
     --accent-foreground: 0 0% 100%;
     /* Variante menta para texto pequeno sobre superfícies petróleo (AA). */
     --accent-on-dark: 167 55% 62%;
 
     /* Terroso: rótulo de categoria, nunca botão primário. */
-    --categoria: 23 57% 45%;
+    --categoria: 23 57% 39%;
     --categoria-foreground: 0 0% 100%;
     /* Variante clara do terroso para rótulos sobre petróleo (AA). */
     --categoria-on-dark: 23 72% 66%;

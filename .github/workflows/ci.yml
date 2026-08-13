@@ -144,6 +144,10 @@ jobs:
         run: npx playwright test e2e/a11y-empresarial.spec.ts
         env:
           E2E_BASE_URL: http://localhost:8080
+      - name: Acessibilidade axe-core (rotas públicas — home, problemas, empresas, serviços)
+        run: npx playwright test e2e/a11y-rotas-publicas.spec.ts
+        env:
+          E2E_BASE_URL: http://localhost:8080
 
 
   e2e-full-matrix:

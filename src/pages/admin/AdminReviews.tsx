@@ -103,10 +103,8 @@ const AdminReviews = () => {
 
   const fetchReviews = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("reviews")
-      .select("*")
-      .order("created_at", { ascending: false });
+    // Telefone do cliente é campo sensível: só chega via função que valida o papel de admin.
+    const { data, error } = await supabase.rpc("admin_list_reviews");
     if (error) {
       toast({ title: "Erro ao carregar", description: error.message, variant: "destructive" });
     } else {

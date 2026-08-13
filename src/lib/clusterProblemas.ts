@@ -127,6 +127,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/servicos/redes-e-wifi", titulo: "Redes e Wi-Fi", desc: "Escopo do serviço de rede, cobertura e configuração." },
+      { to: "/problemas/impressora-nao-imprime", titulo: "Impressora não imprime em rede", desc: "Quando a fila some ou a impressora fica offline, a causa costuma ser a mesma instabilidade de rede." },
       { to: "/empresas", titulo: "Atendimento para empresas", desc: "Rede instável parando o escritório: prioridade e escopo próprios." },
       { to: "/atendimento", titulo: "Solicitar atendimento", desc: "Funil em 4 etapas com estimativa de deslocamento." },
     ],
@@ -232,6 +233,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Quando o sintoma é lentidão e não travamento." },
+      { to: "/problemas/windows-nao-inicia", titulo: "Windows não inicia", desc: "Quando a tela azul passa a impedir o boot, a investigação muda de caminho." },
       { to: "/servicos/formatacao", titulo: "Formatação e sistema", desc: "Reinstalação com preservação de dados e drivers corretos." },
       { to: "/atendimento", titulo: "Solicitar atendimento", desc: "Descreva o erro e receba a modalidade indicada." },
     ],
@@ -334,6 +336,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/servicos/recuperacao-de-dados", titulo: "Recuperação de dados", desc: "Escopo, limites e como funciona a avaliação." },
+      { to: "/problemas/hd-fazendo-barulho", titulo: "HD fazendo barulho", desc: "Se o disco emite ruído anormal, pare o uso antes de qualquer tentativa de recuperação." },
       { to: "/servicos/backup-para-empresas", titulo: "Backup", desc: "Rotina de cópia para não repetir o problema." },
       { to: "/atendimento", titulo: "Solicitar avaliação", desc: "Descreva o que aconteceu e receba a orientação inicial." },
     ],
@@ -437,6 +440,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/servicos/computador-nao-liga", titulo: "Computador não liga", desc: "Quando o desligamento evolui para máquina que não dá sinal nenhum." },
+      { to: "/problemas/computador-esquentando", titulo: "Computador esquentando", desc: "Desligamento repentino sob carga costuma ser proteção térmica — este é o sintoma vizinho." },
       { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção preventiva", desc: "Limpeza interna, troca de pasta térmica e revisão de refrigeração." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
@@ -541,6 +545,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     relacionados: [
       { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Escopo de bancada, troca de componentes e revisão elétrica." },
       { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Quando a falha está no circuito de carga da placa-mãe." },
+      { to: "/problemas/notebook-molhado", titulo: "Notebook que recebeu líquido", desc: "Se houve contato com líquido antes da falha de carga, a ordem das checagens é outra." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
     foto: "placa-eletronica",
@@ -873,8 +878,9 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Diagnóstico, limpeza técnica e troca de componentes com teste sob carga." },
+      { to: "/servicos/manutencao-de-computador", titulo: "Manutenção de computadores", desc: "Diagnóstico, limpeza técnica e troca de componentes com teste sob carga." },
       { to: "/servicos/conserto-monitor", titulo: "Conserto de monitor", desc: "Quando o teste mostra que o problema está na tela, não no gabinete." },
+      { to: "/problemas/cheiro-de-queimado", titulo: "Cheiro de queimado no computador", desc: "Sinal de risco elétrico: interrompa o uso antes de continuar testando vídeo." },
       { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando a máquina chega a iniciar e depois cai — fonte, temperatura e alimentação." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
@@ -990,8 +996,9 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Limpeza técnica, teste de fonte e substituição de componentes em bancada." },
+      { to: "/servicos/manutencao-de-computador", titulo: "Manutenção de computadores", desc: "Limpeza técnica, teste de fonte e substituição de componentes em bancada." },
       { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando a falha elétrica ou térmica aparece antes do cheiro." },
+      { to: "/problemas/computador-esquentando", titulo: "Computador esquentando", desc: "Temperatura alta constante antecede boa parte dos casos de componente queimado." },
       { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Inspeção sob lupa, medição e microssolda quando o dano é localizado." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
@@ -1217,7 +1224,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Limpeza técnica, troca de pasta térmica e medição antes e depois." },
+      { to: "/servicos/manutencao-de-computador", titulo: "Manutenção de computadores", desc: "Limpeza técnica, troca de pasta térmica e medição antes e depois." },
       { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando o calor evolui para desligamento por proteção." },
       { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Lentidão que não melhora depois da limpeza tem outra origem." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },

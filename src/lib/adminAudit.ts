@@ -26,10 +26,10 @@ export async function registrarAuditoria(entrada: {
     if (!user) return;
     await supabase.from("admin_audit_log").insert([{
       actor_id: user.id,
-      actor_email: user.email ?? null,
+      actor_email: user.email ?? undefined,
       area: entrada.area,
       action: entrada.action,
-      target: entrada.target ?? null,
+      target: entrada.target ?? undefined,
       details: (entrada.details ?? {}) as never,
     }]);
   } catch {

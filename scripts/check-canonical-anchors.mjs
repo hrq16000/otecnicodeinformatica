@@ -57,6 +57,22 @@ const pages = new Map(); // rota -> html
 const existsRoute = (route) =>
   pages.has(route) || existsSync(path.join(DIST, route.replace(/^\//, "")));
 
+/** URLs curadas (sitemaps publicados) — só elas exigem canonical auto-referente.
+ *  Aliases indexáveis podem canonicalizar para a rota canônica de destino. */
+const curadas = new Set();
+{
+  const idx = "public/sitemap-index.xml";
+  if (existsSync(idx)) {
+    for (const m of readFileSync(idx, "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)) {
+      const file = m[1].replace(BASE_URL, "public");
+      if (!existsSync(file)) continue;
+      for (const u of readFileSync(file, "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)) {
+        curadas.add((u[1].replace(BASE_URL, "").replace(/\/$/, "")) || "/");
+      }
+    }
+  }
+}
+
 const errors = [];
 const warnings = [];
 const detalhe = [];
@@ -75,7 +91,7 @@ for (const [route, html] of [...pages].sort()) {
       const esperado = `${BASE_URL}${route === "/" ? "/" : route}`;
       const normal = canonical.replace(/\/$/, "") || "/";
       const alvo = esperado.replace(/\/$/, "") || "/";
-      if (BASE_URL && normal !== alvo) {
+      if (BASE_URL && normal !== alvo && curadas.has(route)) {
         errors.push(`${route}: canonical não é auto-referente (${canonical})`);
         item.problemas.push("canonical-cruzado");
       }

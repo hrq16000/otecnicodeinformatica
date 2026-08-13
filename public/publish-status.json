@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-13T01:34:50.009Z",
+  "generatedAt": "2026-08-13T02:39:11.272Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 111,
+  "total": 113,
   "prontos": 39,
   "revisao": 21,
-  "rascunho": 20,
+  "rascunho": 22,
   "semMetaCurada": 31,
   "urls": [
     {
@@ -1292,7 +1292,7 @@
       "grupo": "problemas",
       "title": "Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática",
       "description": "Tela azul travando o computador? O código do erro aponta a origem: memória, driver, disco ou energia. Veja o que anotar antes de reiniciar e quando o reparo compensa.",
-      "similaridade": 0.2,
+      "similaridade": 0.26,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1316,7 +1316,7 @@
       "grupo": "problemas",
       "title": "Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática",
       "description": "Apagou arquivos, formatou por engano ou o HD parou de abrir? O que você faz na primeira hora define a chance de recuperação. Veja o que evitar e como funciona a avaliação.",
-      "similaridade": 0.11,
+      "similaridade": 0.12,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1471,6 +1471,54 @@
       },
       "pendencias": [
         "metaTitle",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/windows-nao-inicia",
+      "url": "https://otecnicodeinformatica.com.br/problemas/windows-nao-inicia",
+      "grupo": "problemas",
+      "title": "Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática",
+      "description": "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização. Veja o que checar.",
+      "similaridade": 0.26,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/computador-esquentando",
+      "url": "https://otecnicodeinformatica.com.br/problemas/computador-esquentando",
+      "grupo": "problemas",
+      "title": "Computador esquentando muito: causas e o que fazer | O Técnico de Informática",
+      "description": "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico. Veja as causas, o que medir antes e qual manutenção resolve.",
+      "similaridade": 0.17,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
         "fotos"
       ],
       "curada": true,

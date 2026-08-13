@@ -101,13 +101,13 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "servico"
     },
     {
-      "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 3",
+      "href": "/problemas/windows-nao-inicia",
+      "anchor": "sintoma parecido: windows não inicia",
       "contexto": "problema"
     },
     {
-      "href": "/problemas/computador-lento",
-      "anchor": "compare com computador Lento",
+      "href": "/problemas/computador-nao-da-imagem",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 3",
       "contexto": "problema"
     },
     {
@@ -129,7 +129,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-lento",
-      "anchor": "sintoma parecido: computador Lento — 2",
+      "anchor": "compare com computador Lento",
       "contexto": "problema"
     },
     {
@@ -302,6 +302,60 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     {
       "href": "/bairros/cic",
       "anchor": "atendimento em CIC (Curitiba) para notebook molhado",
+      "contexto": "bairro"
+    }
+  ],
+  "/problemas/windows-nao-inicia": [
+    {
+      "href": "/servicos/recuperacao-de-dados",
+      "anchor": "recuperação de Dados em Curitiba para quem tem windows não inicia",
+      "contexto": "servico"
+    },
+    {
+      "href": "/servicos/suporte-tecnico-empresarial",
+      "anchor": "suporte Técnico para Empresas em Curitiba para quem tem windows não inicia",
+      "contexto": "servico"
+    },
+    {
+      "href": "/problemas/tela-azul",
+      "anchor": "compare com tela azul no Windows",
+      "contexto": "problema"
+    },
+    {
+      "href": "/problemas/wifi-instavel",
+      "anchor": "sintoma parecido: wi-Fi caindo ou lento — 2",
+      "contexto": "problema"
+    },
+    {
+      "href": "/bairros/batel",
+      "anchor": "atendimento em Batel (Curitiba) para windows não inicia",
+      "contexto": "bairro"
+    }
+  ],
+  "/problemas/computador-esquentando": [
+    {
+      "href": "/servicos/pc-gamer",
+      "anchor": "manutenção de PC Gamer em Curitiba para quem tem computador ou notebook esquentando demais",
+      "contexto": "servico"
+    },
+    {
+      "href": "/servicos/suporte-tecnico-empresarial",
+      "anchor": "suporte Técnico para Empresas em Curitiba para quem tem computador ou notebook esquentando demais",
+      "contexto": "servico"
+    },
+    {
+      "href": "/problemas/computador-nao-da-imagem",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 6",
+      "contexto": "problema"
+    },
+    {
+      "href": "/problemas/computador-lento",
+      "anchor": "sintoma parecido: computador Lento — 2",
+      "contexto": "problema"
+    },
+    {
+      "href": "/bairros/agua-verde",
+      "anchor": "atendimento em Água Verde para computador ou notebook esquentando demais",
       "contexto": "bairro"
     }
   ]

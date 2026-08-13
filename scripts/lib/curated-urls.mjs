@@ -18,6 +18,9 @@ import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
 // e o gerador de sitemap se recusa a publicar URLs.
 import { BASE_URL } from "./site-env.mjs";
 import { BLOCOS_4S_PATHS } from "./blocos-4s.mjs";
+// RODADA 5: cidades, bairros e serviço × bairro deixam de ter lista própria
+// aqui — a fonte única é src/lib/localIndexPolicy.json.
+import { ENTIDADES, BAIRROS_ANCORA, SERVICO_BAIRRO_INDEXAVEIS } from "./local-index-policy.mjs";
 export { BASE_URL };
 
 export const MAIN = [
@@ -67,24 +70,17 @@ export const SERVICOS = [
   "/servicos/conserto-monitor",
 ].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
 
-/** Hubs de cidade reais (NÃO 215 bairros). */
-export const REGIOES = [
-  "/tecnico-informatica-curitiba",
-  "/tecnico-informatica-sao-jose-pinhais",
-  "/tecnico-informatica-pinhais",
-  "/tecnico-informatica-colombo",
-  "/tecnico-informatica-araucaria",
-  "/tecnico-informatica-campo-largo",
-].map((path) => ({ path, changefreq: "monthly", priority: "0.7" }));
+/** Hubs de cidade reais — derivados da política local (Rodada 5). */
+export const REGIOES = ENTIDADES.filter(
+  (e) => e.family === "CIDADE" && e.indexability === "index",
+).map((e) => ({ path: e.path, changefreq: "monthly", priority: "0.7" }));
 
-/** Bairros âncora indexáveis (política de poda: conteúdo exclusivo real). */
-export const BAIRROS = [
-  "/bairros/cic",
-  "/bairros/batel",
-  "/bairros/agua-verde",
-  "/bairros/centro",
-  "/bairros/portao",
-].map((path) => ({ path, changefreq: "monthly", priority: "0.65" }));
+/** Bairros âncora indexáveis — derivados da política local (Rodada 5). */
+export const BAIRROS = BAIRROS_ANCORA.map((slug) => ({
+  path: `/bairros/${slug}`,
+  changefreq: "monthly",
+  priority: "0.65",
+}));
 
 /**
  * Landings serviço × bairro-âncora (src/lib/servicoBairroFactory.ts).
@@ -101,7 +97,7 @@ export const BAIRROS = [
 // RODADA 4S — reabilitação: reentram apenas as combinações com blocos
 // autorais próprios declarados em src/lib/servicoBairroBlocos4s.json
 // (fonte única, espelhada em scripts/lib/blocos-4s.mjs).
-export const SERVICO_BAIRRO = BLOCOS_4S_PATHS.map((path) => ({
+export const SERVICO_BAIRRO = SERVICO_BAIRRO_INDEXAVEIS.map((path) => ({
   path,
   changefreq: "monthly",
   priority: "0.6",

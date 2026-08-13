@@ -25,6 +25,13 @@ const ALLOWLIST = {
       "Write-only anonymous analytics sink. anon has INSERT only (no SELECT grant); " +
       "reads are admin-only via has_role(). No PII is stored.",
   },
+  partner_program_settings: {
+    commands: ["SELECT"],
+    reason:
+      "Single-row public price list for the partner program (preco_anual_centavos, moeda, " +
+      "aceitando_cadastros, texto_plano). The same values are printed on the public page, " +
+      "so read openness is the product requirement. Writes stay admin-only via has_role().",
+  },
 };
 
 function walk(dir) {

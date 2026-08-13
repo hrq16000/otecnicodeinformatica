@@ -29,7 +29,7 @@ export const TopOfferBanner = () => {
     );
   };
 
-  if (!visible) return <div aria-hidden="true" className="h-[var(--site-header-height)]" />;
+  if (!visible) return <div aria-hidden="true" className="h-[var(--site-header-space)]" />;
 
   return (
     <>

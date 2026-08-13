@@ -60,7 +60,7 @@ const GestorResponsavelPage = () => {
         description={`Responsabilidade técnica do ${siteConfig.brandName}${siteConfig.foundedYear ? ` desde ${siteConfig.foundedYear}` : ""}.`}
       />
       <FastHeader />
-      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+      <div aria-hidden="true" className="h-[var(--site-header-space)]" />
 
       <main>
         <div className="container mx-auto px-4 pt-6">

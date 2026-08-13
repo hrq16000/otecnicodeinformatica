@@ -9,6 +9,6 @@ import { FastHeader } from "@/components/FastHeader";
 export const Header = () => (
   <>
     <FastHeader />
-    <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+    <div aria-hidden="true" className="h-[var(--site-header-space)]" />
   </>
 );

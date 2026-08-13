@@ -46,7 +46,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <JsonLdSchema />
       <FastHeader />
-      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+      <div aria-hidden="true" className="h-[var(--site-header-space)]" />
       <main>
         <HeroTriagem />
         <TrustStrip />

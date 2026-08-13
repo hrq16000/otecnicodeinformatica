@@ -427,7 +427,7 @@ const AdminConversao = () => {
           aria-pressed={aoVivo}
         >
           <span
-            className={`h-2 w-2 rounded-full ${aoVivo ? "animate-pulse bg-[hsl(var(--accent))]" : "bg-muted-foreground"}`}
+            className={`h-2 w-2 rounded-full ${aoVivo ? "motion-status-live bg-[hsl(var(--accent))]" : "bg-muted-foreground"}`}
             aria-hidden
           />
           {aoVivo ? "Ao vivo" : "Pausado"}

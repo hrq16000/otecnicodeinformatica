@@ -20,10 +20,10 @@
     {
       "path": "/assistencia-tecnica-curitiba",
       "family": "OUTRA_LOCAL",
-      "indexability": "index",
-      "sitemap": true,
+      "indexability": "noindex",
+      "sitemap": false,
       "intent": "assistência técnica genérica (multieletrônicos) em Curitiba",
-      "reason": "Intenção comercial mais ampla que a landing de informática da cidade."
+      "reason": "Sobreposição alta com /tecnico-informatica-curitiba. Mantida noindex nesta rodada (não é promovida sem passar o checklist); candidata a Lote Local 2 com intenção multieletrônicos separada."
     },
     {
       "path": "/empresa-de-ti-curitiba",
@@ -33,7 +33,6 @@
       "intent": "empresa de TI / suporte PJ em Curitiba",
       "reason": "Cluster empresarial, público PJ — não concorre com a landing PF da cidade."
     },
-
     {
       "path": "/tecnico-informatica-curitiba",
       "family": "CIDADE",
@@ -122,7 +121,6 @@
       "intent": "—",
       "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
     },
-
     {
       "path": "/servicos/manutencao-de-notebook/curitiba",
       "family": "SERVICO_CIDADE",
@@ -179,15 +177,28 @@
       "reason": "Lote Local 1: serviço de bancada com coleta; logística já descrita em /coleta-e-entrega e na landing da cidade."
     }
   ],
-
   "bairrosAncora": [
-    { "slug": "cic", "intent": "atendimento de informática na CIC (indústria e residencial)" },
-    { "slug": "batel", "intent": "atendimento de informática no Batel (escritórios e home office)" },
-    { "slug": "agua-verde", "intent": "atendimento de informática no Água Verde (residencial denso)" },
-    { "slug": "centro", "intent": "atendimento de informática no Centro (comércio e coleta)" },
-    { "slug": "portao", "intent": "atendimento de informática no Portão (residencial e comércio de bairro)" }
+    {
+      "slug": "cic",
+      "intent": "atendimento de informática na CIC (indústria e residencial)"
+    },
+    {
+      "slug": "batel",
+      "intent": "atendimento de informática no Batel (escritórios e home office)"
+    },
+    {
+      "slug": "agua-verde",
+      "intent": "atendimento de informática no Água Verde (residencial denso)"
+    },
+    {
+      "slug": "centro",
+      "intent": "atendimento de informática no Centro (comércio e coleta)"
+    },
+    {
+      "slug": "portao",
+      "intent": "atendimento de informática no Portão (residencial e comércio de bairro)"
+    }
   ],
-
   "servicoBairroIndexaveis": [
     "/servicos/formatacao-computador/cic",
     "/servicos/formatacao-computador/batel",
@@ -201,7 +212,6 @@
     "/servicos/upgrade-ssd-memoria/agua-verde",
     "/servicos/upgrade-ssd-memoria/portao"
   ],
-
   "loteLocal1": [
     "/tecnico-informatica-curitiba",
     "/tecnico-informatica-sao-jose-pinhais",
@@ -216,7 +226,6 @@
     "/servicos/remocao-de-virus/curitiba",
     "/servicos/recuperacao-de-dados/curitiba"
   ],
-
   "prefixosNaoIndexaveis": [
     {
       "prefix": "/arrumar-pc",

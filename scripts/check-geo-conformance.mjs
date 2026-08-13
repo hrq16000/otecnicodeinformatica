@@ -220,4 +220,4 @@ if (erros.length) {
   if (erros.length > 60) console.error(`  ... e mais ${erros.length - 60}`);
   process.exit(1);
 }
-console.log("✔ title/description únicos, H1 único, canonical self, robots e JSON-LD válidos.");
+console.log("✔ title/description únicos, H1 único, canonical self, robots, OG/Twitter e JSON-LD válidos.");

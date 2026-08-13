@@ -396,6 +396,8 @@ const ClusterProblemaPage = () => {
           />
         </section>
 
+        <InterlinksContextuais path={`/problemas/${sintomaSlug}`} />
+
         <div className="mt-12">
           <ServicosCorrelatos
             itens={dados.relacionados.map((r) => ({ to: r.to, titulo: r.titulo, desc: r.desc }))}

@@ -23,7 +23,7 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
   ({ field, value, invalid, onChange, onSelect }, ref) => {
     const describedById = `${field.id}-help`;
     const errorRing = invalid
-      ? "ring-2 ring-destructive/70 rounded-lg animate-pulse"
+      ? "ring-2 ring-destructive/70 rounded-lg"
       : "";
 
     return (

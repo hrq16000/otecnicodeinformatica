@@ -86,8 +86,11 @@ for (const arquivo of viewsComDados) {
 
 // Envio de formulário público precisa de feedback de progresso
 const avaliar = ler("src/pages/Avaliar.tsx");
-if (!avaliar.includes("aria-busy={enviando}") || !avaliar.includes("animate-spin")) {
-  erros.push("Avaliar.tsx perdeu o feedback de envio (spinner/aria-busy)");
+const feedbackEnvio =
+  (avaliar.includes("LoadingButton") && avaliar.includes('state={enviando ? "loading" : "idle"}')) ||
+  (avaliar.includes("aria-busy={enviando}") && avaliar.includes("animate-spin"));
+if (!feedbackEnvio) {
+  erros.push("Avaliar.tsx perdeu o feedback de envio (LoadingButton ou spinner/aria-busy)");
 }
 
 

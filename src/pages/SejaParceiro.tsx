@@ -130,7 +130,7 @@ const SejaParceiro = () => {
                   Receba chamados, cresça profissionalmente e atenda clientes qualificados.
                 </p>
                 <a href="#formulario">
-                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-8 py-6 text-base shadow-lg hover:scale-105 transition-transform cta-pulse">
+                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-8 py-6 text-base shadow-lg motion-surface hover:shadow-lg">
                     Quero me cadastrar <ArrowRight className="h-4 w-4" />
                   </Button>
                 </a>
@@ -160,7 +160,7 @@ const SejaParceiro = () => {
               {beneficios.map((b, i) => (
                 <AnimatedSection key={i} delay={100 * i}>
                   <div className="glass-card gradient-border rounded-xl p-6 h-full hover:-translate-y-2 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group">
-                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-all duration-300">
                       <b.icon className="h-5 w-5 text-accent" />
                     </div>
                     <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">{b.title}</h3>
@@ -189,7 +189,7 @@ const SejaParceiro = () => {
               ].map((item, i) => (
                 <AnimatedSection key={i} delay={120 * i}>
                   <div className="glass-card gradient-border rounded-xl p-6 text-center hover:-translate-y-2 transition-all duration-300 group">
-                    <div className="bg-accent text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mx-auto mb-3 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] transition-all duration-300">
+                    <div className="bg-accent text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mx-auto mb-3 shadow-sm group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] transition-all duration-300">
                       {item.step}
                     </div>
                     <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">{item.title}</h3>
@@ -331,7 +331,7 @@ const SejaParceiro = () => {
                   >
                     <Button
                       disabled={!isFormValid}
-                      className="w-full gap-3 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-xl px-8 py-6 text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] transition-all duration-300 cta-pulse btn-feedback elastic-click"
+                      className="w-full gap-3 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-xl px-8 py-6 text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 btn-feedback"
                     >
                       <MessageCircle className="h-5 w-5" />
                       Enviar Cadastro pelo WhatsApp
@@ -355,7 +355,7 @@ const SejaParceiro = () => {
                       rel="noopener noreferrer"
                     >
                       <Button
-                        className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg hover:scale-[1.02] transition-all duration-300 font-semibold btn-feedback elastic-click"
+                        className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg transition-all duration-300 font-semibold btn-feedback"
                       >
                         <ExternalLink className="h-5 w-5" />
                         Faça o seu cadastro
@@ -387,7 +387,7 @@ const SejaParceiro = () => {
                   Mais de 20 anos de experiência compartilhada. Cresça com quem entende do mercado.
                 </p>
                 <a href="#formulario">
-                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-10 py-6 text-lg shadow-lg hover:scale-105 transition-transform">
+                  <Button className="gap-2 bg-accent text-accent-foreground rounded-full px-10 py-6 text-lg shadow-lg motion-surface hover:shadow-lg">
                     Cadastrar agora <ArrowRight className="h-5 w-5" />
                   </Button>
                 </a>

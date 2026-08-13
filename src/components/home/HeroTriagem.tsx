@@ -97,7 +97,7 @@ export const HeroTriagem = () => {
             <button
               type="submit"
               data-cta-location="hero_triagem_busca"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-accent px-6 font-heading text-base font-bold text-accent-foreground transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-accent px-6 font-heading text-base font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Diagnosticar meu problema
               <ArrowRight className="h-5 w-5" aria-hidden="true" />

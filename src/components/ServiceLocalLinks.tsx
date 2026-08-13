@@ -55,7 +55,7 @@ export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceL
                 className="group flex items-center gap-2 bg-background rounded-lg px-4 py-3 border border-border/50 hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all stagger-item"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <MapPin className="h-4 w-4 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <MapPin className="h-4 w-4 text-accent flex-shrink-0 transition-transform" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground truncate group-hover:text-accent transition-colors">
                     {link.service}

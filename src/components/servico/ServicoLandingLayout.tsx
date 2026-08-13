@@ -104,7 +104,7 @@ export interface ServicoLandingData {
 
 
 const CTA_BASE =
-  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
+  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]";
 
 export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => {
   const waHref = whatsappLink(data.whatsappMessage);

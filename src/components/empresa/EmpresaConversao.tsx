@@ -103,7 +103,7 @@ export const EmpresaSinaisSection = ({ whatsappUrl }: { whatsappUrl: string }) =
           <Button
             variant="whatsapp"
             size="lg"
-            className="px-8 transition-transform hover:scale-105"
+            className="px-8 motion-surface hover:shadow-lg"
             asChild
             onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_meio")}
           >

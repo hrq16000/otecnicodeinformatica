@@ -53,7 +53,7 @@ const ComputadorLento = () => {
       {/* Hero */}
       <section className="pt-10 pb-10 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute top-1/3 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -171,7 +171,7 @@ const ComputadorLento = () => {
                 { icon: Shield, titulo: "4. Resolução", desc: "Executamos com garantia. A maioria dos casos resolve na primeira visita." },
               ].map((step, i) => (
                 <div key={i} className="text-center bg-secondary rounded-xl p-5 group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
-                  <step.icon className="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <step.icon className="h-8 w-8 text-accent mx-auto mb-3 transition-transform duration-300" />
                   <h3 className="font-bold text-foreground mb-2">{step.titulo}</h3>
                   <p className="text-sm text-muted-foreground">{step.desc}</p>
                 </div>

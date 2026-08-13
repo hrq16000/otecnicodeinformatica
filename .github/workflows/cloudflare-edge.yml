@@ -38,6 +38,7 @@ jobs:
         run: |
           npm run check:soft404
           npm run check:sitemap-source
+          npm run cf:edge:test
 
       - name: Pré-voo de zona Cloudflare (proxied e sob nosso controle)
         env:
@@ -64,9 +65,21 @@ jobs:
         run: npm run verify:prod-status
 
       - name: Smoke de borda pós-deploy (404 real + noindex 200)
+        id: smoke_post_deploy
         env:
           SITE_BASE_URL: https://otecnicodeinformatica.com.br
         run: npm run smoke:edge:post-deploy
+
+      - name: Publicar relatório do smoke de borda
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: edge-smoke-post-deploy
+          path: |
+            reports/edge-smoke-post-deploy.json
+            reports/edge-smoke-post-deploy.md
+          if-no-files-found: warn
+          retention-days: 30
 
       - name: Evidências
         if: always()

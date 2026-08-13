@@ -115,7 +115,7 @@ const Marcas = () => {
                 </p>
 
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-lg cta-pulse">
+                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-lg">
                     <MessageCircle className="h-5 w-5" /> Falar sobre a minha marca
                   </Button>
                 </a>
@@ -156,7 +156,7 @@ const Marcas = () => {
                     />
 
                     <div
-                      className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300"
                       style={{ background: `${brand.color}15`, border: `1.5px solid ${brand.color}30` }}
                     >
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill={brand.color} stroke="none">
@@ -343,7 +343,7 @@ const Marcas = () => {
                   Atendemos todas as marcas de computadores, notebooks, celulares e TVs. Entre em contato e informe o modelo do seu equipamento.
                 </p>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-10 py-6 text-lg shadow-lg cta-pulse">
+                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-10 py-6 text-lg shadow-lg">
                     <MessageCircle className="h-5 w-5" /> Chamar no WhatsApp
                   </Button>
                 </a>

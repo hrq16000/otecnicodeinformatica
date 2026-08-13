@@ -73,7 +73,7 @@ export const HeroSection = () => {
             {/* Trust signals */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 mb-6 opacity-0 animate-[heroFadeUp_0.5s_ease-out_0.45s_forwards]">
               {trustSignals.map((signal, index) => (
-                <div key={index} className="flex items-center gap-1.5 bg-white/[0.07] backdrop-blur-sm border border-white/[0.08] rounded-full px-3 py-1.5 hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-300 hover:scale-105">
+                <div key={index} className="flex items-center gap-1.5 bg-white/[0.07] backdrop-blur-sm border border-white/[0.08] rounded-full px-3 py-1.5 hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-300">
                   <signal.icon className="h-3.5 w-3.5 text-accent" />
                   <span className="text-white/95 text-[13px] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">{signal.text}</span>
                 </div>
@@ -87,14 +87,14 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start opacity-0 animate-[heroFadeUp_0.5s_ease-out_0.6s_forwards]">
-              <Button variant="heroWhatsapp" className="animate-pulse-soft hover-glow-cta ripple-container shadow-lg hover:scale-[1.03] transition-transform" asChild>
+              <Button variant="heroWhatsapp" className=" hover-glow-cta ripple-container shadow-lg transition-transform" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Chamar técnico no WhatsApp">
                   <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                   Chamar Técnico Agora
                 </a>
               </Button>
               
-              <Button variant="heroCta" className="ripple-container hover-glow-cta shadow-lg hover:scale-[1.03] transition-transform" onClick={() => setIsSchedulingOpen(true)} aria-label="Agendar atendimento técnico online">
+              <Button variant="heroCta" className="ripple-container hover-glow-cta shadow-lg transition-transform" onClick={() => setIsSchedulingOpen(true)} aria-label="Agendar atendimento técnico online">
                 <CalendarDays className="h-5 w-5 md:h-6 md:w-6" />
                 Agendar Atendimento
               </Button>
@@ -117,7 +117,7 @@ export const HeroSection = () => {
               <div className="absolute -inset-4 bg-accent/[0.08] rounded-3xl blur-2xl group-hover:bg-accent/[0.14] transition-all duration-700 pointer-events-none" />
               <img 
                 alt="Técnico de informática profissional realizando conserto de computador em Curitiba" 
-                className="relative w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
+                className="relative w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl transition-transform duration-500 group-" 
                 loading="eager"
                 decoding="sync"
                 // @ts-ignore - fetchpriority is valid HTML attribute

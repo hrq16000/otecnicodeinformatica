@@ -52,16 +52,16 @@ export const NeighborhoodsSection = () => {
               <Link
                 key={neighborhood.slug}
                 to={`/bairros/${neighborhood.slug}`}
-                className="flex items-center gap-1.5 bg-background px-3.5 py-2 rounded-full text-sm border border-primary/10 hover:border-accent hover:bg-accent/5 hover:scale-110 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] transition-all duration-300 group elastic-click slide-up-stagger"
+                className="flex items-center gap-1.5 bg-background px-3.5 py-2 rounded-full text-sm border border-primary/10 hover:border-accent hover:bg-accent/5 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] transition-all duration-300 group slide-up-stagger"
                 style={{ animationDelay: `${index * 30}ms` }}
               >
-                <MapPin className="h-3.5 w-3.5 text-accent group-hover:scale-110 transition-transform duration-300" />
+                <MapPin className="h-3.5 w-3.5 text-accent transition-transform duration-300" />
                 <span className="text-foreground/80 group-hover:text-accent font-medium transition-colors">{neighborhood.name}</span>
               </Link>
             ) : (
               <div
                 key={neighborhood.slug}
-                className="flex items-center gap-1.5 bg-background px-3.5 py-2 rounded-full text-sm border border-primary/10 hover:border-primary/30 hover:bg-accent/5 hover:scale-105 transition-all duration-300 slide-up-stagger"
+                className="flex items-center gap-1.5 bg-background px-3.5 py-2 rounded-full text-sm border border-primary/10 hover:border-primary/30 hover:bg-accent/5 transition-all duration-300 slide-up-stagger"
                 style={{ animationDelay: `${index * 30}ms` }}
               >
                 <MapPin className="h-3.5 w-3.5 text-accent/60" />

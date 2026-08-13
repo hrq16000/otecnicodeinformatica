@@ -79,10 +79,10 @@ export const PainSection = () => {
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover:-translate-y-2 hover:scale-[1.03] card-shine animated-border hover-streak transition-all duration-300 group slide-up-stagger"
+                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover:-translate-y-2 transition-all duration-300 group slide-up-stagger"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0 group-hover:bg-accent/20 group-hover:rotate-3 transition-all duration-300 relative">
                   <benefit.icon className="h-5 w-5 text-accent icon-bounce" />
                   <div className="absolute inset-0 rounded-xl bg-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
@@ -97,7 +97,7 @@ export const PainSection = () => {
           <Button 
             variant="whatsapp" 
             size="xl"
-            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse elastic-click hover-streak"
+            className=" ripple-container shadow-lg hover:shadow-xl transition-all duration-300 btn-feedback"
             asChild
             onClick={handleWhatsAppClick}
           >

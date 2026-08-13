@@ -35,7 +35,7 @@ export const WhatsAppFloat = () => {
         "bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-primary-foreground",
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",
-        "transition-all duration-300 hover:scale-110 group wa-pulse",
+        "transition-all duration-300 group wa-pulse",
       )}
     >
       <MessageCircle className="h-6 w-6 transition-transform group-hover:rotate-12" />

@@ -57,7 +57,7 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", whats
           <Button
             variant="heroWhatsapp"
             size="lg"
-            className="text-base md:text-lg px-8 shadow-[0_0_30px_rgba(37,211,102,0.25)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:scale-[1.03] transition-all duration-300 elastic-click"
+            className="text-base md:text-lg px-8 shadow-[0_0_30px_rgba(37,211,102,0.25)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] transition-all duration-300"
             asChild
             onClick={handleWhatsAppClick}
           >

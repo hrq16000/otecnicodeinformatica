@@ -192,7 +192,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
               Kit 4 Câmeras Intelbras com instalação profissional por <strong className="text-accent">R$ 1.350</strong>
             </p>
-            <Button variant="heroWhatsapp" size="xl" className="animate-pulse-soft" asChild>
+            <Button variant="heroWhatsapp" size="xl" className="" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-6 w-6" />
                 Garantir Instalação em {city}

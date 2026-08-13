@@ -79,10 +79,10 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.03] transition-all duration-300 group hover-streak slide-up-stagger"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 group slide-up-stagger"
                     style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 relative">
+                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent transition-all duration-300 relative">
                       <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
                       <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
@@ -110,10 +110,10 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.03] transition-all duration-300 group hover-streak slide-up-stagger"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 group slide-up-stagger"
                     style={{ animationDelay: `${i * 40}ms` }}
                   >
-                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2 group-hover:rotate-3 transition-all duration-300 relative">
                       <Icon className="h-5 w-5 text-accent-foreground icon-bounce" />
                       <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
@@ -139,7 +139,7 @@ export const InterlinkingBlock = () => {
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200 elastic-click"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
                 >
                   <MapPin className="h-3.5 w-3.5" />
                   {item.title}
@@ -159,7 +159,7 @@ export const InterlinkingBlock = () => {
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200 elastic-click"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
                 >
                   <AlertCircle className="h-3.5 w-3.5" />
                   {item.title}

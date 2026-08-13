@@ -129,7 +129,7 @@ export const ExitIntentPopup = () => {
 
         <div className="text-center">
           {/* Urgency badge */}
-          <div className="inline-flex items-center gap-1.5 bg-accent/15 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-3 animate-pulse">
+          <div className="inline-flex items-center gap-1.5 bg-accent/15 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-3">
             <Zap className="h-3.5 w-3.5" />
             OFERTA EXCLUSIVA
           </div>

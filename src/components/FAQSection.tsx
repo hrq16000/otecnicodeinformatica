@@ -84,7 +84,7 @@ export const FAQSection = () => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full py-5 flex items-start justify-between gap-4 text-left hover:bg-muted/30 transition-all duration-300 px-4 -mx-4 rounded-lg hover:scale-[1.01] hover:shadow-[var(--shadow-sm)] group"
+                className="w-full py-5 flex items-start justify-between gap-4 text-left hover:bg-muted/30 transition-all duration-300 px-4 -mx-4 rounded-lg hover:shadow-[var(--shadow-sm)] group"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >

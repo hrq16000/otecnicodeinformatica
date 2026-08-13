@@ -224,11 +224,11 @@ export const TopSearchedServicesSection = () => {
             <Link
               key={index}
               to={service.url}
-              className="group glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover-streak animated-border slide-up-stagger"
+              className="group glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-2 slide-up-stagger"
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 group-hover:rotate-3 transition-all duration-300 relative">
                   <service.icon className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300 icon-bounce" />
                   <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
@@ -262,7 +262,7 @@ export const TopSearchedServicesSection = () => {
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={requestLocation}
-                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 elastic-click"
+                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent/90 transition-all duration-200"
                   >
                     <LocateFixed className="h-4 w-4" />
                     Usar minha localização
@@ -278,7 +278,7 @@ export const TopSearchedServicesSection = () => {
             )}
 
             {geoState === "loading" && (
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground animate-pulse">
+              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
                 <LocateFixed className="h-4 w-4 animate-spin" />
                 Detectando sua localização...
               </div>
@@ -349,7 +349,7 @@ export const TopSearchedServicesSection = () => {
             </p>
             <Link
               to="/contato"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300 elastic-click hover-streak"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 hover:shadow-[var(--shadow-accent)] transition-all duration-300"
             >
               Consultar Disponibilidade
               <ArrowRight className="h-4 w-4" />

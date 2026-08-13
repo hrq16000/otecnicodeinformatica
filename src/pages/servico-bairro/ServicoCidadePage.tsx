@@ -151,7 +151,7 @@ const ServicoCidadePage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="300">
-              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform">
+              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="motion-surface hover:shadow-lg">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 {isSemVisita ? "Solicitar atendimento" : "Chamar pelo WhatsApp"}
               </Button>
@@ -171,7 +171,7 @@ const ServicoCidadePage = () => {
                 className="text-center p-6 bg-secondary rounded-xl border border-border hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group stagger-item"
                 style={{ animationDelay: `${i * 80}ms` }}
               >
-                <div className="bg-accent/10 rounded-full p-3 w-fit mx-auto mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                <div className="bg-accent/10 rounded-full p-3 w-fit mx-auto mb-4 group-hover:bg-accent/20 transition-all duration-300">
                   <b.icon className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{b.titulo}</h3>
@@ -202,7 +202,7 @@ const ServicoCidadePage = () => {
                 className="text-center p-6 bg-background rounded-xl border border-border hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group stagger-item"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] transition-all duration-300">
+                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] transition-all duration-300">
                   {p.step}
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{p.titulo}</h3>
@@ -252,7 +252,7 @@ const ServicoCidadePage = () => {
           <p className="text-white/90 mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Entre em contato agora e agende seu atendimento a domicílio. Respondemos em até 15 minutos.
           </p>
-          <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform reveal-text" data-reveal-delay="200">
+          <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="motion-surface hover:shadow-lg reveal-text" data-reveal-delay="200">
             <MessageCircle className="mr-2 h-5 w-5" />
             Agendar {servico.nome} em {cidade.nome}
           </Button>

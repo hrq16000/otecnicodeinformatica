@@ -110,7 +110,7 @@ const ManutencaoTV = () => {
 
       <section className="pt-10 pb-10 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -191,7 +191,7 @@ const ManutencaoTV = () => {
                 { step: "5", titulo: "Reparo e devolução", desc: "Após aprovação, executamos o reparo e devolvemos a TV no seu endereço com garantia." },
               ].map((s, i) => (
                 <div key={s.step} className="flex items-start gap-4 bg-background rounded-lg p-5 border border-border hover:-translate-y-0.5 hover:shadow-lg hover:border-accent/20 transition-all duration-300 group stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
-                  <div className="bg-accent text-accent-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0 group-hover:scale-110 transition-transform duration-300">{s.step}</div>
+                  <div className="bg-accent text-accent-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-transform duration-300">{s.step}</div>
                   <div>
                     <h3 className="font-semibold text-foreground">{s.titulo}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>

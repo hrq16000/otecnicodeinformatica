@@ -341,7 +341,7 @@ const ComoFunciona = () => {
                     className="bg-secondary rounded-xl p-4 text-center hover:bg-accent/10 hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
                     style={{ animationDelay: `${i * 60}ms` }}
                   >
-                    <MapPin className="h-5 w-5 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                    <MapPin className="h-5 w-5 text-accent mx-auto mb-2 transition-transform" />
                     <span className="font-semibold text-primary text-sm group-hover:text-accent transition-colors">{r.name}</span>
                   </Link>
                 ))}

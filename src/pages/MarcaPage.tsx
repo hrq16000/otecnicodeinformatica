@@ -78,7 +78,7 @@ const MarcaPage = () => {
 
                 <div className="flex flex-wrap justify-center gap-4">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-lg cta-pulse">
+                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-lg">
                       <MessageCircle className="h-5 w-5" /> Chamar o técnico dessa marca
                     </Button>
                   </a>
@@ -246,7 +246,7 @@ const MarcaPage = () => {
                   Técnico especializado com mais de 20 anos de experiência. Atendimento a domicílio em Curitiba e região.
                 </p>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-10 py-6 text-lg shadow-lg cta-pulse">
+                  <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-10 py-6 text-lg shadow-lg">
                     <MessageCircle className="h-5 w-5" /> Chamar no WhatsApp
                   </Button>
                 </a>

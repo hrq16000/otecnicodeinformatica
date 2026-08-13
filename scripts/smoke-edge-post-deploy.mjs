@@ -15,10 +15,10 @@
  *   node scripts/smoke-edge-post-deploy.mjs --base=https://exemplo.com
  *   SITE_BASE_URL=... npm run smoke:edge:post-deploy
  *
- * Artefato: reports/edge-smoke-post-deploy.json
+ * Artefatos: reports/edge-smoke-post-deploy.json e .md (resumo no CI)
  * Fail-closed: qualquer divergência encerra com código 1.
  */
-import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, appendFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 import { BASE_URL } from "./lib/site-env.mjs";
 
@@ -133,12 +133,90 @@ for (const p of noindex) await expect("rota-noindex", p, 200);
 for (const p of fakePaths(FAKE_COUNT)) await expect("url-inexistente", p, 404);
 for (const p of fakeAssets(FAKE_ASSETS)) await expect("asset-inexistente", p, 404);
 
+// ── Cenários-limite (mesmo critério fail-closed) ──
+// 1. Query string não pode ressuscitar rota inexistente nem quebrar rota válida.
+for (const p of fakePaths(2)) await expect("query-em-url-inexistente", `${p}?utm_source=ads&utm_medium=cpc`, 404);
+for (const p of indexaveis.slice(0, 2)) await expect("query-em-rota-valida", `${p}?utm_source=ads&page=2`, 200);
+
+// 2. Assets com caminho parecido com um asset real → 404.
+const assetsReais = (manifest.assetFiles ?? [])
+  .map((f) => (f.startsWith("/") ? f : `/${f}`))
+  .filter((f) => /\.[a-z0-9]{1,8}$/i.test(f));
+for (const real of sample(assetsReais, 3)) {
+  // 200 (mesmo build publicado) ou 404 (build local defasado) — o que importa
+  // é o vizinho parecido nunca responder 200.
+  await expect("asset-real", real, [200, 404]);
+  await expect("asset-parecido", real.replace(/(\.[a-z0-9]+)$/i, "-copy$1"), 404);
+  await expect("asset-parecido", `${real}.map`, 404);
+}
+
+// 3. www é secundário: precisa redirecionar permanentemente para o apex.
+try {
+  const apex = new URL(BASE);
+  if (!apex.hostname.startsWith("www.")) {
+    const wwwBase = `${apex.protocol}//www.${apex.hostname}`;
+    const alvo = indexaveis[0] ?? "/";
+    const r = await head(`${wwwBase}${alvo}?utm_source=smoke`);
+    const okWww = [301, 308].includes(r.status);
+    results.push({
+      group: "www-para-apex",
+      path: `${wwwBase}${alvo}?utm_source=smoke`,
+      status: r.status,
+      expected: "301|308",
+      ok: okWww,
+      error: r.error,
+    });
+  }
+} catch { /* base sem host válido: ignorado */ }
+
+// 4. Caminhos de borda malformados nunca podem responder 200.
+for (const p of ["/../../etc/passwd", "/%2e%2e/%2e%2e/etc/passwd", "//evil.example.com"]) {
+  await expect("path-malformado", p, [301, 308, 400, 403, 404]);
+}
+
 const falhas = results.filter((r) => !r.ok);
 mkdirSync("reports", { recursive: true });
 writeFileSync(
   "reports/edge-smoke-post-deploy.json",
   JSON.stringify({ base: BASE, checkedAt: new Date().toISOString(), total: results.length, falhas: falhas.length, results }, null, 2),
 );
+
+// Relatório navegável (Markdown) — vira log e artefato no CI.
+const porGrupo = new Map();
+for (const r of results) {
+  const g = porGrupo.get(r.group) ?? { total: 0, falhas: 0 };
+  g.total += 1;
+  if (!r.ok) g.falhas += 1;
+  porGrupo.set(r.group, g);
+}
+const md = [
+  `# Smoke de borda pós-deploy`,
+  ``,
+  `- Base: \`${BASE}\``,
+  `- Verificado em: ${new Date().toISOString()}`,
+  `- Verificações: **${results.length}** · Falhas: **${falhas.length}**`,
+  ``,
+  `| Grupo | Verificações | Falhas |`,
+  `| --- | ---: | ---: |`,
+  ...[...porGrupo.entries()].map(([g, v]) => `| ${g} | ${v.total} | ${v.falhas} |`),
+  ``,
+  falhas.length ? `## Falhas` : `Todas as verificações passaram.`,
+  ...(falhas.length
+    ? [
+        ``,
+        `| Grupo | Caminho | Status | Esperado |`,
+        `| --- | --- | ---: | ---: |`,
+        ...falhas.map((r) => `| ${r.group} | \`${r.path}\` | ${r.status} | ${r.expected} |`),
+      ]
+    : []),
+  ``,
+].join("\n");
+writeFileSync("reports/edge-smoke-post-deploy.md", md);
+if (process.env.GITHUB_STEP_SUMMARY) {
+  try {
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${md}\n`);
+  } catch { /* summary indisponível: não bloqueia */ }
+}
 
 for (const r of results) {
   if (!r.ok) console.error(`  ✗ [${r.group}] ${r.path} → ${r.status} (esperado ${r.expected})${r.error ? ` — ${r.error}` : ""}`);

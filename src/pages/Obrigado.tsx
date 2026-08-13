@@ -204,7 +204,7 @@ const Obrigado = () => {
                 onClick={handleReopenFunnel}
                 data-cta-location="obrigado_reopen"
                 data-wa-funnel="required"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
               >
                 <MessageCircle className="h-5 w-5" />
                 {ready && copy ? copy.cta : GENERIC_COPY.cta}

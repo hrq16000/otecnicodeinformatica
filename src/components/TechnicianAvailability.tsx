@@ -68,7 +68,7 @@ export const TechnicianAvailability = () => {
           <div className={cn(
             "w-3 h-3 rounded-full",
             status.isOnline 
-              ? "bg-green-500 animate-pulse" 
+              ? "bg-green-500 motion-status-live" 
               : "bg-yellow-500"
           )} />
           <span className={cn(
@@ -151,7 +151,7 @@ export const TechnicianAvailabilityBadge = () => {
     )}>
       <div className={cn(
         "w-2 h-2 rounded-full",
-        status.isOnline ? "bg-green-500 animate-pulse" : "bg-yellow-500"
+        status.isOnline ? "bg-green-500 motion-status-live" : "bg-yellow-500"
       )} />
       {status.isOnline ? (
         <span>{status.technicianCount} técnico{status.technicianCount > 1 ? "s" : ""} online</span>

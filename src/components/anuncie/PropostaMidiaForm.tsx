@@ -203,7 +203,7 @@ export const PropostaMidiaForm = () => {
         <button
           type="submit"
           data-cta-location="anuncie_form_proposta"
-          className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+          className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
         >
           <MessageCircle className="h-5 w-5" />
           Enviar solicitação pelo WhatsApp

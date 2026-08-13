@@ -190,7 +190,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 <Button
                   variant="heroWhatsapp"
                   size="lg"
-                  className="text-base md:text-lg px-8 hover:scale-105 transition-transform"
+                  className="text-base md:text-lg px-8 motion-surface hover:shadow-lg"
                   asChild
                   onClick={handleWhatsAppClick}
                 >
@@ -243,7 +243,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                   <SmartImage wrapperClassName="w-full" 
                     src={IMAGES.atendimentoDomiciliar} 
                     alt={`Técnico de informática realizando atendimento a domicílio no ${data.nome}, ${data.cidade}`}
-                    className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-"
                     
                     width="800"
                     height="400"
@@ -301,7 +301,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                         ))}
                       </ul>
                       <div className="mt-6">
-                        <Button variant="whatsapp" className="w-full hover:scale-[1.02] transition-transform" asChild onClick={handleWhatsAppClick}>
+                        <Button variant="whatsapp" className="w-full motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]" asChild onClick={handleWhatsAppClick}>
                           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                             <MessageCircle className="h-5 w-5" />
                             Agendar atendimento no bairro
@@ -393,14 +393,14 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                   <SmartImage wrapperClassName="w-full" 
                     src={IMAGES.notebookReparo} 
                     alt={`Conserto de notebook e manutenção de computador no ${data.nome}, ${data.cidade}`}
-                    className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-"
                     
                     width="800"
                     height="350"
                   />
                 </div>
 
-                {/* Internal links with hover-streak effect */}
+                {/* Internal links with effect */}
                 <div className="grid md:grid-cols-3 gap-4">
                   {[
                     { to: "/como-funciona", title: "Como Funciona", desc: "Entenda o passo a passo do atendimento técnico a domicílio.", cta: "Ver detalhes" },
@@ -410,7 +410,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     <Link 
                       key={i}
                       to={link.to} 
-                      className="relative bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 group overflow-hidden stagger-item"
+                      className="relative bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden stagger-item"
                       style={{ animationDelay: `${i * 100}ms` }}
                     >
                       {/* Hover streak */}
@@ -475,10 +475,10 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                   ].map((service, i) => (
                     <div 
                       key={i}
-                      className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 group stagger-item"
+                      className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 group stagger-item"
                       style={{ animationDelay: `${i * 100}ms` }}
                     >
-                      <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                      <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4 group-hover:bg-accent/20 transition-all duration-300">
                         <service.icon className="h-8 w-8 text-accent group-hover:rotate-6 transition-transform duration-300" />
                       </div>
                       <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>

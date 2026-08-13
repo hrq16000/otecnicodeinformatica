@@ -41,8 +41,8 @@ export const HomeDiagnosticoBlock = () => {
             {pontos.map((p, i) => {
               const Icon = p.icon;
               return (
-                <div key={i} className="bg-background rounded-xl p-5 border border-transparent hover:border-accent/15 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 group card-shine hover-streak animated-border slide-up-stagger" style={{ animationDelay: `${i * 100}ms` }}>
-                  <div className="bg-primary rounded-lg p-2 w-fit mb-3 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                <div key={i} className="bg-background rounded-xl p-5 border border-transparent hover:border-accent/15 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 transition-all duration-300 group slide-up-stagger" style={{ animationDelay: `${i * 100}ms` }}>
+                  <div className="bg-primary rounded-lg p-2 w-fit mb-3 group-hover:bg-accent group-hover:rotate-3 transition-all duration-300 relative">
                     <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
                     <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>
@@ -54,7 +54,7 @@ export const HomeDiagnosticoBlock = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="outline" className="hover:scale-[1.03] hover:shadow-[var(--shadow-md)] transition-all duration-300 group elastic-click hover-streak" asChild>
+            <Button variant="outline" className=" hover:shadow-[var(--shadow-md)] transition-all duration-300 group" asChild>
               <Link to="/como-funciona">
                 Entender o Processo Completo
                 <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />

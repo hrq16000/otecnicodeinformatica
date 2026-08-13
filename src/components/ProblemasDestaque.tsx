@@ -32,11 +32,11 @@ export const ProblemasDestaque = () => {
               <Link
                 key={p.slug}
                 to={`/${p.slug}`}
-                className="group bg-background rounded-xl p-4 border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 transition-all duration-300 hover-streak animated-border slide-up-stagger"
+                className="group bg-background rounded-xl p-4 border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 transition-all duration-300 slide-up-stagger"
                 style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-start gap-3">
-                  <div className="bg-accent/10 rounded-lg p-2 flex-shrink-0 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300 relative">
+                  <div className="bg-accent/10 rounded-lg p-2 flex-shrink-0 group-hover:bg-accent/20 transition-all duration-300 relative">
                     <AlertTriangle className="h-4 w-4 text-accent icon-bounce" />
                     <div className="absolute inset-0 rounded-lg bg-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>

@@ -42,7 +42,7 @@ const MontagemPc = () => {
       {/* Hero Section */}
       <section className="pt-10 pb-10 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -84,7 +84,7 @@ const MontagemPc = () => {
               { Icon: Briefcase, title: "PC Trabalho", desc: "Para escritório, home office, navegação e tarefas do dia a dia.", items: ["Processador eficiente", "8-16GB RAM", "SSD rápido", "Silencioso", "Consumo baixo"], price: "A partir de R$1.800", highlight: false },
             ].map((card, idx) => (
               <div key={idx} className={`bg-secondary p-8 rounded-xl text-center group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 stagger-item ${card.highlight ? "border-2 border-accent shadow-[0_0_20px_rgba(var(--accent)/0.15)]" : ""}`} style={{ animationDelay: `${idx * 120}ms` }}>
-                <card.Icon className="h-16 w-16 text-accent mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <card.Icon className="h-16 w-16 text-accent mx-auto mb-4 transition-transform duration-300" />
                 <h3 className="text-2xl font-bold text-foreground mb-4">{card.title}</h3>
                 <p className="text-muted-foreground mb-6">{card.desc}</p>
                 <ul className="text-left space-y-2 mb-6">
@@ -140,7 +140,7 @@ const MontagemPc = () => {
               { step: "4", title: "Montagem", desc: "Montamos, testamos e entregamos" },
             ].map((item, index) => (
               <div key={index} className="text-center p-6 bg-secondary rounded-xl group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 stagger-item" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 transition-transform duration-300">
                   {item.step}
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{item.title}</h3>

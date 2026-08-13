@@ -37,7 +37,7 @@ const DESCRIPTION =
   "Técnico de informática em Curitiba para computador e notebook: diagnóstico, manutenção, formatação, SSD, recuperação de dados, redes e suporte remoto ou no endereço.";
 
 const CTA_CLASS =
-  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
+  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]";
 
 const WA_MESSAGE =
   "Olá! Preciso de um técnico de informática em Curitiba. Posso descrever o problema do meu equipamento?";

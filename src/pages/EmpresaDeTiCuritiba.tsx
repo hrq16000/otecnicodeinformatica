@@ -262,7 +262,7 @@ const EmpresaDeTiCuritiba = () => {
                 <Button
                   variant="heroWhatsapp"
                   size="lg"
-                  className="min-h-14 w-full sm:w-auto text-base md:text-lg px-8 hover:scale-105 transition-transform"
+                  className="min-h-14 w-full sm:w-auto text-base md:text-lg px-8 motion-surface hover:shadow-lg"
                   asChild
                   onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_hero")}
                 >
@@ -530,7 +530,7 @@ const EmpresaDeTiCuritiba = () => {
             <Button
               variant="whatsapp"
               size="lg"
-              className="px-8 hover:scale-105 transition-transform"
+              className="px-8 motion-surface hover:shadow-lg"
               asChild
               onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_footer")}
             >

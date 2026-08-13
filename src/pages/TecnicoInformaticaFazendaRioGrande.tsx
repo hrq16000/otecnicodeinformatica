@@ -155,17 +155,17 @@ const TecnicoInformaticaFazendaRioGrande = () => {
 
               <div className="grid sm:grid-cols-3 gap-4 mt-8">
                 <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
-                  <Home className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <Home className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" />
                   <h3 className="font-semibold text-foreground">Residências</h3>
                   <p className="text-sm text-muted-foreground">Atendimento domiciliar agendado</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
-                  <Building2 className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <Building2 className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" />
                   <h3 className="font-semibold text-foreground">Comércios</h3>
                   <p className="text-sm text-muted-foreground">Suporte para lojas e escritórios</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
-                  <Zap className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <Zap className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" />
                   <h3 className="font-semibold text-foreground">Coleta e Entrega</h3>
                   <p className="text-sm text-muted-foreground">Para serviços de bancada</p>
                 </div>
@@ -210,7 +210,7 @@ const TecnicoInformaticaFazendaRioGrande = () => {
                   <Link key={index} to={`/servicos/${servico.slug}`}
                     className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
                     style={{ animationDelay: `${index * 80}ms` }}>
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 transition-transform" />
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{servico.title}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{servico.description}</p>

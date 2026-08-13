@@ -227,7 +227,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="300">
-              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform">
+              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="motion-surface hover:shadow-lg">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Agendar no {data.bairro}
               </Button>
@@ -287,7 +287,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                       : data.servicoSlug.includes("montagem") ? IMAGES.desktopMontado
                       : IMAGES.tecnicoTrabalhando}
                     alt={`${data.servico} profissional no ${data.bairro}, ${data.cidade}`}
-                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-64 object-cover transition-transform duration-700 group-"
                     
                     width="800"
                     height="400"
@@ -375,7 +375,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                   className="text-center p-6 bg-secondary rounded-xl border border-border hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group stagger-item"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] transition-all duration-300">
+                  <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] transition-all duration-300">
                     {index + 1}
                   </div>
                   <h3 className="font-bold text-foreground mb-2">{passo.titulo}</h3>
@@ -424,7 +424,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
             <p className="text-white/90 mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               Entre em contato agora e agende seu atendimento. Técnico especializado com chegada rápida!
             </p>
-            <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform reveal-text" data-reveal-delay="200">
+            <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="motion-surface hover:shadow-lg reveal-text" data-reveal-delay="200">
               <MessageCircle className="mr-2 h-5 w-5" />
               Chamar Técnico no {data.bairro}
             </Button>

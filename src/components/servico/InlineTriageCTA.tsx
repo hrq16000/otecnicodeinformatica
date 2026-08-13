@@ -34,7 +34,7 @@ export const InlineTriageCTA = ({
           rel="noopener noreferrer"
           onClick={onClick}
           data-cta-location={location}
-          className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-6 text-base font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+          className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-6 text-base font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
         >
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
           {label}

@@ -109,8 +109,8 @@ export const WhatsAppChat = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-          !isOpen ? "animate-pulse-soft" : ""
+        className={`fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+          !isOpen ? "" : ""
         }`}
         aria-label="Abrir chat WhatsApp"
       >

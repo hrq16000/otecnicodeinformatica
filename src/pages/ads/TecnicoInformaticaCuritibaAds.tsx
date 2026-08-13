@@ -63,7 +63,7 @@ const TecnicoInformaticaCuritibaAds = () => {
               <Button
                 variant="heroWhatsapp"
                 size="lg"
-                className="text-lg md:text-xl px-10 py-6 h-auto animate-pulse"
+                className="text-lg md:text-xl px-10 py-6 h-auto"
                 asChild
                 onClick={handleWhatsAppClick}
               >

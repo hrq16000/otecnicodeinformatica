@@ -155,3 +155,95 @@ test("métodos não alteram a classificação da rota", () => {
     assert.equal(decide(req("/rota-inexistente-xyz", { method }), m).status, 404);
   }
 });
+
+// ─────────────────────────────────────────────────────────────
+// CENÁRIOS-LIMITE (fail-closed): www vs raiz, query, assets parecidos
+// e caminhos de borda. Nenhum deles pode virar 200 acidental.
+// ─────────────────────────────────────────────────────────────
+
+test("www vs apex: sempre 308 para o apex, preservando path, query e trailing slash", () => {
+  const casos = [
+    ["/", "", `${BASE_URL}/`],
+    ["/servicos", "?utm_source=ads&utm_medium=cpc", `${BASE_URL}/servicos?utm_source=ads&utm_medium=cpc`],
+    ["/rota-que-nao-existe", "", `${BASE_URL}/rota-que-nao-existe`],
+    ["/assets/inexistente.js", "", `${BASE_URL}/assets/inexistente.js`],
+  ];
+  for (const [pathname, search, esperado] of casos) {
+    const d = decide(req(pathname, { host: `www.${SITE_DOMAIN}`, search }), m);
+    assert.equal(d.status, 308, pathname);
+    assert.equal(d.location, esperado, pathname);
+  }
+  // Host com porta explícita continua reconhecido.
+  assert.equal(decide(req("/", { host: `www.${SITE_DOMAIN}:443` }), m).status, 308);
+  // Subdomínio não previsto nunca é redirecionado — é recusado.
+  assert.equal(decide(req("/", { host: `staging.${SITE_DOMAIN}` }), m).action, "reject");
+});
+
+test("query string nunca transforma rota inexistente em válida", () => {
+  for (const search of ["?utm_source=x", "?page=2", "?a=1&b=2", "?__proto__=1"]) {
+    assert.equal(decide(req("/rota-fantasma-xyz", { search }), m).action, "notfound", search);
+  }
+  // Em rota válida, a query é irrelevante para a decisão.
+  assert.equal(decide(req("/servicos", { search: "?utm_campaign=abc" }), m).action, "proxy");
+});
+
+test("assets com paths parecidos: só o que o build emitiu passa", () => {
+  const reais = (manifest.assetFiles ?? [])
+    .map((f) => (f.startsWith("/") ? f : `/${f}`))
+    .filter((f) => /\.[a-z0-9]{1,8}$/i.test(f)); // arquivos sem extensão (ex.: /_headers) não são servidos como asset
+  assert.ok(reais.length >= 5, "manifesto sem assets suficientes");
+  for (const real of reais.slice(0, 8)) {
+    assert.equal(decide(req(real), m).action, "asset", real);
+    // Vizinhos quase idênticos precisam cair em 404.
+    const parecidos = [
+      real.replace(/(\.[a-z0-9]+)$/i, "-copy$1"),
+      real.replace(/(\.[a-z0-9]+)$/i, "$1.map"),
+      `${real}.bak`,
+      real.toUpperCase() === real ? `${real}x` : real.toUpperCase(),
+    ];
+    for (const p of parecidos) {
+      const d = decide(req(p), m);
+      if (d.action === "asset") continue; // colisão real no manifesto: aceitável
+      assert.equal(d.action, "notfound", p);
+    }
+  }
+});
+
+test("caminhos de borda malformados não escapam nem viram 200", () => {
+  const malformados = [
+    "//evil.com",
+    "/../../etc/passwd",
+    "/servicos/../../..",
+    "/%2e%2e/%2e%2e/etc/passwd",
+    "/rota\u0000nula",
+    "servicos",
+    "",
+  ];
+  for (const p of malformados) {
+    const d = decide(req(p), m);
+    assert.ok(["notfound", "reject", "proxy"].includes(d.action), p);
+    assert.notEqual(d.action, "asset", p);
+    if (d.action === "proxy") {
+      // Só é aceitável quando a normalização resolveu para uma rota real.
+      assert.ok(m.exact.has(normalizePath(p)), p);
+    }
+  }
+  // Path traversal jamais vira asset ou redirect aberto.
+  assert.equal(decide(req("/../../secret.env"), m).action, "notfound");
+});
+
+test("trailing slash e barras duplicadas resolvem para a mesma decisão", () => {
+  const base = manifest.validExact.find((p) => p !== "/" && !p.includes(":"));
+  assert.ok(base, "sem rota válida para o teste");
+  for (const variante of [`${base}/`, `//${base.slice(1)}`, `${base}//`]) {
+    assert.equal(decide(req(variante), m).action, "proxy", variante);
+  }
+});
+
+test("fail-closed: manifesto degradado é detectado antes de publicar", () => {
+  const vazio = compileManifest({ validExact: ["/"], redirects: [], assetFiles: [] });
+  const problemas = assertManifestSane(vazio);
+  assert.ok(problemas.length >= 3, "manifesto degradado deveria acusar todos os mínimos");
+  // Mesmo degradado, o router nunca inventa 200 para rota inexistente.
+  assert.equal(decide(req("/qualquer-coisa"), vazio).action, "notfound");
+});

@@ -83,6 +83,30 @@ const ClusterProblemaPage = () => {
     SLOT_PRIORITY.page,
   );
 
+  // Relevância local: Service da página de sintoma, provido pela organização
+  // canônica e delimitado à área realmente atendida.
+  useJsonLdSlot(
+    SCHEMA_SLOTS.service,
+    dados
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: dados.titulo,
+          description: dados.metaDescription,
+          serviceType: dados.titulo,
+          url: absoluteUrl(dados.path),
+          provider: { "@id": `${siteConfig.baseUrl}/#organization` },
+          areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
+          availableChannel: {
+            "@type": "ServiceChannel",
+            serviceUrl: absoluteUrl(dados.path),
+            availableLanguage: "pt-BR",
+          },
+        }
+      : null,
+    SLOT_PRIORITY.page,
+  );
+
   const [contexto, setContexto] = useState<ContextoTriagem>({});
   const rolagem = useScrollBucket();
   // Mesma variante do A/B durante toda a navegação (localStorage + cookie).

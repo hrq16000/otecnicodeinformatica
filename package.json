@@ -37,7 +37,7 @@
     "perf:regression": "node scripts/check-perf-regression.mjs",
     "perf:baseline": "node scripts/check-perf-regression.mjs --update",
     "test:visual:reduced-motion": "playwright test e2e/visual-reduced-motion.spec.ts --project=chromium",
-    "lint:motion": "eslint src --rule-filter-noop",
+    "lint:motion": "eslint src --quiet --no-warn-ignored",
     "perf:report": "node scripts/report-lighthouse-summary.mjs",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",

@@ -997,6 +997,232 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     foto: "placa-eletronica",
   },
+  {
+    slug: "windows-nao-inicia",
+    path: "/problemas/windows-nao-inicia",
+    titulo: "Windows não inicia: para em logotipo, reinicia em loop ou pede reparo",
+    metaTitle: "Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática",
+    metaDescription:
+      "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização. Veja o que checar.",
+    resumo:
+      "Quando o equipamento liga, mostra a marca do fabricante e o sistema não chega à área de trabalho, o hardware normalmente está vivo — o que falhou está entre a partida do disco e o carregamento do Windows. Separar essas camadas é o que evita a formatação apressada que apaga arquivos ainda perfeitamente recuperáveis.",
+    waMessage:
+      "Olá! Vim da página sobre Windows que não inicia. Meu sistema não abre e preciso de diagnóstico sem perder arquivos.",
+    sintomas: [
+      {
+        titulo: "Trava no logotipo com o círculo girando",
+        desc: "A partida encontrou o disco, mas algum serviço ou driver não conclui a carga. Costuma ser resolvido em modo de segurança, sem tocar nos arquivos do usuário.",
+      },
+      {
+        titulo: "Tela azul de 'Reparo Automático' repetindo",
+        desc: "O Windows tentou se consertar e não conseguiu. É sinal de estrutura de arquivos danificada, quase sempre depois de desligamento abrupto ou queda de energia.",
+      },
+      {
+        titulo: "Mensagem de dispositivo de inicialização não encontrado",
+        desc: "A placa-mãe não enxerga a unidade. Antes de concluir que o disco morreu, verifica-se ordem de boot, cabo, conector M.2 e reconhecimento na configuração da própria placa.",
+      },
+      {
+        titulo: "Reinicia sozinho antes de chegar à senha",
+        desc: "Ciclo de reinício precoce mistura duas famílias de causa: atualização mal aplicada e memória instável. O teste de memória separa uma da outra em poucos minutos.",
+      },
+      {
+        titulo: "Abre em tela preta com o cursor",
+        desc: "O sistema carregou, mas a interface não subiu. Perfil de usuário corrompido e driver de vídeo são os suspeitos mais frequentes nesse cenário.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Atualização interrompida",
+        desc: "Desligar a máquina durante uma atualização deixa arquivos do sistema pela metade. O caminho é reverter a alteração pendente, não reinstalar tudo.",
+      },
+      {
+        titulo: "Sistema de arquivos danificado",
+        desc: "Queda de energia e desligamento pelo botão corrompem a tabela de arquivos. Ferramentas de verificação a partir da mídia de recuperação costumam devolver a partida.",
+      },
+      {
+        titulo: "Disco no fim da vida útil",
+        desc: "Setores realocados e leituras que demoram segundos travam a inicialização antes de qualquer erro visível. A leitura dos indicadores de saúde da unidade responde isso objetivamente.",
+      },
+      {
+        titulo: "Driver incompatível recém-instalado",
+        desc: "Driver de vídeo, armazenamento ou periférico instalado fora do canal do fabricante quebra a carga. Em modo de segurança dá para remover o item exato pela data.",
+      },
+      {
+        titulo: "Configuração de partida alterada",
+        desc: "Troca de disco, mudança de modo de armazenamento na placa ou boot seguro reativado após limpeza da configuração fazem o sistema sumir sem ter defeito nenhum.",
+      },
+    ],
+    antesDeChamar: [
+      "Anote a mensagem exata que aparece na tela, inclusive o código com zero e x — ele reduz muito o tempo de diagnóstico.",
+      "Lembre o que mudou antes: atualização, driver novo, queda de energia, programa instalado ou troca de peça.",
+      "Retire pendrives, HD externo e cartão de memória e ligue de novo: mídia externa na ordem de partida provoca exatamente essa falha.",
+      "Tente iniciar em modo de segurança. Se o Windows abre nesse modo, o problema é de software e seus arquivos estão íntegros.",
+      "Se houver ruído no disco ou demora anormal para a tela mudar, pare os testes e trate a cópia dos arquivos como primeira etapa.",
+    ],
+    naoFaca: [
+      "Não aceite formatar como primeira sugestão: a maior parte desses casos é resolvida com os arquivos preservados.",
+      "Não repita reinícios forçados em sequência — cada desligamento abrupto aumenta o dano na estrutura de arquivos.",
+      "Não rode utilitário de reparo baixado de site desconhecido; parte deles reescreve a área de partida e piora o quadro.",
+      "Não reinstale o sistema por cima quando existir suspeita de disco defeituoso: a gravação nova ocupa justamente o espaço dos dados a recuperar.",
+    ],
+    modalidades: [
+      {
+        titulo: "Suporte remoto quando o modo de segurança abre",
+        desc: "Com o sistema acessível em modo de segurança, reversão de atualização, remoção de driver e verificação de integridade são feitas por acesso remoto, sem deslocamento.",
+      },
+      {
+        titulo: "Atendimento no endereço",
+        desc: "Indicado quando a máquina não abre de jeito nenhum e o equipamento é fixo. Levamos mídia de recuperação e ferramenta de leitura de saúde do disco.",
+      },
+      {
+        titulo: "Bancada com cópia dos dados primeiro",
+        desc: "Quando o disco dá sinal de falha, a unidade é retirada, clonada e só então tratada. A ordem importa: copiar antes de reparar é o que preserva o que é insubstituível.",
+      },
+    ],
+    faq: [
+      {
+        q: "Windows que não inicia significa formatar e perder tudo?",
+        a: "Na maioria dos atendimentos, não. Reversão de atualização, correção da estrutura de arquivos e remoção de driver resolvem com os documentos intactos. A formatação só entra quando o sistema está irrecuperável — e, mesmo assim, os arquivos são copiados antes.",
+      },
+      {
+        q: "Como sei se é o disco ou o sistema?",
+        a: "Pela leitura dos indicadores de saúde da unidade e pelo tempo de resposta na leitura. Disco saudável com sistema quebrado repara rápido; disco com setores realocados repete a falha em poucos dias mesmo depois de reinstalar.",
+      },
+      {
+        q: "Modo de segurança abre. Isso é bom sinal?",
+        a: "É ótimo sinal. Significa que o hardware está funcional, os arquivos estão acessíveis e a falha está em algum componente de software que pode ser identificado pela data de instalação.",
+      },
+      {
+        q: "Perdi a senha de administrador. Muda alguma coisa?",
+        a: "Muda o caminho, não o resultado. A recuperação dos arquivos é feita com a unidade acessada em bancada. Não fazemos remoção de bloqueio em equipamento sem comprovação de propriedade.",
+      },
+      {
+        q: "Vale reinstalar o Windows num computador antigo?",
+        a: "Depende do conjunto. Em máquina com disco mecânico, reinstalar sozinho entrega pouco: o ganho real vem de trocar por SSD e, se couber, ampliar a memória. Informamos essa diferença antes, com peça e mão de obra separadas.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/formatacao-e-instalacao-de-sistemas", titulo: "Formatação e instalação de sistemas", desc: "Quando reinstalar é mesmo o caminho — e como os dados são preservados." },
+      { to: "/problemas/tela-azul", titulo: "Tela azul no Windows", desc: "Quando o erro aparece com o sistema já carregado." },
+      { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Partida demorada que ainda conclui pede outra investigação." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+  },
+  {
+    slug: "computador-esquentando",
+    path: "/problemas/computador-esquentando",
+    titulo: "Computador ou notebook esquentando demais",
+    metaTitle: "Computador esquentando muito: causas e o que fazer | O Técnico de Informática",
+    metaDescription:
+      "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico. Veja as causas, o que medir antes e qual manutenção resolve.",
+    resumo:
+      "Calor não é defeito por si só: todo equipamento aquece. O problema começa quando a temperatura passa do limite de projeto e o próprio processador reduz a velocidade para se proteger — é aí que a máquina fica lenta em tarefas pesadas, a ventoinha acelera sem parar e a base do notebook incomoda no colo. A investigação térmica é medida, não estimada.",
+    waMessage:
+      "Olá! Vim da página sobre computador esquentando. Meu equipamento está muito quente e quero avaliação térmica.",
+    sintomas: [
+      {
+        titulo: "Ventoinha acelerada o tempo todo",
+        desc: "Ruído constante mesmo com a máquina parada indica que o sistema de arrefecimento está trabalhando no limite para dar conta do calor gerado.",
+      },
+      {
+        titulo: "Cai o desempenho depois de alguns minutos",
+        desc: "Começa bem e piora com o uso é a assinatura clássica de redução automática de frequência por temperatura. O gráfico de desempenho despenca sempre no mesmo ponto.",
+      },
+      {
+        titulo: "Base do notebook quente demais para apoiar",
+        desc: "Quando a carcaça queima ao toque na região da saída de ar, a troca térmica está acontecendo pela estrutura, e não pelo caminho projetado.",
+      },
+      {
+        titulo: "Trava em jogo, edição ou videochamada longa",
+        desc: "Congelamento só nas tarefas pesadas aponta o componente que aquece primeiro: processador, placa de vídeo ou controlador do disco de estado sólido.",
+      },
+      {
+        titulo: "Ar saindo morno e fraco",
+        desc: "Fluxo fraco com o cooler girando alto significa caminho obstruído — o ar entra, mas não atravessa o radiador entupido.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Radiador saturado de poeira e fiapo",
+        desc: "Em notebook, uma manta de fiapo se forma entre a ventoinha e as aletas. É a causa mais comum e não aparece em nenhuma inspeção externa.",
+      },
+      {
+        titulo: "Pasta térmica ressecada",
+        desc: "O composto entre processador e dissipador perde eficiência com o tempo. Depois de alguns anos, a mesma carga passa a gerar dezenas de graus a mais.",
+      },
+      {
+        titulo: "Ventoinha com rolamento gasto",
+        desc: "Girar não basta: quando a rotação real fica abaixo da nominal, o ar não vence a resistência do radiador. O teste é comparar rotação e temperatura sob carga.",
+      },
+      {
+        titulo: "Ambiente e apoio errados",
+        desc: "Notebook sobre cama, sofá ou almofada tem a entrada de ar tapada. Desktop encostado na parede ou dentro de nicho fechado recircula o próprio ar quente.",
+      },
+      {
+        titulo: "Fluxo de ar mal planejado no gabinete",
+        desc: "Ventoinhas soprando uma contra a outra, cabo atravessando o caminho do ar e filtro entupido derrubam a troca térmica de um desktop inteiro.",
+      },
+      {
+        titulo: "Processo em segundo plano consumindo tudo",
+        desc: "Programa travado, atualização em andamento ou mineração indesejada mantêm carga alta sem uso aparente — nesse caso o calor é consequência, não causa.",
+      },
+    ],
+    antesDeChamar: [
+      "Observe se o calor aparece em repouso ou apenas sob carga: são diagnósticos diferentes.",
+      "Confira a saída de ar com a máquina ligada. Fluxo fraco com barulho alto praticamente confirma obstrução.",
+      "Verifique no gerenciador de tarefas se algum processo mantém uso alto sem você estar usando nada.",
+      "Apoie o notebook em superfície rígida e plana por um dia e compare — se melhorar bastante, parte do problema é apoio.",
+      "Anote há quantos anos o equipamento nunca passou por limpeza interna. Acima de dois anos de uso doméstico, a manutenção já está atrasada.",
+    ],
+    naoFaca: [
+      "Não sopre ar comprimido girando a ventoinha livremente: sem travar as pás, o giro forçado danifica o rolamento e gera tensão no circuito.",
+      "Não use aspirador comum encostado na placa — a eletricidade estática gerada é risco real para componentes.",
+      "Não empilhe pasta térmica achando que mais quantidade resfria mais; excesso atrapalha o contato e piora a condução.",
+      "Não deixe o equipamento rodando em ciclo de travamento por calor: cada parada abrupta pode corromper o arquivo aberto.",
+    ],
+    modalidades: [
+      {
+        titulo: "Avaliação remota do comportamento térmico",
+        desc: "Leitura de temperatura sob carga, rotação da ventoinha e processos em segundo plano são verificados por acesso remoto. Já separa causa de software de causa física.",
+      },
+      {
+        titulo: "Limpeza técnica em bancada",
+        desc: "Desmontagem, remoção do radiador, limpeza das aletas, teste da ventoinha e substituição da pasta térmica, com medição antes e depois para comprovar o ganho.",
+      },
+      {
+        titulo: "Revisão de fluxo de ar no endereço",
+        desc: "Em desktop, reorganizar ventoinhas, liberar filtro e reposicionar o gabinete costuma resolver sem levar o equipamento embora.",
+      },
+    ],
+    faq: [
+      {
+        q: "Qual temperatura é considerada alta?",
+        a: "Depende do modelo, mas a referência prática é o comportamento: se o equipamento reduz a velocidade sozinho ou desliga por proteção, passou do limite dele. Por isso medimos antes e depois da manutenção, em vez de trabalhar com números genéricos.",
+      },
+      {
+        q: "Base refrigeradora resolve?",
+        a: "Ajuda em uso pesado e em ambiente quente, principalmente por levantar o notebook e liberar a entrada de ar. Não substitui limpeza interna: se o radiador está entupido, o ar frio de fora não chega a lugar nenhum.",
+      },
+      {
+        q: "De quanto em quanto tempo fazer limpeza interna?",
+        a: "Em uso doméstico comum, algo entre um e dois anos. Em ambiente com pet, obra por perto, fumo ou uso intenso de jogos, o intervalo cai bastante. Quem carrega o notebook todo dia na mochila também acumula mais rápido.",
+      },
+      {
+        q: "Trocar só a pasta térmica adianta?",
+        a: "Adianta quando o radiador está limpo e a ventoinha saudável. Se o caminho do ar continua obstruído, a pasta nova baixa poucos graus e o problema volta em semanas — por isso os dois serviços costumam andar juntos.",
+      },
+      {
+        q: "O calor pode ter estragado alguma peça?",
+        a: "Exposição prolongada acelera o desgaste de bateria, capacitores e do próprio disco. Verificamos a saúde da unidade e da bateria junto da limpeza e informamos o que encontramos, sem transformar isso em venda automática de peça.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Limpeza técnica, troca de pasta térmica e medição antes e depois." },
+      { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando o calor evolui para desligamento por proteção." },
+      { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Lentidão que não melhora depois da limpeza tem outra origem." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+  },
 ];
 
 

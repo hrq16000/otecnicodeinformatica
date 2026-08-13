@@ -69,7 +69,7 @@ export const AtendimentoFluxoSection = () => (
             rel="noopener noreferrer"
             onClick={() => track("fluxo_atendimento_cta")}
             data-cta-location="fluxo_atendimento_cta"
-            className="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+            className="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
           >
             Solicitar diagnóstico
           </a>

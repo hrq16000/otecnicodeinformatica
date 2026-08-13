@@ -90,7 +90,7 @@ export const CitiesSection = () => {
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-accent/15 group-hover:rotate-3 transition-all duration-300 relative">
                   <Building2 className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300 icon-bounce" />
                   <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>

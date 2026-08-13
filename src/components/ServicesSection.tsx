@@ -230,7 +230,7 @@ export const ServicesSection = () => {
                 )}
 
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shadow-sm">
+                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent transition-all duration-300 shadow-sm">
                     <Icon className="h-5 w-5 text-primary-foreground" />
                   </div>
                   <div className="min-w-0">

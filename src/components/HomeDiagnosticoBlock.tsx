@@ -42,7 +42,7 @@ export const HomeDiagnosticoBlock = () => {
               const Icon = p.icon;
               return (
                 <div key={i} className="bg-background rounded-xl p-5 border border-transparent hover:border-accent/15 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 group card-shine hover-streak animated-border slide-up-stagger" style={{ animationDelay: `${i * 100}ms` }}>
-                  <div className="bg-primary rounded-lg p-2 w-fit mb-3 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                  <div className="bg-primary rounded-lg p-2 w-fit mb-3 group-hover:bg-accent group-hover:rotate-3 transition-all duration-300 relative">
                     <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
                     <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>

@@ -137,7 +137,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               onClick={() => trackFooterWhatsApp("footer_primary")}
               data-cta-location="footer_primary"
-              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-5 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-5 text-sm font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
             >
               Iniciar atendimento
             </a>

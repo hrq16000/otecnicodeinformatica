@@ -31,7 +31,7 @@ export const HomeParaQuemBlock = () => {
               const Icon = p.icon;
               return (
                 <div key={i} className="bg-secondary rounded-xl p-4 md:p-5 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 hover:scale-[1.04] transition-all duration-300 border border-transparent hover:border-accent/20 group hover-streak animated-border slide-up-stagger" style={{ animationDelay: `${i * 80}ms` }}>
-                  <div className="bg-accent/10 rounded-lg p-2 w-fit mb-3 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                  <div className="bg-accent/10 rounded-lg p-2 w-fit mb-3 group-hover:bg-accent/20 group-hover:rotate-3 transition-all duration-300 relative">
                     <Icon className="h-5 w-5 text-accent icon-bounce" />
                     <div className="absolute inset-0 rounded-lg bg-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>

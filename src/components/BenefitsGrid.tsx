@@ -43,8 +43,8 @@ export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) =
                 className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.04] hover:shadow-[var(--shadow-lg)] text-center group hover-streak animated-border slide-up-stagger"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="w-13 h-13 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:bg-accent/20 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.2)] group-hover:scale-110 group-hover:rotate-3 relative">
-                  <Icon className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300 icon-bounce" />
+                <div className="w-13 h-13 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:bg-accent/20 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.2)] group-hover:rotate-3 relative">
+                  <Icon className="h-6 w-6 text-accent transition-transform duration-300 icon-bounce" />
                   <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2 text-[15px] group-hover:text-accent transition-colors duration-200">

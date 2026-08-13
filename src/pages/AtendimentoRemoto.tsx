@@ -179,7 +179,7 @@ const AtendimentoRemoto = () => {
               rel="noopener noreferrer"
               onClick={handleHeroCta}
               data-cta-location="atendimento-remoto_hero"
-              className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground transition-transform hover:scale-[1.02] sm:w-auto"
+              className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)] sm:w-auto"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               {cta3U(PATH)?.label ?? "Verificar se o atendimento remoto é adequado"}

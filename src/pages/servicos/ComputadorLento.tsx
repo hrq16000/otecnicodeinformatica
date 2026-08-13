@@ -171,7 +171,7 @@ const ComputadorLento = () => {
                 { icon: Shield, titulo: "4. Resolução", desc: "Executamos com garantia. A maioria dos casos resolve na primeira visita." },
               ].map((step, i) => (
                 <div key={i} className="text-center bg-secondary rounded-xl p-5 group hover:-translate-y-1 hover:shadow-lg transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
-                  <step.icon className="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <step.icon className="h-8 w-8 text-accent mx-auto mb-3 transition-transform duration-300" />
                   <h3 className="font-bold text-foreground mb-2">{step.titulo}</h3>
                   <p className="text-sm text-muted-foreground">{step.desc}</p>
                 </div>

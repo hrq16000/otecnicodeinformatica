@@ -30,7 +30,7 @@ export const CTASection = () => {
           
           <img 
             alt="O Técnico de Informática" 
-            className="h-16 md:h-20 mx-auto mb-7 hover:scale-105 transition-transform duration-300" 
+            className="h-16 md:h-20 mx-auto mb-7 motion-surface hover:shadow-lg duration-300" 
             src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.webp"
             width="200"
             height="80"

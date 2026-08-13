@@ -93,9 +93,9 @@ const TecnicoInformaticaPiraquara = () => {
               <p>Nosso técnico atende Piraquara a domicílio com equipamento profissional. Resolvemos problemas como computador lento, notebook que não liga, vírus, Wi-Fi instável e upgrades de hardware. Para serviços de bancada, oferecemos coleta e entrega.</p>
             </div>
             <div className="grid sm:grid-cols-3 gap-4 mt-8">
-              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Home className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" /><h3 className="font-semibold text-foreground">Residências</h3><p className="text-sm text-muted-foreground">Atendimento com hora marcada</p></div>
-              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Building2 className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" /><h3 className="font-semibold text-foreground">Empresas</h3><p className="text-sm text-muted-foreground">Suporte para comércios e escritórios</p></div>
-              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Zap className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" /><h3 className="font-semibold text-foreground">Coleta e Entrega</h3><p className="text-sm text-muted-foreground">Para serviços de bancada</p></div>
+              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Home className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" /><h3 className="font-semibold text-foreground">Residências</h3><p className="text-sm text-muted-foreground">Atendimento com hora marcada</p></div>
+              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Building2 className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" /><h3 className="font-semibold text-foreground">Empresas</h3><p className="text-sm text-muted-foreground">Suporte para comércios e escritórios</p></div>
+              <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Zap className="h-8 w-8 text-accent mx-auto mb-2 transition-transform" /><h3 className="font-semibold text-foreground">Coleta e Entrega</h3><p className="text-sm text-muted-foreground">Para serviços de bancada</p></div>
             </div>
           </div></div>
         </section>
@@ -126,7 +126,7 @@ const TecnicoInformaticaPiraquara = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               {servicos.map((s, i) => (
                 <Link key={i} to={`/servicos/${s.slug}`} className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md border border-transparent hover:border-accent/30 hover:-translate-y-1 transition-all group stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
-                  <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 transition-transform" />
                   <div className="flex-1"><h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">{s.title}</h3><p className="text-sm text-muted-foreground mt-1">{s.description}</p></div>
                   <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all mt-1" />
                 </Link>

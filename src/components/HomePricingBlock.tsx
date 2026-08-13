@@ -41,7 +41,7 @@ export const HomePricingBlock = () => {
                 style={{ animationDelay: `${i * 70}ms` }}
               >
                 <div className="bg-accent/10 rounded-full p-1.5 mb-2 group-hover:bg-accent/20 transition-colors duration-300 relative">
-                  <Check className="h-4 w-4 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  <Check className="h-4 w-4 text-accent transition-transform duration-300" />
                   <div className="absolute inset-0 rounded-full bg-accent/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
                 <span className="text-sm font-medium text-foreground mb-1">{p.servico}</span>
@@ -59,7 +59,7 @@ export const HomePricingBlock = () => {
               >
                 <div className="flex items-center gap-2.5">
                   <div className="bg-accent/10 rounded-full p-1 group-hover:bg-accent/20 transition-colors duration-300 relative">
-                    <Check className="h-4 w-4 text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <Check className="h-4 w-4 text-accent flex-shrink-0 transition-transform duration-300" />
                     <div className="absolute inset-0 rounded-full bg-accent/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>
                   <span className="text-sm font-medium text-foreground">{p.servico}</span>

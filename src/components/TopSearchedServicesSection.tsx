@@ -228,7 +228,7 @@ export const TopSearchedServicesSection = () => {
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 group-hover:rotate-3 transition-all duration-300 relative">
                   <service.icon className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300 icon-bounce" />
                   <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>

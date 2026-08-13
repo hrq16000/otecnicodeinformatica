@@ -293,7 +293,7 @@ export const FunilQuatroEtapas = ({ origem = "funil4", className = "" }: Props) 
               track("conversao", { modalidade: estado.modalidadeId || "indefinida" });
             }}
             className={`inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 font-heading text-base font-bold text-accent-foreground transition-transform ${
-              podeAvancar ? "hover:scale-[1.01]" : "pointer-events-none opacity-50"
+              podeAvancar ? "" : "pointer-events-none opacity-50"
             }`}
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />

@@ -156,7 +156,7 @@ const Marcas = () => {
                     />
 
                     <div
-                      className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      className="relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300"
                       style={{ background: `${brand.color}15`, border: `1.5px solid ${brand.color}30` }}
                     >
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill={brand.color} stroke="none">

@@ -76,7 +76,7 @@ export const SchedulingSection = () => {
                     className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 group card-shine hover-streak slide-up-stagger"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:rotate-3 transition-all duration-300 relative">
                       <benefit.icon className="h-5 w-5 text-primary group-hover:text-accent icon-bounce transition-colors duration-300" />
                       <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>

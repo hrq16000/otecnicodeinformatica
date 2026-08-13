@@ -152,7 +152,7 @@ const FunnelButton = ({ loc, msg, children, variant = "accent" }: { loc: string;
     data-cta-location={loc}
     className={
       variant === "accent"
-        ? "inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+        ? "inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
         : "inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
     }
   >
@@ -494,7 +494,7 @@ export const HomeSections = () => {
               rel="noopener noreferrer"
               onClick={() => track("cta_final")}
               data-cta-location="cta_final"
-              className="inline-flex min-h-14 items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-14 items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
             >
               Iniciar atendimento
             </a>

@@ -191,7 +191,7 @@ const ManutencaoTV = () => {
                 { step: "5", titulo: "Reparo e devolução", desc: "Após aprovação, executamos o reparo e devolvemos a TV no seu endereço com garantia." },
               ].map((s, i) => (
                 <div key={s.step} className="flex items-start gap-4 bg-background rounded-lg p-5 border border-border hover:-translate-y-0.5 hover:shadow-lg hover:border-accent/20 transition-all duration-300 group stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
-                  <div className="bg-accent text-accent-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0 group-hover:scale-110 transition-transform duration-300">{s.step}</div>
+                  <div className="bg-accent text-accent-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-transform duration-300">{s.step}</div>
                   <div>
                     <h3 className="font-semibold text-foreground">{s.titulo}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>

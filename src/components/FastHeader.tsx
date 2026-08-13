@@ -288,7 +288,7 @@ export const FastHeader = () => {
             data-cta-location="header_agendar"
             data-wa-source="whatsapp_cta"
             aria-label="Iniciar atendimento"
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+            className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]"
           >
             <span className="sm:hidden">Atender</span>
             <span className="hidden sm:inline">Solicitar atendimento</span>
@@ -335,7 +335,7 @@ export const FastHeader = () => {
                       style={{ animationDelay: `${i * 35}ms` }}
                       className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent focus-visible:bg-accent/10 focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                     >
-                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent transition-transform duration-200 group-hover:scale-110">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent transition-transform duration-200">
                         <item.icon className="h-[18px] w-[18px]" strokeWidth={2} aria-hidden="true" />
                       </span>
                       {item.label}

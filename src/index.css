@@ -56,7 +56,7 @@
     /* Contraste AA garantido para texto secundário sobre o off-white. */
     --muted-foreground: 191 18% 33%;
 
-    /* Verde técnico: cor de ação. 27% de luminosidade mantém AA para texto
+    /* Verde técnico: cor de ação. 24% de luminosidade mantém AA para texto
        branco sobre o acento e para o acento como texto sobre off-white. */
     --accent: 171 78% 24%;
     --accent-foreground: 0 0% 100%;

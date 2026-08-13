@@ -3,29 +3,56 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, Activity, Gauge, Trash2 } from "lucide-react";
 import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
   readVitalsHistory,
   readVitalsAlerts,
   clearVitalsAlerts,
+  clearVitalsHistory,
   type WebVitalEntry,
   type AlertaVital,
 } from "@/lib/webVitals";
-import { lerAmostrasInteracao } from "@/lib/interactionMetrics";
+import {
+  lerHistoricoUi,
+  lerAlertasUi,
+  limparAlertasUi,
+  limparHistoricoUi,
+  type Amostra,
+  type AlertaUi,
+} from "@/lib/interactionMetrics";
 import { BUDGETS, formatarMetrica } from "@/lib/uiPerformanceBudgets";
 
 /**
  * PAINEL DE PERFORMANCE DE INTERFACE (/admin/ui-performance).
  *
- * Junta em uma tela as três fontes que hoje viviam separadas:
+ * Junta em uma tela as fontes que viviam separadas:
  *   • Web Vitals (LCP/CLS/INP) com os MESMOS budgets do CI;
  *   • tempo até a interação responder (LoadingButton, submits);
- *   • duração das exibições de Skeleton (AsyncContent e esqueletos marcados).
+ *   • duração das exibições de Skeleton (AsyncContent e esqueletos marcados);
+ *   • alertas disparados para Sentry/GA4 quando o budget estourou.
  *
- * Assim dá para ver, por rota, se um skeleton longo ou uma interação lenta
- * está acompanhando uma piora de LCP/CLS — e o histórico de alertas
- * disparados para o Sentry/GA4 quando o budget estourou.
+ * Filtros por rota, componente e janela de tempo permitem responder a
+ * pergunta que importa: "esse skeleton longo está na mesma rota onde o LCP
+ * piorou?".
  */
 
-type Amostra = ReturnType<typeof lerAmostrasInteracao>[number];
+const JANELAS = [
+  { id: "15m", label: "15 min", ms: 15 * 60_000 },
+  { id: "1h", label: "1 hora", ms: 60 * 60_000 },
+  { id: "24h", label: "24 horas", ms: 24 * 60 * 60_000 },
+  { id: "tudo", label: "Tudo", ms: Number.POSITIVE_INFINITY },
+] as const;
 
 const p75 = (valores: number[]) => {
   if (!valores.length) return 0;
@@ -33,92 +60,238 @@ const p75 = (valores: number[]) => {
   return ordenados[Math.floor(ordenados.length * 0.75)] ?? ordenados[ordenados.length - 1];
 };
 
+const hora = (t: number) =>
+  new Date(t).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+const Selecao = ({
+  id,
+  label,
+  valor,
+  opcoes,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  valor: string;
+  opcoes: string[];
+  onChange: (v: string) => void;
+}) => (
+  <label htmlFor={id} className="flex flex-col gap-1 text-xs text-muted-foreground">
+    {label}
+    <select
+      id={id}
+      value={valor}
+      onChange={(e) => onChange(e.target.value)}
+      className="min-w-40 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground"
+    >
+      {opcoes.map((o) => (
+        <option key={o} value={o}>
+          {o === "__todas__" ? "Todas" : o || "(sem rota)"}
+        </option>
+      ))}
+    </select>
+  </label>
+);
+
 const AdminUiPerformance = () => {
   const [vitais, setVitais] = useState<WebVitalEntry[]>([]);
-  const [alertas, setAlertas] = useState<AlertaVital[]>([]);
-  const [amostras, setAmostras] = useState<Amostra[]>([]);
+  const [alertasVitais, setAlertasVitais] = useState<AlertaVital[]>([]);
+  const [alertasUi, setAlertasUi] = useState<AlertaUi[]>([]);
+  const [amostrasBrutas, setAmostrasBrutas] = useState<Amostra[]>([]);
+
+  const [janela, setJanela] = useState<(typeof JANELAS)[number]["id"]>("1h");
+  const [rota, setRota] = useState("__todas__");
+  const [componente, setComponente] = useState("__todas__");
 
   useEffect(() => {
     const atualizar = () => {
       setVitais(readVitalsHistory());
-      setAlertas(readVitalsAlerts());
-      setAmostras(lerAmostrasInteracao());
+      setAlertasVitais(readVitalsAlerts());
+      setAlertasUi(lerAlertasUi());
+      setAmostrasBrutas(lerHistoricoUi());
     };
     atualizar();
-    window.addEventListener("web-vital", atualizar);
-    window.addEventListener("web-vital-alert", atualizar);
-    window.addEventListener("ui-metric", atualizar);
+    const eventos = ["web-vital", "web-vital-alert", "ui-metric", "ui-metric-alert"];
+    eventos.forEach((e) => window.addEventListener(e, atualizar));
     const id = window.setInterval(atualizar, 4000);
     return () => {
-      window.removeEventListener("web-vital", atualizar);
-      window.removeEventListener("web-vital-alert", atualizar);
-      window.removeEventListener("ui-metric", atualizar);
+      eventos.forEach((e) => window.removeEventListener(e, atualizar));
       window.clearInterval(id);
     };
   }, []);
 
+  const limite = useMemo(() => {
+    const ms = JANELAS.find((j) => j.id === janela)?.ms ?? Number.POSITIVE_INFINITY;
+    return Number.isFinite(ms) ? Date.now() - ms : 0;
+  }, [janela, amostrasBrutas.length, vitais.length]);
+
+  const rotas = useMemo(
+    () => [
+      "__todas__",
+      ...Array.from(new Set([...amostrasBrutas.map((a) => a.rota), ...vitais.map((v) => v.path)])).sort(),
+    ],
+    [amostrasBrutas, vitais],
+  );
+  const componentes = useMemo(
+    () => ["__todas__", ...Array.from(new Set(amostrasBrutas.map((a) => a.primitiva))).sort()],
+    [amostrasBrutas],
+  );
+
+  const amostras = useMemo(
+    () =>
+      amostrasBrutas.filter(
+        (a) =>
+          a.timestamp >= limite &&
+          (rota === "__todas__" || a.rota === rota) &&
+          (componente === "__todas__" || a.primitiva === componente),
+      ),
+    [amostrasBrutas, limite, rota, componente],
+  );
+
+  const vitaisFiltrados = useMemo(
+    () => vitais.filter((v) => v.timestamp >= limite && (rota === "__todas__" || v.path === rota)),
+    [vitais, limite, rota],
+  );
+
   const resumoVitais = useMemo(
     () =>
       (["LCP", "CLS", "INP"] as const).map((nome) => {
-        const valores = vitais.filter((v) => v.name === nome).map((v) => v.value);
+        const valores = vitaisFiltrados.filter((v) => v.name === nome).map((v) => v.value);
         const valor = p75(valores);
-        return { nome, valor, amostras: valores.length, budget: BUDGETS[nome], estourou: valor > BUDGETS[nome] };
+        return {
+          nome,
+          valor,
+          amostras: valores.length,
+          budget: BUDGETS[nome],
+          estourou: valores.length > 0 && valor > BUDGETS[nome],
+        };
       }),
-    [vitais],
+    [vitaisFiltrados],
   );
 
   const interacoes = useMemo(() => amostras.filter((a) => a.tipo === "interaction"), [amostras]);
   const loadings = useMemo(() => amostras.filter((a) => a.tipo === "loading"), [amostras]);
 
+  /** Série temporal de LCP e CLS (CLS multiplicado para caber no mesmo eixo). */
+  const serieVitais = useMemo(
+    () =>
+      vitaisFiltrados
+        .filter((v) => v.name === "LCP" || v.name === "CLS" || v.name === "INP")
+        .slice(-40)
+        .map((v) => ({
+          t: hora(v.timestamp),
+          [v.name]: v.name === "CLS" ? Number((v.value * 1000).toFixed(1)) : Math.round(v.value),
+        })),
+    [vitaisFiltrados],
+  );
+
+  /** Série temporal das esperas percebidas, por componente. */
+  const serieEsperas = useMemo(
+    () =>
+      amostras.slice(-40).map((a) => ({
+        t: hora(a.timestamp),
+        [a.tipo === "interaction" ? "Interação" : "Loading"]: Math.round(a.duracao),
+      })),
+    [amostras],
+  );
+
   const porRota = useMemo(() => {
-    const mapa = new Map<
-      string,
-      { rota: string; loadingP75: number; interacaoP75: number; erros: number; lcp: number; cls: number }
-    >();
-    const rotas = new Set<string>([...amostras.map((a) => a.rota), ...vitais.map((v) => v.path)]);
-    for (const rota of rotas) {
-      const l = loadings.filter((a) => a.rota === rota);
-      const i = interacoes.filter((a) => a.rota === rota);
-      mapa.set(rota, {
-        rota,
-        loadingP75: p75(l.map((a) => a.duracao)),
-        interacaoP75: p75(i.map((a) => a.duracao)),
-        erros: amostras.filter((a) => a.rota === rota && a.resultado === "error").length,
-        lcp: p75(vitais.filter((v) => v.path === rota && v.name === "LCP").map((v) => v.value)),
-        cls: p75(vitais.filter((v) => v.path === rota && v.name === "CLS").map((v) => v.value)),
-      });
-    }
-    return [...mapa.values()].sort((a, b) => b.loadingP75 - a.loadingP75);
-  }, [amostras, loadings, interacoes, vitais]);
+    const chaves = new Set<string>([...amostras.map((a) => a.rota), ...vitaisFiltrados.map((v) => v.path)]);
+    return [...chaves]
+      .map((r) => ({
+        rota: r,
+        loadingP75: p75(loadings.filter((a) => a.rota === r).map((a) => a.duracao)),
+        interacaoP75: p75(interacoes.filter((a) => a.rota === r).map((a) => a.duracao)),
+        erros: amostras.filter((a) => a.rota === r && a.resultado === "error").length,
+        lcp: p75(vitaisFiltrados.filter((v) => v.path === r && v.name === "LCP").map((v) => v.value)),
+        cls: p75(vitaisFiltrados.filter((v) => v.path === r && v.name === "CLS").map((v) => v.value)),
+      }))
+      .sort((a, b) => b.loadingP75 - a.loadingP75);
+  }, [amostras, loadings, interacoes, vitaisFiltrados]);
 
   const porSuperficie = useMemo(() => {
-    const mapa = new Map<string, { superficie: string; primitiva: string; n: number; p75: number; erros: number }>();
-    for (const a of amostras) {
-      const chave = `${a.primitiva}·${a.superficie}`;
-      const atual = mapa.get(chave) || { superficie: a.superficie, primitiva: a.primitiva, n: 0, p75: 0, erros: 0 };
-      atual.n += 1;
-      if (a.resultado === "error") atual.erros += 1;
-      mapa.set(chave, atual);
-    }
-    for (const [chave, valor] of mapa) {
-      const duracoes = amostras
-        .filter((a) => `${a.primitiva}·${a.superficie}` === chave)
-        .map((a) => a.duracao);
-      valor.p75 = p75(duracoes);
-    }
-    return [...mapa.values()].sort((a, b) => b.p75 - a.p75).slice(0, 20);
+    const chaves = Array.from(new Set(amostras.map((a) => `${a.primitiva}·${a.superficie}`)));
+    return chaves
+      .map((chave) => {
+        const grupo = amostras.filter((a) => `${a.primitiva}·${a.superficie}` === chave);
+        return {
+          chave,
+          superficie: grupo[0].superficie,
+          primitiva: grupo[0].primitiva,
+          cta: grupo.find((a) => a.ctaTipo)?.ctaLocal ?? "",
+          n: grupo.length,
+          p75: p75(grupo.map((a) => a.duracao)),
+          erros: grupo.filter((a) => a.resultado === "error").length,
+        };
+      })
+      .sort((a, b) => b.p75 - a.p75)
+      .slice(0, 12);
   }, [amostras]);
+
+  const alertas = useMemo(
+    () =>
+      [
+        ...alertasVitais
+          .filter((a) => a.timestamp >= limite && (rota === "__todas__" || a.path === rota))
+          .map((a) => ({
+            t: a.timestamp,
+            titulo: `${a.name} ${formatarMetrica(a.name, a.value)}`,
+            detalhe: `budget ${formatarMetrica(a.name, a.budget)} · ${a.path}`,
+          })),
+        ...alertasUi
+          .filter((a) => a.timestamp >= limite && (rota === "__todas__" || a.rota === rota))
+          .map((a) => ({
+            t: a.timestamp,
+            titulo: `${a.metrica} ${a.duracao}ms · ${a.primitiva}:${a.superficie}`,
+            detalhe: `budget ${a.budget}ms · ${a.resultado} · ${a.rota}`,
+          })),
+      ].sort((x, y) => y.t - x.t),
+    [alertasVitais, alertasUi, limite, rota],
+  );
+
+  const limparTudo = () => {
+    clearVitalsAlerts();
+    clearVitalsHistory();
+    limparAlertasUi();
+    limparHistoricoUi();
+    setVitais([]);
+    setAlertasVitais([]);
+    setAlertasUi([]);
+    setAmostrasBrutas([]);
+  };
 
   return (
     <main className="container mx-auto max-w-6xl px-4 py-10">
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-foreground md:text-3xl">Performance de interface</h1>
         <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
-          Web Vitals, tempo até a interação responder e duração das exibições de esqueleto — medidos nesta
-          sessão do navegador e comparados com os mesmos orçamentos que bloqueiam o CI. Alertas são
-          enviados ao Sentry e ao GA4 (<code>web_vital_budget_exceeded</code>) quando o budget estoura.
+          Web Vitals, tempo até a interação responder e duração das exibições de esqueleto — comparados
+          com os mesmos orçamentos que bloqueiam o CI. Quando o budget estoura, o alerta vai para o
+          Sentry (<code>perf.budget_exceeded</code> / <code>ui.budget_exceeded</code>) e para o GA4
+          (<code>web_vital_budget_exceeded</code> / <code>ui_budget_exceeded</code>).
         </p>
       </header>
+
+      <section aria-label="Filtros" className="mb-8 flex flex-wrap items-end gap-4">
+        <Selecao
+          id="filtro-janela"
+          label="Janela"
+          valor={janela}
+          opcoes={JANELAS.map((j) => j.id)}
+          onChange={(v) => setJanela(v as typeof janela)}
+        />
+        <Selecao id="filtro-rota" label="Rota" valor={rota} opcoes={rotas} onChange={setRota} />
+        <Selecao
+          id="filtro-componente"
+          label="Componente"
+          valor={componente}
+          opcoes={componentes}
+          onChange={setComponente}
+        />
+        <Button variant="outline" size="sm" onClick={limparTudo} className="gap-2">
+          <Trash2 className="h-4 w-4" aria-hidden="true" /> Limpar histórico
+        </Button>
+      </section>
 
       <section aria-labelledby="vitais" className="mb-10">
         <h2 id="vitais" className="mb-3 flex items-center gap-2 text-lg font-semibold">
@@ -137,6 +310,27 @@ const AdminUiPerformance = () => {
             </Card>
           ))}
         </div>
+
+        <Card className="mt-4 p-4">
+          <p className="mb-2 text-xs text-muted-foreground">
+            Evolução (CLS exibido ×1000 para caber no mesmo eixo; linha tracejada = budget de LCP).
+          </p>
+          <div className="h-64 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={serieVitais}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="t" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+                <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+                <Tooltip />
+                <Legend />
+                <ReferenceLine y={BUDGETS.LCP} stroke="hsl(var(--destructive))" strokeDasharray="4 4" />
+                <Line type="monotone" dataKey="LCP" stroke="hsl(var(--accent))" dot={false} connectNulls />
+                <Line type="monotone" dataKey="CLS" stroke="hsl(var(--primary))" dot={false} connectNulls />
+                <Line type="monotone" dataKey="INP" stroke="hsl(var(--muted-foreground))" dot={false} connectNulls />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </Card>
       </section>
 
       <section aria-labelledby="esperas" className="mb-10">
@@ -150,7 +344,8 @@ const AdminUiPerformance = () => {
               {interacoes.length ? `${Math.round(p75(interacoes.map((a) => a.duracao)))}ms` : "—"}
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              budget {BUDGETS.INTERACTION}ms · {interacoes.length} amostra(s) · {interacoes.filter((a) => a.resultado === "error").length} erro(s)
+              budget {BUDGETS.INTERACTION}ms · {interacoes.length} amostra(s) ·{" "}
+              {interacoes.filter((a) => a.resultado === "error").length} erro(s)
             </p>
           </Card>
           <Card className="p-5">
@@ -159,118 +354,134 @@ const AdminUiPerformance = () => {
               {loadings.length ? `${Math.round(p75(loadings.map((a) => a.duracao)))}ms` : "—"}
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              budget {BUDGETS.LOADING}ms · {loadings.length} amostra(s)
+              budget {BUDGETS.LOADING}ms · {loadings.length} amostra(s) ·{" "}
+              {loadings.filter((a) => a.resultado === "error").length} erro(s)
             </p>
           </Card>
         </div>
+
+        <Card className="mt-4 p-4">
+          <div className="h-56 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={serieEsperas}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="t" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+                <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" unit="ms" />
+                <Tooltip />
+                <Legend />
+                <ReferenceLine y={BUDGETS.INTERACTION} stroke="hsl(var(--destructive))" strokeDasharray="4 4" />
+                <Line type="monotone" dataKey="Interação" stroke="hsl(var(--accent))" dot={false} connectNulls />
+                <Line type="monotone" dataKey="Loading" stroke="hsl(var(--primary))" dot={false} connectNulls />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </Card>
       </section>
 
-      <section aria-labelledby="correlacao" className="mb-10">
-        <h2 id="correlacao" className="mb-3 text-lg font-semibold">
+      <section aria-labelledby="componentes" className="mb-10">
+        <h2 id="componentes" className="mb-3 text-lg font-semibold">
+          Por componente e superfície (p75)
+        </h2>
+        <Card className="p-4">
+          <div className="h-72 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={porSuperficie} layout="vertical" margin={{ left: 24 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis type="number" tick={{ fontSize: 11 }} unit="ms" stroke="hsl(var(--muted-foreground))" />
+                <YAxis
+                  type="category"
+                  dataKey="chave"
+                  width={220}
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                />
+                <Tooltip />
+                <ReferenceLine x={BUDGETS.LOADING} stroke="hsl(var(--destructive))" strokeDasharray="4 4" />
+                <Bar dataKey="p75" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          {porSuperficie.some((s) => s.cta) && (
+            <p className="mt-3 text-xs text-muted-foreground">
+              CTA correlacionado mais recente:{" "}
+              {porSuperficie
+                .filter((s) => s.cta)
+                .slice(0, 3)
+                .map((s) => `${s.superficie} ← ${s.cta}`)
+                .join(" · ")}
+            </p>
+          )}
+        </Card>
+      </section>
+
+      <section aria-labelledby="rotas" className="mb-10">
+        <h2 id="rotas" className="mb-3 text-lg font-semibold">
           Correlação por rota
         </h2>
-        {porRota.length === 0 ? (
-          <p className="text-sm text-muted-foreground">
-            Ainda sem amostras nesta sessão. Navegue pelo site com este painel aberto em outra aba.
-          </p>
-        ) : (
-          <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full min-w-[640px] text-sm">
-              <caption className="sr-only">Esperas de interface e Web Vitals por rota</caption>
-              <thead className="bg-muted/40 text-left text-xs uppercase text-muted-foreground">
+        <Card className="overflow-x-auto p-0">
+          <table className="w-full text-left text-sm">
+            <thead className="border-b border-border text-xs uppercase text-muted-foreground">
+              <tr>
+                <th className="px-4 py-3">Rota</th>
+                <th className="px-4 py-3">LCP p75</th>
+                <th className="px-4 py-3">CLS p75</th>
+                <th className="px-4 py-3">Loading p75</th>
+                <th className="px-4 py-3">Interação p75</th>
+                <th className="px-4 py-3">Erros</th>
+              </tr>
+            </thead>
+            <tbody>
+              {porRota.length === 0 && (
                 <tr>
-                  <th scope="col" className="p-3">Rota</th>
-                  <th scope="col" className="p-3">Skeleton p75</th>
-                  <th scope="col" className="p-3">Interação p75</th>
-                  <th scope="col" className="p-3">LCP p75</th>
-                  <th scope="col" className="p-3">CLS p75</th>
-                  <th scope="col" className="p-3">Erros</th>
+                  <td colSpan={6} className="px-4 py-6 text-muted-foreground">
+                    Sem amostras nesta janela.
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {porRota.map((r) => (
-                  <tr key={r.rota} className="border-t border-border/60">
-                    <td className="p-3 font-medium">{r.rota || "—"}</td>
-                    <td className={`p-3 ${r.loadingP75 > BUDGETS.LOADING ? "text-destructive" : ""}`}>
-                      {r.loadingP75 ? `${Math.round(r.loadingP75)}ms` : "—"}
-                    </td>
-                    <td className={`p-3 ${r.interacaoP75 > BUDGETS.INTERACTION ? "text-destructive" : ""}`}>
-                      {r.interacaoP75 ? `${Math.round(r.interacaoP75)}ms` : "—"}
-                    </td>
-                    <td className={`p-3 ${r.lcp > BUDGETS.LCP ? "text-destructive" : ""}`}>
-                      {r.lcp ? `${Math.round(r.lcp)}ms` : "—"}
-                    </td>
-                    <td className={`p-3 ${r.cls > BUDGETS.CLS ? "text-destructive" : ""}`}>
-                      {r.cls ? r.cls.toFixed(3) : "—"}
-                    </td>
-                    <td className="p-3">{r.erros}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
-      <section aria-labelledby="superficies" className="mb-10">
-        <h2 id="superficies" className="mb-3 text-lg font-semibold">
-          Superfícies mais lentas (LoadingButton e Skeletons)
-        </h2>
-        {porSuperficie.length === 0 ? (
-          <p className="text-sm text-muted-foreground">Sem amostras de loading nesta sessão.</p>
-        ) : (
-          <ul className="divide-y divide-border rounded-xl border border-border">
-            {porSuperficie.map((s) => (
-              <li key={`${s.primitiva}-${s.superficie}`} className="flex items-center justify-between gap-4 p-3 text-sm">
-                <span className="min-w-0 truncate">
-                  <span className="text-muted-foreground">{s.primitiva}</span> · {s.superficie}
-                </span>
-                <span className="flex-shrink-0 tabular-nums">
-                  {Math.round(s.p75)}ms · {s.n}x{s.erros ? ` · ${s.erros} erro(s)` : ""}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
+              )}
+              {porRota.map((r) => (
+                <tr key={r.rota} className="border-b border-border/60 last:border-0">
+                  <td className="px-4 py-3 font-medium">{r.rota || "—"}</td>
+                  <td className={`px-4 py-3 ${r.lcp > BUDGETS.LCP ? "text-destructive" : ""}`}>
+                    {r.lcp ? `${Math.round(r.lcp)}ms` : "—"}
+                  </td>
+                  <td className={`px-4 py-3 ${r.cls > BUDGETS.CLS ? "text-destructive" : ""}`}>
+                    {r.cls ? r.cls.toFixed(3) : "—"}
+                  </td>
+                  <td className={`px-4 py-3 ${r.loadingP75 > BUDGETS.LOADING ? "text-destructive" : ""}`}>
+                    {r.loadingP75 ? `${Math.round(r.loadingP75)}ms` : "—"}
+                  </td>
+                  <td className={`px-4 py-3 ${r.interacaoP75 > BUDGETS.INTERACTION ? "text-destructive" : ""}`}>
+                    {r.interacaoP75 ? `${Math.round(r.interacaoP75)}ms` : "—"}
+                  </td>
+                  <td className="px-4 py-3">{r.erros}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Card>
       </section>
 
       <section aria-labelledby="alertas">
-        <div className="mb-3 flex items-center justify-between gap-4">
-          <h2 id="alertas" className="flex items-center gap-2 text-lg font-semibold">
-            <AlertTriangle className="h-4 w-4" aria-hidden="true" /> Alertas de budget ({alertas.length})
-          </h2>
-          {alertas.length > 0 && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                clearVitalsAlerts();
-                setAlertas([]);
-              }}
-            >
-              <Trash2 className="mr-2 h-4 w-4" aria-hidden="true" />
-              Limpar
-            </Button>
+        <h2 id="alertas" className="mb-3 flex items-center gap-2 text-lg font-semibold">
+          <AlertTriangle className="h-4 w-4" aria-hidden="true" /> Alertas de budget ({alertas.length})
+        </h2>
+        <Card className="p-4">
+          {alertas.length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              Nenhum budget estourado nesta janela — nada foi enviado ao Sentry/GA4.
+            </p>
+          ) : (
+            <ul className="space-y-2 text-sm">
+              {alertas.slice(0, 20).map((a, i) => (
+                <li key={`${a.t}-${i}`} className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-medium text-destructive">{a.titulo}</span>
+                  <span className="text-muted-foreground">{a.detalhe}</span>
+                  <span className="ml-auto text-xs text-muted-foreground">{hora(a.t)}</span>
+                </li>
+              ))}
+            </ul>
           )}
-        </div>
-        {alertas.length === 0 ? (
-          <p className="text-sm text-muted-foreground">Nenhum orçamento estourado nesta sessão.</p>
-        ) : (
-          <ul className="space-y-2">
-            {[...alertas].reverse().map((a, i) => (
-              <li
-                key={`${a.name}-${a.timestamp}-${i}`}
-                className="rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm"
-              >
-                <strong>{a.name}</strong> {formatarMetrica(a.name, a.value)} acima do budget{" "}
-                {formatarMetrica(a.name, a.budget)} em <code>{a.path}</code>{" "}
-                <span className="text-muted-foreground">
-                  ({new Date(a.timestamp).toLocaleTimeString("pt-BR")})
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
+        </Card>
       </section>
     </main>
   );

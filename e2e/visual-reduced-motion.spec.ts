@@ -113,8 +113,12 @@ for (const rota of rotas) {
  *      orçamento (é aqui que esqueleto com dimensão errada seria pego).
  */
 const rotasComLoading = [
+  { nome: "home", path: "/" },
   { nome: "servicos", path: "/servicos" },
   { nome: "problemas", path: "/problemas" },
+  { nome: "empresas", path: "/empresas" },
+  { nome: "problema-lentidao", path: "/problemas/computador-lento" },
+  { nome: "blog", path: "/blog" },
 ];
 
 for (const rota of rotasComLoading) {

@@ -146,6 +146,94 @@ export const registrarLog = (
 };
 
 /**
+ * Evento não-fatal no Sentry (nível info/warning) + log OTLP.
+ * Usado para o ciclo de vida de estados de carregamento e para alertas de
+ * budget: são sinais operacionais, não exceções — por isso não usam
+ * `capturarErro` (que sobe como `level: error` e polui a taxa de crash).
+ */
+export const capturarEvento = (
+  kind: string,
+  nivel: "info" | "warning",
+  payload: Attrs = {},
+) => {
+  if (!observabilidadeAtiva() || !amostrar()) return;
+  const mensagem = String(payload.message ?? kind).slice(0, 500);
+
+  const alvo = sentryAlvo();
+  if (alvo) {
+    enviar(
+      alvo.url,
+      {
+        event_id: hex(16),
+        timestamp: new Date().toISOString(),
+        platform: "javascript",
+        level: nivel,
+        logger: kind,
+        release: VERSION,
+        environment: AMBIENTE,
+        message: { formatted: mensagem },
+        contexts: { trace: { trace_id: getTraceId(), span_id: hex(8), op: kind } },
+        tags: {
+          kind,
+          path: typeof location !== "undefined" ? location.pathname : "",
+          ...(payload.surface ? { surface: String(payload.surface).slice(0, 80) } : {}),
+          ...(payload.primitive ? { primitive: String(payload.primitive).slice(0, 40) } : {}),
+          ...(payload.outcome ? { outcome: String(payload.outcome).slice(0, 20) } : {}),
+        },
+        extra: payload,
+      },
+      { "x-sentry-auth": alvo.auth },
+    );
+  }
+
+  registrarLog(nivel === "warning" ? "WARN" : "INFO", mensagem, {
+    ...atributosBase(),
+    "event.kind": kind,
+    ...payload,
+  });
+};
+
+/**
+ * Span OTLP de duração conhecida (ex.: janela de loading de um botão).
+ * Vai para o mesmo trace da sessão, então o span aparece ao lado dos logs
+ * de funil e dos alertas de Web Vitals daquela navegação.
+ */
+export const registrarSpan = (
+  nome: string,
+  duracaoMs: number,
+  attrs: Attrs = {},
+  status: "ok" | "error" = "ok",
+) => {
+  if (!OTLP) return;
+  const fimNano = Date.now() * 1e6;
+  const inicioNano = fimNano - Math.max(0, Math.round(duracaoMs)) * 1e6;
+  enviar(`${OTLP.replace(/\/$/, "")}/v1/traces`, {
+    resourceSpans: [
+      {
+        resource: { attributes: paraAtributos(atributosBase()) },
+        scopeSpans: [
+          {
+            scope: { name: "portal.web" },
+            spans: [
+              {
+                traceId: getTraceId(),
+                spanId: hex(8),
+                name: nome.slice(0, 120),
+                kind: 1,
+                startTimeUnixNano: String(inicioNano),
+                endTimeUnixNano: String(fimNano),
+                attributes: paraAtributos(attrs),
+                status: { code: status === "error" ? 2 : 1 },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+};
+
+/**
  * Etapa do funil de conversão (clique em WhatsApp, abertura do funil…).
  * Espelha o evento já enviado ao GA4 — aqui só para alertas/observabilidade.
  */

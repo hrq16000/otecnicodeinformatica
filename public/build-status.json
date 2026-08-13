@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-08-13T03:44:19.531Z",
-  "finishedAt": "2026-08-13T03:44:20.915Z",
+  "startedAt": "2026-08-13T03:53:46.720Z",
+  "finishedAt": "2026-08-13T03:53:48.002Z",
   "ok": false,
   "total": 9,
   "passed": 8,
@@ -13,31 +13,31 @@
       "status": "ok",
       "detail": "sem pendências",
       "durationMs": 67,
-      "checkedAt": "2026-08-13T03:44:19.599Z"
+      "checkedAt": "2026-08-13T03:53:46.787Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 76,
-      "checkedAt": "2026-08-13T03:44:19.675Z"
+      "durationMs": 59,
+      "checkedAt": "2026-08-13T03:53:46.846Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 68,
-      "checkedAt": "2026-08-13T03:44:19.743Z"
+      "durationMs": 63,
+      "checkedAt": "2026-08-13T03:53:46.909Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 541,
-      "checkedAt": "2026-08-13T03:44:20.284Z"
+      "durationMs": 505,
+      "checkedAt": "2026-08-13T03:53:47.414Z"
     },
     {
       "id": "internal-links",
@@ -45,39 +45,39 @@
       "status": "fail",
       "detail": "  - link interno quebrado → /servicos/manutencao-de-computadores (em src/lib/clusterProblemas.ts)",
       "durationMs": 184,
-      "checkedAt": "2026-08-13T03:44:20.468Z"
+      "checkedAt": "2026-08-13T03:53:47.598Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 100,
-      "checkedAt": "2026-08-13T03:44:20.568Z"
+      "durationMs": 97,
+      "checkedAt": "2026-08-13T03:53:47.695Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 111,
-      "checkedAt": "2026-08-13T03:44:20.679Z"
+      "durationMs": 106,
+      "checkedAt": "2026-08-13T03:53:47.801Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 136,
-      "checkedAt": "2026-08-13T03:44:20.815Z"
+      "durationMs": 116,
+      "checkedAt": "2026-08-13T03:53:47.917Z"
     },
     {
       "id": "orphan-pages",
       "label": "Páginas órfãs",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 100,
-      "checkedAt": "2026-08-13T03:44:20.915Z"
+      "durationMs": 85,
+      "checkedAt": "2026-08-13T03:53:48.002Z"
     }
   ]
 }

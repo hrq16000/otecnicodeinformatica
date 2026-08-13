@@ -25,6 +25,14 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { problemaPagesData } from "../src/lib/problemaPagesData";
 import { CLUSTER_PROBLEMAS } from "../src/lib/clusterProblemas";
 import { CURATED_PATHS } from "./lib/curated-urls.mjs";
+import {
+  canonicalRecomendado,
+  indexabilidadeRecomendada,
+  intencaoEsperada,
+  intencaoObservada,
+  slugCanonico,
+  temSufixoLocal,
+} from "../src/lib/problemIntentPolicy";
 
 type Registro = {
   url: string;
@@ -42,6 +50,10 @@ type Registro = {
   indexavelHoje: boolean;
   riscoCanibalizacao: "BAIXO" | "MÉDIO" | "ALTO" | "CRÍTICO";
   conflitoPrincipal: string;
+  intencaoEsperada: string;
+  canonicalRecomendado: string;
+  indexabilidadeRecomendada: string;
+  motivoIndexabilidade: string;
   acaoRecomendada: string;
 };
 
@@ -112,14 +124,8 @@ const classificar = (slug: string, titulo: string) => {
   return { nome: "Não classificado", cluster: "revisar", termos: [] };
 };
 
-/** Fase 3: página de sintoma é diagnóstica; slug com cidade/preço puxa outra intenção. */
-const intencaoDe = (slug: string, titulo: string) => {
-  const t = normalizar(`${slug} ${titulo}`);
-  if (/(preco|orcamento|quanto custa|valor)/.test(t)) return ["COMERCIAL", "DIAGNÓSTICA"];
-  if (/(curitiba|bairro|perto de mim|domicilio)/.test(t)) return ["LOCAL", "DIAGNÓSTICA"];
-  if (/(o que e|como funciona|guia|significa)/.test(t)) return ["INFORMATIVA", "DIAGNÓSTICA"];
-  return ["DIAGNÓSTICA", "COMERCIAL"];
-};
+/** Fase 3 + política do sufixo: intenção vem de src/lib/problemIntentPolicy.ts. */
+const intencaoDe = (slug: string, titulo: string) => intencaoObservada(slug, titulo);
 
 // ── Inventário ──────────────────────────────────────────────────────────────
 const curados = new Set(
@@ -178,6 +184,10 @@ const registros: Registro[] = itens.map((item) => {
     indexavelHoje: curados.has(item.url),
     riscoCanibalizacao: "BAIXO",
     conflitoPrincipal: "",
+    intencaoEsperada: intencaoEsperada(item.url, item.titulo),
+    canonicalRecomendado: "",
+    indexabilidadeRecomendada: "",
+    motivoIndexabilidade: "",
     acaoRecomendada: "",
   };
 });
@@ -225,11 +235,27 @@ for (const par of pares) {
   }
 }
 
+// ── Sufixo -curitiba: canonical e indexabilidade recomendados ───────────────
+const urlsExistentes = new Set(registros.map((r) => r.url));
+for (const r of registros) {
+  r.canonicalRecomendado = canonicalRecomendado(r.url, urlsExistentes);
+  const { valor, motivo } = indexabilidadeRecomendada({
+    url: r.url,
+    indexavel: r.indexavelHoje,
+    risco: r.riscoCanibalizacao,
+    temGemeoLimpo: slugCanonico(r.url) !== r.url && urlsExistentes.has(slugCanonico(r.url)),
+  });
+  r.indexabilidadeRecomendada = valor;
+  r.motivoIndexabilidade = motivo;
+}
+
 // ── Ação recomendada (Fase 4 + Fase 28) ─────────────────────────────────────
 for (const r of registros) {
   if (duplicadasEntreFontes.includes(r.url)) r.acaoRecomendada = "RESOLVER DUPLICIDADE DE FONTE";
   else if (r.riscoCanibalizacao === "CRÍTICO") r.acaoRecomendada = "CONSOLIDAR NO PILAR DO CLUSTER";
   else if (r.riscoCanibalizacao === "ALTO") r.acaoRecomendada = "REPOSICIONAR INTENÇÃO";
+  else if (temSufixoLocal(r.url) && r.canonicalRecomendado !== r.url)
+    r.acaoRecomendada = "CANONICALIZAR NO SINTOMA SEM SUFIXO";
   else if (r.indexavelHoje) r.acaoRecomendada = "REESCREVER (LOTE PRIORITÁRIO)";
   else if (r.cluster === "revisar") r.acaoRecomendada = "CLASSIFICAR MANUALMENTE";
   else r.acaoRecomendada = "MANTER NOINDEX ATÉ REESCRITA";
@@ -258,11 +284,13 @@ writeFileSync(
 writeFileSync(
   "reports/problem-intent-map.csv",
   csv(
-    ["url","origem","equipamento","sintoma","taxonomia","cluster","intencao_primaria","intencao_secundaria","servico_relacionado","indexavel_hoje","risco_canibalizacao","conflito_principal","acao_recomendada"],
+    ["url","origem","equipamento","sintoma","taxonomia","cluster","intencao_primaria","intencao_secundaria","servico_relacionado","indexavel_hoje","risco_canibalizacao","conflito_principal","intencao_esperada","canonical_recomendado","indexabilidade_recomendada","motivo_indexabilidade","acao_recomendada"],
     registros.map((r) => [
       r.url, r.origem, r.equipamento, r.sintoma, r.taxonomia, r.cluster,
       r.intencaoPrimaria, r.intencaoSecundaria, r.servicoRelacionado,
-      r.indexavelHoje ? "sim" : "nao", r.riscoCanibalizacao, r.conflitoPrincipal, r.acaoRecomendada,
+      r.indexavelHoje ? "sim" : "nao", r.riscoCanibalizacao, r.conflitoPrincipal,
+      r.intencaoEsperada, r.canonicalRecomendado, r.indexabilidadeRecomendada,
+      r.motivoIndexabilidade, r.acaoRecomendada,
     ]),
   ),
 );
@@ -315,6 +343,16 @@ ${contar((r) => r.intencaoPrimaria).map(([k, v]) => `| ${k} | ${v} |`).join("\n"
 | Risco | Páginas |
 | --- | --- |
 ${contar((r) => r.riscoCanibalizacao).map(([k, v]) => `| ${k} | ${v} |`).join("\n")}
+
+## Indexabilidade recomendada (política do sufixo -curitiba)
+
+| Recomendação | Páginas |
+| --- | --- |
+${contar((r) => r.indexabilidadeRecomendada).map(([k, v]) => `| ${k} | ${v} |`).join("\n")}
+
+Páginas com sufixo \`-curitiba\` que possuem gêmeo limpo apontam canonical para
+ele e permanecem fora do sitemap; as sem gêmeo ficam em *reavaliar*. Nenhum
+slug é renomeado ou removido.
 
 ## Ação recomendada
 

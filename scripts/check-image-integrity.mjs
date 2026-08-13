@@ -107,15 +107,23 @@ for (const file of htmlFiles.sort()) {
     }
     const hash = createHash("sha256").update(buf).digest("hex").slice(0, 16);
     const sig = blockSignature(buf);
-    byHash.set(hash, [...(byHash.get(hash) ?? []), `${route} ${src}`]);
+    byHash.set(hash, new Set([...(byHash.get(hash) ?? []), src]));
     bySignature.set(sig, new Set([...(bySignature.get(sig) ?? []), src]));
     imagens.push({ src, bytes: buf.length, hash, sig, exif: Boolean(exif) });
   }
   paginas.push({ route, total: imagens.length, imagens });
 }
 
-for (const [hash, refs] of byHash) {
-  if (refs.length > 1) warnings.push(`foto reutilizada (${hash}): ${refs.join(" · ")}`);
+// Reuso relevante = ARQUIVOS diferentes com o mesmo conteúdo (cópia duplicada).
+// A mesma foto aparecer em listagem + página do post não é duplicidade.
+for (const [hash, files] of byHash) {
+  if (files.size > 1) warnings.push(`arquivo duplicado (${hash}): ${[...files].join(" · ")}`);
+}
+// Cobertura fotográfica: página indexável cujo único "conteúdo visual" é a marca.
+const BRAND = /\/(logo|og-|favicon)/i;
+for (const p of paginas) {
+  const reais = p.imagens.filter((i) => !BRAND.test(i.src));
+  if (!reais.length) warnings.push(`${p.route}: sem foto real (apenas marca) — priorizar na próxima onda`);
 }
 for (const [sig, files] of bySignature) {
   if (files.size > 1) warnings.push(`baixa originalidade (assinatura ${sig}): ${[...files].join(" · ")}`);
@@ -128,6 +136,7 @@ const relatorio = {
   paginas: paginas.length,
   imagens: paginas.reduce((n, p) => n + p.total, 0),
   unicas: byHash.size,
+  semFotoReal: paginas.filter((p) => p.imagens.every((i) => /\/(logo|og-|favicon)/i.test(i.src))).map((p) => p.route),
   semImagem: paginas.filter((p) => p.total === 0).map((p) => p.route),
   errors,
   warnings,

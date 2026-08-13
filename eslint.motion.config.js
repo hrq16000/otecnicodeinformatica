@@ -10,6 +10,7 @@ import { restricoesMotion } from "./eslint.config.js";
 
 export default tseslint.config(
   { ignores: ["dist", "node_modules", "src/components/ui/**"] },
+  { linterOptions: { reportUnusedDisableDirectives: "off" } },
   {
     files: ["src/**/*.{ts,tsx}"],
     languageOptions: { parser: tseslint.parser, ecmaVersion: 2020 },

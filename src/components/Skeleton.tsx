@@ -102,20 +102,34 @@ export const SkeletonHero = () => (
   </div>
 );
 
-export const SkeletonGrid = ({ count = 6, className = "" }: { count?: number; className?: string }) => (
-  <div aria-hidden="true" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ${className}`}>
-    {Array.from({ length: count }).map((_, i) => (
-      <SkeletonCard key={i} />
-    ))}
-  </div>
-);
+export const SkeletonGrid = ({
+  count = 6,
+  className = "",
+  metricSurface,
+}: SkeletonBase & { count?: number }) => {
+  useSkeletonTelemetry(metricSurface);
+  return (
+    <div aria-hidden="true" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ${className}`}>
+      {Array.from({ length: count }).map((_, i) => (
+        <SkeletonCard key={i} />
+      ))}
+    </div>
+  );
+};
 
 /**
  * Esqueletos estruturais adicionais (motion system global).
  * Cada um espelha dimensões, grid e hierarquia do conteúdo real para
  * reduzir layout shift e aumentar a percepção de velocidade.
  */
-export const SkeletonTable = ({ rows = 6, cols = 4, className = "" }: { rows?: number; cols?: number; className?: string }) => (
+export const SkeletonTable = ({
+  rows = 6,
+  cols = 4,
+  className = "",
+  metricSurface,
+}: SkeletonBase & { rows?: number; cols?: number }) => {
+  useSkeletonTelemetry(metricSurface);
+  return (
   <div aria-hidden="true" className={`overflow-hidden rounded-xl border border-border ${className}`}>
     <div className="flex gap-4 border-b border-border bg-muted/30 p-4">
       {Array.from({ length: cols }).map((_, i) => (
@@ -130,9 +144,16 @@ export const SkeletonTable = ({ rows = 6, cols = 4, className = "" }: { rows?: n
       </div>
     ))}
   </div>
-);
+  );
+};
 
-export const SkeletonMetrics = ({ count = 4, className = "" }: { count?: number; className?: string }) => (
+export const SkeletonMetrics = ({
+  count = 4,
+  className = "",
+  metricSurface,
+}: SkeletonBase & { count?: number }) => {
+  useSkeletonTelemetry(metricSurface);
+  return (
   <div aria-hidden="true" className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
     {Array.from({ length: count }).map((_, i) => (
       <div key={i} className="rounded-xl border border-border bg-card p-5 space-y-3">
@@ -142,7 +163,8 @@ export const SkeletonMetrics = ({ count = 4, className = "" }: { count?: number;
       </div>
     ))}
   </div>
-);
+  );
+};
 
 export const SkeletonChart = ({ height = 240, className = "" }: { height?: number; className?: string }) => (
   <div aria-hidden="true" className={`rounded-xl border border-border bg-card p-5 ${className}`}>

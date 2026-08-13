@@ -787,15 +787,27 @@ export const WhatsAppFunnel = () => {
           <DialogDescription className="text-xs">
             O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {totalSteps}.
           </DialogDescription>
-          <div className={`mt-1.5 flex gap-1 transition-transform ${pulse && !REDUCED_MOTION ? "scale-y-150" : ""}`}>
+          <div
+            className={`mt-1.5 flex gap-1 transition-transform ${pulse && !REDUCED_MOTION ? "scale-y-150" : ""}`}
+            role="progressbar"
+            aria-valuemin={1}
+            aria-valuemax={totalSteps}
+            aria-valuenow={step + 1}
+            aria-label={`Etapa ${step + 1} de ${totalSteps}`}
+          >
             {Array.from({ length: totalSteps }).map((_, i) => (
-
-              <div
-                key={i}
-                className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-muted"}`}
-              />
+              <div key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-muted">
+                <div
+                  className="h-full rounded-full bg-primary origin-left"
+                  style={{
+                    transform: `scaleX(${i <= step ? 1 : 0})`,
+                    transition: REDUCED_MOTION ? "none" : "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
+                  }}
+                />
+              </div>
             ))}
           </div>
+
         </DialogHeader>
 
         {/* Conteúdo rolável */}

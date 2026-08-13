@@ -1193,6 +1193,15 @@ export const WhatsAppFunnel = () => {
                       </Button>
                       <Button variant="ghost" size="sm" onClick={reset}>Recomeçar</Button>
                       <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={copyPreviewMessage}
+                        className="gap-1"
+                        aria-label="Copiar a mensagem pronta do WhatsApp"
+                      >
+                        <Copy className="h-4 w-4" /> {previewCopied ? "Copiado!" : "Copiar mensagem"}
+                      </Button>
+                      <Button
                         ref={agendarBtnRef}
                         onClick={submit}
                         className="ml-auto gap-2 bg-[hsl(var(--whatsapp))] text-white hover:bg-[hsl(var(--whatsapp-hover))]"

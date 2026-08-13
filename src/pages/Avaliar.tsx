@@ -5,6 +5,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { LoadingButton } from "@/components/motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackReviewLinkOpen, trackReviewSubmit } from "@/lib/funnelAnalytics";
@@ -255,15 +256,14 @@ const Avaliar = () => {
                 </span>
               </label>
 
-              <Button
+              <LoadingButton
                 onClick={enviar}
-                disabled={enviando}
-                aria-busy={enviando}
+                state={enviando ? "loading" : "idle"}
+                loadingLabel="Enviando avaliação…"
                 className="min-h-12 w-full gap-2 text-base font-semibold"
               >
-                {enviando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
-                {enviando ? "Enviando..." : "Enviar avaliação"}
-              </Button>
+                Enviar avaliação
+              </LoadingButton>
 
               <p className="flex items-start gap-2 text-xs text-muted-foreground">
                 <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />

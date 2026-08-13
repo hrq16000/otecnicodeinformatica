@@ -183,7 +183,11 @@
     "inventory:servicos": "node scripts/inventory-servicos.mjs dist",
     "check:live-production": "node scripts/check-live-production.mjs",
     "check:http-route-semantics": "node scripts/check-http-route-semantics.mjs",
-    "check:noindex-shells": "node scripts/generate-noindex-shells.mjs dist"
+    "check:noindex-shells": "node scripts/generate-noindex-shells.mjs dist",
+    "lint:biome": "biome lint",
+    "lint:biome:fix": "biome lint --write",
+    "test:mutation": "stryker run",
+    "report:problemas-attribution": "node scripts/report-problemas-attribution.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

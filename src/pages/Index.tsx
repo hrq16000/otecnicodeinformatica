@@ -17,8 +17,9 @@ const HomeSections = lazy(() =>
 );
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
+// ONDA 4T/5J — placeholder de carregamento com shimmer (nunca espaço em branco).
 const SectionFallback = ({ height = "480px" }: { height?: string }) => (
-  <div style={{ minHeight: height }} className="w-full" aria-hidden="true" />
+  <SkeletonSection height={height} />
 );
 
 const Index = () => {

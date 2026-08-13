@@ -30,8 +30,25 @@ export const useSkeletonTelemetry = (superficie?: string) => {
 /** Props comuns: `metricSurface` liga a medição de exibição do esqueleto. */
 type SkeletonBase = { className?: string; metricSurface?: string };
 
+/**
+ * Envelope que instrumenta qualquer esqueleto legado sem alterar seu markup:
+ *   <SkeletonBoundary surface="servicos:lista"><SkeletonGrid /></SkeletonBoundary>
+ */
+export const SkeletonBoundary = ({
+  surface,
+  children,
+}: {
+  surface: string;
+  children: React.ReactNode;
+}) => {
+  useSkeletonTelemetry(surface);
+  return <>{children}</>;
+};
 
-export const SkeletonCard = ({ className = "" }: { className?: string }) => (
+
+export const SkeletonCard = ({ className = "", metricSurface }: SkeletonBase) => {
+  useSkeletonTelemetry(metricSurface);
+  return (
   <div
     aria-hidden="true"
     className={`bg-card rounded-xl p-6 border border-border ${className}`}
@@ -45,7 +62,8 @@ export const SkeletonCard = ({ className = "" }: { className?: string }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export const SkeletonText = ({ lines = 3, className = "" }: { lines?: number; className?: string }) => (
   <div aria-hidden="true" className={`space-y-2.5 ${className}`}>

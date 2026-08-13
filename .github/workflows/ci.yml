@@ -92,6 +92,8 @@ jobs:
       # além de garantir que nenhum alias 301 tenha canonical próprio.
       - name: Gate de conformidade GEO (meta, H1/H2, canonical, OG/Twitter, JSON-LD)
         run: npm run check:geo
+      - name: Gate schema.org (LocalBusiness, Service, FAQPage, BreadcrumbList)
+        run: npm run check:schema-standards
       - name: Gate de saúde de indexação (rotas + aliases)
         run: |
           npx vite preview --port 4321 --strictPort &

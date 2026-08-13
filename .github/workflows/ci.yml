@@ -23,6 +23,8 @@ jobs:
         run: npm run lint --silent || echo "::warning::lint reported issues"
       - name: Biome lint gate (correctness/suspicious)
         run: npm run lint:biome
+      - name: Motion System gate (classes de animação legadas)
+        run: npm run lint:motion
       - name: CTA funnel gate
         run: npm run check:cta-funnel
       - name: Internal links + sitemap gate
@@ -152,6 +154,17 @@ jobs:
         run: npx playwright test e2e/a11y-rotas-publicas.spec.ts
         env:
           E2E_BASE_URL: http://localhost:8080
+      - name: Regressão visual com prefers-reduced-motion (sem animação, sem CLS)
+        run: npx playwright test e2e/visual-reduced-motion.spec.ts --project=chromium
+        env:
+          E2E_BASE_URL: http://localhost:8080
+      - name: Upload evidências de regressão visual (reduced-motion)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-reduced-motion
+          path: test-results
+          if-no-files-found: ignore
 
 
   e2e-full-matrix:
@@ -330,6 +343,8 @@ jobs:
         run: node scripts/report-lighthouse-summary.mjs
       - name: Budgets de performance (FCP/LCP/CLS/TTFB/TBT/INP/A11y)
         run: node scripts/check-performance-budgets.mjs
+      - name: Regressão de LCP/CLS contra o baseline versionado
+        run: npm run perf:regression
       - name: Upload resumo Lighthouse
         if: always()
         uses: actions/upload-artifact@v4

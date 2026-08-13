@@ -56,14 +56,22 @@ const Index = () => {
 
 
 
-        <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">
+        <LazyOnVisible
+          minHeight="900px"
+          rootMargin="-200px 0px"
+          placeholder={<SectionFallback height="900px" />}
+        >
           <Suspense fallback={<SectionFallback height="900px" />}>
             <HomeSections />
           </Suspense>
         </LazyOnVisible>
       </main>
 
-      <LazyOnVisible minHeight="400px" rootMargin="-100px 0px">
+      <LazyOnVisible
+        minHeight="400px"
+        rootMargin="-100px 0px"
+        placeholder={<SectionFallback height="400px" />}
+      >
         <Suspense fallback={<SectionFallback height="400px" />}>
           <Footer />
         </Suspense>

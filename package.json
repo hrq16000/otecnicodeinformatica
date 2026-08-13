@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/check-brand-isolation.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs",
+    "prebuild": "node scripts/check-brand-isolation.mjs && node scripts/check-observability-env.mjs && node scripts/generate-interlinks.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs && node scripts/report-publish-status.mjs",
     "check:ads-txt": "node scripts/check-ads-txt.mjs",
     "check:policy-jsonld": "node scripts/check-policy-jsonld.mjs",
     "check:missing-exports": "node scripts/check-missing-exports.mjs",
@@ -187,7 +187,15 @@
     "lint:biome": "biome lint",
     "lint:biome:fix": "biome lint --write",
     "test:mutation": "stryker run",
-    "report:problemas-attribution": "node scripts/report-problemas-attribution.mjs dist"
+    "report:problemas-attribution": "node scripts/report-problemas-attribution.mjs dist",
+    "generate:interlinks": "node scripts/generate-interlinks.mjs",
+    "check:interlinks": "node scripts/generate-interlinks.mjs --check",
+    "check:observability-env": "node scripts/check-observability-env.mjs",
+    "check:real-images": "node scripts/check-real-images.mjs",
+    "report:publish-status": "node scripts/report-publish-status.mjs",
+    "report:problemas-vitals": "node scripts/report-problemas-vitals.mjs",
+    "monitor:approved-indexing": "node scripts/monitor-approved-indexing.mjs",
+    "sentry:sourcemaps": "node scripts/upload-sentry-sourcemaps.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

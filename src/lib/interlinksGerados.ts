@@ -21,7 +21,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-lento",
-      "anchor": "sintoma parecido: computador Lento? Diagnóstico",
+      "anchor": "sintoma parecido: computador Lento",
       "contexto": "problema"
     },
     {
@@ -102,12 +102,12 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 2",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 3",
       "contexto": "problema"
     },
     {
       "href": "/problemas/computador-lento",
-      "anchor": "compare com computador Lento? Diagnóstico",
+      "anchor": "compare com computador Lento",
       "contexto": "problema"
     },
     {
@@ -129,7 +129,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-lento",
-      "anchor": "sintoma parecido: computador Lento? Diagnóstico — 2",
+      "anchor": "sintoma parecido: computador Lento — 2",
       "contexto": "problema"
     },
     {
@@ -188,7 +188,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 2",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 4",
       "contexto": "problema"
     },
     {
@@ -269,7 +269,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 2",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 5",
       "contexto": "problema"
     },
     {

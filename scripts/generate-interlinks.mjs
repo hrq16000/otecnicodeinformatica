@@ -38,13 +38,13 @@ const score = (a, b) => [...a].filter((w) => b.has(w)).length;
 /** "Formatação de computador | Marca" → "formatação de computador" */
 const assunto = (path) => {
   const t = meta.get(path)?.title ?? "";
-  const base = t.split("|")[0].split(":")[0].trim();
+  const base = t.split("|")[0].split(":")[0].split("?")[0].trim();
   return base ? base.charAt(0).toLowerCase() + base.slice(1) : path.split("/").pop().replace(/-/g, " ");
 };
 
 const sintoma = (path) => {
   const t = meta.get(path)?.h1 ?? meta.get(path)?.title ?? "";
-  const base = t.split("|")[0].split(":")[0].trim();
+  const base = t.split("|")[0].split(":")[0].split("?")[0].trim();
   return base ? base.charAt(0).toLowerCase() + base.slice(1) : path.split("/").pop().replace(/-/g, " ");
 };
 
@@ -59,8 +59,11 @@ const unico = (texto, alternativas) => {
     }
   }
   let i = 2;
-  while (usados.has(`${texto} (${i})`.toLowerCase())) i += 1;
-  const final = `${texto} — ${i}`;
+  let final = `${texto} — ${i}`;
+  while (usados.has(final.toLowerCase())) {
+    i += 1;
+    final = `${texto} — ${i}`;
+  }
   usados.add(final.toLowerCase());
   return final;
 };

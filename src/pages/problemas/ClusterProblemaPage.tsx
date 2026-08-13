@@ -335,10 +335,9 @@ const ClusterProblemaPage = () => {
               mão de obra e peça são informados separadamente e nada é executado sem sua aprovação.
             </span>
           </p>
-        </section>
-
           <CtaContextual secao="modalidades" mensagem="Quero saber qual modalidade se aplica ao meu caso." />
         </section>
+
 
         <PoliticaAtendimentoBloco variant="inline" />
 

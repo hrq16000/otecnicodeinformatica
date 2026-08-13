@@ -1,0 +1,243 @@
+{
+  "_doc": "RODADA 5 — fonte única de verdade da indexação local. Toda entidade local resolve indexability/canonical/sitemap por aqui. Regra de ouro: indexability !== 'index' => sitemap false. Espelhado em scripts/lib/local-index-policy.mjs (mesmo arquivo é lido pelos gates).",
+  "entities": [
+    {
+      "path": "/",
+      "family": "HOME",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "marca + oferta geral de assistência em informática + região de atuação",
+      "reason": "Página de marca: apresenta a operação, os públicos (PF/PJ), os problemas e o fluxo de atendimento. Não é landing de cidade."
+    },
+    {
+      "path": "/areas-atendidas",
+      "family": "OUTRA_LOCAL",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "hub de cobertura: cidades prioritárias e bairros âncora",
+      "reason": "Hub de navegação local; lista apenas URLs indexáveis."
+    },
+    {
+      "path": "/assistencia-tecnica-curitiba",
+      "family": "OUTRA_LOCAL",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "assistência técnica genérica (multieletrônicos) em Curitiba",
+      "reason": "Intenção comercial mais ampla que a landing de informática da cidade."
+    },
+    {
+      "path": "/empresa-de-ti-curitiba",
+      "family": "OUTRA_LOCAL",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "empresa de TI / suporte PJ em Curitiba",
+      "reason": "Cluster empresarial, público PJ — não concorre com a landing PF da cidade."
+    },
+
+    {
+      "path": "/tecnico-informatica-curitiba",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Curitiba — cobertura, modalidades, bairros e logística da cidade",
+      "reason": "Operação real, conteúdo próprio > 550 palavras, bairros âncora vinculados."
+    },
+    {
+      "path": "/tecnico-informatica-sao-jose-pinhais",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em São José dos Pinhais",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-pinhais",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Pinhais",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-colombo",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Colombo",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-araucaria",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Araucária",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-campo-largo",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Campo Largo",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-fazenda-rio-grande",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso (< 130 palavras). Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-almirante-tamandare",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-piraquara",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-campo-magro",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-quatro-barras",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+
+    {
+      "path": "/bairros/curitiba",
+      "family": "BAIRRO",
+      "indexability": "canonicalized",
+      "canonical": "/tecnico-informatica-curitiba",
+      "sitemap": false,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": "—",
+      "reason": "Alias de cidade dentro da família de bairros: a intenção pertence à landing da cidade."
+    },
+
+    {
+      "path": "/servicos/manutencao-de-notebook/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/manutencao-de-notebook",
+      "sitemap": false,
+      "parent": "/servicos/manutencao-de-notebook",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "manutenção de notebook em Curitiba",
+      "reason": "Lote Local 1: sem intenção local adicional comprovada (logística e cobertura já respondidas pela landing de Curitiba). Decisão objetiva — canonical para o serviço-pai, sem criar página nova."
+    },
+    {
+      "path": "/servicos/manutencao-de-computador/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/manutencao-de-computador",
+      "sitemap": false,
+      "parent": "/servicos/manutencao-de-computador",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "manutenção de computador em Curitiba",
+      "reason": "Lote Local 1: conteúdo local não acrescenta resposta além do serviço-pai + landing da cidade."
+    },
+    {
+      "path": "/servicos/formatacao/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/formatacao",
+      "sitemap": false,
+      "parent": "/servicos/formatacao",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "formatação de computador em Curitiba",
+      "reason": "Lote Local 1: formatação é majoritariamente remota/bancada; a cidade não altera o processo."
+    },
+    {
+      "path": "/servicos/remocao-de-virus/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/remocao-de-virus",
+      "sitemap": false,
+      "parent": "/servicos/remocao-de-virus",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "remoção de vírus em Curitiba",
+      "reason": "Lote Local 1: atendimento remoto cobre a maior parte dos casos; sem intenção local extra."
+    },
+    {
+      "path": "/servicos/recuperacao-de-dados/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/recuperacao-de-dados",
+      "sitemap": false,
+      "parent": "/servicos/recuperacao-de-dados",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "recuperação de dados em Curitiba",
+      "reason": "Lote Local 1: serviço de bancada com coleta; logística já descrita em /coleta-e-entrega e na landing da cidade."
+    }
+  ],
+
+  "bairrosAncora": [
+    { "slug": "cic", "intent": "atendimento de informática na CIC (indústria e residencial)" },
+    { "slug": "batel", "intent": "atendimento de informática no Batel (escritórios e home office)" },
+    { "slug": "agua-verde", "intent": "atendimento de informática no Água Verde (residencial denso)" },
+    { "slug": "centro", "intent": "atendimento de informática no Centro (comércio e coleta)" },
+    { "slug": "portao", "intent": "atendimento de informática no Portão (residencial e comércio de bairro)" }
+  ],
+
+  "servicoBairroIndexaveis": [
+    "/servicos/formatacao-computador/cic",
+    "/servicos/formatacao-computador/batel",
+    "/servicos/formatacao-computador/agua-verde",
+    "/servicos/remocao-virus/cic",
+    "/servicos/remocao-virus/agua-verde",
+    "/servicos/conserto-pc-notebook/centro",
+    "/servicos/conserto-pc-notebook/agua-verde",
+    "/servicos/upgrade-ssd-memoria/cic",
+    "/servicos/upgrade-ssd-memoria/centro",
+    "/servicos/upgrade-ssd-memoria/agua-verde",
+    "/servicos/upgrade-ssd-memoria/portao"
+  ],
+
+  "loteLocal1": [
+    "/tecnico-informatica-curitiba",
+    "/tecnico-informatica-sao-jose-pinhais",
+    "/bairros/centro",
+    "/bairros/batel",
+    "/bairros/agua-verde",
+    "/bairros/cic",
+    "/bairros/portao",
+    "/servicos/manutencao-de-notebook/curitiba",
+    "/servicos/manutencao-de-computador/curitiba",
+    "/servicos/formatacao/curitiba",
+    "/servicos/remocao-de-virus/curitiba",
+    "/servicos/recuperacao-de-dados/curitiba"
+  ],
+
+  "prefixosNaoIndexaveis": [
+    {
+      "prefix": "/arrumar-pc",
+      "indexability": "noindex",
+      "reason": "Cluster nacional herdado sem operação real — noindex permanente, sem expansão nesta rodada."
+    },
+    {
+      "prefix": "/cftv/",
+      "indexability": "noindex",
+      "reason": "Vertical adjacente: não integra a arquitetura local CORE de informática nem infla cobertura geográfica."
+    }
+  ]
+}

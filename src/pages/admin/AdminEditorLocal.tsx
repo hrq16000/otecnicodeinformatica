@@ -1,24 +1,35 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { CheckCircle2, Copy, Loader2, RefreshCw, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Copy, Download, Loader2, RefreshCw, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "@/hooks/use-toast";
-import { useAdminAuth } from "@/hooks/useAdminAuth";
+import { useAdminRoles } from "@/hooks/useAdminRoles";
+import { lerAuditoria, registrarAuditoria, type AuditRow } from "@/lib/adminAudit";
+import { exportarCsv, exportarJson } from "@/lib/exportarRelatorio";
+import {
+  CLUSTERS,
+  PADRAO,
+  justificar,
+  lerLimiares,
+  salvarLimiares,
+  type Cluster,
+  type Limiar,
+} from "@/lib/similaridadeConfig";
 
 /**
- * EDITOR GUIADO DE TEXTO LOCAL (Onda 30).
+ * EDITOR GUIADO DE TEXTO LOCAL (Onda 30 + limiares por cluster da Onda 31).
  *
- * Preenchimento assistido de contexto, sintomas comuns, como é o atendimento e
- * casos reais por cidade/bairro, com checklist de originalidade ANTES de
- * publicar: mede a similaridade (Jaccard sobre 5-gramas) do rascunho contra as
- * descrições já publicadas (publish-status.json) e contra os próprios blocos.
- * O editor não escreve no site — exporta o JSON revisado para virar conteúdo
- * curado, mantendo o fluxo fail-closed.
+ * Preenchimento assistido de contexto, sintomas, atendimento e casos por
+ * cidade/bairro, com checklist de originalidade ANTES de publicar. O limiar de
+ * similaridade agora é configurável por cluster (serviço × problema × bairro) e
+ * cada bloqueio mostra score e justificativa do que precisa ser reescrito.
+ * O editor não escreve no site — exporta JSON revisado, mantendo fail-closed.
  */
 
 type UrlStatus = { path: string; title?: string; description?: string };
@@ -60,9 +71,12 @@ const jaccard = (a: Set<string>, b: Set<string>) => {
 };
 
 const AdminEditorLocal = () => {
-  const { loading: authLoading, session, isAdmin } = useAdminAuth();
+  const { loading: authLoading, session, isRevisor, perfil } = useAdminRoles();
   const [rascunho, setRascunho] = useState<Rascunho>(VAZIO);
   const [publicados, setPublicados] = useState<UrlStatus[]>([]);
+  const [cluster, setCluster] = useState<Cluster>("bairro");
+  const [limiares, setLimiares] = useState<Record<Cluster, Limiar>>(PADRAO);
+  const [auditoria, setAuditoria] = useState<AuditRow[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -72,6 +86,7 @@ const AdminEditorLocal = () => {
     } catch {
       /* rascunho começa vazio */
     }
+    setLimiares(lerLimiares());
   }, []);
 
   const atualizar = (chave: Chave | "local", valor: string) => {
@@ -82,6 +97,14 @@ const AdminEditorLocal = () => {
       } catch {
         /* modo privado */
       }
+      return next;
+    });
+  };
+
+  const ajustarLimiar = (id: Cluster, campo: keyof Limiar, valor: number) => {
+    setLimiares((prev) => {
+      const next = { ...prev, [id]: { ...prev[id], [campo]: valor } };
+      salvarLimiares(next);
       return next;
     });
   };
@@ -97,13 +120,15 @@ const AdminEditorLocal = () => {
     } catch {
       setPublicados([]);
     }
+    setAuditoria(await lerAuditoria("admin/editor-local"));
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    if (isAdmin) void carregar();
-  }, [isAdmin, carregar]);
+    if (isRevisor) void carregar();
+  }, [isRevisor, carregar]);
 
+  const limite = limiares[cluster] ?? PADRAO[cluster];
   const textoCompleto = CAMPOS.map((c) => rascunho[c.chave]).join(" ");
 
   const similaridadeExterna = useMemo(() => {
@@ -128,24 +153,53 @@ const AdminEditorLocal = () => {
   }, [rascunho]);
 
   const checklist = useMemo(() => {
-    const itens = CAMPOS.map((c) => ({
+    const itens: Array<{ rotulo: string; ok: boolean; score?: number; justificativa?: string }> = CAMPOS.map((c) => ({
       rotulo: `${c.rotulo} com ${c.minimo}+ caracteres`,
       ok: rascunho[c.chave].trim().length >= c.minimo,
     }));
     itens.push({ rotulo: "Nome do bairro/cidade preenchido", ok: rascunho.local.trim().length > 2 });
-    itens.push({ rotulo: "Similaridade com páginas publicadas < 0,45", ok: similaridadeExterna.score < 0.45 });
-    itens.push({ rotulo: "Blocos internos diferentes entre si (< 0,35)", ok: similaridadeInterna.score < 0.35 });
+    const okExterno = similaridadeExterna.score < limite.externo;
+    itens.push({
+      rotulo: `Similaridade com páginas publicadas < ${limite.externo.toFixed(2)}`,
+      ok: okExterno,
+      score: similaridadeExterna.score,
+      justificativa: okExterno
+        ? undefined
+        : justificar("externo", similaridadeExterna.score, limite.externo, similaridadeExterna.path || "página publicada"),
+    });
+    const okInterno = similaridadeInterna.score < limite.interno;
+    itens.push({
+      rotulo: `Blocos internos diferentes entre si (< ${limite.interno.toFixed(2)})`,
+      ok: okInterno,
+      score: similaridadeInterna.score,
+      justificativa: okInterno
+        ? undefined
+        : justificar("interno", similaridadeInterna.score, limite.interno, similaridadeInterna.par || "blocos"),
+    });
     itens.push({
       rotulo: "Sem promessa de prazo universal ou avaliação inventada",
       ok: !/30 minutos garantid|nota 5|melhor da cidade|\b5 estrelas\b/i.test(textoCompleto),
     });
     return itens;
-  }, [rascunho, similaridadeExterna, similaridadeInterna, textoCompleto]);
+  }, [rascunho, similaridadeExterna, similaridadeInterna, textoCompleto, limite]);
 
   const pronto = checklist.every((c) => c.ok);
 
   const copiar = async () => {
-    await navigator.clipboard.writeText(JSON.stringify(rascunho, null, 2));
+    await navigator.clipboard.writeText(JSON.stringify({ cluster, ...rascunho }, null, 2));
+    await registrarAuditoria({
+      area: "admin/editor-local",
+      action: "export:json-aprovado",
+      target: rascunho.local || "sem local",
+      details: {
+        cluster,
+        limiares: limite,
+        scoreExterno: similaridadeExterna.score,
+        scoreInterno: similaridadeInterna.score,
+        perfil,
+      },
+    });
+    setAuditoria(await lerAuditoria("admin/editor-local"));
     toast({ title: "JSON copiado", description: "Cole no bloco curado da rota correspondente." });
   };
 
@@ -158,7 +212,7 @@ const AdminEditorLocal = () => {
       </div>
     );
   }
-  if (!session || !isAdmin) return <Navigate to="/admin/login" replace />;
+  if (!session || !isRevisor) return <Navigate to="/admin/login" replace />;
 
   return (
     <div className="min-h-screen bg-background">
@@ -171,19 +225,71 @@ const AdminEditorLocal = () => {
           <div>
             <h1 className="font-heading text-2xl font-bold text-foreground">Editor guiado — conteúdo por cidade/bairro</h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Escreva contexto, sintomas, atendimento e casos reais. O checklist de originalidade
-              compara o rascunho com o que já está publicado antes de liberar a publicação.
+              Escreva contexto, sintomas, atendimento e casos reais. O checklist compara o rascunho com
+              o publicado usando o limiar do cluster escolhido e explica cada bloqueio.
             </p>
           </div>
-          <Button variant="outline" onClick={() => void carregar()} disabled={loading}>
-            {loading ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
-            ) : (
-              <RefreshCw className="mr-2 h-4 w-4" aria-hidden="true" />
-            )}
-            Recarregar base
-          </Button>
+          <div className="flex flex-wrap items-end gap-2">
+            <Badge variant="outline">Perfil: {perfil === "admin" ? "Administrador" : "Revisor"}</Badge>
+            <Button variant="outline" onClick={() => void carregar()} disabled={loading}>
+              {loading ? (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+              ) : (
+                <RefreshCw className="mr-2 h-4 w-4" aria-hidden="true" />
+              )}
+              Recarregar base
+            </Button>
+          </div>
         </header>
+
+        <Card className="mt-6 p-4">
+          <h2 className="font-heading text-lg font-semibold text-foreground">Limiares de similaridade por cluster</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Valem para o checklist deste editor. O gate de build continua bloqueando em 0,62 entre
+            páginas publicadas.
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {CLUSTERS.map((c) => (
+              <div key={c.id} className={`rounded-lg border p-3 ${cluster === c.id ? "border-primary" : "border-border"}`}>
+                <label className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <input
+                    type="radio"
+                    name="cluster"
+                    checked={cluster === c.id}
+                    onChange={() => setCluster(c.id)}
+                    aria-label={`Usar limiar de ${c.rotulo}`}
+                  />
+                  {c.rotulo}
+                </label>
+                <p className="mt-1 text-xs text-muted-foreground">{c.dica}</p>
+                <label className="mt-2 block text-xs text-muted-foreground">
+                  Externo ({(limiares[c.id] ?? PADRAO[c.id]).externo.toFixed(2)})
+                  <input
+                    type="range"
+                    min={0.2}
+                    max={0.7}
+                    step={0.01}
+                    value={(limiares[c.id] ?? PADRAO[c.id]).externo}
+                    onChange={(e) => ajustarLimiar(c.id, "externo", Number(e.target.value))}
+                    className="mt-1 w-full accent-primary"
+                  />
+                </label>
+                <label className="mt-1 block text-xs text-muted-foreground">
+                  Interno ({(limiares[c.id] ?? PADRAO[c.id]).interno.toFixed(2)})
+                  <input
+                    type="range"
+                    min={0.15}
+                    max={0.6}
+                    step={0.01}
+                    value={(limiares[c.id] ?? PADRAO[c.id]).interno}
+                    onChange={(e) => ajustarLimiar(c.id, "interno", Number(e.target.value))}
+                    className="mt-1 w-full accent-primary"
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
+        </Card>
 
         <Card className="mt-6 space-y-4 p-4">
           <label className="block text-sm text-muted-foreground">
@@ -215,27 +321,87 @@ const AdminEditorLocal = () => {
           <h2 className="font-heading text-lg font-semibold text-foreground">Checklist de originalidade</h2>
           <ul className="mt-3 space-y-2 text-sm">
             {checklist.map((c) => (
-              <li key={c.rotulo} className="flex items-center gap-2">
+              <li key={c.rotulo} className="flex gap-2">
                 {c.ok ? (
-                  <CheckCircle2 className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                 ) : (
-                  <XCircle className="h-4 w-4 text-destructive" aria-hidden="true" />
+                  <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden="true" />
                 )}
-                <span className={c.ok ? "text-muted-foreground" : "text-foreground"}>{c.rotulo}</span>
+                <span className={c.ok ? "text-muted-foreground" : "text-foreground"}>
+                  {c.rotulo}
+                  {typeof c.score === "number" && (
+                    <Badge variant="outline" className="ml-2">
+                      score {c.score.toFixed(3)}
+                    </Badge>
+                  )}
+                  {c.justificativa && (
+                    <span className="mt-1 flex gap-2 text-xs text-destructive">
+                      <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
+                      {c.justificativa}
+                    </span>
+                  )}
+                </span>
               </li>
             ))}
           </ul>
           <p className="mt-3 text-xs text-muted-foreground">
-            Similaridade máxima com publicado: {similaridadeExterna.score.toFixed(2)}
-            {similaridadeExterna.path ? ` (${similaridadeExterna.path})` : ""} · entre blocos:{" "}
-            {similaridadeInterna.score.toFixed(2)}
+            Cluster ativo: {CLUSTERS.find((c) => c.id === cluster)?.rotulo} · máximo com publicado{" "}
+            {similaridadeExterna.score.toFixed(3)}
+            {similaridadeExterna.path ? ` (${similaridadeExterna.path})` : ""} · entre blocos{" "}
+            {similaridadeInterna.score.toFixed(3)}
             {similaridadeInterna.par ? ` (${similaridadeInterna.par})` : ""}
           </p>
-          <Button className="mt-4" onClick={() => void copiar()} disabled={!pronto}>
-            <Copy className="mr-2 h-4 w-4" aria-hidden="true" />
-            {pronto ? "Copiar JSON aprovado" : "Complete o checklist para liberar"}
-          </Button>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Button onClick={() => void copiar()} disabled={!pronto}>
+              <Copy className="mr-2 h-4 w-4" aria-hidden="true" />
+              {pronto ? "Copiar JSON aprovado" : "Complete o checklist para liberar"}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() =>
+                exportarJson("checklist-originalidade", {
+                  cluster,
+                  limiares: limite,
+                  local: rascunho.local,
+                  checklist,
+                })
+              }
+            >
+              <Download className="mr-2 h-4 w-4" aria-hidden="true" />
+              Exportar checklist JSON
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() =>
+                exportarCsv(
+                  "checklist-originalidade",
+                  checklist.map((c) => ({
+                    item: c.rotulo,
+                    ok: c.ok ? "sim" : "não",
+                    score: c.score ?? "",
+                    justificativa: c.justificativa ?? "",
+                  })),
+                )
+              }
+            >
+              <Download className="mr-2 h-4 w-4" aria-hidden="true" />
+              Exportar checklist CSV
+            </Button>
+          </div>
         </Card>
+
+        <section className="mt-8">
+          <h2 className="font-heading text-lg font-semibold text-foreground">Log de auditoria</h2>
+          <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+            {auditoria.map((a) => (
+              <li key={a.id}>
+                {new Date(a.created_at).toLocaleString("pt-BR")} · {a.actor_email ?? "usuário"} · {a.action}
+                {a.target ? ` · ${a.target}` : ""}
+              </li>
+            ))}
+            {!auditoria.length && <li>Nenhuma exportação registrada ainda.</li>}
+          </ul>
+        </section>
       </main>
     </div>
   );

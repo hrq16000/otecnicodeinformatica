@@ -1,7 +1,8 @@
-import { forwardRef, type ComponentProps } from "react";
+import { forwardRef, useEffect, useRef, type ComponentProps } from "react";
 import { Loader2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { iniciarEstadoCarregamento } from "@/lib/interactionMetrics";
 
 type ButtonProps = ComponentProps<typeof Button>;
 
@@ -10,17 +11,54 @@ interface LoadingButtonProps extends ButtonProps {
   state?: "idle" | "loading" | "success" | "error";
   loadingLabel?: string;
   successLabel?: string;
+  /** Nome da superfície para telemetria (ex.: "avaliar:enviar"). */
+  metricSurface?: string;
 }
 
 /**
  * Botão com estados idle → loading → success/error.
  * O estado nunca é comunicado só por movimento: há ícone, texto e
  * `aria-busy`/`aria-live` para leitores de tela. Bloqueia duplo submit.
+ * Cada ciclo de loading é medido e enviado à telemetria de interação.
  */
 export const LoadingButton = forwardRef<HTMLButtonElement, LoadingButtonProps>(
-  ({ state = "idle", loadingLabel = "Enviando…", successLabel, children, className, disabled, ...rest }, ref) => {
+  (
+    {
+      state = "idle",
+      loadingLabel = "Enviando…",
+      successLabel,
+      metricSurface,
+      children,
+      className,
+      disabled,
+      ...rest
+    },
+    ref,
+  ) => {
     const loading = state === "loading";
     const success = state === "success";
+    const encerrar = useRef<((r?: "success" | "error" | "abort") => number) | null>(null);
+
+    useEffect(() => {
+      const superficie = metricSurface || (typeof children === "string" ? children : "loading-button");
+      if (loading && !encerrar.current) {
+        encerrar.current = iniciarEstadoCarregamento(superficie, "loading-button");
+        return;
+      }
+      if (!loading && encerrar.current) {
+        encerrar.current(state === "error" ? "error" : "success");
+        encerrar.current = null;
+      }
+    }, [loading, state, metricSurface, children]);
+
+    useEffect(
+      () => () => {
+        encerrar.current?.("abort");
+        encerrar.current = null;
+      },
+      [],
+    );
+
     return (
       <Button
         ref={ref}

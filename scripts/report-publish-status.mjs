@@ -86,8 +86,8 @@ const registros = metas.map((m) => {
     .map(([k]) => k);
 
   return {
-    path,
-    url: `${BASE_URL}${path === "/" ? "/" : path}`,
+    path: m.path,
+    url: `${BASE_URL}${m.path === "/" ? "/" : m.path}`,
     grupo,
     title: m.title,
     description: m.description,

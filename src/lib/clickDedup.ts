@@ -112,9 +112,98 @@ export function resetDedup() {
   if (typeof window === "undefined") return;
   try {
     window.sessionStorage.removeItem(KEY);
+    window.sessionStorage.removeItem(BUCKET_KEY);
   } catch {
     /* noop */
   }
 }
 
 export const DEDUP_CONFIG = { JANELA_MS, MAX_POR_EVENTO, MAX_RAJADA, RAJADA_MS };
+
+/* ------------------------------------------------------------------ *
+ * RATE LIMITING (token bucket) — Onda 27
+ *
+ * A deduplicação acima mata repetição do MESMO clique. O balde abaixo
+ * limita o VOLUME total de eventos de conversão/funil por sessão em
+ * picos (bot, page em kiosk, loop de re-render), evitando explosão de
+ * telemetria e custo. O clique do usuário nunca é bloqueado — só o
+ * envio do evento é descartado.
+ * ------------------------------------------------------------------ */
+
+const BUCKET_KEY = "click_bucket_v1";
+/** Capacidade máxima de eventos em rajada. */
+const CAPACIDADE = 20;
+/** Reposição de tokens por segundo (≈1 evento a cada 3s em regime). */
+const RECARGA_POR_MS = 1 / 3_000;
+
+interface BucketState {
+  tokens: number;
+  atualizadoEm: number;
+  descartados: number;
+}
+
+function lerBucket(agora: number): BucketState {
+  const inicial: BucketState = { tokens: CAPACIDADE, atualizadoEm: agora, descartados: 0 };
+  if (typeof window === "undefined") return inicial;
+  try {
+    const raw = window.sessionStorage.getItem(BUCKET_KEY);
+    if (!raw) return inicial;
+    const p = JSON.parse(raw) as BucketState;
+    return {
+      tokens: Number.isFinite(p.tokens) ? p.tokens : CAPACIDADE,
+      atualizadoEm: Number.isFinite(p.atualizadoEm) ? p.atualizadoEm : agora,
+      descartados: Number.isFinite(p.descartados) ? p.descartados : 0,
+    };
+  } catch {
+    return inicial;
+  }
+}
+
+function gravarBucket(state: BucketState) {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(BUCKET_KEY, JSON.stringify(state));
+  } catch {
+    /* noop */
+  }
+}
+
+export interface ResultadoRate {
+  permitido: boolean;
+  restantes: number;
+  descartados: number;
+}
+
+/**
+ * Consome um token do balde. Usado por `wa_click`, `call_click` e
+ * `funnel_open` antes de qualquer envio (GA4, Supabase, observabilidade).
+ */
+export function consumirToken(agora: number = Date.now()): ResultadoRate {
+  const state = lerBucket(agora);
+  const decorrido = Math.max(0, agora - state.atualizadoEm);
+  const tokens = Math.min(CAPACIDADE, state.tokens + decorrido * RECARGA_POR_MS);
+
+  if (tokens < 1) {
+    const proximo = { tokens, atualizadoEm: agora, descartados: state.descartados + 1 };
+    gravarBucket(proximo);
+    return { permitido: false, restantes: 0, descartados: proximo.descartados };
+  }
+
+  const proximo = { tokens: tokens - 1, atualizadoEm: agora, descartados: state.descartados };
+  gravarBucket(proximo);
+  return { permitido: true, restantes: Math.floor(proximo.tokens), descartados: proximo.descartados };
+}
+
+/** Decisão completa: dedup + rate limit. */
+export function podeMedirEvento(
+  eventType: string,
+  posicao: string,
+  agora: number = Date.now(),
+): { aceito: boolean; motivo?: MotivoDescarte | "rate_limit" } {
+  const dedup = avaliarClique(eventType, posicao, agora);
+  if (!dedup.aceito) return dedup;
+  const rate = consumirToken(agora);
+  return rate.permitido ? { aceito: true } : { aceito: false, motivo: "rate_limit" };
+}
+
+export const RATE_CONFIG = { CAPACIDADE, RECARGA_POR_MS };

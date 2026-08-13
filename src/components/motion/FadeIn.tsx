@@ -2,7 +2,7 @@ import { type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { staggerDelay } from "@/lib/motion";
 
-interface FadeInProps {
+interface FadeInProps extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
   children: ReactNode;
   /** Índice em uma lista curta — gera stagger limitado (máx. 6 passos). */
   index?: number;

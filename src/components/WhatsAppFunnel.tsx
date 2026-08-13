@@ -144,6 +144,7 @@ export const WhatsAppFunnel = () => {
   const [fallback, setFallback] = useState<{ message: string; url: string } | null>(null);
   const [copied, setCopied] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [previewCopied, setPreviewCopied] = useState(false);
 
   const submittingRef = useRef(false);
   const isTransitioning = useRef(false);

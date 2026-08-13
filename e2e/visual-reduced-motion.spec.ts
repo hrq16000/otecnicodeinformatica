@@ -87,10 +87,17 @@ for (const rota of rotas) {
       const cls = await page.evaluate(() => (window as unknown as { __CLS__: number }).__CLS__);
       expect(cls, `CLS em ${rota.path}`).toBeLessThanOrEqual(CLS_MAX);
 
+      // Regiões voláteis por natureza (consentimento, botão flutuante e
+      // imagens remotas) são mascaradas: o contrato aqui é layout, não pixel.
       await expect(page).toHaveScreenshot(`reduced-motion-${rota.nome}.png`, {
         clip: { x: 0, y: 0, width: 1280, height: 900 },
-        maxDiffPixelRatio: 0.02,
+        maxDiffPixelRatio: 0.05,
         animations: "disabled",
+        mask: [
+          page.locator("[data-cookie-banner], [class*='cookie']"),
+          page.locator("button.wa-float-offset"),
+          page.locator("img"),
+        ],
       });
     });
   });

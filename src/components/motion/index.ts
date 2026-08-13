@@ -11,6 +11,7 @@ export { LoadingButton } from "./LoadingButton";
 export { AsyncContent } from "./AsyncContent";
 export { Progress as MotionProgress } from "./Progress";
 export { AnimatedList } from "./AnimatedList";
+export { RouteTransition } from "./RouteTransition";
 export { motion, durationFor, staggerDelay } from "@/lib/motion";
 export {
   SkeletonCard,
@@ -22,4 +23,8 @@ export {
   SkeletonForm,
   SkeletonMetrics,
   SkeletonChart,
+  // Aliases nomeados conforme o Motion System Global.
+  SkeletonPage as PageSkeleton,
+  SkeletonCard as CardSkeleton,
+  SkeletonTable as TableSkeleton,
 } from "@/components/Skeleton";

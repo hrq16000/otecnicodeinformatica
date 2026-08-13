@@ -1654,8 +1654,15 @@ body[data-triage-open="1"] .wa-pulse {
     bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
+/* Sobe pelo banner de consentimento via transform: mexer em `bottom` gera
+   layout shift real (o botão é um elemento visível que muda de posição). */
 :root[data-consent-banner="open"] .wa-float-offset {
-  bottom: calc(var(--consent-banner-h, 132px) + 24px + env(safe-area-inset-bottom, 0px));
+  transform: translateY(calc(-1 * (var(--consent-banner-h, 132px) + 24px - 1.5rem)));
+}
+@media (max-width: 639px) {
+  :root[data-consent-banner="open"] .wa-float-offset {
+    transform: translateY(calc(-1 * (var(--consent-banner-h, 132px) + 24px - 6rem)));
+  }
 }
 
 /* ── Barra de rolagem com identidade da marca (grafite + acento ciano) ── */

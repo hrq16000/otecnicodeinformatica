@@ -15,7 +15,7 @@
  */
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { CURATED_PATHS, BASE_URL } from "./lib/curated-urls.mjs";
-import { routeMeta } from "./lib/seo-meta.mjs";
+import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const json = (f, fallback = null) => {
   try {
@@ -49,16 +49,17 @@ const jaccard = (a, b) => {
   return uniao ? inter / uniao : 0;
 };
 
-const metas = [];
-for (const path of CURATED_PATHS) {
-  let meta = {};
-  try {
-    meta = routeMeta(path) ?? {};
-  } catch {
-    meta = {};
-  }
-  metas.push({ path, title: meta.title ?? "", description: meta.description ?? "" });
-}
+const metaPorPath = new Map(CURATED_ROUTES.map((r) => [r.path, r]));
+
+const metas = CURATED_PATHS.map((path) => {
+  const meta = metaPorPath.get(path) ?? {};
+  return {
+    path,
+    title: meta.title ?? "",
+    description: meta.description ?? "",
+    temBlocos: Array.isArray(meta.blocos) && meta.blocos.length > 0,
+  };
+});
 
 const registros = metas.map((m) => {
   const grupo = grupoDe(m.path);
@@ -73,6 +74,7 @@ const registros = metas.map((m) => {
 
   const checklist = {
     rascunho: Boolean(m.title && m.description),
+    conteudo: m.temBlocos,
     metaTitle: m.title.length > 0 && m.title.length <= 65,
     metaDescription: m.description.length >= 80 && m.description.length <= 165,
     fotos: !precisaFoto || Boolean(foto && foto.status === "ok" && foto.exclusiva),

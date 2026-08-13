@@ -17,7 +17,7 @@
     "check:missing-exports": "node scripts/check-missing-exports.mjs",
     "check:telemetry-transparency": "node scripts/check-telemetry-transparency.mjs",
     "build": "vite build",
-    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/generate-noindex-shells.mjs dist && node scripts/check-soft-404.mjs && node scripts/check-http-route-semantics.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist && node scripts/check-image-integrity.mjs dist && node scripts/check-canonical-anchors.mjs dist && node scripts/check-imageobject-jsonld.mjs dist && node scripts/check-cross-cluster-similarity.mjs dist && node scripts/check-geo-conformance.mjs dist && node scripts/report-gates.mjs",
+    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/generate-noindex-shells.mjs dist && node scripts/check-soft-404.mjs && node scripts/check-http-route-semantics.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist && node scripts/check-image-integrity.mjs dist && node scripts/check-canonical-anchors.mjs dist && node scripts/check-imageobject-jsonld.mjs dist && node scripts/check-cross-cluster-similarity.mjs dist && node scripts/check-geo-conformance.mjs dist && node scripts/check-schema-standards.mjs dist && node scripts/report-gates.mjs",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
     "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "check:seo:curated": "bun scripts/check-seo-basics.ts --curated dist",
@@ -132,7 +132,6 @@
     "routes:manifest": "bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist",
     "check:soft404": "node scripts/check-soft-404.mjs",
     "check:geo": "node scripts/check-geo-conformance.mjs dist",
-
     "serve:dist": "node scripts/serve-dist.mjs",
     "check:jsonld-parity": "node scripts/check-jsonld-content-parity.mjs dist",
     "check:problemas-jsonld": "node scripts/check-problemas-jsonld.mjs dist",
@@ -206,7 +205,8 @@
     "report:publish-status": "node scripts/report-publish-status.mjs",
     "report:problemas-vitals": "node scripts/report-problemas-vitals.mjs",
     "monitor:approved-indexing": "node scripts/monitor-approved-indexing.mjs",
-    "sentry:sourcemaps": "node scripts/upload-sentry-sourcemaps.mjs dist"
+    "sentry:sourcemaps": "node scripts/upload-sentry-sourcemaps.mjs dist",
+    "check:schema-standards": "node scripts/check-schema-standards.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

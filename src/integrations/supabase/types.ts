@@ -491,6 +491,13 @@ export type Database = {
             referencedRelation: "partners"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "partner_photos_partner_id_fkey"
+            columns: ["partner_id"]
+            isOneToOne: false
+            referencedRelation: "partners_admin_view"
+            referencedColumns: ["id"]
+          },
         ]
       }
       partner_program_settings: {
@@ -780,7 +787,162 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      partners_admin_view: {
+        Row: {
+          aceite_termos_em: string | null
+          certificacoes: string[] | null
+          cidade: string | null
+          created_at: string | null
+          descricao: string | null
+          documento: string | null
+          documento_tipo: string | null
+          especialidades: string[] | null
+          estado: string | null
+          experiencia: string | null
+          formas_atendimento: string[] | null
+          foto_url: string | null
+          horario: string | null
+          id: string | null
+          nome_profissional: string | null
+          notas_admin: string | null
+          plano_expira_em: string | null
+          redes_sociais: Json | null
+          regioes_atendidas: string[] | null
+          servicos: string[] | null
+          site_url: string | null
+          slug: string | null
+          status: Database["public"]["Enums"]["partner_status"] | null
+          updated_at: string | null
+          user_id: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          aceite_termos_em?: string | null
+          certificacoes?: string[] | null
+          cidade?: string | null
+          created_at?: string | null
+          descricao?: string | null
+          documento?: string | null
+          documento_tipo?: string | null
+          especialidades?: string[] | null
+          estado?: string | null
+          experiencia?: string | null
+          formas_atendimento?: string[] | null
+          foto_url?: string | null
+          horario?: string | null
+          id?: string | null
+          nome_profissional?: string | null
+          notas_admin?: string | null
+          plano_expira_em?: string | null
+          redes_sociais?: Json | null
+          regioes_atendidas?: string[] | null
+          servicos?: string[] | null
+          site_url?: string | null
+          slug?: string | null
+          status?: Database["public"]["Enums"]["partner_status"] | null
+          updated_at?: string | null
+          user_id?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          aceite_termos_em?: string | null
+          certificacoes?: string[] | null
+          cidade?: string | null
+          created_at?: string | null
+          descricao?: string | null
+          documento?: string | null
+          documento_tipo?: string | null
+          especialidades?: string[] | null
+          estado?: string | null
+          experiencia?: string | null
+          formas_atendimento?: string[] | null
+          foto_url?: string | null
+          horario?: string | null
+          id?: string | null
+          nome_profissional?: string | null
+          notas_admin?: string | null
+          plano_expira_em?: string | null
+          redes_sociais?: Json | null
+          regioes_atendidas?: string[] | null
+          servicos?: string[] | null
+          site_url?: string | null
+          slug?: string | null
+          status?: Database["public"]["Enums"]["partner_status"] | null
+          updated_at?: string | null
+          user_id?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
+      reviews_admin_view: {
+        Row: {
+          author_name: string | null
+          author_photo_url: string | null
+          authorized_publication: boolean | null
+          city: string | null
+          client_phone: string | null
+          comment: string | null
+          created_at: string | null
+          google_review_url: string | null
+          id: string | null
+          neighborhood: string | null
+          origin_path: string | null
+          origin_protocol: string | null
+          published: boolean | null
+          rating: number | null
+          review_date: string | null
+          service_closed_at: string | null
+          service_slug: string | null
+          source: string | null
+          updated_at: string | null
+          verified: boolean | null
+        }
+        Insert: {
+          author_name?: string | null
+          author_photo_url?: string | null
+          authorized_publication?: boolean | null
+          city?: string | null
+          client_phone?: string | null
+          comment?: string | null
+          created_at?: string | null
+          google_review_url?: string | null
+          id?: string | null
+          neighborhood?: string | null
+          origin_path?: string | null
+          origin_protocol?: string | null
+          published?: boolean | null
+          rating?: number | null
+          review_date?: string | null
+          service_closed_at?: string | null
+          service_slug?: string | null
+          source?: string | null
+          updated_at?: string | null
+          verified?: boolean | null
+        }
+        Update: {
+          author_name?: string | null
+          author_photo_url?: string | null
+          authorized_publication?: boolean | null
+          city?: string | null
+          client_phone?: string | null
+          comment?: string | null
+          created_at?: string | null
+          google_review_url?: string | null
+          id?: string | null
+          neighborhood?: string | null
+          origin_path?: string | null
+          origin_protocol?: string | null
+          published?: boolean | null
+          rating?: number | null
+          review_date?: string | null
+          service_closed_at?: string | null
+          service_slug?: string | null
+          source?: string | null
+          updated_at?: string | null
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       admin_list_partners: {

@@ -2,6 +2,10 @@
   "ci": {
     "collect": {
       "url": [
+        "http://localhost:4173/",
+        "http://localhost:4173/problemas",
+        "http://localhost:4173/problemas/tela-azul",
+        "http://localhost:4173/empresas",
         "http://localhost:4173/assistencia-tecnica-curitiba",
         "http://localhost:4173/termos-e-condicoes",
         "http://localhost:4173/servicos/manutencao-preventiva-empresas",

@@ -324,7 +324,7 @@ jobs:
       - name: Resumo Lighthouse (LCP/CLS/TTFB/A11y)
         if: always()
         run: node scripts/report-lighthouse-summary.mjs
-      - name: Budgets de performance (FCP/LCP/CLS/TTFB/A11y)
+      - name: Budgets de performance (FCP/LCP/CLS/TTFB/TBT/INP/A11y)
         run: node scripts/check-performance-budgets.mjs
       - name: Upload resumo Lighthouse
         if: always()

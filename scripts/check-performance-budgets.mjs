@@ -9,6 +9,8 @@ const maxLcp = Number(process.env.PERF_BUDGET_LCP_MS || 3500);
 const maxCls = Number(process.env.PERF_BUDGET_CLS || 0.1);
 const maxTtfb = Number(process.env.PERF_BUDGET_TTFB_MS || 800);
 const minA11y = Number(process.env.PERF_BUDGET_A11Y || 0.9);
+const maxTbt = Number(process.env.PERF_BUDGET_TBT_MS || 350);
+const maxInp = Number(process.env.PERF_BUDGET_INP_MS || 200);
 
 const numeric = (audit) => Math.round(audit?.numericValue || 0);
 let checked = 0;
@@ -24,11 +26,18 @@ for (const dir of dirs) {
     const cls = report.audits["cumulative-layout-shift"]?.numericValue ?? 0;
     const ttfb = numeric(report.audits["server-response-time"]);
     const a11y = report.categories?.accessibility?.score;
+    const tbt = numeric(report.audits["total-blocking-time"]);
+    const inpAudit =
+      report.audits["interaction-to-next-paint"] ??
+      report.audits["experimental-interaction-to-next-paint"];
+    const inp = typeof inpAudit?.numericValue === "number" ? Math.round(inpAudit.numericValue) : null;
     checked++;
     if (fcp > maxFcp) failures.push(`${file}: FCP ${fcp}ms > ${maxFcp}ms`);
     if (lcp > maxLcp) failures.push(`${file}: LCP ${lcp}ms > ${maxLcp}ms`);
     if (cls > maxCls) failures.push(`${file}: CLS ${cls.toFixed(3)} > ${maxCls}`);
     if (ttfb > maxTtfb) failures.push(`${file}: TTFB ${ttfb}ms > ${maxTtfb}ms`);
+    if (tbt > maxTbt) failures.push(`${file}: TBT ${tbt}ms > ${maxTbt}ms`);
+    if (inp !== null && inp > maxInp) failures.push(`${file}: INP ${inp}ms > ${maxInp}ms`);
     if (typeof a11y === "number" && a11y < minA11y)
       failures.push(`${file}: acessibilidade ${a11y.toFixed(2)} < ${minA11y}`);
   }
@@ -45,5 +54,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Performance budgets OK (${checked} relatórios): FCP ≤ ${maxFcp}ms, LCP ≤ ${maxLcp}ms, CLS ≤ ${maxCls}, TTFB ≤ ${maxTtfb}ms, A11y ≥ ${minA11y}.`,
+  `Performance budgets OK (${checked} relatórios): FCP ≤ ${maxFcp}ms, LCP ≤ ${maxLcp}ms, CLS ≤ ${maxCls}, TTFB ≤ ${maxTtfb}ms, TBT ≤ ${maxTbt}ms, INP ≤ ${maxInp}ms, A11y ≥ ${minA11y}.`,
 );

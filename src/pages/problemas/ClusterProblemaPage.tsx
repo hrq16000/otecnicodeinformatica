@@ -257,6 +257,7 @@ const ClusterProblemaPage = () => {
           <h2 id="sintomas" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Como o problema costuma se manifestar
           </h2>
+          <CtaContextual secao="sintomas" mensagem="O sintoma mais parecido com o meu caso é:" quando="antes" />
           <div className="grid gap-4 sm:grid-cols-2">
             {dados.sintomas.map((s) => (
               <article key={s.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -272,6 +273,7 @@ const ClusterProblemaPage = () => {
           <h2 id="causas" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Causas investigadas no diagnóstico
           </h2>
+          <CtaContextual secao="causas" mensagem="Quero uma triagem para descobrir a causa." quando="antes" />
           <ul className="space-y-3">
             {dados.causas.map((c) => (
               <li key={c.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -317,6 +319,7 @@ const ClusterProblemaPage = () => {
           <h2 id="modalidades" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Modalidades possíveis de atendimento
           </h2>
+          <CtaContextual secao="modalidades" mensagem="Quero saber qual modalidade se aplica ao meu caso." quando="antes" />
           <div className="grid gap-4 sm:grid-cols-3">
             {dados.modalidades.map((m) => (
               <article key={m.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -334,12 +337,16 @@ const ClusterProblemaPage = () => {
           </p>
         </section>
 
+          <CtaContextual secao="modalidades" mensagem="Quero saber qual modalidade se aplica ao meu caso." />
+        </section>
+
         <PoliticaAtendimentoBloco variant="inline" />
 
         <section className="mt-12" aria-labelledby="faq">
           <h2 id="faq" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Perguntas frequentes sobre este problema
           </h2>
+          <CtaContextual secao="faq" mensagem="Minha dúvida é:" quando="antes" />
           <div className="space-y-4">
             {dados.faq.map((f, i) => {
               const rel = dados.relacionados[i % dados.relacionados.length];

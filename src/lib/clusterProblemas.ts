@@ -1102,7 +1102,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/formatacao-e-instalacao-de-sistemas", titulo: "Formatação e instalação de sistemas", desc: "Quando reinstalar é mesmo o caminho — e como os dados são preservados." },
+      { to: "/servicos/formatacao", titulo: "Formatação e instalação de sistemas", desc: "Quando reinstalar é mesmo o caminho — e como os dados são preservados." },
       { to: "/problemas/tela-azul", titulo: "Tela azul no Windows", desc: "Quando o erro aparece com o sistema já carregado." },
       { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Partida demorada que ainda conclui pede outra investigação." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },

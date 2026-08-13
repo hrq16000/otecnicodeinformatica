@@ -68,7 +68,11 @@ const ProblemaPage = () => {
   const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
-  useCanonical(`${SITE_BASE_URL}/problemas/${data?.slug ?? slug ?? ""}`);
+  // Rodada 4C: URLs herdadas com sufixo local apontam canonical para o sintoma
+  // canônico decidido em src/lib/problemDecisions4c.ts (nenhuma URL é removida).
+  useCanonical(
+    `${SITE_BASE_URL}${canonicalDecidido(`/problemas/${data?.slug ?? slug ?? ""}`)}`,
+  );
 
   useEffect(() => {
     if (!slug) { setLoading(false); return; }

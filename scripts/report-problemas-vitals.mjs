@@ -12,7 +12,7 @@
  *   node scripts/report-problemas-vitals.mjs --alert    # exit 1 fora do orçamento
  *   PSI_API_KEY=... (opcional)
  */
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from "node:fs";
 import { PROBLEMAS, BASE_URL } from "./lib/curated-urls.mjs";
 
 const ALERT = process.argv.includes("--alert");
@@ -68,12 +68,82 @@ for (const path of rotas) {
   }
 }
 
+// ── Comparação com o baseline (regressão entre deploys) ────────────────────
+const BASELINE = "reports/problemas-vitals-baseline.json";
+const TOLERANCIA = { LCP: 0.1, INP: 0.1, CLS: 0.02 }; // 10% de piora ou +0.02 CLS
+const baseline = existsSync(BASELINE)
+  ? JSON.parse(readFileSync(BASELINE, "utf8"))
+  : null;
+const regressoes = [];
+if (baseline?.rotas) {
+  const antes = new Map(baseline.rotas.map((r) => [r.path, r.resumo ?? {}]));
+  for (const l of linhas) {
+    const a = antes.get(l.path);
+    if (!a) continue;
+    for (const m of ["LCP", "INP"]) {
+      if (typeof a[m] === "number" && typeof l.resumo[m] === "number" && a[m] > 0) {
+        const delta = (l.resumo[m] - a[m]) / a[m];
+        if (delta > TOLERANCIA[m])
+          regressoes.push(`${l.path}: ${m} ${a[m]} → ${l.resumo[m]} (+${(delta * 100).toFixed(0)}%)`);
+      }
+    }
+    if (typeof a.CLS === "number" && typeof l.resumo.CLS === "number" && l.resumo.CLS - a.CLS > TOLERANCIA.CLS)
+      regressoes.push(`${l.path}: CLS ${a.CLS} → ${l.resumo.CLS}`);
+  }
+}
+
+// ── Envio opcional para o coletor OTLP (mesma env do runtime) ──────────────
+const OTLP = process.env.OTLP_ENDPOINT || process.env.VITE_OTLP_ENDPOINT;
+if (OTLP) {
+  const agora = String(Date.now() * 1e6);
+  const metricas = linhas.flatMap((l) =>
+    ["LCP", "INP", "CLS"]
+      .filter((m) => typeof l.resumo[m] === "number")
+      .map((m) => ({
+        name: `web_vitals.${m.toLowerCase()}`,
+        unit: m === "CLS" ? "1" : "ms",
+        gauge: {
+          dataPoints: [
+            {
+              asDouble: l.resumo[m],
+              timeUnixNano: agora,
+              attributes: [
+                { key: "url.path", value: { stringValue: l.path } },
+                { key: "strategy", value: { stringValue: STRATEGY } },
+              ],
+            },
+          ],
+        },
+      })),
+  );
+  try {
+    const res = await fetch(`${OTLP.replace(/\/$/, "")}/v1/metrics`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        resourceMetrics: [
+          {
+            resource: {
+              attributes: [{ key: "service.name", value: { stringValue: "otecnicodeinformatica" } }],
+            },
+            scopeMetrics: [{ scope: { name: "post-deploy-vitals" }, metrics: metricas }],
+          },
+        ],
+      }),
+    });
+    console.log(`OTLP: ${metricas.length} métricas enviadas [${res.status}]`);
+  } catch (e) {
+    console.log(`OTLP indisponível (${e.message}) — relatório local gerado mesmo assim.`);
+  }
+}
+
 const relatorio = {
   generatedAt: new Date().toISOString(),
   strategy: STRATEGY,
   budget: BUDGET,
   total: linhas.length,
   violacoes,
+  regressoes,
   rotas: linhas,
 };
 
@@ -96,9 +166,22 @@ writeFileSync(
     violacoes.length
       ? `## Fora do orçamento\n\n${violacoes.map((v) => `- ${v}`).join("\n")}`
       : `Todas as rotas medidas dentro do orçamento.`,
+    ``,
+    baseline
+      ? regressoes.length
+        ? `## Regressão vs. baseline (${baseline.generatedAt})\n\n${regressoes.map((r) => `- ${r}`).join("\n")}`
+        : `Sem regressão em relação ao baseline (${baseline.generatedAt}).`
+      : `Sem baseline salvo. Grave \`reports/problemas-vitals-baseline.json\` a partir deste relatório para comparar os próximos deploys.`,
   ].join("\n"),
 );
 
-console.log(`Web Vitals /problemas: ${linhas.length} rotas · ${violacoes.length} fora do orçamento`);
+console.log(
+  `Web Vitals /problemas: ${linhas.length} rotas · ${violacoes.length} fora do orçamento · ${regressoes.length} regressão(ões)`,
+);
 for (const v of violacoes) console.log(`  · ${v}`);
-if (violacoes.length && ALERT) process.exit(1);
+for (const r of regressoes) console.log(`  ↓ ${r}`);
+if (process.argv.includes("--save-baseline")) {
+  writeFileSync(BASELINE, `${JSON.stringify(relatorio, null, 2)}\n`);
+  console.log(`Baseline gravado em ${BASELINE}`);
+}
+if ((violacoes.length || regressoes.length) && ALERT) process.exit(1);

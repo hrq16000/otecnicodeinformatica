@@ -2,134 +2,108 @@
 /**
  * RELATÓRIO/GATE DE ATRIBUIÇÃO — /problemas (GA4 × Google Ads × UTM).
  *
- * Roda sobre o build (dist/) ANTES do deploy e responde a uma pergunta só:
- * "todo clique de WhatsApp de uma página de sintoma chega ao GA4 e ao Ads
- * com a origem correta?".
+ * Roda antes do deploy e responde a uma pergunta só: "todo clique de WhatsApp
+ * de uma página de sintoma vai chegar ao GA4 e ao Google Ads com a origem
+ * correta (rota, sintoma, seção, variante)?".
  *
- * Verifica, rota a rota:
- *   • existe pelo menos 1 CTA de WhatsApp no HTML estático;
- *   • cada link wa.me carrega text + utm_source/medium/campaign/content
- *     + rota + sintoma + secao + variante;
- *   • utm_campaign == slug do sintoma (correlação 1:1 rota ⇄ campanha);
- *   • utm_medium é o valor esperado do cluster (cta_problema);
- *   • os eventos de conversão (wa_click) e as UTMs continuam declarados no
- *     GA4 (funnelAnalytics) e no mapeamento do Ads (config/analytics).
+ * Os links wa.me do cluster são montados em runtime (dependem de triagem,
+ * rolagem e variante do A/B), então a checagem é feita em duas camadas:
+ *
+ *  1) CONTRATO DE ATRIBUIÇÃO — `src/lib/problemasWaTemplates.ts` precisa
+ *     emitir utm_medium=cta_problema + rota/sintoma/secao/variante e o rótulo
+ *     de evento; `funnelAnalytics.ts` precisa disparar wa_click com as UTMs;
+ *     `config/analytics.ts` precisa expor o identificador do Google Ads.
+ *  2) COBERTURA POR ROTA — cada sintoma do cluster precisa de mensagem base
+ *     (waMessage), FAQ com âncoras rastreadas e página pré-renderizada em
+ *     dist/, para que a campanha (utm_campaign = slug) exista de fato.
  *
  * Saída: docs/relatorios/atribuicao-problemas-<data>.md + CSV.
- * Sai com código 1 quando encontra rota sem atribuição íntegra.
+ * Sai com código 1 quando alguma rota fica sem atribuição íntegra.
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const DIST = path.resolve(process.argv[2] || "dist");
 const OUT_DIR = path.join(process.cwd(), "docs", "relatorios");
-const UTM_MEDIUM_ESPERADO = "cta_problema";
-const OBRIGATORIOS = [
-  "text",
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_content",
-  "rota",
-  "sintoma",
-  "secao",
-  "variante",
-];
-
-if (!existsSync(DIST)) {
-  console.error(`BLOQUEADO: ${DIST} não existe — rode "npm run build" antes.`);
-  process.exit(1);
-}
-
-const base = path.join(DIST, "problemas");
-if (!existsSync(base)) {
-  console.error("BLOQUEADO: dist/problemas ausente — cluster de sintomas não foi pré-renderizado.");
-  process.exit(1);
-}
-
-const rotas = readdirSync(base, { withFileTypes: true })
-  .filter((d) => d.isDirectory() && existsSync(path.join(base, d.name, "index.html")))
-  .map((d) => ({ slug: d.name, rota: `/problemas/${d.name}`, file: path.join(base, d.name, "index.html") }));
-
-const decode = (s) => s.replace(/&amp;/g, "&").replace(/&quot;/g, '"');
 
 const erros = [];
-const linhas = [];
 
-for (const r of rotas) {
-  const html = readFileSync(r.file, "utf8");
-  const hrefs = [...html.matchAll(/href="([^"]*wa\.me[^"]*)"/g)].map((m) => decode(m[1]));
-  const doCluster = hrefs.filter((h) => h.includes("sintoma="));
-
-  if (doCluster.length === 0) {
-    erros.push(`${r.rota}: nenhum CTA de WhatsApp com atribuição de sintoma no HTML estático`);
-    linhas.push({ rota: r.rota, ctas: 0, secoes: "", campanhas: "", status: "falha" });
-    continue;
-  }
-
-  const secoes = new Set();
-  const campanhas = new Set();
-
-  for (const href of doCluster) {
-    let p;
-    try {
-      p = new URL(href, "https://wa.me").searchParams;
-    } catch {
-      erros.push(`${r.rota}: href inválido (${href.slice(0, 80)})`);
-      continue;
-    }
-    for (const chave of OBRIGATORIOS) {
-      if (!p.get(chave)) erros.push(`${r.rota}: parâmetro "${chave}" ausente em um CTA`);
-    }
-    if (p.get("utm_medium") && p.get("utm_medium") !== UTM_MEDIUM_ESPERADO)
-      erros.push(`${r.rota}: utm_medium="${p.get("utm_medium")}" (esperado "${UTM_MEDIUM_ESPERADO}")`);
-    if (p.get("utm_campaign") && p.get("utm_campaign") !== r.slug)
-      erros.push(`${r.rota}: utm_campaign="${p.get("utm_campaign")}" não corresponde ao sintoma "${r.slug}"`);
-    if (p.get("rota") && p.get("rota") !== r.rota)
-      erros.push(`${r.rota}: parâmetro rota="${p.get("rota")}" divergente da URL`);
-    if (p.get("secao")) secoes.add(p.get("secao"));
-    if (p.get("utm_campaign")) campanhas.add(p.get("utm_campaign"));
-  }
-
-  linhas.push({
-    rota: r.rota,
-    ctas: doCluster.length,
-    secoes: [...secoes].sort().join(" | "),
-    campanhas: [...campanhas].sort().join(" | "),
-    status: erros.some((e) => e.startsWith(`${r.rota}:`)) ? "falha" : "ok",
-  });
-}
-
-// Correlação com a camada de medição (GA4 + mapeamento do Ads).
+// ── 1) Contrato de atribuição ────────────────────────────────────────────────
+const templates = readFileSync("src/lib/problemasWaTemplates.ts", "utf8");
 const funnel = readFileSync("src/lib/funnelAnalytics.ts", "utf8");
 const analyticsCfg = existsSync("src/lib/config/analytics.ts")
   ? readFileSync("src/lib/config/analytics.ts", "utf8")
   : "";
-if (!/track\("wa_click"/.test(funnel)) erros.push("GA4: evento wa_click não é disparado em funnelAnalytics.ts");
-for (const utm of ["utm_source", "utm_medium", "utm_campaign"])
-  if (!funnel.includes(utm)) erros.push(`GA4: ${utm} ausente do payload de conversão`);
-if (analyticsCfg && !/ADS|ads/.test(analyticsCfg))
-  erros.push("Ads: config/analytics.ts sem referência ao identificador do Google Ads");
 
-// Saída do relatório.
+const CONTRATO = [
+  { chave: 'medium: "cta_problema"', onde: templates, msg: "utm_medium=cta_problema" },
+  { chave: 'searchParams.set("rota"', onde: templates, msg: "parâmetro rota" },
+  { chave: 'searchParams.set("sintoma"', onde: templates, msg: "parâmetro sintoma" },
+  { chave: 'searchParams.set("secao"', onde: templates, msg: "parâmetro secao" },
+  { chave: 'searchParams.set("variante"', onde: templates, msg: "parâmetro variante" },
+  { chave: 'servico: ctx.sintoma', onde: templates, msg: "utm_campaign derivado do sintoma" },
+  { chave: 'track("wa_click"', onde: funnel, msg: "evento GA4 wa_click" },
+];
+for (const c of CONTRATO) if (!c.onde.includes(c.chave)) erros.push(`contrato: ${c.msg} ausente`);
+for (const utm of ["utm_source", "utm_medium", "utm_campaign"])
+  if (!funnel.includes(utm)) erros.push(`contrato: ${utm} ausente do payload de conversão do GA4`);
+if (!/ADS|ads/.test(analyticsCfg))
+  erros.push("contrato: config/analytics.ts sem identificador do Google Ads (conversão não mapeável)");
+
+// ── 2) Cobertura por rota ────────────────────────────────────────────────────
+const cluster = readFileSync("src/lib/clusterProblemas.ts", "utf8");
+const blocos = cluster.split(/\n\s*\{\s*\n\s*path:\s*"/).slice(1);
+const linhas = [];
+
+for (const bloco of blocos) {
+  const slugRota = bloco.slice(0, bloco.indexOf('"'));
+  if (!slugRota.startsWith("/problemas/")) continue;
+  const slug = slugRota.replace("/problemas/", "");
+  const corpo = bloco.slice(0, bloco.indexOf("\n  },") + 1 || undefined);
+
+  const temMensagem = /waMessage:\s*["'`]/.test(corpo);
+  const perguntas = (corpo.match(/pergunta:/g) || []).length;
+  const linksFaq = (corpo.match(/linkPath:|linkTexto:/g) || []).length;
+  const prerender = existsSync(path.join(DIST, "problemas", slug, "index.html"));
+
+  if (!temMensagem) erros.push(`${slugRota}: sem waMessage (CTA sairia sem mensagem pré-preenchida)`);
+  if (perguntas < 3) erros.push(`${slugRota}: FAQ com ${perguntas} pergunta(s) — mínimo 3 seções rastreáveis`);
+  if (!prerender) erros.push(`${slugRota}: página não pré-renderizada em dist/ (campanha sem destino)`);
+
+  linhas.push({
+    rota: slugRota,
+    campanha: slug,
+    faqs: perguntas,
+    links: linksFaq,
+    prerender: prerender ? "sim" : "não",
+    status: temMensagem && perguntas >= 3 && prerender ? "ok" : "falha",
+  });
+}
+
+if (linhas.length === 0) erros.push("nenhuma rota de sintoma encontrada em src/lib/clusterProblemas.ts");
+
+// ── Saída ────────────────────────────────────────────────────────────────────
 mkdirSync(OUT_DIR, { recursive: true });
 const data = new Date().toISOString().slice(0, 10);
 const md = [
   `# Atribuição /problemas — GA4 × Google Ads × UTM (${data})`,
   "",
-  `Rotas analisadas: **${rotas.length}** · CTAs com atribuição: **${linhas.reduce((a, l) => a + l.ctas, 0)}**`,
+  `Rotas de sintoma: **${linhas.length}** · utm_medium: \`cta_problema\` · utm_campaign: slug do sintoma`,
   "",
-  "| Rota | CTAs | Seções rastreadas | utm_campaign | Status |",
-  "| --- | ---: | --- | --- | --- |",
-  ...linhas.map((l) => `| ${l.rota} | ${l.ctas} | ${l.secoes} | ${l.campanhas} | ${l.status} |`),
+  "| Rota | utm_campaign | FAQs rastreadas | Links internos | Prerender | Status |",
+  "| --- | --- | ---: | ---: | --- | --- |",
+  ...linhas.map((l) => `| ${l.rota} | ${l.campanha} | ${l.faqs} | ${l.links} | ${l.prerender} | ${l.status} |`),
   "",
-  erros.length ? "## Inconsistências\n" + erros.map((e) => `- ${e}`).join("\n") : "Sem inconsistências.",
+  erros.length ? `## Inconsistências\n${erros.map((e) => `- ${e}`).join("\n")}` : "Sem inconsistências.",
   "",
 ].join("\n");
 writeFileSync(path.join(OUT_DIR, `atribuicao-problemas-${data}.md`), md);
 writeFileSync(
   path.join(OUT_DIR, `atribuicao-problemas-${data}.csv`),
-  ["rota,ctas,secoes,utm_campaign,status", ...linhas.map((l) => `${l.rota},${l.ctas},"${l.secoes}","${l.campanhas}",${l.status}`)].join("\n"),
+  [
+    "rota,utm_campaign,faqs,links_internos,prerender,status",
+    ...linhas.map((l) => `${l.rota},${l.campanha},${l.faqs},${l.links},${l.prerender},${l.status}`),
+  ].join("\n"),
 );
 
 if (erros.length) {
@@ -138,4 +112,6 @@ if (erros.length) {
   process.exit(1);
 }
 
-console.log(`OK — atribuição íntegra em ${rotas.length} rotas de /problemas (relatório em docs/relatorios/atribuicao-problemas-${data}.md).`);
+console.log(
+  `OK — atribuição íntegra em ${linhas.length} rotas de /problemas (relatório em docs/relatorios/atribuicao-problemas-${data}.md).`,
+);

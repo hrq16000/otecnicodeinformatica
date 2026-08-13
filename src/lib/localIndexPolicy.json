@@ -124,17 +124,6 @@
     },
 
     {
-      "path": "/bairros/curitiba",
-      "family": "BAIRRO",
-      "indexability": "canonicalized",
-      "canonical": "/tecnico-informatica-curitiba",
-      "sitemap": false,
-      "parent": "/tecnico-informatica-curitiba",
-      "intent": "—",
-      "reason": "Alias de cidade dentro da família de bairros: a intenção pertence à landing da cidade."
-    },
-
-    {
       "path": "/servicos/manutencao-de-notebook/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",

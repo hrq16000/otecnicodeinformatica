@@ -24,6 +24,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { siteConfig, absoluteUrl, SITE_BASE_URL } from "@/lib/siteConfig";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import NotFound from "./NotFound";
+import { SkeletonSection } from "@/components/SkeletonSection";
 
 const BAIRROS_ATENDIDOS = [
   { to: "/bairros/batel", label: "Batel" },

@@ -5,6 +5,8 @@ import { installCtaRuntimeGuard } from "./lib/ctaRuntimeGuard";
 
 initErrorReporter();
 installCtaRuntimeGuard();
+// Observabilidade (Sentry/OTLP) — só ativa quando as envs estão configuradas.
+import("./lib/observability").then(({ iniciarObservabilidade }) => iniciarObservabilidade());
 import("./lib/observability").then(({ iniciarObservabilidade }) => iniciarObservabilidade());
 // RODADA 1 — trava de indexação + analytics só da propriedade própria.
 import("./lib/indexingPolicy").then(({ applyIndexingPolicy }) => applyIndexingPolicy());

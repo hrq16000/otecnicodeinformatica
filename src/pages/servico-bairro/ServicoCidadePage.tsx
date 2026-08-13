@@ -15,6 +15,7 @@ import { SERVICOS, CIDADES, getServico, getCidade, getFaqPorServico } from "@/li
 import { ServiceCityLinks } from "@/components/ServiceCityLinks";
 import NotFound from "@/pages/NotFound";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
+import { resolveLocal } from "@/lib/localIndexPolicy";
 
 const WHATSAPP_NUMBER = WA_NUMBER;
 
@@ -33,15 +34,17 @@ const ServicoCidadePage = () => {
         `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
       );
     }
-    upsertCanonical(`${SITE_BASE_URL}/servicos/${servicoSlug}/${cidadeSlug}`);
-    // Página herdada serviço×cidade (thin) — não deve competir com os serviços canônicos.
+    // RODADA 5: canonical e robots vêm da política local (fonte única).
+    const decisao = resolveLocal(`/servicos/${servicoSlug}/${cidadeSlug}`);
+    upsertCanonical(`${SITE_BASE_URL}${decisao.canonical}`);
+    // Serviço × cidade sem intenção local própria: autoridade fica no serviço-pai.
     let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
     if (!robots) {
       robots = document.createElement("meta");
       robots.name = "robots";
       document.head.appendChild(robots);
     }
-    robots.content = "noindex, follow";
+    robots.content = decisao.indexability === "index" ? "index, follow" : "noindex, follow";
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
   }, [servico, cidade, servicoSlug, cidadeSlug]);
 

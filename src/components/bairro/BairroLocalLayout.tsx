@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { isNoindex } from "@/lib/localIndexPolicy";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -74,6 +75,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
         title={data.metaTitle}
         description={data.metaDescription}
         path={path}
+        noindex={isNoindex(path)}
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "O Técnico de Informática", path: CURITIBA_PATH },

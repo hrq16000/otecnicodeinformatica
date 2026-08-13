@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { isNoindex } from "@/lib/localIndexPolicy";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
@@ -73,6 +74,7 @@ export const CidadeLandingLayout = ({ data }: { data: CidadeData }) => {
         title={data.metaTitle}
         description={data.metaDescription}
         path={path}
+        noindex={isNoindex(path)}
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Serviços", path: "/servicos" },

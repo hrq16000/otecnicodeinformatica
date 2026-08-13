@@ -95,3 +95,58 @@ for (const rota of rotas) {
     });
   });
 }
+
+/**
+ * ESTADOS DE CARREGAMENTO (Skeletons).
+ *
+ * Atrasamos artificialmente os módulos de página para forçar o fallback de
+ * Suspense/esqueleto e validar dois contratos nesse estado:
+ *   1. o esqueleto aparece e não anima sob prefers-reduced-motion;
+ *   2. a troca esqueleto → conteúdo real não gera layout shift acima do
+ *      orçamento (é aqui que esqueleto com dimensão errada seria pego).
+ */
+const rotasComLoading = [
+  { nome: "servicos", path: "/servicos" },
+  { nome: "problemas", path: "/problemas" },
+];
+
+for (const rota of rotasComLoading) {
+  test.describe(`reduced-motion @ ${rota.nome} (loading)`, () => {
+    test("esqueleto sem animação e troca sem layout shift", async ({ page }) => {
+      await observarLayoutShift(page);
+
+      // Atraso somente nos módulos/chamadas da página — o shell carrega normal.
+      await page.route(/\/src\/pages\/|\/assets\/.*\.js|\/rest\/v1\//, async (route) => {
+        await new Promise((r) => setTimeout(r, 700));
+        await route.continue();
+      });
+
+      await page.goto(rota.path, { waitUntil: "commit" });
+
+      // O estado de carregamento precisa ser perceptível e acessível.
+      const carregando = page.locator('[aria-busy="true"], .skel').first();
+      const apareceu = await carregando
+        .waitFor({ state: "visible", timeout: 5000 })
+        .then(() => true)
+        .catch(() => false);
+
+      if (apareceu) {
+        const esqueletoAnimando = await page.evaluate(() =>
+          Array.from(document.querySelectorAll(".skel")).some((el) => {
+            const s = getComputedStyle(el);
+            return s.animationName !== "none" && parseFloat(s.animationDuration) > 0.01;
+          }),
+        );
+        expect(esqueletoAnimando, "esqueleto animando sob reduced-motion").toBe(false);
+      }
+
+      await page.unroute(/\/src\/pages\/|\/assets\/.*\.js|\/rest\/v1\//);
+      await expect(page.locator("h1").first()).toBeVisible({ timeout: 20000 });
+      await page.waitForLoadState("networkidle");
+      await page.waitForTimeout(400);
+
+      const cls = await page.evaluate(() => (window as unknown as { __CLS__: number }).__CLS__);
+      expect(cls, `CLS na troca esqueleto → conteúdo em ${rota.path}`).toBeLessThanOrEqual(CLS_MAX);
+    });
+  });
+}

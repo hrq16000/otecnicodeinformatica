@@ -38,6 +38,7 @@
 - [Onda 24 — sintomas urgentes /problemas](mem://features/cluster-problemas-onda-24) — hd-fazendo-barulho e notebook-molhado indexáveis, espelho estático obrigatório e herdadas *-curitiba seguem noindex.
 - [Onda 25 — sintomas elétricos + gate JSON-LD](mem://features/cluster-problemas-onda-25) — /problemas/computador-nao-da-imagem, /problemas/cheiro-de-queimado e o gate check:problemas-jsonld (WebPage+FAQPage+Breadcrumb).
 - [Onda 32 — Windows não inicia e superaquecimento](mem://features/cluster-problemas-onda-32) — 2 rotas novas em /problemas e os 4 arquivos obrigatórios ao criar sintoma.
+- [Onda 33 — impressora e teclado de notebook](mem://features/cluster-problemas-onda-33) — /problemas/impressora-nao-imprime e /problemas/teclado-notebook-nao-funciona, 14 rotas com JSON-LD completo.
 - [Onda 26 — observabilidade e qualidade](mem://features/observabilidade-qualidade-onda26) — Sentry/OTLP fail-closed sem SDK, Biome no CI, Stryker semanal e relatório de atribuição /problemas.
 - [Onda 27 — governança de publicação](mem://features/governanca-publicacao-onda27) — Painel /admin/publicacao, gate de fotos reais, interlinks gerados com âncoras únicas, rate limit de telemetria e monitor de indexação.
 - [Onda 28 — CTA A/B e gate cross-cluster](mem://features/onda-28-cta-ab-intent-gate) — Variantes cta_1/cta_2 (copy + posição), check:intent-collisions e vitals com baseline/OTLP.

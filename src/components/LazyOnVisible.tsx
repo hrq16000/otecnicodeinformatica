@@ -6,6 +6,8 @@ interface LazyOnVisibleProps {
   minHeight?: string;
   /** Distance (px) ahead of viewport that triggers mount. */
   rootMargin?: string;
+  /** Optional visual placeholder (skeleton) shown while not mounted. */
+  placeholder?: ReactNode;
 }
 
 /**
@@ -17,6 +19,7 @@ export const LazyOnVisible = ({
   children,
   minHeight = "400px",
   rootMargin = "0px 0px",
+  placeholder,
 }: LazyOnVisibleProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -43,7 +46,11 @@ export const LazyOnVisible = ({
   }, [visible, rootMargin]);
 
   if (visible) return <>{children}</>;
-  return <div ref={ref} aria-hidden="true" style={{ minHeight }} />;
+  return (
+    <div ref={ref} aria-hidden="true" style={{ minHeight }}>
+      {placeholder}
+    </div>
+  );
 };
 
 export default LazyOnVisible;

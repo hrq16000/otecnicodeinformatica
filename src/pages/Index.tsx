@@ -10,6 +10,7 @@ import { FaixaFotografica } from "@/components/home/FaixaFotografica";
 import { TrustStrip } from "@/components/TrustStrip";
 
 import { LazyOnVisible } from "@/components/LazyOnVisible";
+import { SkeletonSection } from "@/components/SkeletonSection";
 import { siteConfig } from "@/lib/siteConfig";
 
 const HomeSections = lazy(() =>
@@ -17,8 +18,9 @@ const HomeSections = lazy(() =>
 );
 const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
+// ONDA 4T/5J — placeholder de carregamento com shimmer (nunca espaço em branco).
 const SectionFallback = ({ height = "480px" }: { height?: string }) => (
-  <div style={{ minHeight: height }} className="w-full" aria-hidden="true" />
+  <SkeletonSection height={height} />
 );
 
 const Index = () => {
@@ -54,14 +56,22 @@ const Index = () => {
 
 
 
-        <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">
+        <LazyOnVisible
+          minHeight="900px"
+          rootMargin="-200px 0px"
+          placeholder={<SectionFallback height="900px" />}
+        >
           <Suspense fallback={<SectionFallback height="900px" />}>
             <HomeSections />
           </Suspense>
         </LazyOnVisible>
       </main>
 
-      <LazyOnVisible minHeight="400px" rootMargin="-100px 0px">
+      <LazyOnVisible
+        minHeight="400px"
+        rootMargin="-100px 0px"
+        placeholder={<SectionFallback height="400px" />}
+      >
         <Suspense fallback={<SectionFallback height="400px" />}>
           <Footer />
         </Suspense>

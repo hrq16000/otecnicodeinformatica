@@ -45,3 +45,4 @@
 - [Onda 29 — indexação e imagens](mem://features/onda-29-indexacao-imagens) — Service JSON-LD em /problemas, gates check:image-integrity e check:canonical-anchors, image sitemap no índice e reindex:pending com backoff.
 - [Onda 30 — fotos, editor local e similaridade cruzada](mem://features/onda-30-fotos-editor-similaridade) — /admin/fotos (preview+hash+EXIF), /admin/editor-local com checklist de originalidade, /admin/performance-local (GSC+cliques), ImageObject estático e gate check:cross-cluster.
 - [Rodada 4C — consolidação e hardening](mem://features/rodada-4c-consolidacao-hardening) — 21 páginas "reavaliar" decididas (17 canonical, 4 Lote 2), colunas sensíveis de parceiros bloqueadas e realtime sem PII.
+- [Painel de auditoria de acessos](mem://features/painel-auditoria-acessos) — /admin/auditoria-acessos, sondas anon/authenticated, broadcast sanitizado e allowlist RLS de partner_program_settings.

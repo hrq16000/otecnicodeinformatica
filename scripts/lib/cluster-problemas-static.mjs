@@ -536,6 +536,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "Trocar só a pasta térmica adianta?", resposta: "Adianta quando o radiador está limpo e a ventoinha saudável. Se o caminho do ar continua obstruído, a pasta nova baixa poucos graus e o problema volta em semanas — por isso os dois serviços costumam andar juntos." },
     { pergunta: "O calor pode ter estragado alguma peça?", resposta: "Exposição prolongada acelera o desgaste de bateria, capacitores e do próprio disco. Verificamos a saúde da unidade e da bateria junto da limpeza e informamos o que encontramos, sem transformar isso em venda automática de peça." },
   ],
+  "/problemas/impressora-nao-imprime": [
+    { pergunta: "A impressora aparece offline mesmo ligada. O que é?", resposta: "Na quase totalidade dos casos é endereço de rede: o computador procura a impressora onde ela não está mais. Reservar um endereço fixo para o equipamento no roteador encerra o problema de forma permanente." },
+    { pergunta: "Vale a pena consertar impressora antiga?", resposta: "Depende do custo da peça e do consumível. Em modelos de entrada, uma cabeça de impressão nova costuma custar perto de um equipamento novo — e informamos isso antes, em vez de empurrar reparo que não compensa." },
+    { pergunta: "Reinstalar o driver resolve?", resposta: "Resolve quando a causa é driver corrompido ou duplicado. Não resolve endereço de rede instável nem bico entupido: nesses casos o sintoma volta em poucos dias." },
+    { pergunta: "Dá para imprimir do celular também?", resposta: "Sim, desde que celular e impressora estejam na mesma rede e o equipamento suporte impressão sem fio. Configuramos isso junto com as estações, sem custo adicional de deslocamento quando já estamos no local." },
+    { pergunta: "Vocês atendem impressora de escritório com várias estações?", resposta: "Atendemos. Nesses casos a correção envolve rede: endereço fixo, compartilhamento, permissões e, quando faz sentido, um servidor de impressão simples para não depender de um computador ligado." },
+  ],
+  "/problemas/teclado-notebook-nao-funciona": [
+    { pergunta: "Dá para trocar só uma tecla?", resposta: "Quando o problema é o clipe ou a borracha, sim — em vários modelos a tecla avulsa existe. Se a trilha da membrana rompeu, a substituição é do teclado inteiro, porque a falha está na camada interna." },
+    { pergunta: "Meu teclado parou depois de café. Ainda tem jeito?", resposta: "Depende de quanto tempo o resíduo ficou lá. Quanto antes o equipamento for aberto e limpo, maior a chance de salvar o teclado e, principalmente, de evitar que a corrosão alcance a placa." },
+    { pergunta: "Posso usar teclado externo em vez de trocar?", resposta: "Pode, e é uma solução legítima para quem usa o notebook parado na mesa. Só não resolve se a causa for oxidação avançando na placa — nesse caso o problema continua evoluindo por baixo." },
+    { pergunta: "Quanto tempo leva a troca?", resposta: "Com a peça em mãos, costuma ser um serviço de bancada rápido. O prazo real depende da disponibilidade do teclado para aquele modelo, informada na avaliação." },
+    { pergunta: "Teclado que digita sozinho pode ser vírus?", resposta: "É muito improvável. Digitação repetida em teclas específicas é contato preso. Antes de tratar como praga, o teste com teclado externo resolve a dúvida em um minuto." },
+  ],
 };
 
 

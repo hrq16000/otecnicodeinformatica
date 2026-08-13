@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T02:46:08.887Z",
+  "generatedAt": "2026-08-13T03:21:30.426Z",
   "totalFotos": 6,
   "comReuso": 2,
   "fotos": [
@@ -145,10 +145,12 @@
     "/problemas/computador-lento",
     "/problemas/computador-nao-da-imagem",
     "/problemas/hd-fazendo-barulho",
+    "/problemas/impressora-nao-imprime",
     "/problemas",
     "/problemas/notebook-molhado",
     "/problemas/notebook-nao-carrega",
     "/problemas/notebook-nao-liga",
+    "/problemas/teclado-notebook-nao-funciona",
     "/problemas/tela-azul",
     "/problemas/wifi-instavel",
     "/problemas/windows-nao-inicia",

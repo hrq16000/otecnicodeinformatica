@@ -17,13 +17,15 @@ interface FadeInProps extends Omit<React.HTMLAttributes<HTMLElement>, "children"
  * Puro CSS (`.motion-enter`), GPU-friendly e neutralizado automaticamente
  * por `prefers-reduced-motion`.
  */
-export const FadeIn = ({ children, index = 0, y = 8, as: Tag = "div", className }: FadeInProps) => (
+export const FadeIn = ({ children, index = 0, y = 8, as: Tag = "div", className, style, ...rest }: FadeInProps) => (
   <Tag
     className={cn("motion-enter", className)}
     style={{
       ["--motion-enter-y" as string]: `${y}px`,
       animationDelay: index ? `${staggerDelay(index)}ms` : undefined,
+      ...style,
     }}
+    {...rest}
   >
     {children}
   </Tag>

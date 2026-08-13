@@ -126,7 +126,8 @@ const primitivasMotion = [
   ["src/components/motion/AsyncContent.tsx", ["aria-busy", "skeleton"]],
   ["src/components/motion/Progress.tsx", ["role=\"progressbar\"", "aria-valuenow"]],
   ["src/components/motion/AnimatedList.tsx", ["staggerLimit"]],
-  ["src/components/motion/index.ts", ["AsyncContent", "LoadingButton", "SkeletonTable"]],
+  ["src/components/motion/RouteTransition.tsx", ["motion-enter", "routeKey"]],
+  ["src/components/motion/index.ts", ["AsyncContent", "LoadingButton", "SkeletonTable", "RouteTransition", "PageSkeleton", "CardSkeleton", "TableSkeleton"]],
   ["src/components/Skeleton.tsx", ["SkeletonTable", "SkeletonPage", "SkeletonForm", "SkeletonMetrics", "SkeletonChart"]],
 ];
 for (const [arquivo, tokens] of primitivasMotion) {

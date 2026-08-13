@@ -1000,6 +1000,8 @@ const App = () => (
             <Route path="/problemas/notebook-molhado" element={<ClusterProblemaPage />} />
             <Route path="/problemas/windows-nao-inicia" element={<ClusterProblemaPage />} />
             <Route path="/problemas/computador-esquentando" element={<ClusterProblemaPage />} />
+            <Route path="/problemas/impressora-nao-imprime" element={<ClusterProblemaPage />} />
+            <Route path="/problemas/teclado-notebook-nao-funciona" element={<ClusterProblemaPage />} />
 
             {/* Cluster EQUIPAMENTOS — entrada por aparelho */}
             <Route path="/equipamentos" element={<EquipamentosHub />} />

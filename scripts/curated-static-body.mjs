@@ -1153,6 +1153,7 @@ export function slotFor(schema) {
   if (types.includes("FAQPage")) return "faq";
   if (types.includes("AboutPage")) return "about-page";
   if (types.includes("ContactPage")) return "contact-page";
+  if (types.includes("ImageObject")) return "image";
   return "web-page";
 }
 

@@ -5,6 +5,7 @@ import { installCtaRuntimeGuard } from "./lib/ctaRuntimeGuard";
 
 initErrorReporter();
 installCtaRuntimeGuard();
+import("./lib/observability").then(({ iniciarObservabilidade }) => iniciarObservabilidade());
 // RODADA 1 — trava de indexação + analytics só da propriedade própria.
 import("./lib/indexingPolicy").then(({ applyIndexingPolicy }) => applyIndexingPolicy());
 import("./lib/analytics").then(({ initGoogleTags }) => initGoogleTags());

@@ -131,6 +131,8 @@
     "report:post-deploy": "node scripts/report-post-deploy.mjs dist",
     "routes:manifest": "bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist",
     "check:soft404": "node scripts/check-soft-404.mjs",
+    "check:geo": "node scripts/check-geo-conformance.mjs dist",
+
     "serve:dist": "node scripts/serve-dist.mjs",
     "check:jsonld-parity": "node scripts/check-jsonld-content-parity.mjs dist",
     "check:problemas-jsonld": "node scripts/check-problemas-jsonld.mjs dist",

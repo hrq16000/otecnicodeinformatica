@@ -1096,6 +1096,13 @@ export function jsonLdFor(route) {
         ? [h1For(route).replace(/^Técnico (de Informática )?(em|no|na) /i, "").split("(")[0].split("|")[0].trim()]
         : undefined;
     out.push(localBusiness(path, { name: h1For(route), description: route.description, areaServed: local }));
+    // Rotas locais também declaram o serviço prestado, com a área restrita à
+    // localidade da página (reforça elegibilidade em busca local).
+    if (!hasService && (fam === "bairro" || fam === "cidade")) {
+      const svc = serviceNode(route);
+      if (local?.length) svc.areaServed = local.map((n) => ({ "@type": "City", name: n }));
+      out.push(svc);
+    }
   } else if (!hasService) {
     const type = fam === "sobre" ? "AboutPage" : fam === "contato" ? "ContactPage" : "WebPage";
     out.push({

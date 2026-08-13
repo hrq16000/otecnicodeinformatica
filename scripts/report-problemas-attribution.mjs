@@ -63,7 +63,7 @@ for (const bloco of blocos) {
 
   const temMensagem = /waMessage:\s*["'`]/.test(corpo);
   const perguntas = (corpo.match(/\n\s+q:\s*"/g) || []).length;
-  const linksFaq = (corpo.match(/\n\s+to:\s*"/g) || []).length;
+  const linksFaq = (bloco.match(/\n\s+to:\s*"/g) || []).length;
   const prerender = existsSync(path.join(DIST, "problemas", slug, "index.html"));
 
   if (!temMensagem) erros.push(`${slugRota}: sem waMessage (CTA sairia sem mensagem pré-preenchida)`);

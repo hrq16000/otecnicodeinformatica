@@ -32,6 +32,7 @@
     "perf:report": "node scripts/report-lighthouse-summary.mjs",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
+    "check:intent-collisions": "node scripts/check-intent-collisions.mjs dist",
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
     "check:editorial-governance": "node scripts/check-editorial-governance.mjs",
     "check:editorial-pilot": "node scripts/check-editorial-pilot.mjs",

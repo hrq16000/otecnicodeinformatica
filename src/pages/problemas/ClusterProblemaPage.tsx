@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { FotoLicenciadaImg } from "@/components/FotoLicenciadaImg";
 import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 import { ProximosPassos } from "@/components/informatica/ProximosPassos";
+import InterlinksContextuais from "@/components/problemas/InterlinksContextuais";
 import { TriagemContexto } from "@/components/problemas/TriagemContexto";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";

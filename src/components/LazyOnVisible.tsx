@@ -6,6 +6,8 @@ interface LazyOnVisibleProps {
   minHeight?: string;
   /** Distance (px) ahead of viewport that triggers mount. */
   rootMargin?: string;
+  /** Optional visual placeholder (skeleton) shown while not mounted. */
+  placeholder?: ReactNode;
 }
 
 /**

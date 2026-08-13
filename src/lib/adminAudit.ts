@@ -24,14 +24,14 @@ export async function registrarAuditoria(entrada: {
     const { data } = await supabase.auth.getUser();
     const user = data.user;
     if (!user) return;
-    await supabase.from("admin_audit_log").insert({
+    await supabase.from("admin_audit_log").insert([{
       actor_id: user.id,
       actor_email: user.email ?? null,
       area: entrada.area,
       action: entrada.action,
       target: entrada.target ?? null,
       details: entrada.details ?? {},
-    });
+    }]);
   } catch {
     /* auditoria nunca derruba o fluxo do painel */
   }

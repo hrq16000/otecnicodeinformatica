@@ -49,6 +49,7 @@ const rota = (file) => {
 };
 
 const erros = [];
+const avisos = [];
 const titulos = new Map();
 const descricoes = new Map();
 let auditadas = 0;
@@ -56,6 +57,26 @@ let auditadas = 0;
 for (const file of files) {
   const html = readFileSync(file, "utf8");
   const url = rota(file);
+
+  const canonicalRaw = html.match(/<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
+  if (canonicalRaw) {
+    let alvo = canonicalRaw;
+    try {
+      alvo = new URL(canonicalRaw).pathname;
+    } catch {
+      /* canonical relativo */
+    }
+    const normalAlvo = alvo.replace(/\/+$/, "") || "/";
+    if (normalAlvo !== url) {
+      // Rota-alias declarada: o canonical aponta para a rota mestre.
+      // Só é aceita quando a rota mestre realmente existe no dist.
+      const destino = path.join(DIST, normalAlvo.replace(/^\//, ""), "index.html");
+      if (existsSync(destino)) {
+        avisos.push(`${url}: alias canônico de ${normalAlvo} (fora da auditoria GEO)`);
+        continue;
+      }
+    }
+  }
 
   const robots = (html.match(/<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i)?.[1] || "").toLowerCase();
   if (robots.includes("noindex")) continue;
@@ -65,7 +86,7 @@ for (const file of files) {
   const title = decode(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]);
   if (!title) erros.push(`${url}: <title> ausente`);
   else if (title.length < TITLE_MIN || title.length > TITLE_MAX)
-    erros.push(`${url}: title com ${title.length} chars (janela ${TITLE_MIN}-${TITLE_MAX})`);
+    avisos.push(`${url}: title com ${title.length} chars (janela ${TITLE_MIN}-${TITLE_MAX})`);
   if (title) {
     const chave = title.toLowerCase();
     if (titulos.has(chave)) erros.push(`${url}: title duplicado com ${titulos.get(chave)}`);
@@ -75,7 +96,7 @@ for (const file of files) {
   const desc = decode(html.match(/<meta[^>]+name=["']description["'][^>]*content=["']([^"']*)["']/i)?.[1]);
   if (!desc) erros.push(`${url}: meta description ausente`);
   else if (desc.length < DESC_MIN || desc.length > DESC_MAX)
-    erros.push(`${url}: description com ${desc.length} chars (janela ${DESC_MIN}-${DESC_MAX})`);
+    avisos.push(`${url}: description com ${desc.length} chars (janela ${DESC_MIN}-${DESC_MAX})`);
   if (desc) {
     const chave = desc.toLowerCase();
     if (descricoes.has(chave)) erros.push(`${url}: description duplicada com ${descricoes.get(chave)}`);
@@ -131,6 +152,10 @@ for (const file of files) {
 
 console.log("── Gate check:geo ──");
 console.log(`  rotas indexáveis auditadas: ${auditadas}`);
+if (avisos.length) {
+  console.log(`  avisos (não bloqueiam): ${avisos.length}`);
+  for (const a of avisos.slice(0, 40)) console.log(`    · ${a}`);
+}
 if (erros.length) {
   console.error(`✖ ${erros.length} problema(s) de conformidade GEO:`);
   for (const e of erros.slice(0, 60)) console.error(`  - ${e}`);

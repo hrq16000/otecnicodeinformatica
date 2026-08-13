@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-13T02:39:11.272Z",
+  "generatedAt": "2026-08-13T02:46:08.774Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 113,
+  "total": 115,
   "prontos": 39,
   "revisao": 21,
-  "rascunho": 22,
+  "rascunho": 24,
   "semMetaCurada": 31,
   "urls": [
     {
@@ -1411,7 +1411,7 @@
       "grupo": "problemas",
       "title": "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
       "description": "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
-      "similaridade": 0.21,
+      "similaridade": 0.24,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1519,6 +1519,53 @@
       "pendencias": [
         "metaTitle",
         "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/impressora-nao-imprime",
+      "url": "https://otecnicodeinformatica.com.br/problemas/impressora-nao-imprime",
+      "grupo": "problemas",
+      "title": "Impressora não imprime: causas e o que checar | O Técnico de Informática",
+      "description": "Documento fica na fila, a impressora aparece offline ou sai página em branco? Veja o que separa falha de rede, driver e cabeça de impressão — e o que testar antes de chamar técnico.",
+      "similaridade": 0.26,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/teclado-notebook-nao-funciona",
+      "url": "https://otecnicodeinformatica.com.br/problemas/teclado-notebook-nao-funciona",
+      "grupo": "problemas",
+      "title": "Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática",
+      "description": "Teclas que não respondem, letra repetida ou teclado morto depois de líquido? Veja como separar falha de software, flat solto e dano físico antes de trocar a peça.",
+      "similaridade": 0.24,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
         "fotos"
       ],
       "curada": true,

@@ -390,6 +390,70 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
       },
     ],
   },
+  {
+    path: "/problemas/impressora-nao-imprime",
+    title: "Impressora não imprime: causas e o que checar | O Técnico de Informática",
+    description:
+      "Documento fica na fila, a impressora aparece offline ou sai página em branco? Veja o que separa falha de rede, driver e cabeça de impressão — e o que testar antes de chamar técnico.",
+    h1: "Impressora não imprime mesmo aparecendo conectada",
+    subtitulo:
+      "Na maior parte dos casos o equipamento está bom: o que falha é o caminho entre o computador e ele.",
+    blocos: [
+      {
+        titulo: "O padrão da falha já indica a origem",
+        paragrafos: [
+          "Documento que entra na fila e não sai aponta para serviço de impressão travado ou trabalho corrompido preso na frente dos demais. Impressora que aparece offline mesmo ligada é, quase sempre, endereço de rede: depois de uma queda de energia o roteador entrega outro IP e o computador continua procurando no endereço antigo.",
+          "Página em branco ou borrada muda o diagnóstico para o lado físico — bico entupido, toner mal assentado ou cilindro no fim. E quando um computador imprime e outro não, o equipamento está saudável: a investigação se concentra em driver, permissão de compartilhamento, firewall e em qual rede cada máquina está.",
+        ],
+      },
+      {
+        titulo: "Testes que você pode fazer antes de chamar",
+        paragrafos: [
+          "Imprima a página de teste pelo painel da própria impressora: se ela sair, o problema não é o equipamento. Cancele tudo o que está na fila e envie um único arquivo simples. Confira no painel qual rede a impressora está usando, inclusive quando existem duas redes Wi-Fi no imóvel, e desligue o equipamento da tomada por um minuto para reiniciar o firmware interno.",
+          "O que evitar: instalar vários drivers da mesma impressora tentando adivinhar qual funciona, lavar cabeça de impressão em água corrente, puxar papel preso no sentido contrário ao de saída e desinstalar a impressora com trabalho travado na fila — o resíduo continua lá e o novo cadastro nasce com erro.",
+        ],
+      },
+      {
+        titulo: "Como o atendimento resolve",
+        paragrafos: [
+          "Limpeza de fila, reinstalação correta do driver, correção de porta, compartilhamento e ajuste de firewall são resolvidos por suporte remoto na maioria dos casos domésticos e de escritório pequeno. Quando a impressora é de rede, o atendimento no endereço trata cabeamento, reserva de endereço fixo no roteador e as várias estações que imprimem no mesmo equipamento.",
+          "Se o teste interno da própria impressora também falha — página em branco, ruído de engrenagem, papel amassando sempre no mesmo ponto — a avaliação é feita em bancada, com o equipamento aberto e o custo informado antes. Em modelos de entrada, comparamos abertamente o preço da peça com o de um aparelho novo em vez de empurrar reparo que não compensa.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/problemas/teclado-notebook-nao-funciona",
+    title: "Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática",
+    description:
+      "Teclas que não respondem, letra repetida ou teclado morto depois de líquido? Veja como separar falha de software, flat solto e dano físico antes de trocar a peça.",
+    h1: "Teclado do notebook não funciona ou falha algumas teclas",
+    subtitulo:
+      "Um teclado USB externo separa em minutos o que é peça do que é sistema.",
+    blocos: [
+      {
+        titulo: "Três falhas diferentes com o mesmo nome",
+        paragrafos: [
+          "Teclas isoladas que param apontam para membrana ou trilha rompida sob aquelas teclas: software não escolhe teclas específicas para desligar. Teclado inteiro sem resposta, com touchpad funcionando, leva a suspeita para o cabo flat solto ou oxidado no conector da placa. Tecla que repete ou digita sozinha indica contato preso por resíduo, borracha deformada ou trilha em curto.",
+          "Há ainda os casos que nem são defeito: em teclados sem bloco numérico separado, o numérico embutido ativo faz letras virarem números. E falha que só aparece com o notebook aquecido sugere mau contato agravado por dilatação, no conector ou em solda fria da controladora.",
+        ],
+      },
+      {
+        titulo: "O que checar antes de comprar peça",
+        paragrafos: [
+          "Ligue um teclado USB externo: se ele digitar tudo, o sistema está bom e o problema é o teclado interno ou o cabo dele. Observe o teclado na tela de inicialização, antes do Windows carregar — funcionando ali, a falha é de software. Teste a tecla suspeita em um editor de texto simples e anote se houve líquido, queda ou abertura do equipamento nos últimos meses.",
+          "O que evitar: seguir usando o notebook logo após derramar líquido, secar com secador quente, arrancar teclas sem conhecer o encaixe (o clipe plástico quebra com facilidade e não é vendido separadamente) e pingar álcool direto no teclado com a máquina montada, porque o líquido escorre para a placa.",
+        ],
+      },
+      {
+        titulo: "Como o atendimento resolve",
+        paragrafos: [
+          "Quando o teclado externo funciona e o interno não, driver, filtro de teclado e layout são verificados remotamente antes de qualquer indicação de peça. Reassentar o flat, medir a linha de alimentação do teclado, limpar oxidação e testar a peça exigem bancada, e é ali que se descobre se a falha é do teclado, do cabo ou da placa.",
+          "Café, refrigerante e água com açúcar deixam resíduo condutor que corrói trilhas semanas depois do acidente — por isso o teclado às vezes falha bem depois do derramamento. Confirmada a troca, a peça é identificada pelo código do próprio equipamento, com peça e mão de obra apresentadas separadamente e nada comprado sem aprovação.",
+        ],
+      },
+    ],
+  },
 ];
 
 
@@ -471,6 +535,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "De quanto em quanto tempo fazer limpeza interna?", resposta: "Em uso doméstico comum, algo entre um e dois anos. Em ambiente com pet, obra por perto, fumo ou uso intenso de jogos, o intervalo cai bastante. Quem carrega o notebook todo dia na mochila também acumula mais rápido." },
     { pergunta: "Trocar só a pasta térmica adianta?", resposta: "Adianta quando o radiador está limpo e a ventoinha saudável. Se o caminho do ar continua obstruído, a pasta nova baixa poucos graus e o problema volta em semanas — por isso os dois serviços costumam andar juntos." },
     { pergunta: "O calor pode ter estragado alguma peça?", resposta: "Exposição prolongada acelera o desgaste de bateria, capacitores e do próprio disco. Verificamos a saúde da unidade e da bateria junto da limpeza e informamos o que encontramos, sem transformar isso em venda automática de peça." },
+  ],
+  "/problemas/impressora-nao-imprime": [
+    { pergunta: "A impressora aparece offline mesmo ligada. O que é?", resposta: "Na quase totalidade dos casos é endereço de rede: o computador procura a impressora onde ela não está mais. Reservar um endereço fixo para o equipamento no roteador encerra o problema de forma permanente." },
+    { pergunta: "Vale a pena consertar impressora antiga?", resposta: "Depende do custo da peça e do consumível. Em modelos de entrada, uma cabeça de impressão nova costuma custar perto de um equipamento novo — e informamos isso antes, em vez de empurrar reparo que não compensa." },
+    { pergunta: "Reinstalar o driver resolve?", resposta: "Resolve quando a causa é driver corrompido ou duplicado. Não resolve endereço de rede instável nem bico entupido: nesses casos o sintoma volta em poucos dias." },
+    { pergunta: "Dá para imprimir do celular também?", resposta: "Sim, desde que celular e impressora estejam na mesma rede e o equipamento suporte impressão sem fio. Configuramos isso junto com as estações, sem custo adicional de deslocamento quando já estamos no local." },
+    { pergunta: "Vocês atendem impressora de escritório com várias estações?", resposta: "Atendemos. Nesses casos a correção envolve rede: endereço fixo, compartilhamento, permissões e, quando faz sentido, um servidor de impressão simples para não depender de um computador ligado." },
+  ],
+  "/problemas/teclado-notebook-nao-funciona": [
+    { pergunta: "Dá para trocar só uma tecla?", resposta: "Quando o problema é o clipe ou a borracha, sim — em vários modelos a tecla avulsa existe. Se a trilha da membrana rompeu, a substituição é do teclado inteiro, porque a falha está na camada interna." },
+    { pergunta: "Meu teclado parou depois de café. Ainda tem jeito?", resposta: "Depende de quanto tempo o resíduo ficou lá. Quanto antes o equipamento for aberto e limpo, maior a chance de salvar o teclado e, principalmente, de evitar que a corrosão alcance a placa." },
+    { pergunta: "Posso usar teclado externo em vez de trocar?", resposta: "Pode, e é uma solução legítima para quem usa o notebook parado na mesa. Só não resolve se a causa for oxidação avançando na placa — nesse caso o problema continua evoluindo por baixo." },
+    { pergunta: "Quanto tempo leva a troca?", resposta: "Com a peça em mãos, costuma ser um serviço de bancada rápido. O prazo real depende da disponibilidade do teclado para aquele modelo, informada na avaliação." },
+    { pergunta: "Teclado que digita sozinho pode ser vírus?", resposta: "É muito improvável. Digitação repetida em teclas específicas é contato preso. Antes de tratar como praga, o teste com teclado externo resolve a dúvida em um minuto." },
   ],
 };
 

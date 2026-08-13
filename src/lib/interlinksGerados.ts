@@ -79,8 +79,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 2",
+      "href": "/problemas/impressora-nao-imprime",
+      "anchor": "sintoma parecido: impressora não imprime",
       "contexto": "problema"
     },
     {
@@ -107,7 +107,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 3",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 2",
       "contexto": "problema"
     },
     {
@@ -188,7 +188,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 4",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 3",
       "contexto": "problema"
     },
     {
@@ -236,13 +236,13 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "servico"
     },
     {
-      "href": "/problemas/computador-desliga-sozinho",
-      "anchor": "sintoma parecido: computador desliga sozinho — 2",
+      "href": "/problemas/teclado-notebook-nao-funciona",
+      "anchor": "sintoma parecido: teclado do notebook não funciona",
       "contexto": "problema"
     },
     {
-      "href": "/problemas/wifi-instavel",
-      "anchor": "compare com wi-Fi caindo ou lento",
+      "href": "/problemas/computador-desliga-sozinho",
+      "anchor": "sintoma parecido: computador desliga sozinho — 2",
       "contexto": "problema"
     },
     {
@@ -269,7 +269,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 5",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 4",
       "contexto": "problema"
     },
     {
@@ -323,7 +323,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/wifi-instavel",
-      "anchor": "sintoma parecido: wi-Fi caindo ou lento — 2",
+      "anchor": "compare com wi-Fi caindo ou lento",
       "contexto": "problema"
     },
     {
@@ -345,7 +345,7 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     },
     {
       "href": "/problemas/computador-nao-da-imagem",
-      "anchor": "sintoma parecido: computador liga e não dá imagem — 6",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 5",
       "contexto": "problema"
     },
     {
@@ -356,6 +356,60 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
     {
       "href": "/bairros/agua-verde",
       "anchor": "atendimento em Água Verde para computador ou notebook esquentando demais",
+      "contexto": "bairro"
+    }
+  ],
+  "/problemas/impressora-nao-imprime": [
+    {
+      "href": "/servicos/suporte-tecnico-empresarial",
+      "anchor": "suporte Técnico para Empresas em Curitiba para quem tem impressora não imprime mesmo aparecendo conectada",
+      "contexto": "servico"
+    },
+    {
+      "href": "/servicos/redes-e-wifi",
+      "anchor": "configuração de Redes e Wi-Fi em Curitiba para quem tem impressora não imprime mesmo aparecendo conectada",
+      "contexto": "servico"
+    },
+    {
+      "href": "/problemas/wifi-instavel",
+      "anchor": "sintoma parecido: wi-Fi caindo ou lento — 2",
+      "contexto": "problema"
+    },
+    {
+      "href": "/problemas/computador-desliga-sozinho",
+      "anchor": "sintoma parecido: computador desliga sozinho — 3",
+      "contexto": "problema"
+    },
+    {
+      "href": "/bairros/centro",
+      "anchor": "atendimento em Centro de Curitiba para impressora não imprime mesmo aparecendo conectada",
+      "contexto": "bairro"
+    }
+  ],
+  "/problemas/teclado-notebook-nao-funciona": [
+    {
+      "href": "/servicos/manutencao-de-notebook",
+      "anchor": "assistência Técnica de Notebook em Curitiba para quem tem teclado do notebook não funciona ou falha algumas teclas",
+      "contexto": "servico"
+    },
+    {
+      "href": "/servicos/suporte-tecnico-empresarial",
+      "anchor": "suporte Técnico para Empresas em Curitiba para quem tem teclado do notebook não funciona ou falha algumas teclas",
+      "contexto": "servico"
+    },
+    {
+      "href": "/problemas/computador-nao-da-imagem",
+      "anchor": "sintoma parecido: computador liga e não dá imagem — 6",
+      "contexto": "problema"
+    },
+    {
+      "href": "/problemas/impressora-nao-imprime",
+      "anchor": "compare com impressora não imprime",
+      "contexto": "problema"
+    },
+    {
+      "href": "/bairros/portao",
+      "anchor": "atendimento em Portão (Curitiba) para teclado do notebook não funciona ou falha algumas teclas",
       "contexto": "bairro"
     }
   ]

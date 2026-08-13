@@ -1223,6 +1223,228 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
   },
+  {
+    slug: "impressora-nao-imprime",
+    path: "/problemas/impressora-nao-imprime",
+    titulo: "Impressora não imprime mesmo aparecendo conectada",
+    metaTitle: "Impressora não imprime: causas e o que checar | O Técnico de Informática",
+    metaDescription:
+      "Documento fica na fila, a impressora aparece offline ou sai página em branco? Veja o que separa falha de rede, driver e cabeça de impressão — e o que testar antes de chamar técnico.",
+    resumo:
+      "Impressora que não imprime raramente está quebrada. Na maior parte dos atendimentos o equipamento imprime perfeitamente quando testado sozinho: o que falha é o caminho entre o computador e ele — fila travada, endereço de rede que mudou, driver duplicado ou porta apontando para o lugar errado.",
+    waMessage:
+      "Olá! Vim da página sobre impressora que não imprime. Quero ajuda para colocar minha impressora para funcionar.",
+    sintomas: [
+      {
+        titulo: "O documento entra na fila e não sai",
+        desc: "A fila aceita o trabalho e ele fica parado com status de erro ou impressão pendente. Isso indica travamento do serviço de spool ou trabalho corrompido preso na frente dos demais — não defeito mecânico.",
+      },
+      {
+        titulo: "Aparece como offline mesmo ligada",
+        desc: "Clássico de impressora de rede com IP obtido automaticamente: o roteador entrega outro endereço depois de uma queda de energia e o computador continua procurando no endereço antigo.",
+      },
+      {
+        titulo: "Sai página em branco ou borrada",
+        desc: "Aqui o caminho está certo e o problema é físico: bico entupido em jato de tinta, toner mal assentado, cilindro no fim ou cartucho reconhecido mas vazio.",
+      },
+      {
+        titulo: "Imprime de um computador e do outro não",
+        desc: "Quando um aparelho imprime, o equipamento está saudável. A investigação se concentra no computador que falha: driver, permissão de compartilhamento, firewall ou rede diferente (cabo × Wi-Fi × rede de visitantes).",
+      },
+      {
+        titulo: "Parou depois de atualização do Windows",
+        desc: "Atualizações trocam ou bloqueiam drivers antigos, especialmente em impressoras compartilhadas. O sintoma aparece de um dia para o outro sem que ninguém tenha mexido no equipamento.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Fila e serviço de impressão travados",
+        desc: "Um trabalho corrompido segura todos os seguintes. Limpar a fila e reiniciar o serviço devolve o funcionamento sem tocar no equipamento.",
+      },
+      {
+        titulo: "Endereço de rede instável",
+        desc: "Impressora sem reserva de IP muda de endereço quando o roteador reinicia. A correção definitiva é fixar o endereço no roteador ou na própria impressora, não reinstalar o driver toda semana.",
+      },
+      {
+        titulo: "Driver errado, duplicado ou genérico",
+        desc: "Vários ícones da mesma impressora, driver genérico instalado por cima do oficial e porta apontando para dispositivo que não existe mais respondem por boa parte dos casos em escritório.",
+      },
+      {
+        titulo: "Rede segmentada",
+        desc: "Computador no Wi-Fi de visitantes e impressora no cabeado não se enxergam. Em empresa com faixas separadas, isso é regra de rede — e se resolve com configuração, não com troca de equipamento.",
+      },
+      {
+        titulo: "Consumível e mecânica",
+        desc: "Cabeça entupida por meses sem uso, toner ressecado, rolete de tração gasto e sensor de papel sujo. São causas físicas, verificadas quando o teste interno da própria impressora também falha.",
+      },
+    ],
+    antesDeChamar: [
+      "Imprima a página de teste pelo painel da própria impressora. Se ela sair, o equipamento está bom e o problema é o caminho até o computador.",
+      "Cancele todos os documentos da fila e envie um único arquivo simples, de uma página, para ver se ele sai.",
+      "Confira no painel qual rede a impressora está usando e se é a mesma do computador — inclusive quando há duas redes Wi-Fi na casa.",
+      "Desligue a impressora da tomada por um minuto e religue: isso reinicia o firmware interno e resolve travamentos de comunicação.",
+      "Veja se o problema começou junto com alguma mudança: troca de roteador, atualização, computador novo ou cartucho recém-substituído.",
+    ],
+    naoFaca: [
+      "Não instale vários drivers da mesma impressora tentando adivinhar qual funciona — o conflito costuma piorar o quadro.",
+      "Não lave cabeça de impressão em água corrente nem force limpeza com objetos: o dano vira definitivo e sai mais caro que a peça.",
+      "Não desmonte o conjunto de tração para tirar papel preso puxando ao contrário do sentido de saída; isso arrasta engrenagens.",
+      "Não desinstale a impressora do sistema no meio de um trabalho preso na fila — o resíduo continua lá e o novo cadastro nasce com erro.",
+    ],
+    modalidades: [
+      {
+        titulo: "Suporte remoto",
+        desc: "Limpeza de fila, reinstalação correta do driver, correção de porta, compartilhamento e ajuste de firewall são resolvidos com acesso remoto na maioria dos casos domésticos e de escritório pequeno.",
+      },
+      {
+        titulo: "Atendimento no endereço",
+        desc: "Indicado quando a impressora é de rede e o problema envolve cabeamento, reserva de endereço no roteador, várias estações imprimindo no mesmo equipamento ou teste físico do papel e dos consumíveis.",
+      },
+      {
+        titulo: "Avaliação em bancada",
+        desc: "Quando o teste interno da própria impressora falha — página em branco, ruído de engrenagem, papel amassando sempre no mesmo ponto — a avaliação é feita com o equipamento aberto, com custo informado antes.",
+      },
+    ],
+    faq: [
+      {
+        q: "A impressora aparece offline mesmo ligada. O que é?",
+        a: "Na quase totalidade dos casos é endereço de rede: o computador procura a impressora onde ela não está mais. Reservar um endereço fixo para o equipamento no roteador encerra o problema de forma permanente.",
+      },
+      {
+        q: "Vale a pena consertar impressora antiga?",
+        a: "Depende do custo da peça e do consumível. Em modelos de entrada, uma cabeça de impressão nova costuma custar perto de um equipamento novo — e informamos isso antes, em vez de empurrar reparo que não compensa.",
+      },
+      {
+        q: "Reinstalar o driver resolve?",
+        a: "Resolve quando a causa é driver corrompido ou duplicado. Não resolve endereço de rede instável nem bico entupido: nesses casos o sintoma volta em poucos dias.",
+      },
+      {
+        q: "Dá para imprimir do celular também?",
+        a: "Sim, desde que celular e impressora estejam na mesma rede e o equipamento suporte impressão sem fio. Configuramos isso junto com as estações, sem custo adicional de deslocamento quando já estamos no local.",
+      },
+      {
+        q: "Vocês atendem impressora de escritório com várias estações?",
+        a: "Atendemos. Nesses casos a correção envolve rede: endereço fixo, compartilhamento, permissões e, quando faz sentido, um servidor de impressão simples para não depender de um computador ligado.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/redes-e-wifi", titulo: "Redes e Wi-Fi", desc: "Impressora em rede depende de endereçamento estável e faixa correta." },
+      { to: "/problemas/wifi-instavel", titulo: "Wi-Fi instável", desc: "Quando o equipamento some da rede junto com outras quedas." },
+      { to: "/servicos/suporte-tecnico-empresarial", titulo: "Suporte para empresas", desc: "Escritório com várias estações imprimindo no mesmo equipamento." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+  },
+  {
+    slug: "teclado-notebook-nao-funciona",
+    path: "/problemas/teclado-notebook-nao-funciona",
+    titulo: "Teclado do notebook não funciona ou falha algumas teclas",
+    metaTitle: "Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática",
+    metaDescription:
+      "Teclas que não respondem, letra repetida ou teclado morto depois de líquido? Veja como separar falha de software, flat solto e dano físico antes de trocar a peça.",
+    resumo:
+      "Teclado de notebook falha de três formas bem diferentes: teclas isoladas que param, o teclado inteiro que morre e teclas que digitam sozinhas ou repetem. Cada padrão aponta para uma origem distinta, e o teste com um teclado USB externo separa em minutos o que é peça do que é sistema.",
+    waMessage:
+      "Olá! Vim da página sobre teclado de notebook com defeito. Preciso de avaliação do meu teclado.",
+    sintomas: [
+      {
+        titulo: "Algumas teclas pararam, o resto funciona",
+        desc: "Falha localizada quase sempre é membrana ou trilha rompida sob aquelas teclas. Software não escolhe teclas específicas para desligar — por isso esse padrão aponta para a peça.",
+      },
+      {
+        titulo: "Teclado inteiro sem resposta",
+        desc: "Quando nada responde, mas o touchpad funciona, a suspeita principal é o cabo flat solto ou oxidado no conector da placa. Se o touchpad também morreu, a origem tende a ser controladora ou driver.",
+      },
+      {
+        titulo: "Tecla repetindo ou digitando sozinha",
+        desc: "Repetição indica contato preso — resíduo sob a tecla, borracha deformada ou trilha em curto. Em teclado que recebeu líquido, esse é o sintoma clássico dias depois do acidente.",
+      },
+      {
+        titulo: "Digita número no lugar de letra",
+        desc: "Em teclados sem bloco numérico separado, o teclado numérico embutido pode estar ativo. É configuração, resolvida em segundos, e não defeito.",
+      },
+      {
+        titulo: "Falha só depois de um tempo ligado",
+        desc: "Teclado que começa bem e falha com o notebook aquecido sugere mau contato que se agrava com dilatação — geralmente no conector ou em solda fria da controladora.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Líquido, mesmo antigo",
+        desc: "Café, refrigerante e água com açúcar deixam resíduo condutor que corrói trilhas semanas depois. É por isso que o teclado às vezes falha bem depois do derramamento.",
+      },
+      {
+        titulo: "Cabo flat solto ou oxidado",
+        desc: "Notebook aberto para limpeza, transporte constante ou trava do conector quebrada soltam o flat. Reassentar o cabo resolve sem troca de peça em parte dos casos.",
+      },
+      {
+        titulo: "Desgaste natural da membrana",
+        desc: "Teclado é peça de consumo. Em uso intenso, as teclas mais usadas perdem contato antes das demais — daí a falha começar sempre pelas mesmas letras.",
+      },
+      {
+        titulo: "Driver ou atualização",
+        desc: "Filtro de teclado, driver de atalho do fabricante e atualização recente podem desativar teclas de função ou o layout inteiro. Nesse caso o teclado volta a funcionar em ambiente de recuperação.",
+      },
+      {
+        titulo: "Dano na placa",
+        desc: "Quando o conector do teclado ou a linha de alimentação dele sofreu oxidação, trocar o teclado não resolve. Essa diferença só aparece com o equipamento aberto e medido.",
+      },
+    ],
+    antesDeChamar: [
+      "Ligue um teclado USB externo. Se ele digitar tudo normalmente, o sistema está bom e o problema é o teclado interno ou o cabo dele.",
+      "Reinicie e observe o teclado antes do Windows carregar, na tela de inicialização. Funcionando ali, a falha é de software.",
+      "Teste a tecla suspeita em um editor de texto simples, sem jogo ou programa que reconfigure atalhos.",
+      "Confira se o teclado numérico embutido está ativo quando letras viram números.",
+      "Anote se houve líquido, queda ou abertura do equipamento nos últimos meses — muda completamente o roteiro do diagnóstico.",
+    ],
+    naoFaca: [
+      "Não continue usando o notebook logo após derramar líquido: desligue, desconecte a fonte e não tente secar com secador quente.",
+      "Não arranque as teclas para limpar sem saber o encaixe: o clipe plástico embaixo quebra com facilidade e não é vendido separadamente.",
+      "Não pingue álcool ou produto de limpeza direto no teclado com a máquina montada — o líquido escorre para a placa.",
+      "Não compre teclado pela aparência do modelo: layout, cor do conector e número de vias mudam entre versões do mesmo notebook.",
+    ],
+    modalidades: [
+      {
+        titulo: "Suporte remoto",
+        desc: "Quando o teclado externo funciona e o interno não, a checagem de driver, filtro e configuração de layout é feita remotamente antes de qualquer indicação de peça.",
+      },
+      {
+        titulo: "Avaliação em bancada",
+        desc: "Reassentar o flat, medir a linha de alimentação do teclado, limpar oxidação e testar a peça exigem o equipamento aberto. A avaliação informa se é teclado, cabo ou placa antes de comprar qualquer coisa.",
+      },
+      {
+        titulo: "Troca da peça",
+        desc: "Confirmada a falha do teclado, a peça é identificada pelo código do próprio equipamento. Peça e mão de obra são apresentadas separadamente e nada é comprado sem sua aprovação.",
+      },
+    ],
+    faq: [
+      {
+        q: "Dá para trocar só uma tecla?",
+        a: "Quando o problema é o clipe ou a borracha, sim — em vários modelos a tecla avulsa existe. Se a trilha da membrana rompeu, a substituição é do teclado inteiro, porque a falha está na camada interna.",
+      },
+      {
+        q: "Meu teclado parou depois de café. Ainda tem jeito?",
+        a: "Depende de quanto tempo o resíduo ficou lá. Quanto antes o equipamento for aberto e limpo, maior a chance de salvar o teclado e, principalmente, de evitar que a corrosão alcance a placa.",
+      },
+      {
+        q: "Posso usar teclado externo em vez de trocar?",
+        a: "Pode, e é uma solução legítima para quem usa o notebook parado na mesa. Só não resolve se a causa for oxidação avançando na placa — nesse caso o problema continua evoluindo por baixo.",
+      },
+      {
+        q: "Quanto tempo leva a troca?",
+        a: "Com a peça em mãos, costuma ser um serviço de bancada rápido. O prazo real depende da disponibilidade do teclado para aquele modelo, informada na avaliação.",
+      },
+      {
+        q: "Teclado que digita sozinho pode ser vírus?",
+        a: "É muito improvável. Digitação repetida em teclas específicas é contato preso. Antes de tratar como praga, o teste com teclado externo resolve a dúvida em um minuto.",
+      },
+    ],
+    relacionados: [
+      { to: "/problemas/notebook-molhado", titulo: "Notebook molhado", desc: "Quando o líquido foi recente e o risco vai além do teclado." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Escopo de bancada, limpeza técnica e troca de peças." },
+      { to: "/problemas/notebook-nao-carrega", titulo: "Notebook não carrega", desc: "Outra falha comum ligada a conector e placa." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+  },
 ];
 
 

@@ -21,7 +21,7 @@ const MSG_SCALE =
 const MSG_PULSE =
   "animate-pulse ad-hoc proibido. Use .skel ou os componentes de @/components/Skeleton; para status ao vivo use .motion-status-live.";
 
-const restricoesMotion = [
+export const restricoesMotion = [
   { selector: `Literal[value=/${CLASSES_LEGADAS}/]`, message: MSG_LEGADO },
   { selector: `TemplateElement[value.raw=/${CLASSES_LEGADAS}/]`, message: MSG_LEGADO },
   { selector: `Literal[value=/${HOVER_SCALE}/]`, message: MSG_SCALE },

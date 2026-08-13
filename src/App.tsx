@@ -9,6 +9,8 @@ import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 import { GeoAutoDetect } from "./components/GeoAutoDetect";
 import { MotionProvider } from "./components/MotionProvider";
+import { RouteTransition } from "./components/motion/RouteTransition";
+
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));

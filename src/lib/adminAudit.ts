@@ -30,7 +30,7 @@ export async function registrarAuditoria(entrada: {
       area: entrada.area,
       action: entrada.action,
       target: entrada.target ?? null,
-      details: entrada.details ?? {},
+      details: (entrada.details ?? {}) as never,
     }]);
   } catch {
     /* auditoria nunca derruba o fluxo do painel */

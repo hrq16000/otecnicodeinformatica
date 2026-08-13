@@ -164,7 +164,7 @@
     "check:consolidation-3w": "node scripts/check-consolidation-3w.mjs",
     "check:premium-tv-board-4a": "node scripts/check-premium-tv-board-4a.mjs dist",
     "check:multielectronics-3y": "node scripts/check-multielectronics-wave-3y.mjs",
-    "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts",
+    "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts e2e/a11y-rotas-publicas.spec.ts",
     "check:breadcrumb-schema": "node scripts/check-breadcrumb-schema.mjs dist",
     "check:price-schema": "node scripts/check-price-schema.mjs dist",
     "check:faq-parity": "node scripts/check-faq-parity.mjs dist",

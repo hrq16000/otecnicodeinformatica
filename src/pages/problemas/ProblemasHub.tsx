@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { CLUSTER_PROBLEMAS } from "@/lib/clusterProblemas";
 import { TriagemRapidaHub } from "@/components/problemas/TriagemRapidaHub";
 import { trackPageView } from "@/lib/analytics";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const PATH = "/problemas";
 const TITLE = "Problemas comuns de computador, rede e dados | O Técnico de Informática";
@@ -75,11 +76,12 @@ const ProblemasHub = () => {
         />
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {todos.map((p) => (
+          {todos.map((p, i) => (
+            <AnimatedSection key={p.path} delay={Math.min(i, 6) * 60} className="h-full">
             <Link
-              key={p.path}
               to={p.path}
-              className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-accent"
+              to={p.path}
+              className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-accent"
             >
               <div>
                 <h2 className="font-heading text-xl font-bold text-foreground">{p.titulo}</h2>
@@ -90,6 +92,7 @@ const ProblemasHub = () => {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
             </Link>
+            </AnimatedSection>
           ))}
         </div>
 

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { LazyOnVisible } from "@/components/LazyOnVisible";
+import { SkeletonList } from "@/components/SkeletonSection";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { CalculadoraDeslocamento } from "@/components/CalculadoraDeslocamento";
 import { whatsappLink } from "@/lib/siteConfig";
 import { trackPageView } from "@/lib/analytics";
@@ -134,11 +137,15 @@ const Empresas = () => {
             Situações que atendemos
           </h2>
           <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {CENARIOS.map(({ icon: Icon, titulo, texto }) => (
-              <li key={titulo} className="rounded-2xl border border-border bg-card p-6">
-                <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
-                <h3 className="mt-4 font-heading text-lg font-bold text-foreground">{titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{texto}</p>
+            {CENARIOS.map(({ icon: Icon, titulo, texto }, i) => (
+              <li key={titulo}>
+                <AnimatedSection delay={Math.min(i, 5) * 60}>
+                  <div className="h-full rounded-2xl border border-border bg-card p-6 transition-transform duration-300 hover:-translate-y-0.5">
+                    <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
+                    <h3 className="mt-4 font-heading text-lg font-bold text-foreground">{titulo}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{texto}</p>
+                  </div>
+                </AnimatedSection>
               </li>
             ))}
           </ul>
@@ -217,7 +224,13 @@ const Empresas = () => {
             </div>
 
             <div className="space-y-6">
-              <CalculadoraDeslocamento />
+              <LazyOnVisible
+                minHeight="320px"
+                rootMargin="0px 0px 200px"
+                placeholder={<SkeletonList rows={4} />}
+              >
+                <CalculadoraDeslocamento />
+              </LazyOnVisible>
               <div className="rounded-2xl border border-border bg-background p-6">
                 <h3 className="font-heading text-lg font-bold text-foreground">Como conduzimos</h3>
                 <ol className="mt-3 space-y-2 text-sm text-muted-foreground">

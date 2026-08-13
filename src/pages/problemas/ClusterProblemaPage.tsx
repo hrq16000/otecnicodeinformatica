@@ -25,6 +25,7 @@ import {
 import { useScrollBucket } from "@/hooks/useScrollBucket";
 import { useFaqSectionDepth } from "@/hooks/useFaqSectionDepth";
 import { useVarianteWa } from "@/lib/problemasWaVariants";
+import { copyCta, useVarianteCta } from "@/lib/problemasCtaVariants";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import {
   trackPageView,
@@ -86,6 +87,8 @@ const ClusterProblemaPage = () => {
   const rolagem = useScrollBucket();
   // Mesma variante do A/B durante toda a navegação (localStorage + cookie).
   const variante = useVarianteWa();
+  // Experimento paralelo: copy + posição do CTA por seção (cta_1 / cta_2).
+  const varianteBotao = useVarianteCta();
 
   /**
    * Registro único de clique de WhatsApp: GA4 (engajamento) + click_events
@@ -95,7 +98,7 @@ const ClusterProblemaPage = () => {
     const rotulo = rotuloEvento({ ...contexto, sintoma: sintomaSlug, secao: ctx.secao, rolagem, variante });
     trackCTAClick("whatsapp", rotulo);
     trackWaClick(rotulo, {
-      variant: `msg_${variante}`,
+      variant: `msg_${variante}_cta_${varianteBotao}`,
       servico: sintomaSlug,
       cta_position: `problema_${ctx.secao}`,
       utm_medium: "cta",
@@ -262,12 +265,7 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
-          <CtaContextual
-            secao="sintomas"
-            texto="Seu caso se parece com algum desses? Descreva em uma frase e receba a orientação do próximo passo."
-            mensagem="O sintoma mais parecido com o meu caso é:"
-            rotulo="Descrever meu sintoma"
-          />
+          <CtaContextual secao="sintomas" mensagem="O sintoma mais parecido com o meu caso é:" />
         </section>
 
         <section className="mt-12" aria-labelledby="causas">
@@ -282,12 +280,7 @@ const ClusterProblemaPage = () => {
               </li>
             ))}
           </ul>
-          <CtaContextual
-            secao="causas"
-            texto="Não dá para saber a causa só pelo sintoma. Uma triagem rápida indica se resolve remoto, em visita ou em bancada."
-            mensagem="Quero uma triagem para descobrir a causa."
-            rotulo="Pedir triagem"
-          />
+          <CtaContextual secao="causas" mensagem="Quero uma triagem para descobrir a causa." />
         </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -397,12 +390,7 @@ const ClusterProblemaPage = () => {
             })}
 
           </div>
-          <CtaContextual
-            secao="faq"
-            texto="Ficou uma dúvida que não está aqui? Pergunte direto — resposta técnica, sem compromisso."
-            mensagem="Minha dúvida é:"
-            rotulo="Tirar minha dúvida"
-          />
+          <CtaContextual secao="faq" mensagem="Minha dúvida é:" />
         </section>
 
         <InterlinksContextuais path={`/problemas/${sintomaSlug}`} />

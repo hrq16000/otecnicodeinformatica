@@ -1766,3 +1766,27 @@ html[data-reduced-motion="true"] .motion-enter,
 html[data-reduced-motion="true"] .motion-exit { animation-duration: 0.01ms !important; transform: none !important; }
 html[data-reduced-motion="true"] .motion-collapse { transition: none !important; }
 html[data-reduced-motion="true"] .motion-progress-indeterminate > span { animation: none !important; }
+
+/* ══════════════════════════════════════════════════════════════════
+   REDE DE SEGURANÇA DE MOVIMENTO
+   Nenhuma animação — do sistema ou legada — sobrevive a
+   prefers-reduced-motion. Transições de cor continuam (não são
+   movimento espacial e ajudam a ler mudança de estado).
+   ══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .parallax, [data-parallax] { transform: none !important; }
+}
+
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

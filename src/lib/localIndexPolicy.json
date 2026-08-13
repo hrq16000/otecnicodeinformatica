@@ -122,59 +122,59 @@
       "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
     },
     {
-      "path": "/servicos/manutencao-de-notebook/curitiba",
+      "path": "/servicos/formatacao-computador/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/manutencao-de-notebook",
+      "canonical": "/servicos/formatacao-computador",
       "sitemap": false,
-      "parent": "/servicos/manutencao-de-notebook",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "manutenção de notebook em Curitiba",
-      "reason": "Lote Local 1: sem intenção local adicional comprovada (logística e cobertura já respondidas pela landing de Curitiba). Decisão objetiva — canonical para o serviço-pai, sem criar página nova."
-    },
-    {
-      "path": "/servicos/manutencao-de-computador/curitiba",
-      "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/manutencao-de-computador",
-      "sitemap": false,
-      "parent": "/servicos/manutencao-de-computador",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "manutenção de computador em Curitiba",
-      "reason": "Lote Local 1: conteúdo local não acrescenta resposta além do serviço-pai + landing da cidade."
-    },
-    {
-      "path": "/servicos/formatacao/curitiba",
-      "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/formatacao",
-      "sitemap": false,
-      "parent": "/servicos/formatacao",
+      "parent": "/servicos/formatacao-computador",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
       "intent": "formatação de computador em Curitiba",
       "reason": "Lote Local 1: formatação é majoritariamente remota/bancada; a cidade não altera o processo."
     },
     {
-      "path": "/servicos/remocao-de-virus/curitiba",
+      "path": "/servicos/remocao-virus/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/remocao-de-virus",
+      "canonical": "/servicos/remocao-virus",
       "sitemap": false,
-      "parent": "/servicos/remocao-de-virus",
+      "parent": "/servicos/remocao-virus",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
       "intent": "remoção de vírus em Curitiba",
       "reason": "Lote Local 1: atendimento remoto cobre a maior parte dos casos; sem intenção local extra."
     },
     {
-      "path": "/servicos/recuperacao-de-dados/curitiba",
+      "path": "/servicos/conserto-notebook/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/recuperacao-de-dados",
+      "canonical": "/servicos/conserto-pc-notebook",
       "sitemap": false,
-      "parent": "/servicos/recuperacao-de-dados",
+      "parent": "/servicos/conserto-pc-notebook",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "recuperação de dados em Curitiba",
-      "reason": "Lote Local 1: serviço de bancada com coleta; logística já descrita em /coleta-e-entrega e na landing da cidade."
+      "intent": "conserto de notebook em Curitiba",
+      "reason": "Lote Local 1: logística e cobertura já respondidas pela landing de Curitiba."
+    },
+    {
+      "path": "/servicos/conserto-pc/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/conserto-pc-notebook",
+      "sitemap": false,
+      "parent": "/servicos/conserto-pc-notebook",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "conserto de PC em Curitiba",
+      "reason": "Lote Local 1: mesma intenção de conserto de notebook/PC — evita doorway e canibalização."
+    },
+    {
+      "path": "/servicos/upgrade-ssd/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "canonicalized",
+      "canonical": "/servicos/upgrade-ssd-memoria",
+      "sitemap": false,
+      "parent": "/servicos/upgrade-ssd-memoria",
+      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
+      "intent": "upgrade de SSD e memória em Curitiba",
+      "reason": "Lote Local 1: serviço de bancada; a cidade não muda o procedimento nem o preço."
     }
   ],
   "bairrosAncora": [
@@ -220,11 +220,11 @@
     "/bairros/agua-verde",
     "/bairros/cic",
     "/bairros/portao",
-    "/servicos/manutencao-de-notebook/curitiba",
-    "/servicos/manutencao-de-computador/curitiba",
-    "/servicos/formatacao/curitiba",
-    "/servicos/remocao-de-virus/curitiba",
-    "/servicos/recuperacao-de-dados/curitiba"
+    "/servicos/formatacao-computador/curitiba",
+    "/servicos/remocao-virus/curitiba",
+    "/servicos/conserto-notebook/curitiba",
+    "/servicos/conserto-pc/curitiba",
+    "/servicos/upgrade-ssd/curitiba"
   ],
   "prefixosNaoIndexaveis": [
     {

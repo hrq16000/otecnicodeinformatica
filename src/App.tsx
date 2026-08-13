@@ -9,6 +9,8 @@ import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 import { GeoAutoDetect } from "./components/GeoAutoDetect";
 import { MotionProvider } from "./components/MotionProvider";
+import { RouteTransition } from "./components/motion/RouteTransition";
+
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -226,13 +228,18 @@ const HomeApp = () => {
       <InstitutionalJsonLd />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
       {showNavLoader ? <NavigationOverlay /> : null}
-      {isHomeRoute(routePath) ? (
-        <Index />
-      ) : (
-        <Suspense fallback={<RouteLoader />}>
-          <LegacyApp />
-        </Suspense>
-      )}
+      {/* RODADA 5: toda rota (home e lazy) entra pela mesma primitiva de
+          transição — fallback imediato e neutro sob reduced-motion. */}
+      <RouteTransition routeKey={routePath}>
+        {isHomeRoute(routePath) ? (
+          <Index />
+        ) : (
+          <Suspense fallback={<RouteLoader />}>
+            <LegacyApp />
+          </Suspense>
+        )}
+      </RouteTransition>
+
       <WhatsAppFunnel />
       <WhatsAppFloat />
       <ConsentBanner />

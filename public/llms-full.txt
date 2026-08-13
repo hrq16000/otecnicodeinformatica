@@ -126,6 +126,8 @@ Demais municípios da Região Metropolitana são avaliados sob consulta pelo Wha
 - [Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/cheiro-de-queimado)
 - [Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/windows-nao-inicia)
 - [Computador esquentando muito: causas e o que fazer | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/computador-esquentando)
+- [Impressora não imprime: causas e o que checar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/impressora-nao-imprime)
+- [Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/teclado-notebook-nao-funciona)
 
 ## Páginas institucionais e de política
 

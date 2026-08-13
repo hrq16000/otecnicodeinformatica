@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-13T02:39:44.388Z",
+  "generatedAt": "2026-08-13T02:46:43.623Z",
   "resumo": {
-    "total": 83,
+    "total": 85,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 83,
+    "pendencias": 85,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -205,6 +205,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/problemas/impressora-nao-imprime",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/problemas",
       "detalhe": "página indexável sem foto real"
     },
@@ -224,6 +230,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/problemas/notebook-nao-liga",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/teclado-notebook-nao-funciona",
       "detalhe": "página indexável sem foto real"
     },
     {

@@ -128,6 +128,64 @@ for (const file of files) {
   if (robots && !(robots.includes("index") && robots.includes("follow")))
     erros.push(`${url}: robots "${robots}" sem index,follow`);
 
+  // ── OpenGraph e Twitter Card ─────────────────────────────────────────────
+  // Presença, ausência de duplicidade e consistência com canonical/title/desc.
+  const metasProp = [...html.matchAll(/<meta[^>]+property=["']([^"']+)["'][^>]*content=["']([^"']*)["'][^>]*>/gi)];
+  const metasName = [...html.matchAll(/<meta[^>]+name=["']([^"']+)["'][^>]*content=["']([^"']*)["'][^>]*>/gi)];
+  const social = new Map();
+  const ocorrencias = new Map();
+  for (const [, chave, valor] of [...metasProp, ...metasName]) {
+    const k = chave.toLowerCase();
+    if (!k.startsWith("og:") && !k.startsWith("twitter:")) continue;
+    ocorrencias.set(k, (ocorrencias.get(k) || 0) + 1);
+    if (!social.has(k)) social.set(k, decode(valor));
+  }
+
+  for (const [k, n] of ocorrencias) {
+    if (n > 1) erros.push(`${url}: meta social "${k}" duplicada (${n} ocorrências)`);
+  }
+
+  for (const obrigatoria of ["og:title", "og:description", "og:url", "og:type"]) {
+    if (!social.get(obrigatoria)) erros.push(`${url}: ${obrigatoria} ausente ou vazia`);
+  }
+  const twCard = social.get("twitter:card");
+  if (!twCard) erros.push(`${url}: twitter:card ausente`);
+  else if (!["summary", "summary_large_image", "app", "player"].includes(twCard))
+    erros.push(`${url}: twitter:card inválida ("${twCard}")`);
+
+  const ogUrl = social.get("og:url");
+  if (ogUrl && canonicalRaw) {
+    const norm = (v) => {
+      let p = v;
+      try {
+        p = new URL(v).pathname;
+      } catch {
+        /* relativo */
+      }
+      return p.replace(/\/+$/, "") || "/";
+    };
+    if (norm(ogUrl) !== norm(canonicalRaw))
+      erros.push(`${url}: og:url (${norm(ogUrl)}) diverge do canonical (${norm(canonicalRaw)})`);
+  }
+
+  const ogTitle = social.get("og:title");
+  if (ogTitle && title && ogTitle.toLowerCase() !== title.toLowerCase())
+    avisos.push(`${url}: og:title diverge do <title>`);
+  const twTitle = social.get("twitter:title");
+  if (twTitle && ogTitle && twTitle.toLowerCase() !== ogTitle.toLowerCase())
+    avisos.push(`${url}: twitter:title diverge de og:title`);
+  const ogDesc = social.get("og:description");
+  if (ogDesc && desc && ogDesc.toLowerCase() !== desc.toLowerCase())
+    avisos.push(`${url}: og:description diverge da meta description`);
+  const twDesc = social.get("twitter:description");
+  if (twDesc && ogDesc && twDesc.toLowerCase() !== ogDesc.toLowerCase())
+    avisos.push(`${url}: twitter:description diverge de og:description`);
+  for (const chaveImg of ["og:image", "twitter:image"]) {
+    const img = social.get(chaveImg);
+    if (img && !/^https:\/\//i.test(img)) erros.push(`${url}: ${chaveImg} não é URL https absoluta`);
+  }
+
+
   const blocos = [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   if (blocos.length === 0) erros.push(`${url}: nenhum bloco JSON-LD`);
   for (const [, raw] of blocos) {
@@ -162,4 +220,4 @@ if (erros.length) {
   if (erros.length > 60) console.error(`  ... e mais ${erros.length - 60}`);
   process.exit(1);
 }
-console.log("✔ title/description únicos, H1 único, canonical self, robots e JSON-LD válidos.");
+console.log("✔ title/description únicos, H1 único, canonical self, robots, OG/Twitter e JSON-LD válidos.");

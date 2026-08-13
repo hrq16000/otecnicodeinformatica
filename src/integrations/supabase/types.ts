@@ -491,6 +491,13 @@ export type Database = {
             referencedRelation: "partners"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "partner_photos_partner_id_fkey"
+            columns: ["partner_id"]
+            isOneToOne: false
+            referencedRelation: "partners_public"
+            referencedColumns: ["id"]
+          },
         ]
       }
       partner_program_settings: {
@@ -780,7 +787,72 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      partners_public: {
+        Row: {
+          certificacoes: string[] | null
+          cidade: string | null
+          created_at: string | null
+          descricao: string | null
+          especialidades: string[] | null
+          estado: string | null
+          experiencia: string | null
+          formas_atendimento: string[] | null
+          foto_url: string | null
+          horario: string | null
+          id: string | null
+          nome_profissional: string | null
+          redes_sociais: Json | null
+          regioes_atendidas: string[] | null
+          servicos: string[] | null
+          site_url: string | null
+          slug: string | null
+          updated_at: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          certificacoes?: string[] | null
+          cidade?: string | null
+          created_at?: string | null
+          descricao?: string | null
+          especialidades?: string[] | null
+          estado?: string | null
+          experiencia?: string | null
+          formas_atendimento?: string[] | null
+          foto_url?: string | null
+          horario?: string | null
+          id?: string | null
+          nome_profissional?: string | null
+          redes_sociais?: Json | null
+          regioes_atendidas?: string[] | null
+          servicos?: string[] | null
+          site_url?: string | null
+          slug?: string | null
+          updated_at?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          certificacoes?: string[] | null
+          cidade?: string | null
+          created_at?: string | null
+          descricao?: string | null
+          especialidades?: string[] | null
+          estado?: string | null
+          experiencia?: string | null
+          formas_atendimento?: string[] | null
+          foto_url?: string | null
+          horario?: string | null
+          id?: string | null
+          nome_profissional?: string | null
+          redes_sociais?: Json | null
+          regioes_atendidas?: string[] | null
+          servicos?: string[] | null
+          site_url?: string | null
+          slug?: string | null
+          updated_at?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       admin_list_partners: {

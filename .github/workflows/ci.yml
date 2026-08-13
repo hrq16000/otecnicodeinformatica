@@ -40,6 +40,8 @@ jobs:
         run: npm run check:problem-duplicates
       - name: Intenção invertida em /problemas (sufixo -curitiba)
         run: npm run check:problem-intent
+      - name: Interlinks do Lote 1 (/problemas)
+        run: npm run check:problem-interlinks
       - name: Local hierarchy gate (bairros/cidades)
         run: npm run check:local-hierarchy
       - name: Gate de copy proibido (CNPJ, razão social, e-mail, telefone, "orçamento")

@@ -13,6 +13,8 @@
     "report:problem-intent": "bun scripts/report-problem-intent-map.ts",
     "report:problem-interlinks": "bun scripts/report-problem-interlinks.ts",
     "check:problem-intent": "bun scripts/check-problem-intent.ts",
+    "check:problem-interlinks": "bun scripts/check-problem-interlinks.ts",
+    "report:lot1": "bun scripts/report-lot1-final.ts",
     "check:problem-duplicates": "node scripts/dedupe-problema-pages.mjs --check",
     "report:local-performance": "node scripts/report-local-performance.mjs",
     "check:cross-cluster": "node scripts/check-cross-cluster-similarity.mjs dist",

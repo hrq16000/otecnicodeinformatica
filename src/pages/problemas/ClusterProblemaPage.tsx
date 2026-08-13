@@ -83,25 +83,24 @@ const ClusterProblemaPage = () => {
     SLOT_PRIORITY.page,
   );
 
-  // Relevância local: Service da página de sintoma, provido pela organização
-  // canônica e delimitado à área realmente atendida.
+  // Rodada 4B/Fase 24: página de sintoma NÃO emite Service só por ter CTA.
+  // Ela descreve um problema, não uma oferta comercial — o Service vive nas
+  // páginas de /servicos. Aqui o par é WebPage + BreadcrumbList (+ FAQPage
+  // quando a FAQ está realmente visível).
   useJsonLdSlot(
-    SCHEMA_SLOTS.service,
+    SCHEMA_SLOTS.webPage,
     dados
       ? {
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: dados.titulo,
+          "@type": "WebPage",
+          name: dados.metaTitle,
+          headline: dados.titulo,
           description: dados.metaDescription,
-          serviceType: dados.titulo,
           url: absoluteUrl(dados.path),
-          provider: { "@id": `${siteConfig.baseUrl}/#organization` },
-          areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
-          availableChannel: {
-            "@type": "ServiceChannel",
-            serviceUrl: absoluteUrl(dados.path),
-            availableLanguage: "pt-BR",
-          },
+          inLanguage: "pt-BR",
+          isPartOf: { "@id": `${siteConfig.baseUrl}/#website` },
+          about: { "@type": "Thing", name: dados.titulo },
+          publisher: { "@id": `${siteConfig.baseUrl}/#organization` },
         }
       : null,
     SLOT_PRIORITY.page,

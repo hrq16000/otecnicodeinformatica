@@ -820,6 +820,37 @@ export type Database = {
           isSetofReturn: true
         }
       }
+      admin_list_reviews: {
+        Args: never
+        Returns: {
+          author_name: string
+          author_photo_url: string | null
+          authorized_publication: boolean
+          city: string | null
+          client_phone: string | null
+          comment: string
+          created_at: string
+          google_review_url: string | null
+          id: string
+          neighborhood: string | null
+          origin_path: string | null
+          origin_protocol: string | null
+          published: boolean
+          rating: number
+          review_date: string
+          service_closed_at: string | null
+          service_slug: string | null
+          source: string
+          updated_at: string
+          verified: boolean
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "reviews"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
       admin_update_partner_status: {
         Args: {
           _notas_admin?: string

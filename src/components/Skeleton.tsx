@@ -66,3 +66,76 @@ export const SkeletonGrid = ({ count = 6, className = "" }: { count?: number; cl
     ))}
   </div>
 );
+
+/**
+ * Esqueletos estruturais adicionais (motion system global).
+ * Cada um espelha dimensões, grid e hierarquia do conteúdo real para
+ * reduzir layout shift e aumentar a percepção de velocidade.
+ */
+export const SkeletonTable = ({ rows = 6, cols = 4, className = "" }: { rows?: number; cols?: number; className?: string }) => (
+  <div aria-hidden="true" className={`overflow-hidden rounded-xl border border-border ${className}`}>
+    <div className="flex gap-4 border-b border-border bg-muted/30 p-4">
+      {Array.from({ length: cols }).map((_, i) => (
+        <div key={i} className="skel skel-line flex-1" />
+      ))}
+    </div>
+    {Array.from({ length: rows }).map((_, r) => (
+      <div key={r} className="flex gap-4 border-b border-border/60 p-4 last:border-b-0">
+        {Array.from({ length: cols }).map((_, c) => (
+          <div key={c} className="skel skel-line flex-1" style={{ maxWidth: c === 0 ? "40%" : undefined }} />
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
+export const SkeletonMetrics = ({ count = 4, className = "" }: { count?: number; className?: string }) => (
+  <div aria-hidden="true" className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
+    {Array.from({ length: count }).map((_, i) => (
+      <div key={i} className="rounded-xl border border-border bg-card p-5 space-y-3">
+        <div className="skel skel-line w-1/2" />
+        <div className="skel skel-title w-2/3" />
+        <div className="skel skel-line w-1/3" />
+      </div>
+    ))}
+  </div>
+);
+
+export const SkeletonChart = ({ height = 240, className = "" }: { height?: number; className?: string }) => (
+  <div aria-hidden="true" className={`rounded-xl border border-border bg-card p-5 ${className}`}>
+    <div className="skel skel-line mb-4 w-1/3" />
+    <div className="flex items-end gap-2" style={{ height }}>
+      {[62, 84, 48, 96, 70, 58, 88, 44].map((h, i) => (
+        <div key={i} className="skel flex-1 rounded-md" style={{ height: `${h}%` }} />
+      ))}
+    </div>
+  </div>
+);
+
+export const SkeletonForm = ({ fields = 4, className = "" }: { fields?: number; className?: string }) => (
+  <div aria-hidden="true" className={`space-y-4 ${className}`}>
+    {Array.from({ length: fields }).map((_, i) => (
+      <div key={i} className="space-y-2">
+        <div className="skel skel-line w-1/4" />
+        <div className="skel h-11 w-full rounded-lg" />
+      </div>
+    ))}
+    <div className="skel h-11 w-40 rounded-lg" />
+  </div>
+);
+
+export const SkeletonPage = ({ className = "" }: { className?: string }) => (
+  <div aria-hidden="true" className={`container mx-auto space-y-8 px-4 py-10 ${className}`}>
+    <div className="space-y-3">
+      <div className="skel skel-line w-40" />
+      <div className="skel skel-title w-2/3 max-w-xl" />
+      <div className="skel skel-line w-1/2 max-w-md" />
+    </div>
+    <SkeletonGrid count={6} />
+    <div className="space-y-2">
+      <div className="skel skel-line w-full" />
+      <div className="skel skel-line w-11/12" />
+      <div className="skel skel-line w-3/4" />
+    </div>
+  </div>
+);

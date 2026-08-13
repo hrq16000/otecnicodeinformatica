@@ -21,7 +21,13 @@ const rotas = [
 
 const CLS_MAX = 0.02;
 
-test.use({ reducedMotion: "reduce", viewport: { width: 1280, height: 900 } });
+test.use({ viewport: { width: 1280, height: 900 } });
+
+// `test.use({ reducedMotion })` não é aplicado de forma confiável nesta versão
+// do runner — a emulação é forçada explicitamente antes de cada navegação.
+test.beforeEach(async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+});
 
 async function observarLayoutShift(page: Page) {
   await page.addInitScript(() => {

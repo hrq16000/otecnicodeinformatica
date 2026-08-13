@@ -15,7 +15,7 @@ import {
   viewportBucket,
 } from "./trackingTaxonomy";
 import { supabase } from "@/integrations/supabase/client";
-import { avaliarClique } from "./clickDedup";
+import { podeMedirEvento } from "./clickDedup";
 import { gtagReportConversion, ADS_SEND_TO } from "./analytics";
 
 
@@ -212,6 +212,8 @@ function onceInSession(key: string): boolean {
 
 export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
+  // Rate limit também no funil: em picos, só o envio é descartado.
+  if (!podeMedirEvento("funnel_open", location).aceito) return;
   // Persistido para permitir medir abertura → conversão (wa_click) no painel.
   persistClickEvent("funnel_open", location, readTriageFallback(), {});
 };
@@ -467,7 +469,7 @@ function registrarConversaoClique(
   extra: Record<string, unknown>,
 ) {
   const posicao = typeof extra.cta_position === "string" ? extra.cta_position : location;
-  const { aceito, motivo } = avaliarClique(eventType, posicao);
+  const { aceito, motivo } = podeMedirEvento(eventType, posicao);
   if (!aceito) {
     // Rastreável no GA4 como engajamento descartado, nunca como conversão.
     track(`${eventType}_descartado`, { cta_location: location, motivo_descarte: motivo });

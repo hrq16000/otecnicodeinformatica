@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-08-13T02:22:26.094Z",
+  "resumo": {
+    "total": 0,
+    "bloqueios": 0,
+    "avisos": 0,
+    "pendencias": 0,
+    "fontesAusentes": [
+      "image-integrity",
+      "imageobject-jsonld",
+      "cross-cluster-similarity",
+      "photo-review"
+    ]
+  },
+  "linhas": []
+}

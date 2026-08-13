@@ -80,7 +80,6 @@ const ProblemasHub = () => {
             <AnimatedSection key={p.path} delay={Math.min(i, 6) * 60} className="h-full">
             <Link
               to={p.path}
-              to={p.path}
               className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-accent"
             >
               <div>

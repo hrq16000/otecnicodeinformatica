@@ -181,6 +181,17 @@ export function track(name: string, params: Record<string, unknown> = {}) {
     window.__waFunnelEvents.push({ name, payload });
   }
   g?.("event", name, payload);
+  // Espelho no sink de observabilidade (fail-closed: só sai se houver env).
+  if (name === "wa_click" || name === "call_click" || name === "funnel_open") {
+    void import("@/lib/observability").then(({ registrarEtapaFunil }) =>
+      registrarEtapaFunil(name, {
+        "funnel.path": String(payload.path ?? ""),
+        "funnel.cta_position": String(payload.cta_position ?? ""),
+        "funnel.variant": String(payload.variant ?? ""),
+        "funnel.utm_medium": String(payload.utm_medium ?? ""),
+      }),
+    );
+  }
 }
 
 /**

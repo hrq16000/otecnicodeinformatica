@@ -183,7 +183,11 @@
     "inventory:servicos": "node scripts/inventory-servicos.mjs dist",
     "check:live-production": "node scripts/check-live-production.mjs",
     "check:http-route-semantics": "node scripts/check-http-route-semantics.mjs",
-    "check:noindex-shells": "node scripts/generate-noindex-shells.mjs dist"
+    "check:noindex-shells": "node scripts/generate-noindex-shells.mjs dist",
+    "lint:biome": "biome lint",
+    "lint:biome:fix": "biome lint --write",
+    "test:mutation": "stryker run",
+    "report:problemas-attribution": "node scripts/report-problemas-attribution.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -248,8 +252,11 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
+    "@biomejs/biome": "^2.5.8",
     "@eslint/js": "^9.32.0",
     "@lhci/cli": "^0.15.1",
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/vitest-runner": "^9.6.1",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

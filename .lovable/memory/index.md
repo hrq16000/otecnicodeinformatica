@@ -36,3 +36,4 @@
 - [Onda 23 — painel A/B e FAQ depth](mem://features/problemas-ab-painel-onda23) — /admin/experimento-wa (msg_a × msg_b por sintoma), variante estável por dispositivo, faq_section_depth e gate E2E dos CTAs.
 - [Onda 24 — sintomas urgentes /problemas](mem://features/cluster-problemas-onda-24) — hd-fazendo-barulho e notebook-molhado indexáveis, espelho estático obrigatório e herdadas *-curitiba seguem noindex.
 - [Onda 25 — sintomas elétricos + gate JSON-LD](mem://features/cluster-problemas-onda-25) — /problemas/computador-nao-da-imagem, /problemas/cheiro-de-queimado e o gate check:problemas-jsonld (WebPage+FAQPage+Breadcrumb).
+- [Onda 26 — observabilidade e qualidade](mem://features/observabilidade-qualidade-onda26) — Sentry/OTLP fail-closed sem SDK, Biome no CI, Stryker semanal e relatório de atribuição /problemas.

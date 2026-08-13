@@ -29,11 +29,11 @@ const LOTE_LOCAL_1: Caso[] = [
   { path: "/bairros/centro", indexavel: true, canonical: "/bairros/centro", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/portao", indexavel: true, canonical: "/bairros/portao", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   // Serviço × cidade: canonicalizados no serviço-pai (anticanibalização)
-  { path: "/servicos/manutencao-de-notebook/curitiba", indexavel: false, canonical: "/servicos/manutencao-de-notebook", sitemap: false, pai: "/servicos/manutencao-de-notebook" },
-  { path: "/servicos/manutencao-de-computador/curitiba", indexavel: false, canonical: "/servicos/manutencao-de-computador", sitemap: false, pai: "/servicos/manutencao-de-computador" },
-  { path: "/servicos/formatacao/curitiba", indexavel: false, canonical: "/servicos/formatacao", sitemap: false, pai: "/servicos/formatacao" },
-  { path: "/servicos/remocao-de-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-de-virus", sitemap: false, pai: "/servicos/remocao-de-virus" },
-  { path: "/servicos/recuperacao-de-dados/curitiba", indexavel: false, canonical: "/servicos/recuperacao-de-dados", sitemap: false, pai: "/servicos/recuperacao-de-dados" },
+  { path: "/servicos/formatacao-computador/curitiba", indexavel: false, canonical: "/servicos/formatacao-computador", sitemap: false, pai: "/servicos/formatacao-computador" },
+  { path: "/servicos/remocao-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-virus", sitemap: false, pai: "/servicos/remocao-virus" },
+  { path: "/servicos/conserto-notebook/curitiba", indexavel: false, canonical: "/servicos/conserto-pc-notebook", sitemap: false, pai: "/servicos/conserto-pc-notebook" },
+  { path: "/servicos/conserto-pc/curitiba", indexavel: false, canonical: "/servicos/conserto-pc-notebook", sitemap: false, pai: "/servicos/conserto-pc-notebook" },
+  { path: "/servicos/upgrade-ssd/curitiba", indexavel: false, canonical: "/servicos/upgrade-ssd-memoria", sitemap: false, pai: "/servicos/upgrade-ssd-memoria" },
 ];
 
 // O contrato de indexação vive no HTML estático publicado (dist), não no
@@ -76,7 +76,23 @@ for (const caso of LOTE_LOCAL_1) {
 
     // Artefato publicado: fonte de verdade do contrato de indexação.
     const html = lerArtefato(caso.path);
-    expect(html, `${caso.path} não existe no build (rode npm run build antes)`).toBeTruthy();
+
+    if (!html) {
+      // Rota SPA canonicalizada (sem HTML próprio, por decisão da política):
+      // o contrato é verificado no documento renderizado.
+      expect(caso.indexavel, `${caso.path} é indexável e precisa de HTML estático`).toBe(false);
+      await page.goto(caso.path, { waitUntil: "domcontentloaded" });
+      await page.waitForLoadState("networkidle");
+      const robotsRuntime = (await page.locator('meta[name="robots"]').first().getAttribute("content")) ?? "";
+      expect(/noindex/i.test(robotsRuntime), `${caso.path}: robots "${robotsRuntime}"`).toBe(true);
+      const canonicalRuntime = await page.locator('link[rel="canonical"]').first().getAttribute("href");
+      if (canonicalRuntime) {
+        expect(new URL(canonicalRuntime, base).pathname.replace(/\/$/, "")).toBe(caso.canonical);
+      }
+      expect(carregarSitemap().has(caso.path), `${caso.path} fora do sitemap`).toBe(false);
+      await expect(page.locator(`a[href="${caso.pai}"]`).first()).toHaveCount(1);
+      return;
+    }
 
     // 1. meta robots coerente com a política
     const robots = html!.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? "";

@@ -10,6 +10,7 @@ import { FaixaFotografica } from "@/components/home/FaixaFotografica";
 import { TrustStrip } from "@/components/TrustStrip";
 
 import { LazyOnVisible } from "@/components/LazyOnVisible";
+import { SkeletonSection } from "@/components/SkeletonSection";
 import { siteConfig } from "@/lib/siteConfig";
 
 const HomeSections = lazy(() =>

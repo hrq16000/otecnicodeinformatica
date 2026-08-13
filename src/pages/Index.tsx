@@ -36,10 +36,27 @@ const Index = () => {
     setMeta('meta[property="og:title"]', "content", siteConfig.homeTitle);
     setMeta('meta[property="og:description"]', "content", siteConfig.homeDescription);
 
+    // ONDA 5M — pré-carrega os chunks abaixo da dobra em tempo ocioso.
+    // Sem isso, o bloco lazy só baixa quando já está visível e a troca
+    // esqueleto → conteúdo real acontece na tela (CLS alto e intermitente).
+    const prefetch = () => {
+      void import("@/components/home/HomeSections");
+      void import("@/components/Footer");
+    };
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+      .requestIdleCallback;
+    const idleId = ric ? ric(prefetch) : window.setTimeout(prefetch, 1200);
+
     const id = window.setTimeout(() => {
       import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));
     }, 1800);
-    return () => window.clearTimeout(id);
+    return () => {
+      window.clearTimeout(id);
+      const cic = (window as unknown as { cancelIdleCallback?: (h: number) => void })
+        .cancelIdleCallback;
+      if (ric && cic) cic(idleId);
+      else window.clearTimeout(idleId);
+    };
   }, []);
 
   return (
@@ -58,7 +75,7 @@ const Index = () => {
 
         <LazyOnVisible
           minHeight="900px"
-          rootMargin="-200px 0px"
+          rootMargin="900px 0px"
           placeholder={<SectionFallback height="900px" />}
         >
           <Suspense fallback={<SectionFallback height="900px" />}>
@@ -69,7 +86,7 @@ const Index = () => {
 
       <LazyOnVisible
         minHeight="400px"
-        rootMargin="-100px 0px"
+        rootMargin="600px 0px"
         placeholder={<SectionFallback height="400px" />}
       >
         <Suspense fallback={<SectionFallback height="400px" />}>

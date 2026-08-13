@@ -185,7 +185,9 @@ export function indexabilidadeRecomendada(entrada: {
   if (temSufixoLocal(entrada.url)) {
     return entrada.temGemeoLimpo
       ? { valor: "noindex", motivo: "duplica o sintoma canônico sem sufixo; canonical aponta para o gêmeo limpo" }
-      : { valor: "reavaliar", motivo: "sufixo local sem gêmeo limpo — decidir entre reposicionar intenção ou consolidar" };
+      : entrada.risco === "ALTO" || entrada.risco === "CRÍTICO"
+        ? { valor: "reavaliar", motivo: "sufixo local sem gêmeo limpo e com sobreposição alta — consolidar ou reposicionar" }
+        : { valor: "noindex", motivo: "sufixo local sem gêmeo limpo — manter fora do sitemap até a reescrita criar o sintoma canônico" };
   }
   if (entrada.risco === "CRÍTICO") {
     return { valor: "reavaliar", motivo: "sobreposição crítica com outra página do mesmo cluster" };

@@ -86,10 +86,12 @@ for (const file of arquivos) {
 }
 
 const pares = [];
+let maxScore = 0;
 for (let i = 0; i < paginas.length; i += 1) {
   for (let j = i + 1; j < paginas.length; j += 1) {
     if (paginas[i].cluster === paginas[j].cluster) continue;
     const score = Number(jaccard(paginas[i].sh, paginas[j].sh).toFixed(3));
+    if (score > maxScore) maxScore = score;
     if (score >= AVISO - 0.1)
       pares.push({ a: paginas[i].rota, b: paginas[j].rota, clusters: `${paginas[i].cluster}×${paginas[j].cluster}`, score });
   }
@@ -108,7 +110,7 @@ writeFileSync(
 if (REPORT) pares.slice(0, 20).forEach((p) => console.log(`  ${p.score.toFixed(3)}  [${p.clusters}] ${p.a} × ${p.b}`));
 
 console.log(
-  `cross-cluster-similarity: ${paginas.length} páginas (serviço/problema/bairro), máx ${pares[0]?.score.toFixed(3) ?? "0.000"}.`,
+  `cross-cluster-similarity: ${paginas.length} páginas (serviço/problema/bairro), máx ${maxScore.toFixed(3)}.`,
 );
 for (const p of avisos.slice(0, 10)) console.log(`  ! revisar ${p.score.toFixed(3)} — ${p.a} × ${p.b}`);
 

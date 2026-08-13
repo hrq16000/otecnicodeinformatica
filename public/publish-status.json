@@ -1,0 +1,2439 @@
+{
+  "generatedAt": "2026-08-13T00:42:48.235Z",
+  "base": "https://otecnicodeinformatica.com.br",
+  "total": 111,
+  "prontos": 39,
+  "revisao": 22,
+  "rascunho": 50,
+  "urls": [
+    {
+      "path": "/",
+      "url": "https://otecnicodeinformatica.com.br/",
+      "grupo": "home",
+      "title": "O Técnico de Informática | Assistência Técnica e Suporte Local",
+      "description": "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos",
+      "url": "https://otecnicodeinformatica.com.br/servicos",
+      "grupo": "servicos",
+      "title": "Serviços de Informática em Curitiba | PC e Notebook",
+      "description": "Conheça os serviços de formatação, manutenção de computadores e notebooks, SSD, vírus, recuperação de dados, Wi-Fi e suporte empresarial.",
+      "similaridade": 0.23,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/como-funciona",
+      "url": "https://otecnicodeinformatica.com.br/como-funciona",
+      "grupo": "como-funciona",
+      "title": "Como Funciona o Atendimento | O Técnico de Informática",
+      "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/precos-e-politicas",
+      "url": "https://otecnicodeinformatica.com.br/precos-e-politicas",
+      "grupo": "precos-e-politicas",
+      "title": "Preços e Políticas | O Técnico de Informática",
+      "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/sobre",
+      "url": "https://otecnicodeinformatica.com.br/sobre",
+      "grupo": "sobre",
+      "title": "Sobre O Técnico de Informática | PC, Notebook e Redes",
+      "description": "Conheça O Técnico de Informática: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/contato",
+      "url": "https://otecnicodeinformatica.com.br/contato",
+      "grupo": "contato",
+      "title": "Contato | O Técnico de Informática | Atendimento a partir de R$ 99,99",
+      "description": "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/faq",
+      "url": "https://otecnicodeinformatica.com.br/faq",
+      "grupo": "faq",
+      "title": "FAQ O Técnico de Informática | Preço, Prazo e Garantia",
+      "description": "Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/anuncie",
+      "url": "https://otecnicodeinformatica.com.br/anuncie",
+      "grupo": "anuncie",
+      "title": "Anuncie e Patrocine | Mídia Kit do Técnico de Informática",
+      "description": "Formatos de anúncio, posições recomendadas e regras de publicidade do portal O Técnico de Informática. Fale com o comercial e receba o mídia kit atualizado.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/atendimento-domicilio",
+      "url": "https://otecnicodeinformatica.com.br/atendimento-domicilio",
+      "grupo": "atendimento-domicilio",
+      "title": "Atendimento de Informática em Domicílio em Curitiba",
+      "description": "Atendimento técnico de informática em domicílio em Curitiba: o que resolve no local, o que exige coleta ou bancada, preparação da visita, peças e fatores de valor.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/atendimento-remoto",
+      "url": "https://otecnicodeinformatica.com.br/atendimento-remoto",
+      "grupo": "atendimento-remoto",
+      "title": "Atendimento Remoto de Informática em Curitiba",
+      "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/equipamentos-atendidos",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos-atendidos",
+      "grupo": "equipamentos-atendidos",
+      "title": "Equipamentos Atendidos | O Técnico de Informática",
+      "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/areas-atendidas",
+      "url": "https://otecnicodeinformatica.com.br/areas-atendidas",
+      "grupo": "areas-atendidas",
+      "title": "Áreas Atendidas em Curitiba e Região | Bairros e Cidades",
+      "description": "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/diagnostico-tecnico",
+      "url": "https://otecnicodeinformatica.com.br/diagnostico-tecnico",
+      "grupo": "diagnostico-tecnico",
+      "title": "Diagnóstico Técnico de Computador e Notebook em Curitiba",
+      "description": "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/coleta-e-entrega",
+      "url": "https://otecnicodeinformatica.com.br/coleta-e-entrega",
+      "grupo": "coleta-e-entrega",
+      "title": "Coleta e Entrega de Computador e Notebook em Curitiba",
+      "description": "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/quando-nao-compensa",
+      "url": "https://otecnicodeinformatica.com.br/quando-nao-compensa",
+      "grupo": "quando-nao-compensa",
+      "title": "Quando NÃO Compensa Reparar | Guia Técnico - Curitiba",
+      "description": "Guia completo sobre quando compensa e quando NÃO compensa reparar computadores, notebooks, TVs e outros equipamentos. Dicas de um técnico profissional em Curitiba.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/seguranca-dos-dados",
+      "url": "https://otecnicodeinformatica.com.br/seguranca-dos-dados",
+      "grupo": "seguranca-dos-dados",
+      "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
+      "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/politica-de-pecas-do-cliente",
+      "url": "https://otecnicodeinformatica.com.br/politica-de-pecas-do-cliente",
+      "grupo": "politica-de-pecas-do-cliente",
+      "title": "Política de Peças do Cliente | Montagem em Curitiba",
+      "description": "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/empresa-de-ti-curitiba",
+      "url": "https://otecnicodeinformatica.com.br/empresa-de-ti-curitiba",
+      "grupo": "empresa-de-ti-curitiba",
+      "title": "Empresa de TI em Curitiba | Soluções para Pequenas Empresas",
+      "description": "Soluções de informática para empresas em Curitiba: diagnóstico do ambiente, computadores, redes, manutenção e organização do suporte técnico.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/guia-tecnico-informatica",
+      "url": "https://otecnicodeinformatica.com.br/guia-tecnico-informatica",
+      "grupo": "guia-tecnico-informatica",
+      "title": "Guia Técnico: Manutenção de PC e Notebook Passo a Passo",
+      "description": "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/formatacao",
+      "url": "https://otecnicodeinformatica.com.br/servicos/formatacao",
+      "grupo": "servicos",
+      "title": "Formatação de PC e Notebook em Curitiba | Windows",
+      "description": "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp.",
+      "similaridade": 0.25,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/manutencao-de-notebook",
+      "url": "https://otecnicodeinformatica.com.br/servicos/manutencao-de-notebook",
+      "grupo": "servicos",
+      "title": "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
+      "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas.",
+      "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/manutencao-de-computador",
+      "url": "https://otecnicodeinformatica.com.br/servicos/manutencao-de-computador",
+      "grupo": "servicos",
+      "title": "Assistência Técnica de Computador em Curitiba | PC",
+      "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa.",
+      "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-ram",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-ram",
+      "grupo": "servicos",
+      "title": "Instalação de SSD e Upgrade de Memória em Curitiba",
+      "description": "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre.",
+      "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/remocao-de-virus",
+      "url": "https://otecnicodeinformatica.com.br/servicos/remocao-de-virus",
+      "grupo": "servicos",
+      "title": "Remoção de Vírus e Malware em Curitiba | PC e Notebook",
+      "description": "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp.",
+      "similaridade": 0.25,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/recuperacao-de-dados",
+      "url": "https://otecnicodeinformatica.com.br/servicos/recuperacao-de-dados",
+      "grupo": "servicos",
+      "title": "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
+      "description": "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas.",
+      "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/redes-e-wifi",
+      "url": "https://otecnicodeinformatica.com.br/servicos/redes-e-wifi",
+      "grupo": "servicos",
+      "title": "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
+      "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho.",
+      "similaridade": 0.11,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/suporte-tecnico-empresarial",
+      "url": "https://otecnicodeinformatica.com.br/servicos/suporte-tecnico-empresarial",
+      "grupo": "servicos",
+      "title": "Suporte Técnico para Empresas em Curitiba | Informática",
+      "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva.",
+      "similaridade": 0.3,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/manutencao-preventiva-empresas",
+      "url": "https://otecnicodeinformatica.com.br/servicos/manutencao-preventiva-empresas",
+      "grupo": "servicos",
+      "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
+      "description": "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado.",
+      "similaridade": 0.3,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/backup-para-empresas",
+      "url": "https://otecnicodeinformatica.com.br/servicos/backup-para-empresas",
+      "grupo": "servicos",
+      "title": "Backup para Empresas em Curitiba | Proteção de Arquivos",
+      "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração.",
+      "similaridade": 0.11,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/suporte-home-office",
+      "url": "https://otecnicodeinformatica.com.br/servicos/suporte-home-office",
+      "grupo": "servicos",
+      "title": "Suporte Técnico para Home Office em Curitiba",
+      "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail.",
+      "similaridade": 0.16,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/montagem-de-pc",
+      "url": "https://otecnicodeinformatica.com.br/servicos/montagem-de-pc",
+      "grupo": "servicos",
+      "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
+      "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema.",
+      "similaridade": 0.13,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/pc-gamer",
+      "url": "https://otecnicodeinformatica.com.br/servicos/pc-gamer",
+      "grupo": "servicos",
+      "title": "Manutenção de PC Gamer em Curitiba | Desempenho e Upgrade",
+      "description": "Manutenção de PC gamer em Curitiba: queda de FPS, travamento, superaquecimento e desligamento em jogo. Medição de temperatura, revisão de fonte e upgrade avaliado antes.",
+      "similaridade": 0.12,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/conserto-tv",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-tv",
+      "grupo": "servicos",
+      "title": "Conserto de TV e Smart TV em Curitiba | Bancada e Coleta",
+      "description": "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega.",
+      "similaridade": 0.5,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/conserto-placa",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-placa",
+      "grupo": "servicos",
+      "title": "Reparo de Placa Eletrônica em Curitiba | Nível de Componente",
+      "description": "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável.",
+      "similaridade": 0.5,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/conserto-monitor",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-monitor",
+      "grupo": "servicos",
+      "title": "Conserto de Monitor em Curitiba | Bancada, Coleta e Entrega",
+      "description": "Conserto de monitor em Curitiba: avaliação em bancada, reparo de fonte, placa e backlight quando viável, coleta e entrega. Não fazemos troca de painel — critério informado antes.",
+      "similaridade": 0.41,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/formatacao-computador/cic",
+      "url": "https://otecnicodeinformatica.com.br/servicos/formatacao-computador/cic",
+      "grupo": "servicos",
+      "title": "Formatação de Computador — CIC, Curitiba",
+      "description": "Formatação de Computador no CIC, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.92,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/formatacao-computador/batel",
+      "url": "https://otecnicodeinformatica.com.br/servicos/formatacao-computador/batel",
+      "grupo": "servicos",
+      "title": "Formatação de Computador — Batel, Curitiba",
+      "description": "Formatação de Computador no Batel, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.92,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/formatacao-computador/agua-verde",
+      "url": "https://otecnicodeinformatica.com.br/servicos/formatacao-computador/agua-verde",
+      "grupo": "servicos",
+      "title": "Formatação de Computador — Água Verde, Curitiba",
+      "description": "Formatação de Computador no Água Verde, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.86,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/remocao-virus/cic",
+      "url": "https://otecnicodeinformatica.com.br/servicos/remocao-virus/cic",
+      "grupo": "servicos",
+      "title": "Remoção de Vírus e Malware — CIC, Curitiba",
+      "description": "Remoção de Vírus e Malware no CIC, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.87,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/remocao-virus/agua-verde",
+      "url": "https://otecnicodeinformatica.com.br/servicos/remocao-virus/agua-verde",
+      "grupo": "servicos",
+      "title": "Remoção de Vírus e Malware — Água Verde, Curitiba",
+      "description": "Remoção de Vírus e Malware no Água Verde, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.87,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/conserto-pc-notebook/centro",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/centro",
+      "grupo": "servicos",
+      "title": "Conserto de PC e Notebook — Centro de Curitiba",
+      "description": "Conserto de PC e Notebook no Centro de Curitiba, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.8,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "metaDescription",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/servicos/conserto-pc-notebook/agua-verde",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/agua-verde",
+      "grupo": "servicos",
+      "title": "Conserto de PC e Notebook — Água Verde, Curitiba",
+      "description": "Conserto de PC e Notebook no Água Verde, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.8,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/cic",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/cic",
+      "grupo": "servicos",
+      "title": "Upgrade de SSD e Memória — CIC, Curitiba",
+      "description": "Upgrade de SSD e Memória no CIC, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.92,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/centro",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/centro",
+      "grupo": "servicos",
+      "title": "Upgrade de SSD e Memória — Centro de Curitiba",
+      "description": "Upgrade de SSD e Memória no Centro de Curitiba, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.92,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "metaDescription",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/agua-verde",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/agua-verde",
+      "grupo": "servicos",
+      "title": "Upgrade de SSD e Memória — Água Verde, Curitiba",
+      "description": "Upgrade de SSD e Memória no Água Verde, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.86,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/portao",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/portao",
+      "grupo": "servicos",
+      "title": "Upgrade de SSD e Memória — Portão, Curitiba",
+      "description": "Upgrade de SSD e Memória no Portão, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.92,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": false
+      },
+      "pendencias": [
+        "originalidade"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/tecnico-informatica-curitiba",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-curitiba",
+      "grupo": "tecnico-informatica-curitiba",
+      "title": "Técnico de Informática em Curitiba | PC e Notebook",
+      "description": "Atendimento técnico em Curitiba para computador, notebook, formatação, SSD, vírus, recuperação de dados, Wi-Fi e suporte para empresas.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/tecnico-informatica-sao-jose-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-sao-jose-pinhais",
+      "grupo": "tecnico-informatica-sao-jose-pinhais",
+      "title": "Técnico em São José dos Pinhais para Notebook e PC",
+      "description": "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/tecnico-informatica-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-pinhais",
+      "grupo": "tecnico-informatica-pinhais",
+      "title": "Técnico em Pinhais para Notebook, PC e Redes",
+      "description": "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/tecnico-informatica-colombo",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-colombo",
+      "grupo": "tecnico-informatica-colombo",
+      "title": "Técnico em Colombo para Notebook, PC e Informática",
+      "description": "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/tecnico-informatica-araucaria",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-araucaria",
+      "grupo": "tecnico-informatica-araucaria",
+      "title": "Técnico em Araucária para Notebook, PC e Empresas",
+      "description": "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/tecnico-informatica-campo-largo",
+      "url": "https://otecnicodeinformatica.com.br/tecnico-informatica-campo-largo",
+      "grupo": "tecnico-informatica-campo-largo",
+      "title": "Técnico em Campo Largo para Notebook, PC e Redes",
+      "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/bairros/cic",
+      "url": "https://otecnicodeinformatica.com.br/bairros/cic",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no CIC (Curitiba) | Notebook e PC",
+      "description": "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99.",
+      "similaridade": 0.67,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": false
+      },
+      "pendencias": [
+        "fotos",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/batel",
+      "url": "https://otecnicodeinformatica.com.br/bairros/batel",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Batel (Curitiba) | Notebook e PC",
+      "description": "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
+      "similaridade": 0.73,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": false
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/agua-verde",
+      "url": "https://otecnicodeinformatica.com.br/bairros/agua-verde",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Água Verde | Notebook e PC",
+      "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99.",
+      "similaridade": 0.73,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": false
+      },
+      "pendencias": [
+        "fotos",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/centro",
+      "url": "https://otecnicodeinformatica.com.br/bairros/centro",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Centro de Curitiba | Notebook e PC",
+      "description": "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios.",
+      "similaridade": 0.67,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": false
+      },
+      "pendencias": [
+        "fotos",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/portao",
+      "url": "https://otecnicodeinformatica.com.br/bairros/portao",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
+      "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD.",
+      "similaridade": 0.64,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": false
+      },
+      "pendencias": [
+        "fotos",
+        "originalidade"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/notebook-nao-liga",
+      "url": "https://otecnicodeinformatica.com.br/problemas/notebook-nao-liga",
+      "grupo": "problemas",
+      "title": "Notebook Não Liga? Assistência Técnica em Curitiba",
+      "description": "Notebook não liga ou liga sem imagem? Entenda os sinais, as causas possíveis, os testes externos seguros e como funciona o diagnóstico técnico em Curitiba.",
+      "similaridade": 0.17,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "fotos"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/problemas/computador-lento",
+      "url": "https://otecnicodeinformatica.com.br/problemas/computador-lento",
+      "grupo": "problemas",
+      "title": "Computador Lento? Diagnóstico | O Técnico de Informática",
+      "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem.",
+      "similaridade": 0.2,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "fotos"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/problemas",
+      "url": "https://otecnicodeinformatica.com.br/problemas",
+      "grupo": "problemas",
+      "title": "Problemas comuns de computador, rede e dados | O Técnico de Informática",
+      "description": "Entre pelo sintoma: computador lento, notebook que não liga, Wi-Fi caindo, tela azul ou arquivos apagados. Cada página explica causas, o que checar e o atendimento indicado.",
+      "similaridade": 0.17,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/wifi-instavel",
+      "url": "https://otecnicodeinformatica.com.br/problemas/wifi-instavel",
+      "grupo": "problemas",
+      "title": "Wi-Fi caindo ou lento: causas e o que checar | O Técnico de Informática",
+      "description": "Wi-Fi que cai, fica lento em alguns cômodos ou desconecta sozinho quase nunca é problema do plano. Veja as causas reais, o que testar antes e quando chamar técnico.",
+      "similaridade": 0.28,
+      "foto": {
+        "src": "/fotos/roteador-wifi.jpg",
+        "status": "ok",
+        "exclusiva": true
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/problemas/tela-azul",
+      "url": "https://otecnicodeinformatica.com.br/problemas/tela-azul",
+      "grupo": "problemas",
+      "title": "Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática",
+      "description": "Tela azul travando o computador? O código do erro aponta a origem: memória, driver, disco ou energia. Veja o que anotar antes de reiniciar e quando o reparo compensa.",
+      "similaridade": 0.2,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/arquivos-apagados",
+      "url": "https://otecnicodeinformatica.com.br/problemas/arquivos-apagados",
+      "grupo": "problemas",
+      "title": "Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática",
+      "description": "Apagou arquivos, formatou por engano ou o HD parou de abrir? O que você faz na primeira hora define a chance de recuperação. Veja o que evitar e como funciona a avaliação.",
+      "similaridade": 0.11,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/computador-desliga-sozinho",
+      "url": "https://otecnicodeinformatica.com.br/problemas/computador-desliga-sozinho",
+      "grupo": "problemas",
+      "title": "Computador desliga sozinho: causas e o que checar | O Técnico de Informática",
+      "description": "Desligamento súbito quase sempre é temperatura, fonte ou alimentação — raramente vírus. Veja como identificar a causa, o que testar antes e quando parar de usar.",
+      "similaridade": 0.28,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/notebook-nao-carrega",
+      "url": "https://otecnicodeinformatica.com.br/problemas/notebook-nao-carrega",
+      "grupo": "problemas",
+      "title": "Notebook não carrega: causas e o que testar | O Técnico de Informática",
+      "description": "Notebook ligado na tomada que não carrega pode ser fonte, conector, bateria ou placa. Veja como identificar cada caso, o que testar sozinho e o que evita gasto errado.",
+      "similaridade": 0.24,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/hd-fazendo-barulho",
+      "url": "https://otecnicodeinformatica.com.br/problemas/hd-fazendo-barulho",
+      "grupo": "problemas",
+      "title": "HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática",
+      "description": "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente. Entenda cada ruído, o que fazer imediatamente e o que destrói a chance de recuperar os arquivos.",
+      "similaridade": 0.18,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/computador-nao-da-imagem",
+      "url": "https://otecnicodeinformatica.com.br/problemas/computador-nao-da-imagem",
+      "grupo": "problemas",
+      "title": "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
+      "description": "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
+      "similaridade": 0.21,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/cheiro-de-queimado",
+      "url": "https://otecnicodeinformatica.com.br/problemas/cheiro-de-queimado",
+      "grupo": "problemas",
+      "title": "Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática",
+      "description": "Cheiro de queimado vindo do gabinete, da fonte ou do carregador é sinal elétrico e urgente. Veja o que desligar agora, o que nunca fazer e como o diagnóstico é conduzido.",
+      "similaridade": 0.21,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/problemas/notebook-molhado",
+      "url": "https://otecnicodeinformatica.com.br/problemas/notebook-molhado",
+      "grupo": "problemas",
+      "title": "Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática",
+      "description": "Derramou líquido no notebook? Os primeiros minutos decidem o custo do reparo. Veja o que desligar, o que nunca fazer (arroz e secador) e quando o caso é de bancada.",
+      "similaridade": 0.19,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "fotos"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/equipamentos",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos",
+      "grupo": "equipamentos",
+      "title": "Equipamentos atendidos: notebook, PC, impressora e roteador | O Técnico de Informática",
+      "description": "Entre pelo equipamento: notebook, desktop, impressora ou roteador. Cada página mostra os sintomas mais comuns, o que é verificado na avaliação e a modalidade indicada.",
+      "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/equipamentos/notebook",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos/notebook",
+      "grupo": "equipamentos",
+      "title": "Notebook com problema: sintomas e reparos | O Técnico de Informática",
+      "description": "Notebook lento, que não liga, superaquecendo, com tela apagada ou bateria que não segura carga. Veja o que cada sintoma indica e qual atendimento resolve.",
+      "similaridade": 0.35,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/equipamentos/desktop",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos/desktop",
+      "grupo": "equipamentos",
+      "title": "Desktop com problema: falhas e upgrades | O Técnico de Informática",
+      "description": "PC que não liga, reinicia sozinho, faz barulho ou ficou lento. Entenda o que cada sintoma indica no desktop, o que checar antes e qual atendimento resolve.",
+      "similaridade": 0.35,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/equipamentos/impressora",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos/impressora",
+      "grupo": "equipamentos",
+      "title": "Impressora com problema: instalação e rede | O Técnico de Informática",
+      "description": "Impressora que some da rede, não imprime, imprime falhado ou não conecta no Wi-Fi. Veja causas reais, o que checar antes e qual atendimento resolve.",
+      "similaridade": 0.26,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/equipamentos/roteador",
+      "url": "https://otecnicodeinformatica.com.br/equipamentos/roteador",
+      "grupo": "equipamentos",
+      "title": "Roteador e Wi-Fi: cobertura e quedas | O Técnico de Informática",
+      "description": "Roteador com sinal fraco, quedas ou configuração errada derruba a internet inteira. Veja o que checar, o que resolve de verdade e qual atendimento indicar.",
+      "similaridade": 0.23,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/solucoes",
+      "url": "https://otecnicodeinformatica.com.br/solucoes",
+      "grupo": "solucoes",
+      "title": "Soluções técnicas: diagnóstico, formatação, SSD, backup e dados | O Técnico de Informática",
+      "description": "Entre pelo procedimento: diagnóstico, formatação, troca por SSD, backup e recuperação de dados. Cada página mostra etapas reais, o que evitar e a modalidade indicada.",
+      "similaridade": 0.13,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/solucoes/diagnostico",
+      "url": "https://otecnicodeinformatica.com.br/solucoes/diagnostico",
+      "grupo": "solucoes",
+      "title": "Diagnóstico técnico de computador e notebook | O Técnico de Informática",
+      "description": "Diagnóstico técnico que separa software, energia, armazenamento e temperatura antes de indicar peça. Veja as etapas, o que é medido e como o orçamento é apresentado.",
+      "similaridade": 0.13,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/solucoes/formatacao",
+      "url": "https://otecnicodeinformatica.com.br/solucoes/formatacao",
+      "grupo": "solucoes",
+      "title": "Formatação e reinstalação de Windows com backup | O Técnico de Informática",
+      "description": "Formatação feita na ordem correta: backup conferido, sistema limpo, drivers corretos e programas de trabalho restaurados. Veja etapas, riscos e quando formatar não resolve.",
+      "similaridade": 0.18,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/solucoes/ssd",
+      "url": "https://otecnicodeinformatica.com.br/solucoes/ssd",
+      "grupo": "solucoes",
+      "title": "Instalação e troca de SSD com clonagem | O Técnico de Informática",
+      "description": "Instalação de SSD com clonagem do sistema, alinhamento correto e teste de desempenho. Veja quando o SSD resolve, quando não resolve e como o serviço é executado.",
+      "similaridade": 0.18,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "estado": "pronto"
+    },
+    {
+      "path": "/solucoes/backup",
+      "url": "https://otecnicodeinformatica.com.br/solucoes/backup",
+      "grupo": "solucoes",
+      "title": "Backup de arquivos e rotina de cópia segura | O Técnico de Informática",
+      "description": "Backup com verificação de leitura, separação do que realmente importa e rotina que continua funcionando depois do atendimento. Veja etapas, mídias e limites.",
+      "similaridade": 0.13,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/solucoes/recuperacao-de-dados",
+      "url": "https://otecnicodeinformatica.com.br/solucoes/recuperacao-de-dados",
+      "grupo": "solucoes",
+      "title": "Recuperação de dados de HD, SSD e pen drive | O Técnico de Informática",
+      "description": "Recuperação de arquivos apagados, partição perdida e disco que não é reconhecido. Veja o que aumenta a chance, o que destrói o resultado e como o caso é avaliado.",
+      "similaridade": 0.13,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": false,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaTitle"
+      ],
+      "estado": "revisao"
+    },
+    {
+      "path": "/blog",
+      "url": "https://otecnicodeinformatica.com.br/blog",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/quando-trocar-hd-por-ssd",
+      "url": "https://otecnicodeinformatica.com.br/blog/quando-trocar-hd-por-ssd",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-saber-se-pc-tem-virus-malware",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-saber-se-pc-tem-virus-malware",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/backup-como-proteger-seus-arquivos",
+      "url": "https://otecnicodeinformatica.com.br/blog/backup-como-proteger-seus-arquivos",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-melhorar-sinal-wifi-em-casa",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-melhorar-sinal-wifi-em-casa",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/notebook-superaquecendo-o-que-fazer",
+      "url": "https://otecnicodeinformatica.com.br/blog/notebook-superaquecendo-o-que-fazer",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/organizacao-de-ti-para-pequenos-escritorios",
+      "url": "https://otecnicodeinformatica.com.br/blog/organizacao-de-ti-para-pequenos-escritorios",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-escolher-uma-workstation",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-escolher-uma-workstation",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-instalar-windows-11-do-zero",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-instalar-windows-11-do-zero",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-resolver-tela-azul-windows",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-resolver-tela-azul-windows",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-trocar-tela-notebook-passo-a-passo",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-trocar-tela-notebook-passo-a-passo",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/notebook-nao-liga-o-que-fazer",
+      "url": "https://otecnicodeinformatica.com.br/blog/notebook-nao-liga-o-que-fazer",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/computador-lento-causas-solucoes",
+      "url": "https://otecnicodeinformatica.com.br/blog/computador-lento-causas-solucoes",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-recuperar-dados-hd-com-defeito",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-recuperar-dados-hd-com-defeito",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-fazer-upgrade-ssd-nvme",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-fazer-upgrade-ssd-nvme",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-configurar-roteador-wifi-iniciantes",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-configurar-roteador-wifi-iniciantes",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-saber-quem-esta-usando-meu-wifi",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-saber-quem-esta-usando-meu-wifi",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-escolher-um-bom-antivirus",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-escolher-um-bom-antivirus",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-proteger-computador-golpes-internet",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-proteger-computador-golpes-internet",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-limpar-notebook-por-dentro",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-limpar-notebook-por-dentro",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-trocar-pasta-termica-notebook",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-trocar-pasta-termica-notebook",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-clonar-hd-para-ssd",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-clonar-hd-para-ssd",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-instalar-segundo-ssd-notebook",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-instalar-segundo-ssd-notebook",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/ransomware-como-proteger-empresa",
+      "url": "https://otecnicodeinformatica.com.br/blog/ransomware-como-proteger-empresa",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/backup-nuvem-empresas-qual-escolher",
+      "url": "https://otecnicodeinformatica.com.br/blog/backup-nuvem-empresas-qual-escolher",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-instalar-impressora-windows-passo-a-passo",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-instalar-impressora-windows-passo-a-passo",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-conectar-wifi-tv-nao-conecta",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-conectar-wifi-tv-nao-conecta",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-testar-fonte-de-alimentacao-pc",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-testar-fonte-de-alimentacao-pc",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-diagnosticar-placa-mae-defeituosa",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-diagnosticar-placa-mae-defeituosa",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/windows-11-lento-como-resolver",
+      "url": "https://otecnicodeinformatica.com.br/blog/windows-11-lento-como-resolver",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    },
+    {
+      "path": "/blog/como-remover-virus-windows-iniciantes",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-remover-virus-windows-iniciantes",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "estado": "rascunho"
+    }
+  ]
+}

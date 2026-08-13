@@ -108,3 +108,6 @@ jobs:
       - name: Alerta de regressão
         if: failure()
         run: echo "::error::Gate semanal falhou — uma ou mais URLs aprovadas saíram do padrão fail-closed."
+
+      - name: Teste de mutação (Stryker, break=40)
+        run: npm run test:mutation

@@ -21,6 +21,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Lint (non-blocking warnings)
         run: npm run lint --silent || echo "::warning::lint reported issues"
+      - name: Biome lint gate (correctness/suspicious)
+        run: npm run lint:biome
       - name: CTA funnel gate
         run: npm run check:cta-funnel
       - name: Internal links + sitemap gate
@@ -77,6 +79,8 @@ jobs:
         run: npm run report:faq-parity
 
 
+      - name: Atribuição /problemas (GA4 x Ads x UTM)
+        run: npm run report:problemas-attribution
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity
       - name: Interlinking local gate (mãe ⇄ bairros/cidades)

@@ -26,6 +26,7 @@ import {
   trackTriageFieldFill,
   trackTriageRestore,
   trackTriagePreview,
+  trackTriageMessageCopy,
   trackTriageFallbackTab,
 } from "@/lib/funnelAnalytics";
 import {
@@ -143,6 +144,7 @@ export const WhatsAppFunnel = () => {
   const [fallback, setFallback] = useState<{ message: string; url: string } | null>(null);
   const [copied, setCopied] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [previewCopied, setPreviewCopied] = useState(false);
 
   const submittingRef = useRef(false);
   const isTransitioning = useRef(false);
@@ -767,6 +769,28 @@ export const WhatsAppFunnel = () => {
     } catch { /* noop */ }
   }, [fallback]);
 
+  // Cópia da mensagem pronta ANTES de abrir o WhatsApp (etapa de revisão).
+  // Fail-closed: se o clipboard estiver bloqueado, o evento registra "blocked"
+  // e a prévia é aberta para cópia manual — nenhum estado do funil é perdido.
+  const copyPreviewMessage = useCallback(async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(previewMessage);
+      ok = true;
+      setPreviewCopied(true);
+      setTimeout(() => setPreviewCopied(false), 2000);
+    } catch {
+      setShowPreview(true);
+    }
+    trackTriageMessageCopy({
+      ctaLocation: originLocation,
+      equipamento: answers.equipment || undefined,
+      sintoma: answers.symptom || undefined,
+      ok,
+    });
+  }, [previewMessage, originLocation, answers.equipment, answers.symptom]);
+
+
   // ---------- render helpers ----------
   const registerRef = (id: string) => (el: HTMLDivElement | null) => {
     fieldRefs.current.set(id, el);
@@ -1168,6 +1192,15 @@ export const WhatsAppFunnel = () => {
                         <ArrowLeft className="h-4 w-4" /> Voltar
                       </Button>
                       <Button variant="ghost" size="sm" onClick={reset}>Recomeçar</Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={copyPreviewMessage}
+                        className="gap-1"
+                        aria-label="Copiar a mensagem pronta do WhatsApp"
+                      >
+                        <Copy className="h-4 w-4" /> {previewCopied ? "Copiado!" : "Copiar mensagem"}
+                      </Button>
                       <Button
                         ref={agendarBtnRef}
                         onClick={submit}

@@ -742,3 +742,21 @@ export const trackTriagePreview = (action: "open" | "confirm", extra: Record<str
 /** Fallback: triagem aberta em nova aba porque o popup falhou/foi bloqueado. */
 export const trackTriageFallbackTab = (params: { motivo: string; url: string }) =>
   track("wa_funnel_fallback_tab", { motivo: params.motivo, url: params.url.slice(0, 160) });
+
+/**
+ * Cópia manual da mensagem pronta antes de abrir o WhatsApp.
+ * Mede por página de origem e por serviço/equipamento (GA4).
+ */
+export const trackTriageMessageCopy = (params: {
+  ctaLocation: string;
+  equipamento?: string | null;
+  sintoma?: string | null;
+  ok: boolean;
+}) =>
+  track("wa_message_copy", {
+    cta_location: params.ctaLocation,
+    equipamento: params.equipamento || undefined,
+    sintoma: params.sintoma || undefined,
+    page_path: typeof window !== "undefined" ? window.location.pathname.slice(0, 120) : undefined,
+    copy_status: params.ok ? "ok" : "blocked",
+  });

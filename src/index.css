@@ -1676,3 +1676,17 @@ body[data-triage-open="1"] .wa-pulse {
 ::-webkit-scrollbar-corner {
   background: hsl(var(--secondary));
 }
+
+/* ── MotionProvider global: espelha prefers-reduced-motion no <html> ── */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-reduced-motion="true"] .skel { animation: none; }
+html[data-reduced-motion="true"] .img-fade { opacity: 1; transition: none; }
+html[data-reduced-motion="true"] .route-progress > span { animation: none; transform: none; }

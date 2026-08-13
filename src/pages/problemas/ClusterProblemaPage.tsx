@@ -25,6 +25,7 @@ import {
 import { useScrollBucket } from "@/hooks/useScrollBucket";
 import { useFaqSectionDepth } from "@/hooks/useFaqSectionDepth";
 import { useVarianteWa } from "@/lib/problemasWaVariants";
+import { copyCta, useVarianteCta } from "@/lib/problemasCtaVariants";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import {
   trackPageView,
@@ -86,6 +87,8 @@ const ClusterProblemaPage = () => {
   const rolagem = useScrollBucket();
   // Mesma variante do A/B durante toda a navegação (localStorage + cookie).
   const variante = useVarianteWa();
+  // Experimento paralelo: copy + posição do CTA por seção (cta_1 / cta_2).
+  const varianteBotao = useVarianteCta();
 
   /**
    * Registro único de clique de WhatsApp: GA4 (engajamento) + click_events
@@ -95,7 +98,7 @@ const ClusterProblemaPage = () => {
     const rotulo = rotuloEvento({ ...contexto, sintoma: sintomaSlug, secao: ctx.secao, rolagem, variante });
     trackCTAClick("whatsapp", rotulo);
     trackWaClick(rotulo, {
-      variant: `msg_${variante}`,
+      variant: `msg_${variante}_cta_${varianteBotao}`,
       servico: sintomaSlug,
       cta_position: `problema_${ctx.secao}`,
       utm_medium: "cta",
@@ -134,22 +137,29 @@ const ClusterProblemaPage = () => {
    * CTA contextual por seção: mensagem pré-preenchida (sintoma + equipamento +
    * bairro + urgência) e link com UTM/identificadores de rota, seção e rolagem,
    * para atribuição precisa no GA4/Google Ads.
+   *
+   * O microcopy, o rótulo e a POSIÇÃO do bloco vêm do experimento cta_1/cta_2
+   * (src/lib/problemasCtaVariants.ts). Cada ponto de inserção declara `quando`
+   * ("antes" ou "depois" do conteúdo da seção) e só renderiza se bater com a
+   * posição da variante — o conteúdo editorial nunca muda.
    */
   const CtaContextual = ({
     secao,
-    texto,
     mensagem,
-    rotulo,
+    quando = "depois",
   }: {
     secao: string;
-    texto: string;
     mensagem: string;
-    rotulo: string;
+    quando?: "antes" | "depois";
   }) => {
+    const copy = copyCta(secao, varianteBotao);
+    if (copy.posicao !== quando) return null;
     const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem, variante };
     return (
-    <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
-      <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
+    <div
+      className={`${quando === "antes" ? "mb-6" : "mt-6"} flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in`}
+    >
+      <p className="text-sm leading-relaxed text-muted-foreground">{copy.texto}</p>
       <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
         <a
           href={buildProblemaWaHref(baseMsg, ctx)}
@@ -158,12 +168,13 @@ const ClusterProblemaPage = () => {
           target="_blank"
         >
           <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
-          {rotulo}
+          {copy.rotulo}
         </a>
       </Button>
     </div>
     );
   };
+
 
 
 
@@ -246,6 +257,7 @@ const ClusterProblemaPage = () => {
           <h2 id="sintomas" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Como o problema costuma se manifestar
           </h2>
+          <CtaContextual secao="sintomas" mensagem="O sintoma mais parecido com o meu caso é:" quando="antes" />
           <div className="grid gap-4 sm:grid-cols-2">
             {dados.sintomas.map((s) => (
               <article key={s.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -254,18 +266,14 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
-          <CtaContextual
-            secao="sintomas"
-            texto="Seu caso se parece com algum desses? Descreva em uma frase e receba a orientação do próximo passo."
-            mensagem="O sintoma mais parecido com o meu caso é:"
-            rotulo="Descrever meu sintoma"
-          />
+          <CtaContextual secao="sintomas" mensagem="O sintoma mais parecido com o meu caso é:" />
         </section>
 
         <section className="mt-12" aria-labelledby="causas">
           <h2 id="causas" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Causas investigadas no diagnóstico
           </h2>
+          <CtaContextual secao="causas" mensagem="Quero uma triagem para descobrir a causa." quando="antes" />
           <ul className="space-y-3">
             {dados.causas.map((c) => (
               <li key={c.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -274,12 +282,7 @@ const ClusterProblemaPage = () => {
               </li>
             ))}
           </ul>
-          <CtaContextual
-            secao="causas"
-            texto="Não dá para saber a causa só pelo sintoma. Uma triagem rápida indica se resolve remoto, em visita ou em bancada."
-            mensagem="Quero uma triagem para descobrir a causa."
-            rotulo="Pedir triagem"
-          />
+          <CtaContextual secao="causas" mensagem="Quero uma triagem para descobrir a causa." />
         </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -316,6 +319,7 @@ const ClusterProblemaPage = () => {
           <h2 id="modalidades" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Modalidades possíveis de atendimento
           </h2>
+          <CtaContextual secao="modalidades" mensagem="Quero saber qual modalidade se aplica ao meu caso." quando="antes" />
           <div className="grid gap-4 sm:grid-cols-3">
             {dados.modalidades.map((m) => (
               <article key={m.titulo} className="rounded-xl border border-border bg-card p-5">
@@ -331,7 +335,9 @@ const ClusterProblemaPage = () => {
               mão de obra e peça são informados separadamente e nada é executado sem sua aprovação.
             </span>
           </p>
+          <CtaContextual secao="modalidades" mensagem="Quero saber qual modalidade se aplica ao meu caso." />
         </section>
+
 
         <PoliticaAtendimentoBloco variant="inline" />
 
@@ -339,6 +345,7 @@ const ClusterProblemaPage = () => {
           <h2 id="faq" className="mb-4 font-heading text-2xl font-bold text-foreground">
             Perguntas frequentes sobre este problema
           </h2>
+          <CtaContextual secao="faq" mensagem="Minha dúvida é:" quando="antes" />
           <div className="space-y-4">
             {dados.faq.map((f, i) => {
               const rel = dados.relacionados[i % dados.relacionados.length];
@@ -389,12 +396,7 @@ const ClusterProblemaPage = () => {
             })}
 
           </div>
-          <CtaContextual
-            secao="faq"
-            texto="Ficou uma dúvida que não está aqui? Pergunte direto — resposta técnica, sem compromisso."
-            mensagem="Minha dúvida é:"
-            rotulo="Tirar minha dúvida"
-          />
+          <CtaContextual secao="faq" mensagem="Minha dúvida é:" />
         </section>
 
         <InterlinksContextuais path={`/problemas/${sintomaSlug}`} />

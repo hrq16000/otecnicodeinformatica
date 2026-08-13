@@ -202,3 +202,27 @@ aplicação estão satisfeitas (indexáveis 200, noindex válidos 200 + noindex,
 404 canônica sem canonical da home). O upgrade para **APROVADO PARA PRODUÇÃO E INDEXAÇÃO** ocorre
 automaticamente após o deploy do Worker com o token, quando URLs desconhecidas passarem a devolver
 status HTTP 404 real.
+
+## Rodada 3P.2 — tentativa de ativação do Worker (13/08/2026, 04:0x UTC)
+
+- Nenhuma alteração na aplicação (rotas, conteúdo, SEO, schemas, sitemap, robots, analytics, funil).
+- Pré-voo `cf:edge:dry` (somente leitura, sem secrets): worker
+  `otecnicodeinformatica-route-guard`, zona `otecnicodeinformatica.com.br`, rotas
+  `otecnicodeinformatica.com.br/*` e `www.otecnicodeinformatica.com.br/*`, modelo de origem `dns`,
+  manifesto com 1095 rotas exatas, 41 aliases e 776 assets — **APTO**.
+- Retestes HTTP diretos em produção: `/` 200 · `/servicos/manutencao-de-notebook` 200 ·
+  `/tecnico-informatica-curitiba` 200 · `/bairros/batel` 200 · `/assets/nao-existe-938472.js` 404 ·
+  `/isto-nao-existe-938472` 200 (soft-404) · `/servicos/banana-quantica` 200 (soft-404) ·
+  `www/` 302 → `https://otecnicodeinformatica.com.br/`.
+- Causa do soft-404 confirmada: ausência do Worker de borda; a origem estática devolve o shell da
+  SPA com 200 para qualquer path desconhecido, enquanto o HTML servido já é a 404 canônica
+  (`noindex`, sem canonical da home, H1 de página não encontrada).
+- `check:cf-zone`, `cf:edge:deploy`, `smoke:edge:prod`, `check:index-health`,
+  `check:sitemap-status` e `verify:prod-status` seguem bloqueados: o token Cloudflare foi
+  solicitado nesta rodada e não foi fornecido. Nenhum token foi versionado, impresso ou adicionado
+  ao `.env.example`.
+- Pendência de `www`: a troca de 302 para 308/301 permanente também ocorre no Worker, junto com a
+  preservação de path e query (já preservados hoje).
+
+**Veredito mantido: APROVADO PARA PRODUÇÃO COM RESSALVAS** — o upgrade para
+**APROVADO PARA PRODUÇÃO E INDEXAÇÃO** depende exclusivamente do deploy do Worker com o token.

@@ -1,66 +1,161 @@
 # O Técnico de Informática — otecnicodeinformatica.com.br
+# Arquivo gerado por scripts/generate-robots.mjs — não editar à mão.
 # Indexação liberada (VITE_SITE_DOMAIN + VITE_SITE_INDEXING_ENABLED=true).
 
 User-agent: *
-Disallow: /debug/
-Allow: /
 Disallow: /admin
 Disallow: /admin/
+Disallow: /debug/
 Disallow: /status-os
 Disallow: /funil-indisponivel
+Allow: /
 
 User-agent: Googlebot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Bingbot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Twitterbot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: facebookexternalhit
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
-# Bots de busca por IA / LLM — rastreio liberado do conteúdo público.
-# Resumo estruturado para modelos: /llms.txt e /llms-full.txt
 User-agent: GPTBot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: OAI-SearchBot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: ChatGPT-User
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: PerplexityBot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Perplexity-User
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: ClaudeBot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Claude-User
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Google-Extended
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Applebot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Applebot-Extended
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: Amazonbot
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: meta-externalagent
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
 
 User-agent: cohere-ai
+Disallow: /admin
+Disallow: /admin/
+Disallow: /debug/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 Allow: /
+
+# Resumo estruturado para modelos de IA: /llms.txt e /llms-full.txt
 
 Sitemap: https://otecnicodeinformatica.com.br/sitemap-index.xml
 Sitemap: https://otecnicodeinformatica.com.br/sitemap.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-main.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-servicos.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-regioes.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-bairros.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-problemas.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-equipamentos.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-solucoes.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-editorial.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-images.xml

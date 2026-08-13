@@ -34,7 +34,10 @@ if (existsSync(redirectsFile)) {
   for (const line of readFileSync(redirectsFile, "utf8").split("\n")) {
     const [from, to, code] = line.trim().split(/\s+/);
     if (!from || from.startsWith("#") || from.includes("*")) continue;
-    redirectSources.set(from, { to, code: code ?? "301" });
+    const status = (code ?? "301").replace("!", "");
+    // Só 3xx é redirect: linhas 200 são o rewrite do SPA e 404 é o catch-all.
+    if (!/^3\d\d$/.test(status)) continue;
+    redirectSources.set(from.replace(/\/$/, "") || "/", { to, code: status });
   }
 }
 

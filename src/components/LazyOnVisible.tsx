@@ -46,7 +46,11 @@ export const LazyOnVisible = ({
   }, [visible, rootMargin]);
 
   if (visible) return <>{children}</>;
-  return <div ref={ref} aria-hidden="true" style={{ minHeight }} />;
+  return (
+    <div ref={ref} aria-hidden="true" style={{ minHeight }}>
+      {placeholder}
+    </div>
+  );
 };
 
 export default LazyOnVisible;

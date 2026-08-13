@@ -12,6 +12,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
+import { canonicalDecidido } from "@/lib/problemDecisions4c";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick, trackProblemaServiceClick, trackProblemaLinkBroken } from "@/lib/funnelAnalytics";
 import { auditInternalLink } from "@/lib/internalLinkAudit";

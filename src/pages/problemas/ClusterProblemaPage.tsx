@@ -15,7 +15,7 @@ import { TriagemContexto } from "@/components/problemas/TriagemContexto";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { clusterProblema } from "@/lib/clusterProblemas";
-import { absoluteUrl } from "@/lib/siteConfig";
+import { absoluteUrl, siteConfig } from "@/lib/siteConfig";
 import {
   buildProblemaWaHref,
   buildProblemaWaFallbackHref,

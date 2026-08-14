@@ -17,6 +17,25 @@ describe("canalDoEvento", () => {
     expect(canalDoEvento({ utm_source: "instagram", utm_medium: "" })).toBe("social");
   });
 
+  it("RODADA 8D — GBP não colapsa com Google Search orgânico", () => {
+    expect(canalDoEvento({ utm_source: "google", utm_medium: "organic_gbp" })).toBe("gbp");
+    expect(canalDoEvento({ utm_source: "google", utm_medium: "organic" })).toBe("organic");
+    expect(ehAquisicao("gbp")).toBe(true);
+  });
+
+  it("RODADA 8D — social orgânico continua social, não orgânico nem referral", () => {
+    expect(canalDoEvento({ utm_source: "facebook", utm_medium: "organic" })).toBe("social");
+    expect(canalDoEvento({ utm_source: "instagram", utm_medium: "organic" })).toBe("social");
+  });
+
+  it("RODADA 8D — internal/QA nunca vira direct", () => {
+    expect(canalDoEvento({ utm_source: "site", utm_medium: "cta_interno" })).toBe("internal");
+    expect(canalDoEvento({ utm_source: "ci", utm_medium: "organic" })).toBe("internal");
+    expect(canalDoEvento({ utm_source: "ga4ci" })).toBe("internal");
+    expect(ehAquisicao("internal")).toBe(false);
+  });
+
+
   it("não confunde ausência de dados com tráfego direto", () => {
     expect(canalDoEvento({})).toBe("unknown");
     expect(canalDoEvento({ attribution_channel: "direct" })).toBe("direct");

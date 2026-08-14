@@ -30,3 +30,16 @@ type: feature
 - `JornadaSankey` compara 7/30/90 dias sobre o mesmo carregamento; janela fora
   do intervalo carregado aparece como "fora do período carregado".
 - Bloco "Maiores gargalos" ordena por perda × volume, por rota e por serviço.
+
+## Rodada 7A — instrumentação antes de ativar
+
+- `src/lib/croExposicao.ts` emite `experiment_exposure` (1× por sessão ×
+  experimento) e define `activeVariant`, fazendo a variação viajar em
+  `click_events.variant`.
+- Contrato de analytics inclui `experiment_id` e `variant`.
+- Gate `npm run check:cro-experiment`: 2+ variações, funil completo quando
+  ativo, amostra mínima ≥ 100/variação, exposição instrumentada, sem variação
+  de preço/prazo/garantia/SEO.
+- Painel de experimentos em `/admin/conversao`.
+- Veredito atual: **aguardar amostra** — volume real insuficiente
+  (docs/relatorio-rodada-7a-final.md).

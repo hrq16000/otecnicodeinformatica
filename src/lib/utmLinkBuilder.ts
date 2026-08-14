@@ -140,7 +140,7 @@ export type EntradaLink = {
   utm_content?: string;
 };
 
-export type SaidaLink = { ok: true; url: string } | { ok: false; erro: string };
+export type SaidaLink = { ok: boolean; url?: string; erro?: string };
 
 /** Monta a URL final de campanha. Fail-closed: erro claro em vez de link torto. */
 export function construirLinkAquisicao(entrada: EntradaLink, base = BASE_URL): SaidaLink {

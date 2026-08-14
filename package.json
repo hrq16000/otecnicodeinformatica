@@ -244,7 +244,9 @@
     "lh:local": "lhci autorun --config=lighthouserc.local.json",
     "check:cro-experiment": "node scripts/check-cro-experiment.mjs",
     "check:experiment-readiness": "node scripts/check-experiment-readiness.mjs",
-    "check:experiment-activation": "node scripts/check-experiment-activation.mjs"
+    "check:experiment-activation": "node scripts/check-experiment-activation.mjs",
+    "check:acquisition-attribution": "node scripts/check-acquisition-attribution.mjs",
+    "report:discovery-coverage": "node scripts/report-discovery-coverage.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

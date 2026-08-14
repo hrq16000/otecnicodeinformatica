@@ -713,6 +713,9 @@ const AdminConversao = () => {
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
 
       <div className="mt-6 space-y-6">
+        <JornadaSankey rows={rows as unknown as EventoJornada[]} />
+        <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
+        <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
         <SegmentacaoCanal rows={rows} />
         <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />
         <p className="text-xs text-muted-foreground">
@@ -723,6 +726,7 @@ const AdminConversao = () => {
           .
         </p>
       </div>
+
 
     </main>
   );

@@ -249,7 +249,9 @@
     "check:experiment-readiness": "node scripts/check-experiment-readiness.mjs",
     "check:experiment-activation": "node scripts/check-experiment-activation.mjs",
     "check:acquisition-attribution": "node scripts/check-acquisition-attribution.mjs",
-    "report:discovery-coverage": "node scripts/report-discovery-coverage.mjs"
+    "report:discovery-coverage": "node scripts/report-discovery-coverage.mjs",
+    "check:utm-governance": "node scripts/check-utm-governance.mjs",
+    "report:acquisition-performance": "node scripts/report-acquisition-performance.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

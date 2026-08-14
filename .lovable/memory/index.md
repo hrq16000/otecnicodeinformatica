@@ -57,3 +57,4 @@
 - [Rodada 8C — aquisição local controlada](mem://features/rodada-8c-aquisicao-local) — Link builder UTM, gate check:utm-governance, baseline fail-closed, reason codes de indexação e portal do pop-up.
 - [Rodada 8D — aquisição orgânica](mem://features/rodada-8d-aquisicao-organica) — QR no link builder, bloco Aquisição real no /admin/conversao, reports/acquisition-performance.{json,md} e E2E GBP→WhatsApp.
 
+- [Rodada 8F — discovery e distribuição](mem://features/rodada-8f-discovery-distribuicao) — Coorte content_cluster_formatacao_v1, gate check:content-discovery (profundidade ≤3), links do cluster em curated-static-body e distribuição PRONTO_PARA_PUBLICAR.

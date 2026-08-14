@@ -156,3 +156,23 @@ export const Outlet = TSOutlet;
 // ---------- NavLink (minimal) ----------
 
 export const NavLink = Link;
+
+// ---------- extra compat surface used by this project ----------
+
+export type { LinkProps };
+
+export type NavLinkProps = LinkProps & {
+  end?: boolean;
+  className?: string | ((state: { isActive: boolean; isPending: boolean }) => string);
+};
+
+/** Sempre dentro do RouterProvider no TanStack Start. */
+export function useInRouterContext() {
+  return true;
+}
+
+/** Passthroughs: o TanStack Router já provê o contexto de roteamento. */
+export function BrowserRouter({ children }: { children?: ReactNode }) {
+  return <>{children}</>;
+}
+export const MemoryRouter = BrowserRouter;

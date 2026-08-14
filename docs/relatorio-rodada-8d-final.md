@@ -68,9 +68,6 @@ Thresholds intocados. Experimento 1: **DISABLED**. Veredito: **LOW_EVIDENCE**.
 
 ## 20–21. Pop-up e Edge 404
 
-Pop-up de saída sem novo redesign (apenas regressão). Edge 404: **READY_TO_DEPLOY**
-## 20–21. Pop-up e Edge 404
-
 Pop-up de saída sem novo redesign. Ganhou cobertura de regressão (`e2e/popup-saida.spec.ts`:
 topo, após rolagem, mobile e desktop, fechamento por botão e por Escape) e acessibilidade de
 modal: foco entra no diálogo ao abrir e retorna ao elemento anterior ao fechar. Edge 404:
@@ -81,6 +78,10 @@ modal: foco entra no diálogo ao abrir e retorna ao elemento anterior ao fechar.
 Views públicas/RLS/admin authorization preservados. Gates verdes:
 `check:utm-governance`, `check:acquisition-attribution`. Typecheck limpo. Nenhum gate novo
 criado (sem lacuna real). Unit: **649 testes verdes** (27 arquivos).
+
+## 26. Pendências
+
+
 
 
 - **P0** — nenhuma.

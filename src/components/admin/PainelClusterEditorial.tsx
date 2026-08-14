@@ -19,6 +19,13 @@ import {
   type DiscoveryState,
 } from "@/lib/contentCohort";
 import { PAUTAS_8F, matrizDistribuicao, ESTADO_PUBLICACAO_EXTERNA } from "@/lib/contentDistribution";
+import {
+  buildCohortRow,
+  clusterStatus,
+  decideCluster,
+  REASON_LABEL,
+  type UrlSignals,
+} from "@/lib/cohortObservation";
 
 type LinhaDiscovery = {
   url: string;
@@ -32,7 +39,16 @@ type LinhaDiscovery = {
   idadeDias: number;
 };
 
-type LinhaPerf = { url: string; impressoes: number; cliques: number; veredito: string; acao: string };
+type LinhaPerf = {
+  url: string;
+  impressoes: number;
+  cliques: number;
+  veredito: string;
+  acao: string;
+  sessoes?: number | null;
+  whatsapp?: number | null;
+  jornadasAssistidas?: number | null;
+};
 
 const BADGE: Record<DiscoveryState, "default" | "secondary" | "outline" | "destructive"> = {
   INDEXED: "default",

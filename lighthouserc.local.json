@@ -1,0 +1,50 @@
+{
+  "_doc": "Budgets do Lote Local 1 (Rodada 5B / Rota B). Toda página local promovida a indexável entra aqui antes do go-live.",
+  "ci": {
+    "collect": {
+      "url": [
+        "http://localhost:4173/tecnico-informatica-curitiba",
+        "http://localhost:4173/tecnico-informatica-sao-jose-pinhais",
+        "http://localhost:4173/bairros/centro",
+        "http://localhost:4173/bairros/batel",
+        "http://localhost:4173/bairros/agua-verde",
+        "http://localhost:4173/bairros/cic",
+        "http://localhost:4173/bairros/portao",
+        "http://localhost:4173/servicos/formatacao-computador",
+        "http://localhost:4173/servicos/remocao-virus",
+        "http://localhost:4173/servicos/conserto-pc-notebook",
+        "http://localhost:4173/servicos/upgrade-ssd-memoria",
+        "http://localhost:4173/areas-atendidas"
+      ],
+      "startServerCommand": "bun run preview -- --port 4173",
+      "startServerReadyPattern": "Local:",
+      "numberOfRuns": 2,
+      "settings": {
+        "preset": "desktop",
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.85 }],
+        "categories:accessibility": ["error", { "minScore": 0.9 }],
+        "categories:seo": ["error", { "minScore": 0.95 }],
+        "categories:best-practices": ["error", { "minScore": 0.9 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 350 }],
+        "interaction-to-next-paint": ["warn", { "maxNumericValue": 200 }],
+        "first-contentful-paint": ["warn", { "maxNumericValue": 1800 }],
+        "server-response-time": ["error", { "maxNumericValue": 600 }],
+        "is-crawlable": ["error", { "minScore": 1 }],
+        "canonical": ["error", { "minScore": 1 }],
+        "meta-description": ["error", { "minScore": 1 }],
+        "document-title": ["error", { "minScore": 1 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./.lighthouseci-local"
+    }
+  }
+}

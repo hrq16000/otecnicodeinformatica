@@ -10,6 +10,7 @@ import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 import { GeoAutoDetect } from "./components/GeoAutoDetect";
 import { MotionProvider } from "./components/MotionProvider";
 import { RouteTransition } from "./components/motion/RouteTransition";
+import { PageViewTracker } from "./components/PageViewTracker";
 
 
 

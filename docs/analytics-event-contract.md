@@ -57,3 +57,27 @@ Realtime segue restrito à allowlist de `src/lib/realtimeSafeFields.ts`.
 família, cidade, bairro e serviço, com status de amostra
 (`insufficient_data` / `learning` / `actionable`), zero-states seguros e
 exclusão de tráfego de QA via `filtrarComerciais`.
+
+## Snapshot e detecção de divergência (CI)
+
+`docs/analytics-event-contract.snapshot.json` congela os nomes de evento emitidos,
+os campos de contexto permitidos e os campos proibidos. O gate
+`npm run check:analytics-event-contract` (bloqueante no CI, antes do build)
+falha quando o código adiciona, remove ou renomeia qualquer um deles.
+
+Mudança intencional: revise o impacto em GA4/Google Ads e rode
+`npm run check:analytics-event-contract -- --update`.
+
+## Alertas de funil no Slack
+
+`config/funnel-alert-thresholds.json` define limites mínimos por recorte
+(global, `route_family`, `city`, `neighborhood`, `service`) e a amostra mínima.
+`npm run alert:funnel` (workflow `funnel-alerts.yml`, diário) calcula as taxas
+da janela, ignora recortes com amostra insuficiente e avisa no Slack.
+Fail-closed: sem credenciais ou webhook, nada é enviado.
+
+## Auditoria de tráfego de QA
+
+`/admin/qa-trafego` mostra a proporção de eventos de QA por rota e período,
+o motivo técnico da exclusão e permite registrar justificativas permanentes
+(tabela `qa_exclusion_justifications`, somente admin, sem edição/exclusão).

@@ -26,6 +26,7 @@ export type EventoRodada6 = {
   neighborhood_slug?: string | null;
   cidade?: string | null;
   city?: string | null;
+  landing_route?: string | null;
 };
 
 type Bucket = {

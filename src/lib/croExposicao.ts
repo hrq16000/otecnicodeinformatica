@@ -48,8 +48,10 @@ export function registrarExposicao(params: {
   path: string;
   cidade?: string | null;
   sessionId: string;
+  registro?: Parameters<typeof decidirExperimento>[0]["registro"];
 }): DecisaoCro {
   const decisao = decidirExperimento(params);
+
   if (!decisao.habilitado) return decisao;
 
   const chave = `${decisao.experimento.id}:${params.sessionId}`;

@@ -197,6 +197,72 @@
       "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
       "intent": "contratar backup e recuperação de dados em Curitiba (coleta, sigilo, devolução)",
       "reason": "Rodada 5C: a decisão local é logística e de confiança (coleta, registro, sigilo); o pai mantém o conteúdo técnico de recuperação."
+    },
+    {
+      "path": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-tecnico-empresarial",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar suporte técnico para uma empresa em Curitiba sabendo tempo de deslocamento, rotina de visitas e como abrir chamado no dia a dia",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-preventiva-empresas",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "agendar a rotina preventiva do parque de máquinas de uma empresa em Curitiba sem parar o expediente e sabendo o que é feito em cada visita",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/backup-para-empresas/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-para-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/backup-para-empresas",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "implantar e manter a rotina de backup de uma empresa em Curitiba, com teste de restauração e responsabilidade definida sobre quem confere",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/montagem-de-pc/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/montagem-de-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/montagem-de-pc",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "montar um computador em Curitiba sabendo quem compra as peças, onde a montagem acontece e como fica a garantia de cada componente",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/suporte-home-office/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-home-office/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-home-office",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "resolver o home office de quem trabalha de casa em Curitiba, com atendimento rápido para não perder o dia de trabalho",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/pc-gamer/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/pc-gamer/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/pc-gamer",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "montar, revisar ou consertar um PC gamer em Curitiba, com bancada, teste sob carga e cuidado no transporte da máquina",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
     }
   ],
   "bairrosAncora": [

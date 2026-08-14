@@ -581,6 +581,510 @@
         "/problemas/computador-lento",
         "/servicos/conserto-notebook/curitiba"
       ]
+    },
+    "suporte-tecnico-empresarial": {
+      "path": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "parent": "/servicos/suporte-tecnico-empresarial",
+      "nome": "Suporte técnico empresarial",
+      "intentGlobal": "entender modelos de suporte, escopo de atendimento, níveis de serviço e o que um contrato de TI cobre",
+      "intentLocal": "contratar suporte técnico para uma empresa em Curitiba sabendo tempo de deslocamento, rotina de visitas e como abrir chamado no dia a dia",
+      "title": "Suporte Técnico Empresarial em Curitiba | Chamado e Visita",
+      "description": "Suporte técnico empresarial em Curitiba: abertura de chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme a região e a urgência do chamado.",
+      "h1": "Suporte técnico empresarial em Curitiba",
+      "subtitulo": "Como funciona o atendimento para empresas de Curitiba: quem abre o chamado, o que é resolvido remoto na hora e quando o técnico vai até o escritório.",
+      "blocos": [
+        {
+          "titulo": "Como a sua empresa abre um chamado",
+          "paragrafos": [
+            "O chamado começa pelo WhatsApp da operação, com uma frase objetiva: qual máquina, qual usuário e o que parou. Em Curitiba, essa triagem existe justamente para separar o que é resolvido em minutos por acesso remoto do que exige alguém no local.",
+            "Quem abre o chamado normalmente é a pessoa que sentou na máquina, não um setor de TI. Por isso não pedimos código de erro nem diagnóstico: descrever o sintoma em português comum é suficiente para a triagem seguir."
+          ]
+        },
+        {
+          "titulo": "Remoto primeiro, visita quando faz diferença",
+          "paragrafos": [
+            "A maior parte dos chamados de escritório — impressora que sumiu da rede, usuário sem acesso a pasta compartilhada, sistema que não abre depois de atualização — é resolvida remotamente sem esperar deslocamento.",
+            "A visita entra quando o problema é físico ou de infraestrutura: máquina que não liga, cabeamento, switch, ponto de rede, troca de equipamento. Nesse caso, o horário é combinado antes considerando o trânsito de Curitiba e o expediente do escritório."
+          ]
+        },
+        {
+          "titulo": "Deslocamento e regiões de Curitiba",
+          "paragrafos": [
+            "Atendimentos no Centro, Batel, Água Verde, Portão, Boa Vista e no eixo empresarial da Cidade Industrial costumam ser encaixados no mesmo dia quando o chamado entra pela manhã.",
+            "Fora desse raio, o atendimento continua acontecendo, mas com agendamento — a diferença é de janela de horário, não de escopo. Toda condição de deslocamento é informada antes da confirmação, nunca depois do serviço."
+          ]
+        },
+        {
+          "titulo": "Atendimento avulso ou recorrente",
+          "paragrafos": [
+            "Empresas pequenas em Curitiba geralmente começam avulsas: paga-se o chamado que aconteceu. É o formato honesto para quem tem poucas máquinas e problemas esporádicos.",
+            "Quando os chamados passam a se repetir toda semana, a conversa muda para visitas recorrentes com horas combinadas. Não empurramos contrato: sugerimos quando o histórico do próprio cliente mostra que sai mais barato."
+          ]
+        },
+        {
+          "titulo": "O que o suporte cobre no dia a dia",
+          "paragrafos": [
+            "Usuários e senhas, compartilhamento de arquivos, impressoras, e-mail que parou, lentidão de estação, atualizações que quebraram algo, configuração de máquina nova para um funcionário que entrou.",
+            "Fora do escopo do chamado avulso ficam projetos: troca de parque, mudança de endereço, cabeamento estruturado novo. Esses são orçados como projeto, com escopo escrito, porque não cabem no formato de chamado."
+          ]
+        },
+        {
+          "titulo": "Horário, urgência e expediente",
+          "paragrafos": [
+            "O atendimento acompanha o horário comercial da operação. Chamados abertos perto do fim do expediente são triados no mesmo dia e, quando não dá para resolver, ficam com prioridade na abertura do dia seguinte.",
+            "Se a parada afeta faturamento — caixa, emissor fiscal, servidor de arquivos — avise isso na primeira mensagem. Urgência real muda a ordem da fila; urgência declarada sem contexto, não."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês atendem empresas em qualquer região de Curitiba?",
+          "resposta": "Sim. O atendimento remoto não depende de região e a visita presencial cobre Curitiba inteira, com janelas de horário mais estreitas nas regiões mais distantes do eixo central."
+        },
+        {
+          "pergunta": "Preciso ter contrato para ser atendido?",
+          "resposta": "Não. O atendimento avulso por chamado é o formato padrão. Visitas recorrentes só são sugeridas quando o próprio histórico de chamados mostra vantagem financeira."
+        },
+        {
+          "pergunta": "O suporte remoto é feito na hora?",
+          "resposta": "Quando a máquina liga e tem internet, sim — o acesso remoto é iniciado durante a triagem, sem esperar agendamento."
+        },
+        {
+          "pergunta": "Vocês configuram máquina nova de funcionário?",
+          "resposta": "Sim. Preparação de estação para novo colaborador, com acessos, impressoras e programas da empresa, é um dos chamados mais comuns em escritórios de Curitiba."
+        },
+        {
+          "pergunta": "E se o problema for de internet do provedor?",
+          "resposta": "Identificamos e informamos, mas o reparo do link é do provedor. O que fazemos é isolar se a falha está na rede interna, no equipamento ou fora dela, para você não abrir chamado no lugar errado."
+        }
+      ],
+      "interlinks": [
+        "/servicos/suporte-tecnico-empresarial",
+        "/empresa-de-ti-curitiba",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/servicos/redes-wifi/curitiba"
+      ]
+    },
+    "manutencao-preventiva-empresas": {
+      "path": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "parent": "/servicos/manutencao-preventiva-empresas",
+      "nome": "Manutenção preventiva para empresas",
+      "intentGlobal": "entender o que é manutenção preventiva, periodicidade recomendada, checklist técnico e impacto na vida útil dos equipamentos",
+      "intentLocal": "agendar a rotina preventiva do parque de máquinas de uma empresa em Curitiba sem parar o expediente e sabendo o que é feito em cada visita",
+      "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
+      "description": "Manutenção preventiva de computadores para empresas em Curitiba: visitas agendadas fora do pico do expediente, checklist por máquina e relatório do que precisa de troca.",
+      "h1": "Manutenção preventiva de computadores para empresas em Curitiba",
+      "subtitulo": "Como a rotina preventiva é agendada em Curitiba: quantas máquinas por visita, em que horário e o que sai por escrito no fim de cada passagem.",
+      "blocos": [
+        {
+          "titulo": "Como a visita é agendada sem parar o escritório",
+          "paragrafos": [
+            "A preventiva em Curitiba é organizada por lotes de máquinas, não pelo escritório inteiro de uma vez. Isso permite trabalhar durante o expediente sem deixar a operação parada esperando o técnico terminar.",
+            "Escritórios com atendimento ao público costumam preferir início de manhã ou depois do fechamento. Ambos são possíveis; o que definimos antes é o horário, para o técnico não chegar no pior momento do dia."
+          ]
+        },
+        {
+          "titulo": "O que acontece em cada máquina",
+          "paragrafos": [
+            "Cada estação passa por limpeza interna, verificação térmica, conferência de disco e memória, atualização pendente e checagem dos programas que a empresa realmente usa.",
+            "O ponto local que mais aparece em Curitiba é poeira acumulada em salas com janela para rua movimentada e em ambientes com muita circulação — o que encurta a vida de fonte e cooler bem antes do esperado."
+          ]
+        },
+        {
+          "titulo": "Relatório por máquina, não por escritório",
+          "paragrafos": [
+            "No fim da passagem você recebe a lista de máquinas com o estado de cada uma: o que está saudável, o que está no limite e o que deve falhar nos próximos meses.",
+            "Esse relatório existe para a empresa planejar compra, não para empurrar troca. Máquina que ainda serve fica declarada como serve, mesmo quando um upgrade seria mais lucrativo para nós."
+          ]
+        },
+        {
+          "titulo": "Frequência que faz sentido",
+          "paragrafos": [
+            "Escritório comum: uma passagem por semestre resolve. Ambientes com pó, gordura, obra próxima ou uso pesado o dia inteiro pedem intervalo menor.",
+            "Não sugerimos periodicidade fixa antes da primeira visita. A primeira passagem é justamente o que mostra em que ritmo aquele parque específico se degrada."
+          ]
+        },
+        {
+          "titulo": "Peças e trocas durante a preventiva",
+          "paragrafos": [
+            "Itens de consumo — pasta térmica, limpeza, organização de cabeamento interno — fazem parte da visita. Peças com custo são orçadas à parte e só compradas depois da aprovação por escrito.",
+            "Quando uma máquina precisa sair para bancada, a coleta é combinada para o mesmo ciclo, evitando um segundo deslocamento e outra interrupção do expediente."
+          ]
+        },
+        {
+          "titulo": "Quando preventiva deixa de compensar",
+          "paragrafos": [
+            "Parque muito antigo tem hora de virar plano de substituição, não de manutenção. Dizemos isso com número: custo estimado de manter versus custo de repor.",
+            "Nesse cenário, o caminho mais barato costuma ser upgrade seletivo nas máquinas viáveis e troca só das que travam a operação — e não a renovação total do parque de uma vez."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Precisa parar o escritório para a manutenção preventiva?",
+          "resposta": "Não. As máquinas são atendidas em lotes e o horário é combinado antes, justamente para a operação continuar rodando durante a visita."
+        },
+        {
+          "pergunta": "Quantas máquinas vocês atendem por visita?",
+          "resposta": "Depende do estado do parque. Definimos o lote na hora do agendamento para não deixar máquina aberta no fim do expediente."
+        },
+        {
+          "pergunta": "A empresa recebe algum documento no fim?",
+          "resposta": "Sim, um relatório por máquina com o estado atual e o que tende a falhar, para planejamento de compra."
+        },
+        {
+          "pergunta": "Vocês trocam peças na hora?",
+          "resposta": "Só depois da aprovação por escrito. Itens de consumo da limpeza já estão inclusos na visita."
+        },
+        {
+          "pergunta": "Atendem condomínios comerciais e coworkings em Curitiba?",
+          "resposta": "Sim, com a ressalva de combinar antes o acesso ao prédio e o horário permitido pela administração."
+        }
+      ],
+      "interlinks": [
+        "/servicos/manutencao-preventiva-empresas",
+        "/empresa-de-ti-curitiba",
+        "/tecnico-informatica-curitiba",
+        "/servicos/suporte-tecnico-empresarial/curitiba",
+        "/areas-atendidas"
+      ]
+    },
+    "backup-para-empresas": {
+      "path": "/servicos/backup-para-empresas/curitiba",
+      "parent": "/servicos/backup-para-empresas",
+      "nome": "Backup para empresas",
+      "intentGlobal": "entender estratégias de backup, mídias, regra 3-2-1, retenção e diferença entre cópia, sincronização e versionamento",
+      "intentLocal": "implantar e manter a rotina de backup de uma empresa em Curitiba, com teste de restauração e responsabilidade definida sobre quem confere",
+      "title": "Backup para Empresas em Curitiba | Implantação e Teste",
+      "description": "Backup para empresas em Curitiba: implantação da rotina no local, cópia fora do escritório e teste de restauração periódico para você saber que o backup funciona.",
+      "h1": "Backup para empresas em Curitiba",
+      "subtitulo": "Implantação e acompanhamento da rotina de backup em escritórios de Curitiba, com teste de restauração real e alguém responsável por conferir se rodou.",
+      "blocos": [
+        {
+          "titulo": "Backup que ninguém confere não é backup",
+          "paragrafos": [
+            "A falha mais comum nas empresas de Curitiba que atendemos não é ausência de backup: é backup configurado uma vez e nunca mais olhado. O disco encheu, o serviço parou, e ninguém percebeu até precisar restaurar.",
+            "Por isso a implantação local sempre define uma pessoa responsável pela conferência e um jeito simples de ela saber, sem ser técnica, se a rotina rodou naquela semana."
+          ]
+        },
+        {
+          "titulo": "Implantação no seu escritório",
+          "paragrafos": [
+            "A visita mapeia o que realmente precisa ser copiado: pasta de rede, sistema de gestão, base fiscal, projetos, e-mails locais. Copiar tudo indiscriminadamente encarece e atrasa a restauração.",
+            "Definido o escopo, a rotina é configurada nas máquinas e no ponto de armazenamento escolhido pela empresa, com horário que não disputa banda com o expediente."
+          ]
+        },
+        {
+          "titulo": "Uma cópia fora do escritório",
+          "paragrafos": [
+            "Backup guardado apenas na mesma sala do servidor não protege contra furto, incêndio, alagamento ou sequestro de dados. A regra que aplicamos é sempre ter uma cópia fora do endereço.",
+            "Se a empresa prefere não usar nuvem, a alternativa é mídia rotativa retirada do escritório — funciona, desde que exista disciplina de troca. Explicamos o custo real de cada caminho antes da escolha."
+          ]
+        },
+        {
+          "titulo": "Teste de restauração periódico",
+          "paragrafos": [
+            "Em intervalos combinados, restauramos um arquivo real do backup para provar que a cópia abre. É esse teste que separa rotina funcionando de rotina aparentemente funcionando.",
+            "O teste é registrado com data. Se a empresa precisar comprovar cuidado com dados de clientes, esse histórico é a evidência prática de que existe processo."
+          ]
+        },
+        {
+          "titulo": "Ransomware e retenção",
+          "paragrafos": [
+            "Cópia sincronizada em tempo real não protege contra sequestro de dados: o arquivo criptografado é replicado na hora. Por isso a rotina inclui versões antigas retidas, e não apenas o espelho do estado atual.",
+            "Quanto tempo guardar é decisão da empresa, com base em obrigação fiscal e no tipo de arquivo. Ajudamos a chegar nesse número em vez de aplicar um padrão genérico."
+          ]
+        },
+        {
+          "titulo": "Quando o backup vira urgência",
+          "paragrafos": [
+            "Se o disco já está fazendo barulho ou o sistema já foi criptografado, o assunto deixa de ser backup e passa a ser recuperação — outra frente, com coleta e prazos próprios.",
+            "Nesse caso, a implantação da rotina entra depois, junto com a devolução do equipamento, para a empresa não repetir o mesmo cenário em alguns meses."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês implantam backup no nosso escritório em Curitiba?",
+          "resposta": "Sim. A implantação é presencial, com mapeamento do que precisa ser copiado e configuração da rotina nas máquinas e no destino escolhido."
+        },
+        {
+          "pergunta": "Precisa ser em nuvem?",
+          "resposta": "Não obrigatoriamente. Nuvem é o caminho mais simples para a cópia externa, mas mídia rotativa retirada do escritório também atende quando há disciplina de troca."
+        },
+        {
+          "pergunta": "Como sei que o backup está funcionando?",
+          "resposta": "Por teste de restauração periódico, com data registrada, além de uma conferência simples que uma pessoa não técnica da empresa consegue fazer."
+        },
+        {
+          "pergunta": "Backup protege contra sequestro de dados?",
+          "resposta": "Só quando há retenção de versões antigas. Cópia espelhada em tempo real replica o arquivo já criptografado."
+        },
+        {
+          "pergunta": "Vocês assumem a responsabilidade pelos dados?",
+          "resposta": "Assumimos a implantação, a rotina e o teste. A guarda e a decisão de retenção continuam sendo da empresa, e isso fica explícito no combinado."
+        }
+      ],
+      "interlinks": [
+        "/servicos/backup-para-empresas",
+        "/servicos/backup-recuperacao/curitiba",
+        "/empresa-de-ti-curitiba",
+        "/seguranca-dos-dados",
+        "/tecnico-informatica-curitiba"
+      ]
+    },
+    "montagem-de-pc": {
+      "path": "/servicos/montagem-de-pc/curitiba",
+      "parent": "/servicos/montagem-de-pc",
+      "nome": "Montagem de computador",
+      "intentGlobal": "entender escolha de componentes, compatibilidade, dimensionamento de fonte, refrigeração e etapas técnicas da montagem",
+      "intentLocal": "montar um computador em Curitiba sabendo quem compra as peças, onde a montagem acontece e como fica a garantia de cada componente",
+      "title": "Montagem de Computador em Curitiba | Peças e Garantia",
+      "description": "Montagem de computador em Curitiba: conferência da lista de peças antes da compra, montagem em bancada com testes e orientação sobre garantia de cada componente.",
+      "h1": "Montagem de computador em Curitiba",
+      "subtitulo": "Quem compra as peças, onde a máquina é montada e como funciona a garantia dos componentes quando a montagem é feita em Curitiba.",
+      "blocos": [
+        {
+          "titulo": "Conferência da lista antes de qualquer compra",
+          "paragrafos": [
+            "Antes de comprar, mandamos a lista pretendida e conferimos compatibilidade, dimensionamento de fonte e espaço do gabinete. Essa etapa é a que mais evita prejuízo em Curitiba: peça incompatível comprada em promoção raramente é devolvida sem custo.",
+            "Se a lista veio de um orçamento de loja, conferimos do mesmo jeito. Não é preciso comprar conosco para a conferência acontecer."
+          ]
+        },
+        {
+          "titulo": "Quem fornece as peças",
+          "paragrafos": [
+            "Você pode comprar tudo e nos chamar apenas para montar, ou pedir que a compra seja intermediada. Os dois formatos existem e o valor da mão de obra é o mesmo.",
+            "Quando a compra é sua, a garantia fica direto com a loja — o que costuma ser mais rápido para acionar. Explicamos essa diferença antes, porque ela pesa mais que a diferença de preço."
+          ]
+        },
+        {
+          "titulo": "Onde a montagem acontece",
+          "paragrafos": [
+            "A montagem é feita em bancada, não no seu endereço. Cabo mal encaixado e parafuso faltando aparecem justamente em montagem improvisada em cima da mesa da sala.",
+            "Em Curitiba, isso significa combinar a entrega das peças e a retirada da máquina pronta, ou usar coleta e entrega quando você não tem como se deslocar."
+          ]
+        },
+        {
+          "titulo": "Testes antes de entregar",
+          "paragrafos": [
+            "A máquina só é entregue depois de ligar, rodar teste de estabilidade, verificar temperatura sob carga e confirmar que memória e armazenamento estão reconhecidos na velocidade correta.",
+            "Sai também com sistema instalado, atualizações aplicadas e drivers corretos — não com a configuração padrão da primeira inicialização."
+          ]
+        },
+        {
+          "titulo": "Garantia dividida em duas partes",
+          "paragrafos": [
+            "A garantia das peças é do fabricante ou da loja, com prazo próprio de cada componente. A garantia do serviço é da montagem: encaixe, cabeamento, configuração e funcionamento do conjunto entregue.",
+            "Se um componente falhar dentro do prazo, orientamos o acionamento e remontamos a máquina depois da troca sem cobrar a mão de obra de novo."
+          ]
+        },
+        {
+          "titulo": "Migrar do computador antigo",
+          "paragrafos": [
+            "Se existe uma máquina antiga, a migração de arquivos e programas é combinada junto com a montagem, evitando que você fique com dois computadores pela metade em casa.",
+            "Peças aproveitáveis do equipamento antigo — disco, memória, gabinete — são avaliadas antes. Reaproveitar é comum, mas só quando não compromete o resto da configuração nova."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Preciso comprar as peças com vocês?",
+          "resposta": "Não. Você pode comprar por conta própria; a conferência de compatibilidade e a montagem acontecem do mesmo jeito."
+        },
+        {
+          "pergunta": "Vocês montam na minha casa em Curitiba?",
+          "resposta": "A montagem é em bancada, com testes. Combinamos entrega das peças e retirada da máquina pronta, ou coleta e entrega."
+        },
+        {
+          "pergunta": "A máquina sai com sistema instalado?",
+          "resposta": "Sim, com sistema, atualizações e drivers corretos, além de teste de estabilidade e temperatura sob carga."
+        },
+        {
+          "pergunta": "Como fica a garantia das peças?",
+          "resposta": "Fica com a loja ou o fabricante de cada componente. A garantia do nosso serviço cobre a montagem e a configuração entregues."
+        },
+        {
+          "pergunta": "Dá para aproveitar peças do computador antigo?",
+          "resposta": "Frequentemente sim. Avaliamos antes se o reaproveitamento não vira gargalo da configuração nova."
+        }
+      ],
+      "interlinks": [
+        "/servicos/montagem-de-pc",
+        "/servicos/upgrade-ssd/curitiba",
+        "/tecnico-informatica-curitiba",
+        "/coleta-e-entrega",
+        "/areas-atendidas"
+      ]
+    },
+    "suporte-home-office": {
+      "path": "/servicos/suporte-home-office/curitiba",
+      "parent": "/servicos/suporte-home-office",
+      "nome": "Suporte para home office",
+      "intentGlobal": "entender requisitos de um posto de trabalho remoto, ergonomia digital, ferramentas de colaboração e boas práticas de segurança",
+      "intentLocal": "resolver o home office de quem trabalha de casa em Curitiba, com atendimento rápido para não perder o dia de trabalho",
+      "title": "Suporte para Home Office em Curitiba | Atendimento Rápido",
+      "description": "Suporte para home office em Curitiba: acesso remoto imediato para reunião que não abre, VPN, impressora e internet instável, com visita quando o problema é físico.",
+      "h1": "Suporte para home office em Curitiba",
+      "subtitulo": "Quem trabalha de casa não pode esperar. Veja como é o atendimento em Curitiba para resolver o posto de trabalho no mesmo dia.",
+      "blocos": [
+        {
+          "titulo": "Um dia parado custa mais que o chamado",
+          "paragrafos": [
+            "Quem trabalha de casa perde produção inteira quando a máquina, a reunião ou a VPN falham. Por isso a triagem para home office em Curitiba prioriza o que pode ser resolvido remotamente nos primeiros minutos.",
+            "A pergunta inicial é sempre a mesma: você consegue trabalhar agora de algum jeito? A resposta define se buscamos uma saída provisória imediata ou já partimos para o reparo definitivo."
+          ]
+        },
+        {
+          "titulo": "Problemas típicos de quem trabalha de casa",
+          "paragrafos": [
+            "Câmera ou microfone que a reunião não reconhece, VPN da empresa que não conecta, segundo monitor que some, impressora que sumiu da rede depois de uma atualização e computador pessoal misturando conta pessoal com conta de trabalho.",
+            "São problemas de configuração, não de peça — e é por isso que a maioria termina no acesso remoto, sem deslocamento e sem custo de visita."
+          ]
+        },
+        {
+          "titulo": "Internet instável dentro de casa",
+          "paragrafos": [
+            "Em Curitiba, boa parte das quedas de reunião não vem do provedor: vem do sinal chegando fraco no cômodo onde a pessoa trabalha, em apartamento com parede de concreto ou casa comprida.",
+            "Nesses casos a visita muda o resultado, porque envolve medir sinal no ambiente real e reposicionar ou complementar o equipamento — algo que não se resolve por telefone."
+          ]
+        },
+        {
+          "titulo": "Quando o técnico vai até você",
+          "paragrafos": [
+            "Máquina que não liga, tela quebrada, teclado sem resposta, troca de disco e reparo físico exigem presença ou coleta. O agendamento considera a região da cidade e a sua janela entre reuniões.",
+            "Se o equipamento precisar ir para bancada, o combinado inclui o prazo de devolução — para você saber se vale improvisar com outra máquina nesse intervalo."
+          ]
+        },
+        {
+          "titulo": "Equipamento da empresa em casa",
+          "paragrafos": [
+            "Notebook corporativo costuma ter restrição de administrador e política de segurança. Antes de mexer, verificamos o que a empresa permite: o objetivo é resolver sem romper a política de TI de quem contratou você.",
+            "Quando o bloqueio é da empresa, entregamos o diagnóstico pronto para você repassar ao TI dela, o que normalmente encurta o chamado interno."
+          ]
+        },
+        {
+          "titulo": "Preparar o posto de trabalho",
+          "paragrafos": [
+            "Além do conserto pontual, há a montagem do posto: segundo monitor, contas separadas, backup dos arquivos de trabalho e acesso remoto configurado para atendimentos futuros.",
+            "É o que evita repetição de chamado. A maior parte dos problemas recorrentes de home office nasce de um posto montado às pressas no início do trabalho remoto."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Consigo atendimento no mesmo dia?",
+          "resposta": "Na maioria dos casos sim, porque o primeiro caminho é acesso remoto durante a triagem, sem depender de deslocamento."
+        },
+        {
+          "pergunta": "Vocês atendem notebook da empresa?",
+          "resposta": "Sim, respeitando a política de TI dela. Quando há bloqueio de administrador, entregamos o diagnóstico pronto para você repassar ao suporte interno."
+        },
+        {
+          "pergunta": "Meu Wi-Fi cai só no meu escritório de casa; resolvem?",
+          "resposta": "Sim, com visita. Medimos o sinal no cômodo onde você trabalha e tratamos posicionamento e cobertura, que é a causa mais comum em apartamentos de Curitiba."
+        },
+        {
+          "pergunta": "O atendimento remoto tem custo diferente?",
+          "resposta": "Sim, porque não envolve deslocamento. A condição é informada antes do início do atendimento."
+        },
+        {
+          "pergunta": "Vocês configuram segundo monitor e periféricos?",
+          "resposta": "Configuramos. Montagem do posto de trabalho completo é um pedido frequente de quem passou a trabalhar de casa em definitivo."
+        }
+      ],
+      "interlinks": [
+        "/servicos/suporte-home-office",
+        "/atendimento-remoto",
+        "/tecnico-informatica-curitiba",
+        "/servicos/redes-wifi/curitiba",
+        "/areas-atendidas"
+      ]
+    },
+    "pc-gamer": {
+      "path": "/servicos/pc-gamer/curitiba",
+      "parent": "/servicos/pc-gamer",
+      "nome": "PC gamer",
+      "intentGlobal": "entender configurações, placas de vídeo, gargalos, refrigeração e desempenho esperado por faixa de investimento",
+      "intentLocal": "montar, revisar ou consertar um PC gamer em Curitiba, com bancada, teste sob carga e cuidado no transporte da máquina",
+      "title": "PC Gamer em Curitiba | Montagem, Revisão e Manutenção",
+      "description": "PC gamer em Curitiba: montagem em bancada com teste sob carga, revisão térmica de máquina que está travando e coleta com transporte cuidadoso da sua torre.",
+      "h1": "PC gamer em Curitiba: montagem, revisão e manutenção",
+      "subtitulo": "Onde a máquina é montada ou revisada em Curitiba, como funciona o transporte da torre e o que é testado antes de devolver.",
+      "blocos": [
+        {
+          "titulo": "Montagem, revisão ou reparo",
+          "paragrafos": [
+            "Três pedidos diferentes chegam com o mesmo nome. Montagem é máquina nova a partir das peças; revisão é máquina que funciona mas esquenta, faz barulho ou perdeu desempenho; reparo é máquina que travou, reinicia ou não dá imagem.",
+            "A triagem em Curitiba separa esses três casos logo no início, porque o prazo e a forma de atendimento mudam completamente entre eles."
+          ]
+        },
+        {
+          "titulo": "Por que é serviço de bancada",
+          "paragrafos": [
+            "Máquina gamer exige teste sob carga por tempo, com acompanhamento de temperatura e estabilidade. Isso não acontece direito em uma visita rápida no seu endereço.",
+            "Por isso o formato padrão em Curitiba é coleta ou entrega na bancada. A visita fica reservada para checagens simples e orientação de configuração."
+          ]
+        },
+        {
+          "titulo": "Transporte da torre",
+          "paragrafos": [
+            "Gabinete gamer é pesado e tem componentes grandes suspensos na placa. No transporte, placa de vídeo pesada e cooler de torre são desmontados quando necessário para o percurso não gerar dano novo.",
+            "Se você mesmo vai trazer a máquina, oriente-se antes por mensagem: em boa parte dos casos, dois minutos de instrução evitam um problema criado dentro do carro."
+          ]
+        },
+        {
+          "titulo": "Temperatura e barulho",
+          "paragrafos": [
+            "Queda de desempenho no meio da partida quase sempre é térmica: pasta ressecada, fluxo de ar errado no gabinete ou pó acumulado. A revisão trata isso e mede o resultado antes e depois.",
+            "Barulho repentino costuma ser cooler ou fonte. Fonte com ruído anormal é tratada com prioridade, porque falha de fonte leva outros componentes junto."
+          ]
+        },
+        {
+          "titulo": "Upgrade sem trocar tudo",
+          "paragrafos": [
+            "Muita máquina em Curitiba chega para troca completa e sai com upgrade pontual. Identificar onde está o gargalo real evita gasto grande com ganho pequeno.",
+            "Quando a troca realmente compensa, dizemos com número: o que a peça nova entrega em relação à atual, sem promessa de desempenho que a máquina não vai alcançar."
+          ]
+        },
+        {
+          "titulo": "Entrega e teste final",
+          "paragrafos": [
+            "A devolução acontece depois de teste sob carga, conferência de temperatura e verificação de que o armazenamento e a memória estão operando na velocidade correta.",
+            "Você recebe o relato do que foi feito e o que ficou fora do escopo — inclusive quando a recomendação é não gastar agora."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês atendem PC gamer na minha casa em Curitiba?",
+          "resposta": "Para diagnóstico simples e orientação, sim. Montagem, revisão térmica e reparo são feitos em bancada, com teste sob carga."
+        },
+        {
+          "pergunta": "Como faço para levar minha torre?",
+          "resposta": "Você pode trazer ou solicitar coleta. Antes disso, orientamos por mensagem como transportar sem forçar a placa de vídeo e o cooler."
+        },
+        {
+          "pergunta": "Minha máquina trava só quando jogo. É peça queimada?",
+          "resposta": "Na maioria das vezes é temperatura ou fonte no limite, não peça queimada. O teste sob carga é justamente o que diferencia esses cenários."
+        },
+        {
+          "pergunta": "Dá para melhorar sem trocar a máquina inteira?",
+          "resposta": "Frequentemente sim. Identificamos o gargalo real e indicamos o upgrade pontual quando o ganho justifica o gasto."
+        },
+        {
+          "pergunta": "Vocês compram as peças?",
+          "resposta": "Podemos intermediar ou apenas conferir a lista que você pretende comprar, com a compatibilidade validada antes do pagamento."
+        }
+      ],
+      "interlinks": [
+        "/servicos/pc-gamer",
+        "/servicos/montagem-de-pc/curitiba",
+        "/tecnico-informatica-curitiba",
+        "/coleta-e-entrega",
+        "/servicos/upgrade-ssd/curitiba"
+      ]
     }
   }
 }

@@ -1,3 +1,4 @@
+import { whatsappLinkComContexto } from "@/lib/waContextLink";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
 import { Link } from "react-router-dom";
@@ -259,7 +260,10 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     icon: Mail,
     body: (
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>WhatsApp: <a className="text-accent underline" href={`https://wa.me/${WHATSAPP}`} data-cta-location="privacy_contact_whatsapp">Solicitar atendimento pelo WhatsApp</a></li>
+        <li>WhatsApp: <a className="text-accent underline" href={whatsappLinkComContexto(
+          "Olá! Vim pela Política de Privacidade do site e preciso falar sobre meus dados pessoais.",
+          { medium: "cta_inline", servico: "politica-privacidade", posicao: "privacy_contact_whatsapp", etapa: "triagem" },
+        )} data-cta-location="privacy_contact_whatsapp">Solicitar atendimento pelo WhatsApp</a></li>
         <li>Endereço: Curitiba e Região Metropolitana – PR</li>
       </ul>
     ),

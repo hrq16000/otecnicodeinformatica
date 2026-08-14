@@ -958,6 +958,7 @@ export function staticBodyFor(route) {
           ${offersHtml}
           ${faqHtml}
           ${editorialInboundHtml(route.path)}
+          ${cluster8fInboundHtml(route.path)}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>

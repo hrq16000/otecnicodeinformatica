@@ -32,13 +32,18 @@ describe("localIndexPolicy — Lote Local 1", () => {
     expect(isNoindex("/tecnico-informatica-sao-jose-pinhais")).toBe(false);
   });
 
-  it("indexa somente os 5 bairros âncora", () => {
-    expect(BAIRROS_ANCORA_SLUGS).toEqual(["cic", "batel", "agua-verde", "centro", "portao"]);
+  // RODADA 5E: o Lote 2 promoveu 8 bairros com conteúdo próprio (13 no total).
+  it("indexa somente os bairros âncora declarados na política", () => {
+    expect(BAIRROS_ANCORA_SLUGS.slice(0, 5)).toEqual(["cic", "batel", "agua-verde", "centro", "portao"]);
+    expect(BAIRROS_ANCORA_SLUGS).toContain("santa-felicidade");
+    expect(BAIRROS_ANCORA_SLUGS).toContain("guatupe");
     for (const slug of BAIRROS_ANCORA_SLUGS) {
       expect(isNoindex(`/bairros/${slug}`)).toBe(false);
+      expect(resolveLocal(`/bairros/${slug}`).sitemap).toBe(true);
     }
-    expect(isNoindex("/bairros/santa-felicidade")).toBe(true);
-    expect(resolveLocal("/bairros/santa-felicidade").sitemap).toBe(false);
+    // Bairro sem conteúdo próprio segue fora do índice.
+    expect(isNoindex("/bairros/xaxim")).toBe(true);
+    expect(resolveLocal("/bairros/xaxim").sitemap).toBe(false);
   });
 
   it("canonicaliza serviço × cidade sem intenção local para o serviço-pai real", () => {

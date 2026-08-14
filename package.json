@@ -258,9 +258,11 @@
     "report:content-query-intent": "node scripts/report-content-query-intent.mjs",
     "report:content-distribution": "node scripts/report-content-distribution.mjs",
     "report:content-performance": "node scripts/report-content-performance.mjs",
+    "report:content-cohort": "node scripts/report-content-cohort.mjs",
     "check:content-discovery": "node scripts/check-content-discovery.mjs",
     "smoke:edge-404": "node scripts/smoke-edge-404.mjs",
-    "report:rodada-8f": "npm run report:content-discovery && npm run report:content-query-intent && npm run report:content-distribution && npm run report:content-performance"
+    "report:rodada-8f": "npm run report:content-discovery && npm run report:content-query-intent && npm run report:content-distribution && npm run report:content-performance",
+    "report:rodada-8g": "npm run report:rodada-8f && npm run report:content-cohort"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -125,57 +125,80 @@
       "path": "/servicos/formatacao-computador/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/formatacao-computador",
+      "canonical": "/servicos/formatacao",
       "sitemap": false,
-      "parent": "/servicos/formatacao-computador",
+      "parent": "/servicos/formatacao",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
       "intent": "formatação de computador em Curitiba",
-      "reason": "Lote Local 1: formatação é majoritariamente remota/bancada; a cidade não altera o processo."
+      "reason": "Rodada 5C: formatação é remota/bancada; a cidade não altera processo, prazo nem logística. Canonical corrigido para a rota real do serviço-pai."
     },
     {
       "path": "/servicos/remocao-virus/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/remocao-virus",
+      "canonical": "/servicos/remocao-de-virus",
       "sitemap": false,
-      "parent": "/servicos/remocao-virus",
+      "parent": "/servicos/remocao-de-virus",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
       "intent": "remoção de vírus em Curitiba",
-      "reason": "Lote Local 1: atendimento remoto cobre a maior parte dos casos; sem intenção local extra."
-    },
-    {
-      "path": "/servicos/conserto-notebook/curitiba",
-      "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/conserto-pc-notebook",
-      "sitemap": false,
-      "parent": "/servicos/conserto-pc-notebook",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "conserto de notebook em Curitiba",
-      "reason": "Lote Local 1: logística e cobertura já respondidas pela landing de Curitiba."
-    },
-    {
-      "path": "/servicos/conserto-pc/curitiba",
-      "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/conserto-pc-notebook",
-      "sitemap": false,
-      "parent": "/servicos/conserto-pc-notebook",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "conserto de PC em Curitiba",
-      "reason": "Lote Local 1: mesma intenção de conserto de notebook/PC — evita doorway e canibalização."
+      "reason": "Rodada 5C: atendimento remoto cobre a maior parte dos casos; sem intenção local própria. Canonical corrigido para a rota real."
     },
     {
       "path": "/servicos/upgrade-ssd/curitiba",
       "family": "SERVICO_CIDADE",
       "indexability": "canonicalized",
-      "canonical": "/servicos/upgrade-ssd-memoria",
+      "canonical": "/servicos/upgrade-ssd-ram",
       "sitemap": false,
-      "parent": "/servicos/upgrade-ssd-memoria",
+      "parent": "/servicos/upgrade-ssd-ram",
       "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
       "intent": "upgrade de SSD e memória em Curitiba",
-      "reason": "Lote Local 1: serviço de bancada; a cidade não muda o procedimento nem o preço."
+      "reason": "Rodada 5C: serviço de bancada; a cidade não muda procedimento nem preço. Canonical corrigido para a rota real."
+    },
+    {
+      "path": "/servicos/conserto-notebook/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de notebook em Curitiba (coleta, visita, prazo)",
+      "reason": "Rodada 5C: logística local muda o serviço (coleta x visita x bancada). Conteúdo local próprio em src/lib/servicoCuritibaBlocos.json; pai responde 'o que é/como funciona'."
+    },
+    {
+      "path": "/servicos/conserto-pc/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de PC de mesa em Curitiba (atendimento no endereço, coleta do gabinete)",
+      "reason": "Rodada 5C: desktop tem logística distinta do notebook (técnico vai até o endereço, coleta apenas do gabinete)."
+    },
+    {
+      "path": "/servicos/redes-wifi/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar instalação/ajuste de rede e Wi-Fi em Curitiba (visita obrigatória no imóvel)",
+      "reason": "Rodada 5C: rede é 100% presencial e depende do imóvel; a intenção local é a própria execução no endereço."
+    },
+    {
+      "path": "/servicos/backup-recuperacao/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar backup e recuperação de dados em Curitiba (coleta, sigilo, devolução)",
+      "reason": "Rodada 5C: a decisão local é logística e de confiança (coleta, registro, sigilo); o pai mantém o conteúdo técnico de recuperação."
     }
+
   ],
   "bairrosAncora": [
     {
@@ -226,6 +249,13 @@
     "/servicos/conserto-pc/curitiba",
     "/servicos/upgrade-ssd/curitiba"
   ],
+  "loteServicoCuritiba5c": [
+    "/servicos/conserto-notebook/curitiba",
+    "/servicos/conserto-pc/curitiba",
+    "/servicos/redes-wifi/curitiba",
+    "/servicos/backup-recuperacao/curitiba"
+  ],
+
   "prefixosNaoIndexaveis": [
     {
       "prefix": "/arrumar-pc",

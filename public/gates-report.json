@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T12:20:43.816Z",
+  "generatedAt": "2026-08-14T12:32:56.754Z",
   "resumo": {
-    "total": 85,
+    "total": 89,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 85,
+    "pendencias": 89,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -277,7 +277,19 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/backup-recuperacao/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/conserto-monitor",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-notebook/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -290,6 +302,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/conserto-pc-notebook/centro",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-pc/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -374,6 +392,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/redes-e-wifi",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/redes-wifi/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {

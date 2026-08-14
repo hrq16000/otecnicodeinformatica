@@ -1,0 +1,334 @@
+{
+  "_doc": "RODADA 5C — SERVIÇO × CURITIBA. Fonte única do conteúdo local autoral das rotas /servicos/:servico/curitiba. Regra fail-closed: uma rota só é candidata a indexação se tiver blocos, FAQ e intenção local próprios declarados aqui. A indexabilidade final continua sendo decidida em src/lib/localIndexPolicy.json.",
+  "paginas": {
+    "conserto-notebook": {
+      "path": "/servicos/conserto-notebook/curitiba",
+      "parent": "/servicos/manutencao-de-notebook",
+      "nome": "Conserto de Notebook",
+      "intentGlobal": "entender o serviço de manutenção de notebook: sintomas, causas, peças e procedimentos",
+      "intentLocal": "contratar conserto de notebook em Curitiba: coleta, visita, prazo e como solicitar",
+      "title": "Conserto de Notebook em Curitiba | Coleta ou Visita",
+      "description": "Conserto de notebook em Curitiba com triagem por WhatsApp: coleta combinada, atendimento no endereço ou bancada. Visita de inspeção a partir de R$ 99,99.",
+      "h1": "Conserto de notebook em Curitiba",
+      "subtitulo": "Como funciona contratar o conserto do seu notebook em Curitiba: modalidades disponíveis, logística de coleta, prazos reais e o que informar na triagem.",
+      "blocos": [
+        {
+          "titulo": "Como o atendimento de notebook acontece em Curitiba",
+          "paragrafos": [
+            "O atendimento começa sempre por uma triagem no WhatsApp, antes de qualquer deslocamento. Você descreve o modelo, o sintoma e o bairro; a partir daí definimos se o caso se resolve no seu endereço, se vale a pena combinar a coleta do aparelho ou se o notebook precisa ir para bancada. Notebook é um equipamento portátil, e essa portabilidade muda a logística: na maioria dos casos o cliente prefere entregar o aparelho ou receber a coleta a esperar um técnico no local.",
+            "Curitiba concentra a maior parte da nossa agenda, então a janela de atendimento costuma ser combinada para o mesmo dia ou para o dia seguinte, conforme a disponibilidade real. Não trabalhamos com promessa de chegada em minutos: informamos a janela possível na triagem e confirmamos o horário antes de sair."
+          ]
+        },
+        {
+          "titulo": "Coleta e devolução dentro de Curitiba",
+          "paragrafos": [
+            "Quando o reparo depende de bancada — desmontagem, troca de tela, revisão de conector de energia, limpeza interna com troca de pasta térmica — a coleta é a modalidade mais comum em Curitiba. Combinamos endereço, horário e a forma de identificação do aparelho, e o equipamento sai com registro do estado em que foi recolhido.",
+            "A devolução segue o mesmo caminho: o notebook volta ao endereço combinado após a aprovação do orçamento. Serviços que exigem peça sob encomenda dependem do prazo do fornecedor, e esse prazo é informado por escrito antes de você aprovar."
+          ]
+        },
+        {
+          "titulo": "Quando vale pedir atendimento no seu endereço",
+          "paragrafos": [
+            "Atendimento no endereço faz sentido quando o problema é de configuração, sistema, rede, backup ou quando o notebook não pode sair do local por questão de dados sensíveis. Nesses casos o técnico leva as ferramentas e resolve com você acompanhando. A visita técnica de inspeção parte de R$ 99,99 por até 30 minutos, e a mesma referência vale para cada 30 minutos adicionais; peças nunca estão inclusas nesse valor.",
+            "Se durante a visita ficar claro que o reparo é de bancada, o próprio técnico organiza a coleta na hora, sem cobrar um novo deslocamento pelo mesmo chamado."
+          ]
+        },
+        {
+          "titulo": "Notebook de trabalho, estudo e home office",
+          "paragrafos": [
+            "Boa parte dos chamados de notebook em Curitiba vem de quem depende do aparelho para trabalhar ou estudar: home office no Batel e no Água Verde, escritórios no Centro, estudantes e profissionais autônomos espalhados pela cidade. Para esse perfil, o que costuma pesar não é só o conserto, mas o tempo sem a máquina.",
+            "Por isso a triagem separa o que é urgente do que pode esperar: recuperar acesso aos arquivos, deixar a máquina utilizável e só depois executar o reparo definitivo é um caminho comum quando existe prazo de entrega no meio do caminho."
+          ]
+        },
+        {
+          "titulo": "O que informar antes de solicitar",
+          "paragrafos": [
+            "Quatro informações encurtam bastante o atendimento: marca e modelo do notebook, o que exatamente acontece (não liga, liga e apaga, tela sem imagem, superaquecimento, lentidão), há quanto tempo o problema aparece e em que bairro de Curitiba você está. Se houver histórico de queda, líquido derramado ou reparo anterior, vale avisar — isso muda o diagnóstico e a expectativa de prazo.",
+            "Com esses dados conseguimos indicar na própria conversa a modalidade mais provável e a faixa de custo do que for aplicável, antes de qualquer deslocamento."
+          ]
+        },
+        {
+          "titulo": "Empresas com notebooks em Curitiba",
+          "paragrafos": [
+            "Para empresas, o atendimento de notebook costuma ser tratado em lote: vários aparelhos coletados de uma vez, com registro individual e devolução programada para não parar a operação inteira no mesmo dia. Escritórios do Centro e do Batel normalmente pedem esse formato.",
+            "Quando o parque de máquinas é maior e o problema é recorrente, o caminho mais econômico deixa de ser o reparo avulso e passa a ser o suporte contratado, que é tratado na página de suporte técnico empresarial."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês consertam notebook em qualquer região de Curitiba?",
+          "resposta": "Sim, Curitiba é a região de maior concentração da agenda. A modalidade (coleta, visita ou bancada) é definida na triagem pelo WhatsApp conforme o sintoma e o bairro."
+        },
+        {
+          "pergunta": "Preciso levar o notebook ou vocês buscam?",
+          "resposta": "Nos dois formatos. Reparos de bancada normalmente são resolvidos com coleta combinada no endereço; se preferir entregar o aparelho, também é possível combinar isso na triagem."
+        },
+        {
+          "pergunta": "Quanto custa o atendimento no meu endereço?",
+          "resposta": "A visita técnica de inspeção parte de R$ 99,99 por até 30 minutos, com a mesma referência a cada 30 minutos adicionais. Peças não estão inclusas e qualquer valor extra é informado antes da execução."
+        },
+        {
+          "pergunta": "Em quanto tempo o notebook fica pronto?",
+          "resposta": "Depende do reparo. Serviços de software e limpeza costumam ser resolvidos no mesmo atendimento; trocas que dependem de peça sob encomenda seguem o prazo do fornecedor, informado por escrito antes da aprovação."
+        },
+        {
+          "pergunta": "Atendem empresas com vários notebooks?",
+          "resposta": "Sim. Nesse caso a coleta é feita em lote, com registro por equipamento e devolução programada para não interromper a operação inteira de uma vez."
+        }
+      ],
+      "interlinks": [
+        "/servicos/manutencao-de-notebook",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/coleta-e-entrega",
+        "/problemas/notebook-nao-liga"
+      ]
+    },
+    "conserto-pc": {
+      "path": "/servicos/conserto-pc/curitiba",
+      "parent": "/servicos/manutencao-de-computador",
+      "nome": "Conserto de PC",
+      "intentGlobal": "entender a manutenção de computador de mesa: diagnóstico, componentes e procedimentos",
+      "intentLocal": "contratar conserto de PC de mesa em Curitiba: atendimento no endereço, coleta do gabinete e prazos",
+      "title": "Conserto de PC em Curitiba | Atendimento no Endereço",
+      "description": "Conserto de computador de mesa em Curitiba: atendimento no seu endereço, coleta do gabinete quando necessário e orçamento antes da execução.",
+      "h1": "Conserto de PC de mesa em Curitiba",
+      "subtitulo": "Contratação do conserto de computador de mesa em Curitiba: quando o técnico vai até você, quando o gabinete é recolhido e como o custo é fechado.",
+      "blocos": [
+        {
+          "titulo": "Desktop em Curitiba: o atendimento normalmente vai até você",
+          "paragrafos": [
+            "Computador de mesa raramente sai do lugar por vontade do cliente: está com monitor, cabos, impressora e, muitas vezes, ligado a uma rotina de trabalho montada no mesmo canto da casa ou da sala comercial. Por isso, em Curitiba, a modalidade padrão para desktop é o atendimento no endereço, com o técnico levando ferramentas e peças de teste.",
+            "Só recolhemos o gabinete quando o serviço exige bancada por tempo prolongado, como reparo de placa, troca de fonte com teste de carga ou recuperação de dados. Nesse caso, vai apenas o gabinete: monitor, teclado, mouse e periféricos ficam com você."
+          ]
+        },
+        {
+          "titulo": "Como o gabinete é recolhido e devolvido",
+          "paragrafos": [
+            "Quando a coleta é necessária, o gabinete é identificado e registrado no ato, com anotação do estado externo e do que está instalado. Isso evita discussão depois e permite acompanhar o que foi feito. Cabos de força e adaptadores só vão junto quando fazem parte do teste.",
+            "A devolução é agendada e feita no mesmo endereço, com o computador religado e testado na sua frente. Se o reparo exigir peça encomendada, o prazo é informado antes da aprovação, e você decide se aguarda ou se prefere uma alternativa."
+          ]
+        },
+        {
+          "titulo": "Sala comercial, loja e consultório",
+          "paragrafos": [
+            "Uma parte relevante dos desktops que atendemos em Curitiba está em ambiente comercial: caixa de loja, recepção de clínica, escritório de contabilidade, balcão de atendimento. Nesses casos o computador não é só um equipamento pessoal — parar a máquina é parar o faturamento do dia.",
+            "Para esse cenário, a triagem prioriza deixar a operação de pé primeiro (mesmo que provisoriamente) e agendar o reparo definitivo em horário de menor movimento, inclusive fora do pico do comércio no Centro."
+          ]
+        },
+        {
+          "titulo": "Custo, orçamento e aprovação",
+          "paragrafos": [
+            "A visita técnica de inspeção parte de R$ 99,99 por até 30 minutos, com a mesma referência a cada 30 minutos adicionais. Esse valor cobre o deslocamento e o diagnóstico, não as peças. Qualquer componente necessário é orçado à parte e só é comprado depois da sua aprovação.",
+            "Quando existe mais de um caminho — trocar a peça, migrar para um componente melhor ou não reparar — apresentamos os dois cenários com valor e expectativa de vida útil, para você escolher com informação e não no impulso."
+          ]
+        },
+        {
+          "titulo": "Bairros e deslocamento",
+          "paragrafos": [
+            "Atendemos os bairros de Curitiba conforme a agenda do dia, com concentração maior em Centro, Batel, Água Verde, Portão e CIC. O deslocamento é combinado antes: você sabe o horário estimado e o custo aplicável antes de confirmar o chamado.",
+            "Para endereços fora do perímetro combinado, a diferença de deslocamento é informada na triagem — nunca aparece depois, no fechamento."
+          ]
+        },
+        {
+          "titulo": "Como solicitar",
+          "paragrafos": [
+            "Mande no WhatsApp o bairro, o que o computador está fazendo e há quanto tempo, se há barulho, cheiro, reinício sozinho ou tela sem imagem. Se o gabinete já foi aberto ou teve peça trocada recentemente, avise.",
+            "Com isso definimos na conversa se o caso é de visita imediata, coleta do gabinete ou se dá para adiantar algo remotamente antes do atendimento presencial."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "O técnico vai até minha casa em Curitiba para consertar o PC?",
+          "resposta": "Sim, essa é a modalidade padrão para computador de mesa. O horário é combinado na triagem pelo WhatsApp conforme a agenda do dia."
+        },
+        {
+          "pergunta": "Preciso levar o monitor e os cabos junto se houver coleta?",
+          "resposta": "Não. Quando a coleta é necessária, recolhemos apenas o gabinete. Monitor, teclado, mouse e demais periféricos permanecem com você."
+        },
+        {
+          "pergunta": "O orçamento é fechado antes do serviço?",
+          "resposta": "Sim. O diagnóstico define o que precisa ser feito e o valor das peças é apresentado antes da execução. Nada é trocado sem sua aprovação."
+        },
+        {
+          "pergunta": "Atendem loja e escritório em horário comercial?",
+          "resposta": "Sim, e nesses casos costumamos agendar em horário de menor movimento para reduzir o impacto no atendimento ao público."
+        },
+        {
+          "pergunta": "Existe custo de deslocamento por bairro?",
+          "resposta": "Quando aplicável, a diferença de deslocamento é informada na triagem, antes de você confirmar o chamado."
+        }
+      ],
+      "interlinks": [
+        "/servicos/manutencao-de-computador",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/atendimento-domicilio",
+        "/problemas/computador-lento"
+      ]
+    },
+    "redes-wifi": {
+      "path": "/servicos/redes-wifi/curitiba",
+      "parent": "/servicos/redes-e-wifi",
+      "nome": "Redes e Wi-Fi",
+      "intentGlobal": "entender redes e Wi-Fi: causas de instabilidade, equipamentos, cabeamento e configuração",
+      "intentLocal": "contratar instalação e ajuste de rede Wi-Fi em Curitiba: visita no local, imóveis e escritórios",
+      "title": "Redes e Wi-Fi em Curitiba | Atendimento no Local",
+      "description": "Instalação e ajuste de redes e Wi-Fi em Curitiba: visita no imóvel, medição por ambiente e atendimento a escritórios. Solicite pelo WhatsApp.",
+      "h1": "Redes e Wi-Fi em Curitiba",
+      "subtitulo": "Serviço de rede que só existe presencialmente: como funciona a visita, o que é medido no imóvel e como pedir para residência ou escritório em Curitiba.",
+      "blocos": [
+        {
+          "titulo": "Rede é serviço presencial: por que a visita é obrigatória",
+          "paragrafos": [
+            "Diferente de formatação ou remoção de vírus, rede não se resolve por acesso remoto. O sinal depende da planta do imóvel, da espessura das paredes, da posição do roteador, do ponto de entrada da operadora e da quantidade de aparelhos conectados ao mesmo tempo. Nada disso é visível de fora.",
+            "Por isso, em Curitiba, todo chamado de Wi-Fi começa com visita: medimos o sinal ambiente por ambiente, verificamos o cabeamento existente e só então dizemos se o caso é de reposicionamento, troca de equipamento, ponto de rede novo ou repetição de sinal."
+          ]
+        },
+        {
+          "titulo": "Apartamento, casa e sobrado em Curitiba",
+          "paragrafos": [
+            "O perfil de imóvel muda completamente a solução. Apartamento em prédio adensado — situação comum no Água Verde, no Batel e no Centro — sofre principalmente com interferência de dezenas de redes vizinhas no mesmo canal, e o ganho costuma vir de configuração e escolha de faixa.",
+            "Casa e sobrado sofrem com distância e laje: o roteador na sala não cobre o quarto dos fundos nem a edícula. Aqui a solução real costuma ser cabeamento até um segundo ponto, e não repetidor empilhado, que divide banda e piora a estabilidade."
+          ]
+        },
+        {
+          "titulo": "Escritórios e pequenas empresas",
+          "paragrafos": [
+            "Para escritórios, loja e clínica, o atendimento inclui separar a rede de trabalho da rede de visitantes, organizar a distribuição de pontos e verificar se o equipamento entregue pela operadora dá conta do número de dispositivos simultâneos. Impressora de rede, câmeras e sistema de caixa costumam ser os primeiros a cair quando a rede está saturada.",
+            "Empresas com mais de um andar ou com equipe fixa acima de dez pessoas normalmente precisam de projeto de pontos cabeados, não de mais um roteador. Esse escopo é avaliado na visita e apresentado com valores separados de mão de obra e material."
+          ]
+        },
+        {
+          "titulo": "O que a visita cobre",
+          "paragrafos": [
+            "A visita técnica de inspeção parte de R$ 99,99 por até 30 minutos, e a mesma referência vale a cada 30 minutos adicionais. Ela cobre a medição, o diagnóstico e os ajustes possíveis no tempo contratado.",
+            "Materiais — cabo, conectores, canaletas, roteador, switch ou access point — nunca estão incluídos e são orçados à parte. Se você já tiver os equipamentos, trabalhamos com eles; a política de peças fornecidas pelo cliente está publicada no site."
+          ]
+        },
+        {
+          "titulo": "Como pedir atendimento de rede em Curitiba",
+          "paragrafos": [
+            "Na triagem, informe o bairro, o tipo de imóvel (apartamento, casa, sala comercial), a metragem aproximada, quantos ambientes precisam de sinal e o que já foi tentado. Se já existe repetidor ou cabo passado, avise.",
+            "Com esses dados conseguimos estimar o tempo de visita necessário e se há chance de o material ser resolvido no mesmo atendimento ou em um segundo agendamento."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês configuram Wi-Fi no local, em Curitiba?",
+          "resposta": "Sim. Rede é um serviço presencial: medimos o sinal por ambiente e ajustamos no próprio imóvel, porque o desempenho depende da planta e da interferência local."
+        },
+        {
+          "pergunta": "Atendem escritórios e pequenas empresas?",
+          "resposta": "Sim. Nesses casos avaliamos separação entre rede de trabalho e de visitantes, número de dispositivos simultâneos e necessidade de pontos cabeados."
+        },
+        {
+          "pergunta": "Repetidor resolve o problema de sinal?",
+          "resposta": "Nem sempre. Em casa e sobrado, empilhar repetidores costuma dividir a banda e piorar a estabilidade; o caminho estável costuma ser cabear um segundo ponto."
+        },
+        {
+          "pergunta": "O material está incluído no valor da visita?",
+          "resposta": "Não. Cabo, conectores, roteador, switch e access point são orçados à parte. Se você já possui os equipamentos, trabalhamos com eles conforme a política de peças do cliente."
+        },
+        {
+          "pergunta": "Preciso estar presente durante o atendimento?",
+          "resposta": "Sim, alguém precisa acompanhar para liberar acesso aos ambientes e às senhas da operadora, além de validar o resultado ao final."
+        }
+      ],
+      "interlinks": [
+        "/servicos/redes-e-wifi",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/empresa-de-ti-curitiba",
+        "/problemas/wifi-instavel"
+      ]
+    },
+    "backup-recuperacao": {
+      "path": "/servicos/backup-recuperacao/curitiba",
+      "parent": "/servicos/recuperacao-de-dados",
+      "nome": "Backup e Recuperação de Dados",
+      "intentGlobal": "entender recuperação de dados: tipos de falha, chances reais, procedimentos e limites técnicos",
+      "intentLocal": "contratar backup e recuperação de dados em Curitiba: coleta do disco, sigilo, prazos e devolução",
+      "title": "Backup e Recuperação de Dados em Curitiba | Coleta",
+      "description": "Backup e recuperação de dados em Curitiba com coleta do equipamento, registro do que foi recebido e devolução combinada. Fale pelo WhatsApp.",
+      "h1": "Backup e recuperação de dados em Curitiba",
+      "subtitulo": "Como contratar em Curitiba: coleta do equipamento, cuidados com sigilo, prazos de avaliação e forma de devolução dos arquivos.",
+      "blocos": [
+        {
+          "titulo": "O primeiro passo é parar de usar o equipamento",
+          "paragrafos": [
+            "Em recuperação de dados, o tempo entre a falha e o atendimento importa mais do que a distância. Continuar ligando um disco que já apresenta falha, reinstalar sistema por cima ou rodar programas de recuperação baixados na pressa costuma reduzir a chance de leitura dos arquivos.",
+            "Por isso, na triagem em Curitiba, a primeira orientação é desligar e não mexer. A partir daí combinamos como o equipamento chega até a bancada — normalmente por coleta no endereço, porque desmontar disco em casa não faz sentido."
+          ]
+        },
+        {
+          "titulo": "Coleta e registro do que foi recebido",
+          "paragrafos": [
+            "O equipamento é recolhido com registro do que está sendo entregue: modelo, número de série quando visível, estado externo e o relato do que aconteceu. Esse registro acompanha o atendimento inteiro e é a referência para a devolução.",
+            "Se for notebook ou desktop inteiro, você decide se envia a máquina completa ou apenas o disco. Para casos em que a máquina precisa continuar em uso, retirar somente a mídia é o caminho mais rápido."
+          ]
+        },
+        {
+          "titulo": "Sigilo dos arquivos",
+          "paragrafos": [
+            "Recuperação de dados envolve arquivos pessoais e, com frequência, documentos de empresa. O acesso ao conteúdo fica restrito ao necessário para executar o serviço, e os arquivos recuperados são entregues em mídia combinada com você.",
+            "Empresas que precisam de tratamento formal — termo de confidencialidade, cadeia de custódia do equipamento ou entrega para um responsável específico — devem informar isso na triagem, para que o procedimento seja combinado antes da coleta."
+          ]
+        },
+        {
+          "titulo": "Prazo de avaliação e expectativa realista",
+          "paragrafos": [
+            "A avaliação inicial indica se a mídia é legível, se há dano lógico ou físico e qual o esforço envolvido. Só depois dessa etapa existe prazo e valor, porque recuperação não tem tempo fixo: depende do estado da mídia e do volume de dados.",
+            "Também informamos quando a chance é baixa. Preferimos dizer que o resultado é incerto a vender expectativa — e, quando o caso exige estrutura que não executamos, indicamos esse limite em vez de tentar de qualquer jeito."
+          ]
+        },
+        {
+          "titulo": "Backup para não repetir o problema",
+          "paragrafos": [
+            "Depois de recuperar, a conversa muda de assunto: como evitar a próxima perda. Para uso doméstico em Curitiba, normalmente basta combinar uma cópia local automática com uma cópia em nuvem dos arquivos críticos.",
+            "Para empresa, o desenho é outro — rotina verificada, responsável definido e teste de restauração periódico. Esse escopo continuado é tratado na página de backup para empresas."
+          ]
+        },
+        {
+          "titulo": "Como solicitar em Curitiba",
+          "paragrafos": [
+            "Informe no WhatsApp o bairro, o tipo de equipamento (notebook, desktop, HD externo, pendrive, cartão), o que aconteceu — queda, formatação acidental, exclusão, o computador parou de reconhecer — e se há barulho vindo do disco.",
+            "Com esses dados combinamos a coleta e explicamos, antes de recolher qualquer coisa, o que será feito na avaliação e como você receberá o retorno."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês buscam o equipamento em Curitiba?",
+          "resposta": "Sim. Recuperação de dados é serviço de bancada, então a coleta no endereço é o formato mais comum, com registro do que foi recebido."
+        },
+        {
+          "pergunta": "Posso enviar só o HD, sem o computador?",
+          "resposta": "Pode. Quando a máquina precisa continuar em uso, retirar apenas a mídia costuma ser o caminho mais rápido."
+        },
+        {
+          "pergunta": "Como fica o sigilo dos meus arquivos?",
+          "resposta": "O acesso fica restrito ao necessário para executar o serviço e os arquivos são devolvidos em mídia combinada. Empresas podem solicitar tratamento formal na triagem."
+        },
+        {
+          "pergunta": "Existe garantia de recuperar tudo?",
+          "resposta": "Não. O resultado depende do estado da mídia. Fazemos a avaliação, informamos a expectativa real e avisamos quando a chance é baixa antes de você decidir seguir."
+        },
+        {
+          "pergunta": "Quanto tempo demora?",
+          "resposta": "O prazo só é definido após a avaliação inicial, porque varia com o tipo de falha e o volume de dados. Ele é informado por escrito antes da aprovação."
+        }
+      ],
+      "interlinks": [
+        "/servicos/recuperacao-de-dados",
+        "/tecnico-informatica-curitiba",
+        "/coleta-e-entrega",
+        "/seguranca-dos-dados",
+        "/servicos/backup-para-empresas"
+      ]
+    }
+  }
+}

@@ -41,15 +41,29 @@ describe("localIndexPolicy — Lote Local 1", () => {
     expect(resolveLocal("/bairros/santa-felicidade").sitemap).toBe(false);
   });
 
-  it("canonicaliza serviço × cidade para o serviço-pai (antidoorway)", () => {
+  it("canonicaliza serviço × cidade sem intenção local para o serviço-pai real", () => {
     const d = resolveLocal("/servicos/formatacao-computador/curitiba");
     expect(d.indexability).toBe("canonicalized");
-    expect(canonicalFor("/servicos/formatacao-computador/curitiba")).toBe(
-      "/servicos/formatacao-computador",
-    );
+    // Rodada 5C: canonical precisa apontar para uma rota REAL (/servicos/formatacao).
+    expect(canonicalFor("/servicos/formatacao-computador/curitiba")).toBe("/servicos/formatacao");
     expect(d.sitemap).toBe(false);
   });
+
+  it("promove serviço × Curitiba com intenção local própria (Rodada 5C)", () => {
+    for (const path of [
+      "/servicos/conserto-notebook/curitiba",
+      "/servicos/conserto-pc/curitiba",
+      "/servicos/redes-wifi/curitiba",
+      "/servicos/backup-recuperacao/curitiba",
+    ]) {
+      const d = resolveLocal(path);
+      expect(d.indexability).toBe("index");
+      expect(canonicalFor(path)).toBe(path);
+      expect(d.sitemap).toBe(true);
+    }
+  });
 });
+
 
 describe("localIndexPolicy — clusters bloqueados", () => {
   it("mantém /arrumar-pc e /cftv fora do índice", () => {

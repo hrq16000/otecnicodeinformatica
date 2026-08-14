@@ -20,7 +20,7 @@ import { BASE_URL } from "./site-env.mjs";
 import { BLOCOS_4S_PATHS } from "./blocos-4s.mjs";
 // RODADA 5: cidades, bairros e serviço × bairro deixam de ter lista própria
 // aqui — a fonte única é src/lib/localIndexPolicy.json.
-import { ENTIDADES, BAIRROS_ANCORA, SERVICO_BAIRRO_INDEXAVEIS } from "./local-index-policy.mjs";
+import { ENTIDADES, BAIRROS_ANCORA, SERVICO_BAIRRO_INDEXAVEIS, SERVICO_CIDADE_INDEXAVEIS } from "./local-index-policy.mjs";
 export { BASE_URL };
 
 export const MAIN = [
@@ -104,6 +104,16 @@ export const SERVICO_BAIRRO = SERVICO_BAIRRO_INDEXAVEIS.map((path) => ({
 }));
 
 /**
+ * RODADA 5C — serviço × Curitiba com intenção local própria (coleta, visita,
+ * logística). Só entram os paths promovidos a `index` na política local.
+ */
+export const SERVICO_CIDADE = SERVICO_CIDADE_INDEXAVEIS.map((path) => ({
+  path,
+  changefreq: "monthly",
+  priority: "0.7",
+}));
+
+/**
  * Cluster de problemas (sintomas). Piloto controlado da Rodada 3B: só entram
  * URLs com conteúdo próprio de sintoma, distinto da página de serviço-mãe.
  */
@@ -169,7 +179,7 @@ export const EDITORIAL = [
 /** Sub-sitemaps ativos, na ordem em que aparecem no índice. */
 export const ACTIVE_SITEMAPS = [
   ["sitemap-main.xml", [...MAIN, ...HUBS]],
-  ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
+  ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO, ...SERVICO_CIDADE]],
   ["sitemap-regioes.xml", REGIOES],
   ["sitemap-bairros.xml", BAIRROS],
   ["sitemap-problemas.xml", PROBLEMAS],

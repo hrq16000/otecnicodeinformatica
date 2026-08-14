@@ -85,24 +85,57 @@ export const PainelClusterEditorial = () => {
     };
   }, []);
 
-  const linhas = useMemo(
+  // RODADA 8G — sinais medidos por URL. `null` = fonte não conectada; nunca 0.
+  const sinais: UrlSignals[] = useMemo(
     () =>
       CONTENT_COHORT.map((m) => {
         const d = discovery?.find((x) => x.url === m.url);
         const p = perf?.find((x) => x.url === m.url);
-        return { membro: m, d, p };
+        return {
+          url: m.url,
+          intent: m.intent,
+          publishedAt: m.publishedAt,
+          ageDays: Math.max(
+            0,
+            Math.floor((Date.now() - new Date(`${m.publishedAt}T12:00:00Z`).getTime()) / 86_400_000),
+          ),
+          discovery: (d?.discovery ?? "UNKNOWN") as DiscoveryState,
+          impressions: p ? p.impressoes : null,
+          clicks: p ? p.cliques : null,
+          sessions: p?.sessoes ?? null,
+          ctaClicks: null,
+          whatsapp: p?.whatsapp ?? null,
+          assists: p?.jornadasAssistidas ?? null,
+          tecnico: {
+            rota200: d?.rota200 ?? true,
+            noSitemap: d?.noSitemap ?? true,
+            selfCanonical: d?.selfCanonical ?? true,
+            indexavel: d?.indexavel ?? true,
+            linksInternos: d?.linksInternos ?? MIN_LINKS_FALLBACK,
+            clickDepth: d?.clickDepth ?? null,
+          },
+        };
       }),
     [discovery, perf],
   );
+
+  const rows = useMemo(() => sinais.map(buildCohortRow), [sinais]);
+  const status = useMemo(() => clusterStatus(sinais), [sinais]);
+  const decisao = useMemo(() => decideCluster({ urls: sinais }), [sinais]);
 
   const links = useMemo(() => matrizDistribuicao(), []);
 
   return (
     <Card className="p-4">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="font-heading text-lg font-bold text-foreground">Cluster editorial — descoberta</h2>
-        <Badge variant="secondary">{CONTENT_COHORT_ID}</Badge>
+        <h2 className="font-heading text-lg font-bold text-foreground">Cluster 1 — observação</h2>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="secondary">{CONTENT_COHORT_ID}</Badge>
+          <Badge variant="outline">{status}</Badge>
+          <Badge>{decisao.decision}</Badge>
+        </div>
       </div>
+      <p className="mb-3 text-xs text-muted-foreground">{decisao.motivo}</p>
 
       {carregando ? (
         <div className="space-y-2" aria-busy="true">
@@ -112,7 +145,7 @@ export const PainelClusterEditorial = () => {
         </div>
       ) : !discovery ? (
         <p className="text-sm text-muted-foreground">
-          Sem relatório de descoberta nesta build. Rode <code>npm run report:content-discovery</code> para gerar
+          Sem relatório de descoberta nesta build. Rode <code>npm run report:content-cohort</code> para gerar
           evidência. Enquanto isso, este bloco não exibe números — ausência de fonte não é resultado zero.
         </p>
       ) : (
@@ -121,42 +154,43 @@ export const PainelClusterEditorial = () => {
             <thead>
               <tr className="border-b border-border text-left text-xs uppercase text-muted-foreground">
                 <th className="py-2">URL</th>
-                <th>Estado</th>
-                <th className="text-right">Links</th>
-                <th className="text-right">Prof.</th>
+                <th>Idade</th>
+                <th>Search status</th>
                 <th className="text-right">Impr.</th>
-                <th>Evidência CTR</th>
-                <th>Veredito</th>
+                <th className="text-right">Cliques</th>
+                <th className="text-right">Sessões</th>
+                <th className="text-right">CTA</th>
+                <th className="text-right">Assist</th>
+                <th>Reason</th>
               </tr>
             </thead>
             <tbody>
-              {linhas.map(({ membro, d, p }) => {
-                const estado = (d?.discovery ?? "UNKNOWN") as DiscoveryState;
-                const impressoes = p?.impressoes ?? 0;
-                return (
-                  <tr key={membro.url} className="border-b border-border/60 last:border-0">
-                    <td className="py-2 pr-3">
-                      <a className="underline underline-offset-2" href={membro.url}>
-                        {membro.url}
-                      </a>
-                      <span className="block text-xs text-muted-foreground">
-                        {membro.intent} · {ageBucket(membro.publishedAt)} dias
-                      </span>
-                    </td>
-                    <td className="pr-3">
-                      <Badge variant={BADGE[estado]}>{estado}</Badge>
-                      <span className="block text-xs text-muted-foreground">{DISCOVERY_LABEL[estado]}</span>
-                    </td>
-                    <td className="text-right">{d?.linksInternos ?? "—"}</td>
-                    <td className="text-right">{d?.clickDepth ?? "—"}</td>
-                    <td className="text-right">{p ? impressoes : "—"}</td>
-                    <td className="pr-3 text-xs text-muted-foreground">
-                      {p ? CTR_EVIDENCE_LABEL[ctrEvidence(impressoes)] : "sem fonte conectada"}
-                    </td>
-                    <td className="text-xs">{p?.veredito ?? "—"}</td>
-                  </tr>
-                );
-              })}
+              {rows.map((r) => (
+                <tr key={r.url} className="border-b border-border/60 last:border-0">
+                  <td className="py-2 pr-3">
+                    <a className="underline underline-offset-2" href={r.url}>
+                      {r.url}
+                    </a>
+                    <span className="block text-xs text-muted-foreground">
+                      {r.intent} · {CTR_EVIDENCE_LABEL[r.evidenciaCtr]}
+                    </span>
+                  </td>
+                  <td className="pr-3 text-xs">
+                    {r.ageDays}d
+                    <span className="block text-muted-foreground">{ageBucket(r.publishedAt)} dias</span>
+                  </td>
+                  <td className="pr-3">
+                    <Badge variant={BADGE[r.discovery]}>{r.estado}</Badge>
+                    <span className="block text-xs text-muted-foreground">{DISCOVERY_LABEL[r.discovery]}</span>
+                  </td>
+                  <td className="text-right">{r.impressions ?? "—"}</td>
+                  <td className="text-right">{r.clicks ?? "—"}</td>
+                  <td className="text-right">{r.sessions ?? "—"}</td>
+                  <td className="text-right">{r.whatsapp ?? "—"}</td>
+                  <td className="text-right">{r.assists ?? "—"}</td>
+                  <td className="pr-3 text-xs text-muted-foreground">{REASON_LABEL[r.reason]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

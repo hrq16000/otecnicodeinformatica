@@ -236,7 +236,7 @@ export const JornadaSankey = ({
         <p className="py-8 text-center text-sm text-muted-foreground">Sem eventos comerciais no período.</p>
       ) : (
         <>
-          <FluxoSvg etapas={etapasComLead} />
+          <FluxoSvg etapas={etapasFinais} />
 
           <div className="mt-2 flex flex-wrap gap-2 text-xs">
             {leads === null && <Badge variant="secondary">Lead: leitura não carregada neste filtro</Badge>}
@@ -254,12 +254,78 @@ export const JornadaSankey = ({
                 </tr>
               </thead>
               <tbody>
-                {etapasComLead.slice(0, -1).map((e, i) => (
-                  <LinhaQueda key={e.rotulo} de={e} para={etapasComLead[i + 1]} />
+                {etapasFinais.slice(0, -1).map((e, i) => (
+                  <LinhaQueda key={e.rotulo} de={e} para={etapasFinais[i + 1]} />
                 ))}
               </tbody>
             </table>
           </div>
+
+          <h4 className="mt-5 text-sm font-semibold">Comparação automática 7 · 30 · 90 dias</h4>
+          <div className="mt-2 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left text-xs uppercase text-muted-foreground">
+                <tr>
+                  <th className="py-2 pr-3">Janela</th>
+                  <th className="py-2 pr-3 text-right">Sessões</th>
+                  <th className="py-2 pr-3 text-right">CTA/sessão</th>
+                  <th className="py-2 pr-3 text-right">Triagem/CTA</th>
+                  <th className="py-2 text-right">WhatsApp/sessão</th>
+                </tr>
+              </thead>
+              <tbody>
+                {janelas.map((j) => (
+                  <tr key={j.dias} className="border-b border-border/60">
+                    <td className="py-1.5 pr-3 text-xs">{j.dias} dias</td>
+                    {j.coberta ? (
+                      <>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">{j.sessoes}</td>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.sessoes > 0 ? j.cta / j.sessoes : null)}
+                        </td>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.cta > 0 ? j.triagem / j.cta : null)}
+                        </td>
+                        <td className="py-1.5 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.sessoes > 0 ? j.whatsapp / j.sessoes : null)}
+                        </td>
+                      </>
+                    ) : (
+                      <td colSpan={4} className="py-1.5 text-right text-xs text-muted-foreground">
+                        fora do período carregado — amplie a data inicial do filtro
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="mt-5 text-sm font-semibold">Maiores gargalos</h4>
+          <div className="mt-2 grid gap-3 md:grid-cols-2">
+            {gargalos.map((g) => (
+              <div key={g.dimensao} className="rounded-lg border border-border/60 p-3">
+                <p className="mb-2 text-xs uppercase text-muted-foreground">
+                  {g.dimensao === "rota" ? "Por rota" : "Por serviço"}
+                </p>
+                {g.itens.length === 0 ? (
+                  <p className="text-xs text-muted-foreground">Sem recortes com dados suficientes.</p>
+                ) : (
+                  <ul className="space-y-1.5">
+                    {g.itens.map((i) => (
+                      <li key={i.chave} className="flex items-center justify-between gap-2 text-xs">
+                        <span className="truncate font-mono">{i.chave}</span>
+                        <span className="shrink-0 tabular-nums text-muted-foreground">
+                          {i.g?.etapa} · -{Math.round((i.g?.perda ?? 0) * 100)}% · {i.sessoes} sessões
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+
 
           <h4 className="mt-5 text-sm font-semibold">Queda por {DIMENSOES.find((d) => d.valor === dimensao)?.rotulo}</h4>
           <div className="mt-2 space-y-3">

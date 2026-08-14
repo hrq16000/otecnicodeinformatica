@@ -70,7 +70,7 @@ for (const ev of EVENTOS_OBRIGATORIOS) {
 // 2) PII nunca entra no payload dos eventos.
 for (const campo of CAMPOS_PROIBIDOS) {
   // Ignora anotações de tipo (`name: string`) — só interessa valor em payload.
-  const re = new RegExp(`\\b${campo}\\s*:\\s*(?!string|number|boolean|unknown|undefined|null|\\s*//)`, "i");
+  const re = new RegExp(`\\b${campo}\\s*:\\s*(?!\\s*(?:string|number|boolean|unknown|undefined|null|//))`, "i");
   for (const arquivo of ARQUIVOS_ANALYTICS) {
     const src = readFileSync(arquivo, "utf8");
     // Só linhas que estejam dentro de payloads (objeto passado a track/insert).

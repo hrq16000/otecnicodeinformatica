@@ -329,6 +329,258 @@
         "/seguranca-dos-dados",
         "/servicos/backup-para-empresas"
       ]
+    },
+    "formatacao-computador": {
+      "path": "/servicos/formatacao-computador/curitiba",
+      "parent": "/servicos/formatacao",
+      "nome": "Formatação de computador",
+      "intentGlobal": "entender o que é formatar, quando vale a pena, riscos e o que muda no sistema",
+      "intentLocal": "contratar formatação em Curitiba decidindo entre remoto, atendimento no endereço ou coleta, com backup combinado antes",
+      "title": "Formatação de Computador em Curitiba | Remoto ou no Endereço",
+      "description": "Formatação em Curitiba com backup combinado antes: atendimento remoto quando a máquina liga, visita no seu endereço ou coleta. Prazo e custo definidos na triagem.",
+      "h1": "Formatação de computador em Curitiba",
+      "subtitulo": "Como a formatação é contratada em Curitiba: o que decide entre remoto, visita e coleta, como seus arquivos são preservados e em quanto tempo a máquina volta a funcionar.",
+      "blocos": [
+        {
+          "titulo": "Remoto, no endereço ou coleta: o que define em Curitiba",
+          "paragrafos": [
+            "Formatação é um dos poucos serviços de informática que pode começar sem ninguém sair de casa. Se o computador ainda liga, entra no Windows e tem internet estável, boa parte do trabalho é feita remotamente, com você acompanhando a tela — o que costuma resolver no mesmo dia e sem deslocamento.",
+            "Quando a máquina não inicia, trava antes da área de trabalho ou o disco está com falha, o caminho passa a ser presencial. Em Curitiba isso é decidido ainda na triagem por WhatsApp, para você não pagar visita por um serviço que poderia ser remoto nem esperar um remoto que nunca vai concluir."
+          ]
+        },
+        {
+          "titulo": "Backup antes: a parte que atrasa quando não é combinada",
+          "paragrafos": [
+            "O que mais alonga uma formatação não é instalar o sistema: é salvar o que estava lá. Antes de qualquer coisa combinamos onde os arquivos vão ficar — HD externo seu, unidade de rede do escritório ou cópia temporária durante o serviço — e o que precisa voltar depois: documentos, fotos, e-mails configurados, favoritos e licenças.",
+            "Se você não tiver mídia para o backup, isso é dito antes, com o custo do material à parte. Nunca iniciamos a formatação sem essa definição fechada por escrito no WhatsApp, porque depois de formatar não existe volta."
+          ]
+        },
+        {
+          "titulo": "Programas de trabalho e o tempo real da entrega",
+          "paragrafos": [
+            "Em Curitiba, boa parte dos pedidos de formatação vem de quem usa o computador para trabalhar: escritório contábil, consultório, home office e estudante em fase de entrega. Nessas máquinas o serviço não termina no sistema instalado — termina quando o programa do dia a dia abre e imprime.",
+            "Por isso a triagem pergunta quais sistemas você usa (emissor fiscal, gestão, VPN, impressora fiscal) e se você tem login e licença em mãos. Sem essas credenciais o computador é devolvido funcional, mas com a parte de trabalho pendente, e isso é informado antes de começar."
+          ]
+        },
+        {
+          "titulo": "Custo e o que está incluso",
+          "paragrafos": [
+            "A referência de valor é a mesma da tabela geral: R$ 99,99 por até 30 minutos de atendimento, com a mesma referência a cada 30 minutos adicionais, seja remoto ou presencial. Licença de sistema, mídia de backup e peças não estão inclusas e são orçadas à parte, sempre antes da execução.",
+            "Se durante o serviço aparecer sinal de disco defeituoso — o motivo real de muita 'lentidão que só formatando resolve' — paramos e apresentamos o cenário: formatar em um disco em falha é dinheiro jogado fora."
+          ]
+        },
+        {
+          "titulo": "Bairros, agenda e coleta",
+          "paragrafos": [
+            "O atendimento presencial em Curitiba é organizado por agenda do dia, com maior frequência em Centro, Batel, Água Verde, Portão e CIC. Para quem prefere não ficar em casa esperando, a coleta do equipamento é uma alternativa: o computador vai para bancada e volta agendado ao mesmo endereço.",
+            "Endereços fora do perímetro combinado têm a diferença de deslocamento informada na triagem, antes da confirmação do chamado."
+          ]
+        },
+        {
+          "titulo": "Como solicitar",
+          "paragrafos": [
+            "Mande no WhatsApp o bairro, se o computador ainda liga e entra no sistema, quais arquivos não podem ser perdidos e quais programas você precisa de volta. Com isso já indicamos se o caso é remoto, visita ou coleta e qual o prazo realista.",
+            "Se você já tentou restaurar o sistema sozinho ou usou algum programa de limpeza, avise: isso muda o que ainda é possível recuperar antes de formatar."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "A formatação pode ser feita remotamente em Curitiba?",
+          "resposta": "Pode, quando o computador liga, entra no sistema e tem internet estável. Se ele não inicia ou o disco falha, o serviço passa a ser presencial ou por coleta."
+        },
+        {
+          "pergunta": "Meus arquivos são salvos?",
+          "resposta": "Sim, desde que combinado antes. O destino do backup (seu HD externo, unidade de rede ou cópia temporária) é definido por escrito na triagem, antes de iniciar."
+        },
+        {
+          "pergunta": "Vocês reinstalam meus programas de trabalho?",
+          "resposta": "Reinstalamos os programas para os quais você tiver login e licença em mãos. Sem essas credenciais, entregamos o sistema pronto e a parte de trabalho fica pendente."
+        },
+        {
+          "pergunta": "Quanto tempo demora?",
+          "resposta": "Depende do volume de backup e da velocidade do disco. Casos simples costumam terminar no mesmo dia; máquinas com muitos arquivos ou disco lento podem exigir coleta."
+        },
+        {
+          "pergunta": "Formatar resolve computador lento?",
+          "resposta": "Nem sempre. Quando a lentidão vem de disco em falha ou memória insuficiente, formatar dá alívio curto — nesse caso apontamos a causa antes de você gastar."
+        }
+      ],
+      "interlinks": [
+        "/servicos/formatacao",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/problemas/computador-lento",
+        "/servicos/upgrade-ssd-ram"
+      ]
+    },
+    "remocao-virus": {
+      "path": "/servicos/remocao-virus/curitiba",
+      "parent": "/servicos/remocao-de-virus",
+      "nome": "Remoção de vírus",
+      "intentGlobal": "entender tipos de infecção, sinais, riscos e como a limpeza é feita tecnicamente",
+      "intentLocal": "contratar remoção de vírus em Curitiba com urgência, decidindo entre acesso remoto imediato e visita, inclusive em máquina de empresa",
+      "title": "Remoção de Vírus em Curitiba | Atendimento no Mesmo Dia",
+      "description": "Remoção de vírus em Curitiba: acesso remoto imediato quando o computador ainda liga, visita ao endereço em casos de sequestro de arquivos e orientação a empresas.",
+      "h1": "Remoção de vírus em Curitiba",
+      "subtitulo": "Como contratar a limpeza em Curitiba quando o problema é urgente: o que fazer nos primeiros minutos, quando o remoto resolve e quando o computador precisa ser desligado da rede.",
+      "blocos": [
+        {
+          "titulo": "Antes de contratar: o que fazer nos primeiros minutos",
+          "paragrafos": [
+            "Infecção é o único serviço desta lista em que o tempo entre perceber e agir muda o resultado. Se aparecerem arquivos renomeados, pedido de resgate ou o computador estiver enviando mensagens sozinho, desconecte o cabo de rede e o Wi-Fi antes de qualquer coisa e não desligue na tomada.",
+            "Em Curitiba, a triagem por WhatsApp já começa por essas perguntas. Só depois disso decidimos o formato do atendimento — porque em uma parte dos casos ligar o computador de volta à rede é o que espalha o problema para o servidor ou para as outras máquinas do escritório."
+          ]
+        },
+        {
+          "titulo": "Remoto imediato ou visita: como decidimos",
+          "paragrafos": [
+            "Quando o computador ainda entra no sistema e a infecção é do tipo que sequestra o navegador, injeta anúncio ou instala programas indesejados, o acesso remoto costuma ser o caminho mais rápido: iniciamos em minutos, sem esperar deslocamento na cidade.",
+            "Quando há criptografia de arquivos, bloqueio de tela, perda de acesso ao usuário ou suspeita de contaminação em rede, o atendimento é presencial. Nesses casos o computador é tratado isolado, e só volta à rede depois de verificado."
+          ]
+        },
+        {
+          "titulo": "Máquina de empresa em Curitiba: contenção primeiro",
+          "paragrafos": [
+            "Em escritórios, clínicas e lojas de Curitiba, a limpeza de uma estação isolada resolve pouco se a origem estiver na pasta compartilhada ou em um usuário com senha vazada. Por isso, para PJ, o primeiro passo é conter: identificar quais máquinas acessam o mesmo compartilhamento e interromper a propagação.",
+            "Depois disso tratamos estação por estação e revisamos o que permitiu a entrada — anexo de e-mail, instalador pirata, acesso remoto exposto. Empresas com mais de três máquinas costumam ser encaminhadas para o acompanhamento contínuo em vez do chamado avulso."
+          ]
+        },
+        {
+          "titulo": "O que a limpeza não recupera",
+          "paragrafos": [
+            "É importante dizer antes de você contratar: remoção de vírus não é sinônimo de recuperação de arquivos. Em casos de criptografia, sem backup íntegro a chance de reaver o conteúdo é baixa e não depende de nós.",
+            "Quando existe backup, a prioridade muda: primeiro garantimos que a cópia não foi atingida, depois limpamos, e só então restauramos. Fazer na ordem inversa costuma contaminar o backup também."
+          ]
+        },
+        {
+          "titulo": "Custo, prazo e reincidência",
+          "paragrafos": [
+            "O atendimento parte de R$ 99,99 por até 30 minutos, remoto ou presencial, com a mesma referência a cada 30 minutos adicionais. Licenças de proteção e material são orçados à parte, quando aplicável.",
+            "Ao final, entregamos por escrito o que foi encontrado e o que precisa mudar na rotina — senha, atualização, origem dos instaladores. Sem esse ajuste, a mesma máquina volta a infectar em semanas, e isso é dito com clareza em vez de vendermos limpeza recorrente."
+          ]
+        },
+        {
+          "titulo": "Como solicitar",
+          "paragrafos": [
+            "Mande no WhatsApp o bairro, o que apareceu na tela, se há arquivos renomeados, se a máquina é pessoal ou de empresa e se ela compartilha pastas com outros computadores. Se possível, envie foto da tela em vez de descrever de memória.",
+            "Com essas informações indicamos se o caso é remoto imediato ou visita, e o que você deve deixar desligado até o atendimento começar."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês conseguem atender no mesmo dia em Curitiba?",
+          "resposta": "Na maioria dos casos remotos, sim — o acesso começa em minutos após a triagem. Atendimento presencial depende da agenda do dia e do bairro."
+        },
+        {
+          "pergunta": "Devo desligar o computador se suspeito de vírus?",
+          "resposta": "Desconecte da rede e do Wi-Fi, mas evite desligar na tomada. Isolar a máquina impede a propagação sem perder informação de diagnóstico."
+        },
+        {
+          "pergunta": "Arquivos criptografados voltam depois da limpeza?",
+          "resposta": "Nem sempre. Sem backup íntegro, a chance de recuperar conteúdo criptografado é baixa. Avaliamos o caso e dizemos com franqueza antes de cobrar por tentativa."
+        },
+        {
+          "pergunta": "Atendem empresas com várias máquinas infectadas?",
+          "resposta": "Sim. Nesses casos começamos pela contenção da rede e do compartilhamento, e só depois tratamos estação por estação."
+        },
+        {
+          "pergunta": "Preciso comprar antivírus pago?",
+          "resposta": "Não obrigatoriamente. Indicamos o que faz sentido para o seu uso; licenças, quando necessárias, são orçadas à parte e nunca embutidas sem aviso."
+        }
+      ],
+      "interlinks": [
+        "/servicos/remocao-de-virus",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/empresa-de-ti-curitiba",
+        "/servicos/backup-recuperacao/curitiba"
+      ]
+    },
+    "upgrade-ssd": {
+      "path": "/servicos/upgrade-ssd/curitiba",
+      "parent": "/servicos/upgrade-ssd-ram",
+      "nome": "Upgrade de SSD e memória",
+      "intentGlobal": "entender tipos de SSD e memória, compatibilidade, ganhos esperados e limites de cada máquina",
+      "intentLocal": "contratar o upgrade em Curitiba já sabendo prazo, quem fornece a peça e como o sistema é migrado sem perder nada",
+      "title": "Upgrade de SSD e Memória em Curitiba | Peça e Instalação",
+      "description": "Upgrade de SSD e memória em Curitiba: conferência de compatibilidade antes da compra, migração do sistema sem reinstalar e instalação no seu endereço ou por coleta.",
+      "h1": "Upgrade de SSD e memória em Curitiba",
+      "subtitulo": "Contratação do upgrade em Curitiba: quem compra a peça, quanto tempo a máquina fica parada e como seus programas continuam funcionando depois da troca.",
+      "blocos": [
+        {
+          "titulo": "Quem compra a peça: você ou nós",
+          "paragrafos": [
+            "Esta é a primeira decisão do serviço em Curitiba e ela muda prazo e custo. Se você compra a peça, conferimos antes o modelo exato compatível com a sua máquina — e conferir antes evita o cenário mais comum: SSD ou pente de memória que chega e não encaixa.",
+            "Se preferir que nós forneçamos, o valor da peça é orçado à parte e aprovado por escrito antes da compra. Em qualquer um dos casos, o custo da mão de obra segue a mesma referência e não muda conforme a origem do componente."
+          ]
+        },
+        {
+          "titulo": "Migrar o sistema em vez de formatar",
+          "paragrafos": [
+            "A maioria dos upgrades que fazemos em Curitiba não precisa de formatação. O sistema, os programas e os arquivos são migrados para o novo disco como estão, e você volta a usar a máquina com a mesma área de trabalho — só que rápida.",
+            "A migração só é descartada quando o disco atual apresenta falha de leitura ou quando o sistema já está comprometido. Nesses casos explicamos por que a cópia não é segura e apresentamos a instalação limpa como alternativa, com o backup combinado antes."
+          ]
+        },
+        {
+          "titulo": "Quanto tempo a máquina fica parada",
+          "paragrafos": [
+            "Com a peça em mãos, o upgrade costuma ser resolvido em uma única visita: a troca em si é rápida e o tempo maior é a cópia dos dados, que varia com o volume e com a velocidade do disco antigo.",
+            "Quando o disco de origem está lento ou com setores ruins, a cópia se estende e o caminho passa a ser coleta — a máquina vai para bancada, roda a migração sem prender o técnico no seu endereço e volta agendada. Você é avisado dessa possibilidade na triagem, não no meio do serviço."
+          ]
+        },
+        {
+          "titulo": "O que fazer com o disco antigo",
+          "paragrafos": [
+            "O disco substituído é seu e volta com você. Em desktop, muita gente prefere mantê-lo instalado como armazenamento secundário; em notebook, ele pode virar HD externo com um adaptador, e isso é orçado à parte se você quiser.",
+            "Se o equipamento vai ser vendido ou doado, avise: nesse caso o procedimento inclui apagar os dados de forma adequada em vez de simplesmente entregar o disco."
+          ]
+        },
+        {
+          "titulo": "Empresas e parque de máquinas",
+          "paragrafos": [
+            "Em escritórios de Curitiba, o upgrade costuma ser a alternativa mais barata à troca do parque: substituir HD por SSD em estações de trabalho recupera anos de uso útil por uma fração do custo de máquinas novas.",
+            "Para esse cenário, avaliamos as estações em conjunto, priorizamos as que mais travam a operação e organizamos as trocas em horários que não parem o expediente, com as máquinas voltando testadas e com o sistema íntegro."
+          ]
+        },
+        {
+          "titulo": "Como solicitar",
+          "paragrafos": [
+            "Mande no WhatsApp o bairro, o modelo do notebook ou da placa-mãe do desktop e o que você quer melhorar: velocidade para abrir programas, espaço ou capacidade de manter várias abas e sistemas abertos. Com isso indicamos a peça compatível antes de qualquer compra.",
+            "Se já tiver o SSD ou a memória comprados, envie foto da etiqueta do produto para conferirmos a compatibilidade antes de agendar."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Preciso comprar a peça antes de chamar?",
+          "resposta": "Não. Conferimos a compatibilidade primeiro. Você pode comprar por conta própria ou pedir orçamento da peça, que é aprovado por escrito antes da compra."
+        },
+        {
+          "pergunta": "Vou perder meus arquivos e programas?",
+          "resposta": "Na maioria dos casos não: o sistema é migrado para o novo disco como está. Só indicamos instalação limpa quando o disco atual apresenta falha."
+        },
+        {
+          "pergunta": "O upgrade é feito no meu endereço em Curitiba?",
+          "resposta": "Sim, quando a peça está disponível e a cópia dos dados cabe na visita. Se o disco antigo estiver lento demais, sugerimos coleta para não estender o atendimento."
+        },
+        {
+          "pergunta": "Fica com o meu disco antigo?",
+          "resposta": "Não. O disco substituído volta com você e pode ser reaproveitado como armazenamento secundário ou HD externo, se quiser."
+        },
+        {
+          "pergunta": "Vale a pena em computador antigo?",
+          "resposta": "Depende do limite da placa. Conferimos antes o que a máquina aceita e dizemos quando o ganho não justifica o investimento."
+        }
+      ],
+      "interlinks": [
+        "/servicos/upgrade-ssd-ram",
+        "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        "/problemas/computador-lento",
+        "/servicos/conserto-notebook/curitiba"
+      ]
     }
   }
 }

@@ -124,35 +124,35 @@
     {
       "path": "/servicos/formatacao-computador/curitiba",
       "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/formatacao",
-      "sitemap": false,
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/curitiba",
+      "sitemap": true,
       "parent": "/servicos/formatacao",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "formatação de computador em Curitiba",
-      "reason": "Rodada 5C: formatação é remota/bancada; a cidade não altera processo, prazo nem logística. Canonical corrigido para a rota real do serviço-pai."
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar formatação em Curitiba escolhendo entre remoto, visita e coleta, com backup combinado antes",
+      "reason": "Rodada 5C lote 2: a decisão remoto × presencial × coleta e o backup prévio são operação local, não conteúdo do serviço-pai."
     },
     {
       "path": "/servicos/remocao-virus/curitiba",
       "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/remocao-de-virus",
-      "sitemap": false,
+      "indexability": "index",
+      "canonical": "/servicos/remocao-virus/curitiba",
+      "sitemap": true,
       "parent": "/servicos/remocao-de-virus",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "remoção de vírus em Curitiba",
-      "reason": "Rodada 5C: atendimento remoto cobre a maior parte dos casos; sem intenção local própria. Canonical corrigido para a rota real."
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar remoção de vírus em Curitiba com urgência, incluindo contenção em rede de empresa",
+      "reason": "Rodada 5C lote 2: urgência, contenção de rede e decisão remoto imediato × visita são específicas do atendimento em Curitiba."
     },
     {
       "path": "/servicos/upgrade-ssd/curitiba",
       "family": "SERVICO_CIDADE",
-      "indexability": "canonicalized",
-      "canonical": "/servicos/upgrade-ssd-ram",
-      "sitemap": false,
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd/curitiba",
+      "sitemap": true,
       "parent": "/servicos/upgrade-ssd-ram",
-      "tier": "SERVICO_CIDADE_SEM_INTENCAO_PROPRIA",
-      "intent": "upgrade de SSD e memória em Curitiba",
-      "reason": "Rodada 5C: serviço de bancada; a cidade não muda procedimento nem preço. Canonical corrigido para a rota real."
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar upgrade de SSD/memória em Curitiba sabendo quem fornece a peça, prazo e migração sem formatar",
+      "reason": "Rodada 5C lote 2: fornecimento de peça, tempo de máquina parada e coleta são a intenção local; a parte técnica fica no serviço-pai."
     },
     {
       "path": "/servicos/conserto-notebook/curitiba",
@@ -198,7 +198,6 @@
       "intent": "contratar backup e recuperação de dados em Curitiba (coleta, sigilo, devolução)",
       "reason": "Rodada 5C: a decisão local é logística e de confiança (coleta, registro, sigilo); o pai mantém o conteúdo técnico de recuperação."
     }
-
   ],
   "bairrosAncora": [
     {
@@ -255,7 +254,6 @@
     "/servicos/redes-wifi/curitiba",
     "/servicos/backup-recuperacao/curitiba"
   ],
-
   "prefixosNaoIndexaveis": [
     {
       "prefix": "/arrumar-pc",

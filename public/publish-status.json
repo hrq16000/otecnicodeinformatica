@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-14T12:42:20.998Z",
+  "generatedAt": "2026-08-14T13:03:43.498Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 119,
-  "prontos": 43,
+  "total": 122,
+  "prontos": 46,
   "revisao": 21,
   "rascunho": 24,
   "semMetaCurada": 31,
@@ -457,7 +457,7 @@
       "grupo": "servicos",
       "title": "Instalação de SSD e Upgrade de Memória em Curitiba",
       "description": "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre.",
-      "similaridade": 0.14,
+      "similaridade": 0.23,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -617,7 +617,7 @@
       "grupo": "servicos",
       "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
       "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema.",
-      "similaridade": 0.13,
+      "similaridade": 0.17,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -960,6 +960,66 @@
       "estado": "revisao"
     },
     {
+      "path": "/servicos/formatacao-computador/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/formatacao-computador/curitiba",
+      "grupo": "servicos",
+      "title": "Formatação de Computador em Curitiba | Remoto ou no Endereço",
+      "description": "Formatação em Curitiba com backup combinado antes: atendimento remoto quando a máquina liga, visita no seu endereço ou coleta. Prazo e custo definidos na triagem.",
+      "similaridade": 0.29,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/remocao-virus/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/remocao-virus/curitiba",
+      "grupo": "servicos",
+      "title": "Remoção de Vírus em Curitiba | Atendimento no Mesmo Dia",
+      "description": "Remoção de vírus em Curitiba: acesso remoto imediato quando o computador ainda liga, visita ao endereço em casos de sequestro de arquivos e orientação a empresas.",
+      "similaridade": 0.28,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/upgrade-ssd/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/upgrade-ssd/curitiba",
+      "grupo": "servicos",
+      "title": "Upgrade de SSD e Memória em Curitiba | Peça e Instalação",
+      "description": "Upgrade de SSD e memória em Curitiba: conferência de compatibilidade antes da compra, migração do sistema sem reinstalar e instalação no seu endereço ou por coleta.",
+      "similaridade": 0.23,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
       "path": "/servicos/conserto-notebook/curitiba",
       "url": "https://otecnicodeinformatica.com.br/servicos/conserto-notebook/curitiba",
       "grupo": "servicos",
@@ -985,7 +1045,7 @@
       "grupo": "servicos",
       "title": "Conserto de PC em Curitiba | Atendimento no Endereço",
       "description": "Conserto de computador de mesa em Curitiba: atendimento no seu endereço, coleta do gabinete quando necessário e orçamento antes da execução.",
-      "similaridade": 0.24,
+      "similaridade": 0.29,
       "foto": null,
       "checklist": {
         "rascunho": true,

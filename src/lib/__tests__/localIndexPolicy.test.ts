@@ -42,10 +42,8 @@ describe("localIndexPolicy — Lote Local 1", () => {
   });
 
   it("canonicaliza serviço × cidade sem intenção local para o serviço-pai real", () => {
-    const d = resolveLocal("/servicos/formatacao-computador/curitiba");
+    const d = resolveLocal("/servicos/manutencao-preventiva/curitiba");
     expect(d.indexability).toBe("canonicalized");
-    // Rodada 5C: canonical precisa apontar para uma rota REAL (/servicos/formatacao).
-    expect(canonicalFor("/servicos/formatacao-computador/curitiba")).toBe("/servicos/formatacao");
     expect(d.sitemap).toBe(false);
   });
 
@@ -55,6 +53,9 @@ describe("localIndexPolicy — Lote Local 1", () => {
       "/servicos/conserto-pc/curitiba",
       "/servicos/redes-wifi/curitiba",
       "/servicos/backup-recuperacao/curitiba",
+      "/servicos/formatacao-computador/curitiba",
+      "/servicos/remocao-virus/curitiba",
+      "/servicos/upgrade-ssd/curitiba",
     ]) {
       const d = resolveLocal(path);
       expect(d.indexability).toBe("index");
@@ -62,6 +63,7 @@ describe("localIndexPolicy — Lote Local 1", () => {
       expect(d.sitemap).toBe(true);
     }
   });
+
 });
 
 

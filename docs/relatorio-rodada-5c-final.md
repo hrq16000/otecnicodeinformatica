@@ -133,3 +133,31 @@ página local madura, e ampliar aqui aproveita a autoridade já consolidada da c
 diluir esforço em outra praça. São José dos Pinhais (opção A) só depois que o modelo tiver histórico
 de indexação real no Search Console; o Lote 2 de bairros (C) depende da mesma evidência; não há
 conflitos abertos que justifiquem a opção D.
+
+---
+
+## Adendo — Opção B (Lote 2 serviço × Curitiba)
+
+Sem novas rotas: apenas rotas já existentes foram reconteudadas e promovidas.
+
+### Rotas rejeitadas nos gates antes deste lote (e correção aplicada)
+
+| URL | Gate que reprovava | Causa | Correção |
+|---|---|---|---|
+| /servicos/formatacao-computador/curitiba | check:local-service-intent (regra 1, fail-closed) | sem conteúdo local declarado; renderizava o template herdado do serviço-pai | blocos autorais sobre decisão remoto × visita × coleta, backup prévio, programas de trabalho e prazo real |
+| /servicos/remocao-virus/curitiba | check:local-service-intent (regra 1) | idem — só o serviço global + “em Curitiba” | blocos sobre urgência, contenção de rede em empresa, limites da limpeza e reincidência |
+| /servicos/upgrade-ssd/curitiba | check:local-service-intent (regra 1) | idem | blocos sobre fornecimento da peça, migração sem formatar, tempo de máquina parada e parque empresarial |
+
+Rotas que permanecem canonicalizadas (não promovidas): as demais `SERVICO_CIDADE`, por não terem operação/intenção local distinta comprovada.
+
+### Resultado
+
+- Policy: 3 entidades passaram a `index` + self-canonical + sitemap, com `parent` real (`/servicos/formatacao`, `/servicos/remocao-de-virus`, `/servicos/upgrade-ssd-ram`).
+- `check:local-service-intent`: 7/7 rotas conformes.
+- `check:local-doorway`: 7 páginas SERVICO_CIDADE, Jaccard máximo **0,044** (teto 0,45, inalterado).
+- `check-local-index-policy`: 22 rotas locais coerentes.
+- Build verde; **557 testes** unitários passando.
+
+**Veredito 1** — intenção distinta: SIM para as 3 promovidas.
+**Veredito 2** — antidoorway: **3/3** (lote 2) · **7/7** acumulado.
+**Veredito 3** — replicável para São José dos Pinhais: SIM, POR LOTE CONTROLADO (não executado).

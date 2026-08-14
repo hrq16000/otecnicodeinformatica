@@ -14,6 +14,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
+import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
+import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).
@@ -709,6 +711,18 @@ const AdminConversao = () => {
         </Card>
       </div>
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
+
+      <div className="mt-6 space-y-6">
+        <SegmentacaoCanal rows={rows} />
+        <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />
+        <p className="text-xs text-muted-foreground">
+          Auditoria de tráfego de teste em{" "}
+          <a className="underline" href="/admin/qa-trafego">
+            /admin/qa-trafego
+          </a>
+          .
+        </p>
+      </div>
 
     </main>
   );

@@ -9,6 +9,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { exportarCsv, exportarJson } from "@/lib/exportarRelatorio";
 import {
   CONTENT_COHORT,
   CONTENT_COHORT_ID,
@@ -27,6 +29,7 @@ import {
   REASON_LABEL,
   type UrlSignals,
 } from "@/lib/cohortObservation";
+
 
 type LinhaDiscovery = {
   url: string;

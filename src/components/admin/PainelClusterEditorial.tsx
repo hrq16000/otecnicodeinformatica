@@ -23,6 +23,7 @@ import {
   buildCohortRow,
   clusterStatus,
   decideCluster,
+  MIN_INBOUND_LINKS,
   REASON_LABEL,
   type UrlSignals,
 } from "@/lib/cohortObservation";
@@ -111,7 +112,7 @@ export const PainelClusterEditorial = () => {
             noSitemap: d?.noSitemap ?? true,
             selfCanonical: d?.selfCanonical ?? true,
             indexavel: d?.indexavel ?? true,
-            linksInternos: d?.linksInternos ?? MIN_LINKS_FALLBACK,
+            linksInternos: d?.linksInternos ?? MIN_INBOUND_LINKS,
             clickDepth: d?.clickDepth ?? null,
           },
         };

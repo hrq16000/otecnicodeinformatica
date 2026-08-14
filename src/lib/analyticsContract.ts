@@ -174,8 +174,11 @@ export const ANALYTICS_EVENTS = {
   leadSubmitted: "lead_submitted",
   osCreated: "os_created",
   conversion: "conversion",
+  /** Rodada 7A — sessão exposta a uma variação de experimento. */
+  experimentExposure: "experiment_exposure",
 } as const;
 export type AnalyticsEvent = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS];
+
 
 /**
  * Camada de compatibilidade: eventos históricos continuam sendo emitidos

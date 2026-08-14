@@ -1,3 +1,4 @@
+import localPolicy from "@/lib/localIndexPolicy.json";
 // ─────────────────────────────────────────────────────────────
 // TAXONOMIA ÚNICA DE TRACKING (GA4 + Google Ads + UTMs)
 // Fonte única de verdade para nomes de eventos, utm_source/medium
@@ -94,6 +95,13 @@ export function routeTypeFromPath(pathname: string): RouteType {
   return "outro";
 }
 
+/** Bairros âncora declarados na política local (cidade-pai por slug). */
+const POLICY_BAIRROS = (localPolicy.bairrosAncora ?? []) as {
+  slug: string;
+  cidade?: string;
+  cidadeSlug?: string;
+}[];
+
 /**
  * Cidade inferida a partir da rota — dimensão `city` dos eventos de conversão.
  * Cobre as famílias locais reais do projeto:
@@ -109,7 +117,13 @@ export function cityFromPath(pathname: string): string {
   if (svc) return normalizeTrackingLabel(svc[1]);
   const local = p.match(/^\/(?:tecnico-informatica|assistencia-tecnica|arrumar-pc|cftv)-([a-z0-9-]+)$/);
   if (local) return normalizeTrackingLabel(local[1]);
-  if (/^\/bairros\//.test(p)) return "curitiba";
+  const bairro = p.match(/^\/bairros\/([a-z0-9-]+)$/);
+  if (bairro) {
+    // Cidade-pai vem da política local. Sem correspondência ⇒ nao_definida
+    // (proibido cair em Curitiba por herança — FASE 35 da Rodada 5E).
+    const ancora = POLICY_BAIRROS.find((b) => b.slug === bairro[1]);
+    return ancora ? normalizeTrackingLabel(ancora.cidadeSlug ?? ancora.cidade) : "nao_definida";
+  }
   if (/curitiba/.test(p)) return "curitiba";
   return "nao_definida";
 }
@@ -132,4 +146,16 @@ export function viewportBucket(w: number): string {
   if (w < 768) return "430";
   if (w < 1024) return "tablet";
   return "desktop";
+}
+
+/**
+ * Slug do bairro quando a rota pertence à família /bairros e o bairro é
+ * âncora declarado na política. Taxonomia editorial categórica — nunca
+ * endereço, rua, CEP ou coordenada (FASE 34 da Rodada 5E).
+ */
+export function neighborhoodSlugFromPath(pathname: string): string {
+  const p = (pathname || "/").toLowerCase().replace(/\/+$/, "") || "/";
+  const m = p.match(/^\/bairros\/([a-z0-9-]+)$/);
+  if (!m) return "nao_aplicavel";
+  return POLICY_BAIRROS.some((b) => b.slug === m[1]) ? normalizeTrackingLabel(m[1]) : "nao_aplicavel";
 }

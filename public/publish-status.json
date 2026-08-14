@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T14:01:27.370Z",
+  "generatedAt": "2026-08-14T14:43:06.733Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 132,
+  "total": 140,
   "prontos": 56,
-  "revisao": 21,
-  "rascunho": 24,
+  "revisao": 23,
+  "rascunho": 30,
   "semMetaCurada": 31,
   "urls": [
     {
@@ -1534,6 +1534,188 @@
       ],
       "curada": true,
       "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/santa-felicidade",
+      "url": "https://otecnicodeinformatica.com.br/bairros/santa-felicidade",
+      "grupo": "bairros",
+      "title": "Técnico de Informática em Santa Felicidade | Curitiba",
+      "description": "Atendimento de informática em Santa Felicidade, Curitiba: Wi-Fi que não cobre a casa inteira, manutenção de computador, formatação e suporte ao comércio da região. Triagem pelo WhatsApp.",
+      "similaridade": 0.42,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/boa-vista",
+      "url": "https://otecnicodeinformatica.com.br/bairros/boa-vista",
+      "grupo": "bairros",
+      "title": "Técnico de Informática na Boa Vista | Curitiba",
+      "description": "Assistência de informática na Boa Vista, Curitiba: manutenção de computador, formatação, remoção de vírus e suporte a consultórios e escritórios do bairro. Diagnóstico antes do valor.",
+      "similaridade": 0.39,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/bigorrilho",
+      "url": "https://otecnicodeinformatica.com.br/bairros/bigorrilho",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Bigorrilho | Curitiba",
+      "description": "Informática no Bigorrilho, Curitiba: notebook de home office, Wi-Fi em apartamento, upgrade de SSD e coleta combinada com a portaria. Diagnóstico a partir de R$ 99,99.",
+      "similaridade": 0.35,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/cabral",
+      "url": "https://otecnicodeinformatica.com.br/bairros/cabral",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Cabral | Curitiba",
+      "description": "Atendimento de informática no Cabral, Curitiba: suporte a consultórios e escritórios, manutenção de computador, backup e rede de apartamento. Triagem e orçamento pelo WhatsApp.",
+      "similaridade": 0.43,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/afonso-pena",
+      "url": "https://otecnicodeinformatica.com.br/bairros/afonso-pena",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Afonso Pena | São José dos Pinhais",
+      "description": "Informática no Afonso Pena, São José dos Pinhais: suporte a empresas do entorno do aeroporto, manutenção de computador, rede e backup. Atendimento combinado pelo WhatsApp.",
+      "similaridade": 0.42,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/cruzeiro",
+      "url": "https://otecnicodeinformatica.com.br/bairros/cruzeiro",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Cruzeiro | São José dos Pinhais",
+      "description": "Assistência de informática no Cruzeiro, São José dos Pinhais: conserto de notebook, formatação, remoção de vírus e Wi-Fi. Diagnóstico antes do valor, com aprovação sua.",
+      "similaridade": 0.39,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": false,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "metaDescription",
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "rascunho"
+    },
+    {
+      "path": "/bairros/costeira",
+      "url": "https://otecnicodeinformatica.com.br/bairros/costeira",
+      "grupo": "bairros",
+      "title": "Técnico de Informática na Costeira | São José dos Pinhais",
+      "description": "Informática na Costeira, São José dos Pinhais: manutenção de computador, upgrade de SSD, formatação e rede doméstica. Diagnóstico antes do valor, coleta combinada.",
+      "similaridade": 0.35,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "revisao"
+    },
+    {
+      "path": "/bairros/guatupe",
+      "url": "https://otecnicodeinformatica.com.br/bairros/guatupe",
+      "grupo": "bairros",
+      "title": "Técnico de Informática no Guatupê | São José dos Pinhais",
+      "description": "Atendimento de informática no Guatupê, São José dos Pinhais: computador de comércio, rede local, formatação e manutenção. Triagem e orçamento pelo WhatsApp.",
+      "similaridade": 0.43,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": false,
+        "originalidade": true
+      },
+      "pendencias": [
+        "fotos"
+      ],
+      "curada": true,
+      "estado": "revisao"
     },
     {
       "path": "/problemas/notebook-nao-liga",

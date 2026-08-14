@@ -227,6 +227,9 @@
     "check:local-index-policy": "node scripts/check-local-index-policy.mjs dist",
     "check:local-doorway": "node scripts/check-local-doorway.mjs dist",
     "check:local-service-intent": "node scripts/check-local-service-intent.mjs",
+    "check:local-neighborhood-intent": "node scripts/check-local-neighborhood-intent.mjs dist",
+    "report:local-gates": "node scripts/generate-local-gates-report.mjs dist",
+    "report:rodada-5e": "node scripts/report-rodada-5e.mjs",
     "check:local-regression": "node scripts/check-local-regression.mjs dist --strict",
     "check:local-regression:alert": "node scripts/check-local-regression.mjs dist --alert",
 

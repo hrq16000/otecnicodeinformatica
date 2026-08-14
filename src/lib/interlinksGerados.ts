@@ -165,8 +165,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/cic",
-      "anchor": "atendimento em CIC (Curitiba) para computador desligando sozinho ou reiniciando do nada",
+      "href": "/bairros/santa-felicidade",
+      "anchor": "atendimento em Santa Felicidade para computador desligando sozinho ou reiniciando do nada",
       "contexto": "bairro"
     }
   ],
@@ -192,8 +192,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/batel",
-      "anchor": "atendimento em Batel (Curitiba) para notebook conectado na tomada e a bateria não carrega",
+      "href": "/bairros/boa-vista",
+      "anchor": "atendimento em Boa Vista para notebook conectado na tomada e a bateria não carrega",
       "contexto": "bairro"
     }
   ],
@@ -219,8 +219,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/agua-verde",
-      "anchor": "atendimento em Água Verde para hD fazendo barulho",
+      "href": "/bairros/bigorrilho",
+      "anchor": "atendimento em Bigorrilho para hD fazendo barulho",
       "contexto": "bairro"
     }
   ],
@@ -246,8 +246,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/centro",
-      "anchor": "atendimento em Centro de Curitiba para computador liga mas não aparece imagem no monitor",
+      "href": "/bairros/cabral",
+      "anchor": "atendimento em Cabral para computador liga mas não aparece imagem no monitor",
       "contexto": "bairro"
     }
   ],
@@ -273,8 +273,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/portao",
-      "anchor": "atendimento em Portão (Curitiba) para cheiro de queimado no computador, fonte ou carregador",
+      "href": "/bairros/afonso-pena",
+      "anchor": "atendimento em Afonso Pena para cheiro de queimado no computador, fonte ou carregador",
       "contexto": "bairro"
     }
   ],
@@ -300,8 +300,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/cic",
-      "anchor": "atendimento em CIC (Curitiba) para notebook molhado",
+      "href": "/bairros/cruzeiro",
+      "anchor": "atendimento em Cruzeiro para notebook molhado",
       "contexto": "bairro"
     }
   ],
@@ -327,8 +327,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/batel",
-      "anchor": "atendimento em Batel (Curitiba) para windows não inicia",
+      "href": "/bairros/costeira",
+      "anchor": "atendimento em Costeira para windows não inicia",
       "contexto": "bairro"
     }
   ],
@@ -354,8 +354,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/agua-verde",
-      "anchor": "atendimento em Água Verde para computador ou notebook esquentando demais",
+      "href": "/bairros/guatupe",
+      "anchor": "atendimento em Guatupê para computador ou notebook esquentando demais",
       "contexto": "bairro"
     }
   ],
@@ -381,8 +381,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/centro",
-      "anchor": "atendimento em Centro de Curitiba para impressora não imprime mesmo aparecendo conectada",
+      "href": "/bairros/cic",
+      "anchor": "atendimento em CIC (Curitiba) para impressora não imprime mesmo aparecendo conectada",
       "contexto": "bairro"
     }
   ],
@@ -408,8 +408,8 @@ export const INTERLINKS_GERADOS: Record<string, InterlinkContextual[]> = {
       "contexto": "problema"
     },
     {
-      "href": "/bairros/portao",
-      "anchor": "atendimento em Portão (Curitiba) para teclado do notebook não funciona ou falha algumas teclas",
+      "href": "/bairros/batel",
+      "anchor": "atendimento em Batel (Curitiba) para teclado do notebook não funciona ou falha algumas teclas",
       "contexto": "bairro"
     }
   ]

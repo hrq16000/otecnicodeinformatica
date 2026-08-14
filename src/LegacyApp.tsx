@@ -67,6 +67,7 @@ const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));
 const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
 const AdminVitals = lazy(() => import("./pages/admin/AdminVitals"));
 const AdminAuditoriaLocal = lazy(() => import("./pages/admin/AdminAuditoriaLocal"));
+const AdminGatesLocais = lazy(() => import("./pages/admin/AdminGatesLocais"));
 const AdminUiPerformance = lazy(() => import("./pages/admin/AdminUiPerformance"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminCasos = lazy(() => import("./pages/admin/AdminCasos"));
@@ -1042,6 +1043,7 @@ const App = () => (
             <Route path="/admin/reviews" element={<AdminReviews />} />
             <Route path="/admin/vitals" element={<AdminVitals />} />
             <Route path="/admin/auditoria-local" element={<AdminAuditoriaLocal />} />
+            <Route path="/admin/gates-locais" element={<AdminGatesLocais />} />
             <Route path="/admin/ui-performance" element={<AdminUiPerformance />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/casos" element={<AdminCasos />} />

@@ -14,19 +14,25 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
-const SRC = resolve("src/lib/bairrosData.ts");
+// RODADA 5E: o Lote 2 vive em arquivo próprio, mas alimenta o mesmo HTML estático.
+const SRCS = [resolve("src/lib/bairrosData.ts"), resolve("src/lib/bairrosLote2.ts")];
 
 function parse() {
+  const out = {};
+  for (const src of SRCS) parseFile(src, out);
+  return out;
+}
+
+function parseFile(src, out) {
   let raw = "";
   try {
-    raw = readFileSync(SRC, "utf8");
+    raw = readFileSync(src, "utf8");
   } catch {
-    return {};
+    return out;
   }
   const start = raw.indexOf("export const BAIRROS");
-  if (start === -1) return {};
+  if (start === -1) return out;
   const body = raw.slice(start);
-  const out = {};
   const blocks = body.matchAll(
     /\n  "?([a-z][a-z0-9-]*)"?:\s*\{\s*\n\s*slug:\s*"([a-z0-9-]+)",([\s\S]*?)\n\s{2}\},/g,
   );
@@ -54,6 +60,12 @@ function parse() {
 
     out[`/bairros/${slug}`] = {
       nome: str("nome"),
+      cidade: str("cidade"),
+      metaTitle: str("metaTitle"),
+      metaDescription: str("metaDescription"),
+      h1: str("h1"),
+      subtitulo: str("subtitulo"),
+      publico: list("publicoAtendido"),
       nomeLocativo: str("nomeLocativo"),
       introducao: list("introducaoLocal"),
       contexto: list("contextoLocal"),
@@ -122,4 +134,22 @@ export function bairroFaq(path) {
   return d?.faq?.length ? d.faq : undefined;
 }
 
-export default { bairroBlocos, bairroFaq };
+/** Título/descrição/H1 próprios do bairro (paridade estática ↔ React). */
+export function bairroMeta(path) {
+  const d = DATA[path];
+  if (!d?.metaTitle || !d?.metaDescription) return undefined;
+  return {
+    path,
+    title: d.metaTitle,
+    description: d.metaDescription,
+    h1: d.h1 || undefined,
+    subtitulo: d.subtitulo || undefined,
+  };
+}
+
+/** Todos os caminhos de bairro com conteúdo próprio parseado. */
+export function bairroPaths() {
+  return Object.keys(DATA);
+}
+
+export default { bairroBlocos, bairroFaq, bairroMeta, bairroPaths };

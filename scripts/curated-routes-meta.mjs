@@ -13,7 +13,8 @@ import { servicoBlocos } from "./lib/servico-blocos.mjs";
 import { blocos4n } from "./lib/blocos-4n.mjs";
 import { blocos4q } from "./lib/blocos-4q.mjs";
 import { servicoFaqs } from "./lib/servico-faqs.mjs";
-import { bairroBlocos, bairroFaq } from "./lib/bairro-static.mjs";
+import { bairroBlocos, bairroFaq, bairroMeta } from "./lib/bairro-static.mjs";
+import { BAIRROS_ANCORA_META } from "./lib/local-index-policy.mjs";
 import { cidadeBlocos, cidadeFaq } from "./lib/cidade-static.mjs";
 import { CLUSTER_PROBLEMAS_ROUTES } from "./lib/cluster-problemas-static.mjs";
 import { CLUSTER_EQUIPAMENTOS_ROUTES } from "./lib/cluster-equipamentos-static.mjs";
@@ -1013,8 +1014,24 @@ const SERVICO_CURITIBA_ROUTES = TODAS_PAGINAS_LOCAIS.map((p) => ({
   faq: p.faq.map((f) => ({ question: f.pergunta, answer: f.resposta })),
 }));
 
+// RODADA 5E — bairros âncora sem entrada manual em BASE_ROUTES recebem
+// metadados diretamente da fonte editorial (bairrosData/bairrosLote2).
+const declaradas = new Set(BASE_ROUTES.map((r) => r.path));
+const BAIRRO_ANCORA_ROUTES = BAIRROS_ANCORA_META
+  .map((b) => `/bairros/${b.slug}`)
+  .filter((path) => !declaradas.has(path))
+  .map((path) => {
+    const meta = bairroMeta(path);
+    if (!meta) return null;
+    const faq = bairroFaq(path);
+    const blocos = bairroBlocos(path);
+    return { ...meta, ...(faq ? { faq } : {}), ...(blocos ? { blocos } : {}) };
+  })
+  .filter(Boolean);
+
 export const CURATED_ROUTES = [
   ...BASE_ROUTES_WITH_FAQ,
+  ...BAIRRO_ANCORA_ROUTES,
   ...CLUSTER_PROBLEMAS_ROUTES,
   ...CLUSTER_EQUIPAMENTOS_ROUTES,
   ...CLUSTER_SOLUCOES_ROUTES,

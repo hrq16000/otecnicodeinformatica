@@ -12,6 +12,9 @@ const data = JSON.parse(
 
 export const ENTIDADES = data.entities;
 export const BAIRROS_ANCORA = data.bairrosAncora.map((b) => b.slug);
+export const BAIRROS_ANCORA_META = data.bairrosAncora;
+export const LOTE_LOCAL_2 = data.loteLocal2 ?? [];
+export const bairroAncora = (slug) => data.bairrosAncora.find((b) => b.slug === slug);
 export const SERVICO_BAIRRO_INDEXAVEIS = data.servicoBairroIndexaveis;
 export const LOTE_LOCAL_1 = data.loteLocal1;
 // RODADA 5C: serviço × cidade promovidos (intenção local própria declarada).
@@ -59,7 +62,7 @@ export function resolveLocal(path) {
       ? wrap({
           indexability: "index",
           sitemap: true,
-          parent: "/tecnico-informatica-curitiba",
+          parent: bairroAncora(slug)?.parent ?? "/tecnico-informatica-curitiba",
           tier: "ANCORA",
           reason: "Bairro âncora aprovado pelo checklist anticanibalização.",
         })

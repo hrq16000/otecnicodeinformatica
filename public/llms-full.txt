@@ -126,6 +126,14 @@ Demais municípios da Região Metropolitana são avaliados sob consulta pelo Wha
 - [Técnico de Informática no Água Verde | Notebook e PC](https://otecnicodeinformatica.com.br/bairros/agua-verde)
 - [Técnico de Informática no Centro de Curitiba | Notebook e PC](https://otecnicodeinformatica.com.br/bairros/centro)
 - [Técnico de Informática no Portão (Curitiba) | Notebook e PC](https://otecnicodeinformatica.com.br/bairros/portao)
+- [Técnico de Informática em Santa Felicidade | Curitiba](https://otecnicodeinformatica.com.br/bairros/santa-felicidade)
+- [Técnico de Informática na Boa Vista | Curitiba](https://otecnicodeinformatica.com.br/bairros/boa-vista)
+- [Técnico de Informática no Bigorrilho | Curitiba](https://otecnicodeinformatica.com.br/bairros/bigorrilho)
+- [Técnico de Informática no Cabral | Curitiba](https://otecnicodeinformatica.com.br/bairros/cabral)
+- [Técnico de Informática no Afonso Pena | São José dos Pinhais](https://otecnicodeinformatica.com.br/bairros/afonso-pena)
+- [Técnico de Informática no Cruzeiro | São José dos Pinhais](https://otecnicodeinformatica.com.br/bairros/cruzeiro)
+- [Técnico de Informática na Costeira | São José dos Pinhais](https://otecnicodeinformatica.com.br/bairros/costeira)
+- [Técnico de Informática no Guatupê | São José dos Pinhais](https://otecnicodeinformatica.com.br/bairros/guatupe)
 
 ## Problemas comuns diagnosticados
 

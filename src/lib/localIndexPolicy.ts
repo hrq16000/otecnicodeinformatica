@@ -54,7 +54,16 @@ interface RawEntity {
 }
 
 const ENTITIES = data.entities as RawEntity[];
-const BAIRROS_ANCORA = data.bairrosAncora as { slug: string; intent: string }[];
+export interface BairroAncora {
+  slug: string;
+  intent: string;
+  cidade: string;
+  cidadeSlug: string;
+  parent: string;
+  lote: number;
+}
+
+const BAIRROS_ANCORA = data.bairrosAncora as BairroAncora[];
 const SERVICO_BAIRRO_INDEX = new Set<string>(data.servicoBairroIndexaveis as string[]);
 const PREFIXOS = data.prefixosNaoIndexaveis as {
   prefix: string;
@@ -67,6 +76,17 @@ export const BAIRROS_ANCORA_SLUGS = BAIRROS_ANCORA.map((b) => b.slug);
 
 /** As 12 URLs do Lote Local 1 (imutáveis nesta rodada). */
 export const LOTE_LOCAL_1 = data.loteLocal1 as string[];
+
+/** Lote 2 de bairros âncora (Rodada 5E) — rotas já existentes, promovidas. */
+export const LOTE_LOCAL_2 = data.loteLocal2 as string[];
+
+/** Metadados do bairro âncora (cidade-pai, intenção, lote). */
+export function bairroAncora(slug: string): BairroAncora | undefined {
+  return BAIRROS_ANCORA.find((b) => b.slug === slug);
+}
+
+/** Lista completa de bairros âncora indexáveis. */
+export const BAIRROS_ANCORA_LIST: BairroAncora[] = BAIRROS_ANCORA;
 
 const byPath = new Map(ENTITIES.map((e) => [e.path, e]));
 
@@ -134,7 +154,7 @@ function decide(path: string): LocalDecision {
         canonical: p,
         sitemap: true,
         reason: "Bairro âncora aprovado pelo checklist anticanibalização (conteúdo próprio real).",
-        parent: "/tecnico-informatica-curitiba",
+        parent: ancora.parent ?? "/tecnico-informatica-curitiba",
         intent: ancora.intent,
         tier: "ANCORA",
       });

@@ -10,7 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
-import { isNoindex } from "@/lib/localIndexPolicy";
+import { bairroAncora, isNoindex } from "@/lib/localIndexPolicy";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -23,10 +23,14 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]";
 
-const CURITIBA_PATH = "/tecnico-informatica-curitiba";
+const CIDADE_PADRAO = { cidade: "Curitiba", parent: "/tecnico-informatica-curitiba" };
 
 export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
   const path = `/bairros/${data.slug}`;
+  // Cidade-pai vem da política local (fonte única) — nunca de fallback fixo.
+  const ancora = bairroAncora(data.slug);
+  const cidade = ancora?.cidade ?? data.cidade ?? CIDADE_PADRAO.cidade;
+  const cidadePath = ancora?.parent ?? CIDADE_PADRAO.parent;
   const waHref = whatsappLink(data.whatsappMessage);
 
   useEffect(() => {
@@ -39,20 +43,20 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
     .map((to) => servicoByPath(to))
     .filter((s): s is NonNullable<ReturnType<typeof servicoByPath>> => Boolean(s));
 
-  const localBusinessSchema = {
+  // FASE 31 — a página de bairro NÃO cria LocalBusiness/filial própria:
+  // emite WebPage (+ BreadcrumbList do PageSEO e FAQPage abaixo).
+  const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ComputerRepairService"],
-    "@id": `${absoluteUrl(path)}#localbusiness`,
-    name: `${siteConfig.brandName} — ${data.nome}`,
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(path)}#webpage`,
+    name: data.metaTitle,
+    headline: data.h1,
     description: data.metaDescription,
     url: absoluteUrl(path),
-    telephone: siteConfig.phoneE164,
-    areaServed: {
-      "@type": "Place",
-      name: data.areaName,
-      containedInPlace: { "@type": "City", name: "Curitiba", containedInPlace: { "@type": "State", name: "Paraná" } },
-    },
-    priceRange: "$$",
+    inLanguage: "pt-BR",
+    isPartOf: { "@id": `${siteConfig.baseUrl}/#website` },
+    about: { "@type": "Place", name: data.areaName },
+    publisher: { "@id": `${siteConfig.baseUrl}/#organization` },
   };
 
   const faqSchema = {
@@ -66,7 +70,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
     })),
   };
 
-  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.webPage, webPageSchema, SLOT_PRIORITY.page);
   useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.page);
 
   return (
@@ -78,7 +82,8 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
         noindex={isNoindex(path)}
         breadcrumbs={[
           { name: "Início", path: "/" },
-          { name: "O Técnico de Informática", path: CURITIBA_PATH },
+          { name: "Áreas atendidas", path: "/areas-atendidas" },
+          { name: cidade, path: cidadePath },
           { name: data.nome, path },
         ]}
       />
@@ -87,7 +92,8 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
       <main className="pt-[var(--site-header-height)]">
         <Breadcrumbs
           items={[
-            { label: "O Técnico de Informática", href: CURITIBA_PATH },
+            { label: "Áreas atendidas", href: "/areas-atendidas" },
+            { label: cidade, href: cidadePath },
             { label: data.nome },
           ]}
         />
@@ -98,7 +104,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent">
                 <MapPin className="h-4 w-4" />
-                {data.nome} • Curitiba
+                {data.nome} • {cidade}
               </span>
               <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
                 {data.h1}
@@ -111,7 +117,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                   rel="noopener noreferrer"
                   data-cta-location="bairro_hero"
                   data-wa-source="whatsapp_cta"
-                  data-city="Curitiba"
+                  data-city={cidade}
                   data-neighborhood={data.nome}
                   onClick={() => handleCta(`bairro_${data.slug}_hero`)}
                   className={CTA_CLASS}
@@ -197,6 +203,35 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                 </Link>
               ))}
             </div>
+            {data.servicosCidade?.length ? (
+              <div className="mt-8 rounded-2xl border border-accent/30 bg-card p-6">
+                <h3 className="text-lg font-semibold text-foreground">
+                  Contratar o serviço em {cidade}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {data.servicosCidade.map((s) => (
+                    <li key={s.to}>
+                      <Link to={s.to} className="font-semibold text-accent hover:underline">
+                        {s.label}
+                      </Link>
+                      <p className="text-sm text-muted-foreground">{s.desc}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {data.publicoAtendido?.length ? (
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-foreground">Quem atendemos {data.nomeLocativo}</h3>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-3">
+                  {data.publicoAtendido.map((item) => (
+                    <li key={item} className="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="mt-6">
               <Link to="/servicos" className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
                 Ver todos os serviços <ArrowRight className="h-4 w-4" />
@@ -283,13 +318,16 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
             </div>
             <div className="rounded-2xl border border-border bg-card p-6">
               <MapPin className="h-8 w-8 text-accent" />
-              <h3 className="mt-3 text-lg font-semibold text-foreground">Atendimento em Curitiba</h3>
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Atendimento em {cidade}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                O {data.nome} faz parte do atendimento de informática em Curitiba. Veja a página principal
+                {data.nome} faz parte do atendimento de informática em {cidade}. Veja a página principal
                 da cidade para entender a cobertura, as modalidades e todos os serviços.
               </p>
-              <Link to={CURITIBA_PATH} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
-                Técnico de informática em Curitiba <ArrowRight className="h-4 w-4" />
+              <Link to={cidadePath} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                Técnico de informática em {cidade} <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/areas-atendidas" className="mt-3 block text-sm font-semibold text-accent hover:underline">
+                Ver todas as áreas atendidas
               </Link>
             </div>
           </div>
@@ -330,7 +368,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                   rel="noopener noreferrer"
                   data-cta-location="bairro_final"
                   data-wa-source="whatsapp_cta"
-                  data-city="Curitiba"
+                  data-city={cidade}
                   data-neighborhood={data.nome}
                   onClick={() => handleCta(`bairro_${data.slug}_final`)}
                   className={CTA_CLASS}

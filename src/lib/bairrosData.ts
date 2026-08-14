@@ -7,6 +7,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { SERVICOS_CANONICOS } from "@/lib/cidadesData";
+import { BAIRROS_LOTE_2 } from "@/lib/bairrosLote2";
 
 export interface BairroFaq {
   question: string;
@@ -40,8 +41,15 @@ export interface BairroLocalData {
   atendimentoLocal: string[];
   /** Quando pode ser necessária coleta ou bancada */
   coletaBancada: string[];
+  /** Públicos atendidos naquele recorte local (Rodada 5E, opcional) */
+  publicoAtendido?: string[];
   /** Serviços prioritários — paths das 8 rotas curadas de /servicos */
   servicosPrioritarios: string[];
+  /**
+   * Landings serviço × cidade promovidas pela política local. O bairro aponta
+   * para elas quando a intenção local for semanticamente melhor que o pai global.
+   */
+  servicosCidade?: { to: string; label: string; desc: string }[];
   /** FAQ local visível (espelhada em FAQPage) — distinta entre bairros */
   faqLocal: BairroFaq[];
 }
@@ -354,5 +362,8 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     ],
   },
 };
+
+// RODADA 5E — Lote 2 de bairros âncora (Curitiba + São José dos Pinhais).
+Object.assign(BAIRROS, BAIRROS_LOTE_2);
 
 export const BAIRRO_LIST = Object.values(BAIRROS);

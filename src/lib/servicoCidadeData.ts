@@ -10,15 +10,19 @@ export interface CidadeData {
 }
 
 export const SERVICOS: ServicoData[] = [
-  { slug: "formatacao-computador", nome: "Formatação de Computador", servicoSlugExistente: "formatacao-computador" },
-  { slug: "remocao-virus", nome: "Remoção de Vírus", servicoSlugExistente: "remocao-virus" },
-  { slug: "conserto-notebook", nome: "Conserto de Notebook", servicoSlugExistente: "conserto-pc-notebook" },
-  { slug: "conserto-pc", nome: "Conserto de PC", servicoSlugExistente: "conserto-pc-notebook" },
+  // RODADA 5C: `servicoSlugExistente` precisa apontar para uma rota REAL de serviço
+  // (src/LegacyApp.tsx → /servicos/<slug>). Slugs antigos como "conserto-pc-notebook"
+  // não existem como página e geravam breadcrumb/canonical para URL inexistente.
+  { slug: "formatacao-computador", nome: "Formatação de Computador", servicoSlugExistente: "formatacao" },
+  { slug: "remocao-virus", nome: "Remoção de Vírus", servicoSlugExistente: "remocao-de-virus" },
+  { slug: "conserto-notebook", nome: "Conserto de Notebook", servicoSlugExistente: "manutencao-de-notebook" },
+  { slug: "conserto-pc", nome: "Conserto de PC", servicoSlugExistente: "manutencao-de-computador" },
   { slug: "conserto-tv", nome: "Conserto de TV", servicoSlugExistente: "conserto-tv" },
   { slug: "conserto-celular", nome: "Conserto de Celular", servicoSlugExistente: "conserto-celular" },
-  { slug: "upgrade-ssd", nome: "Upgrade de SSD e Memória", servicoSlugExistente: "upgrade-ssd-memoria" },
-  { slug: "redes-wifi", nome: "Redes e Wi-Fi", servicoSlugExistente: "redes-wifi" },
-  { slug: "backup-recuperacao", nome: "Backup e Recuperação de Dados", servicoSlugExistente: "backup-recuperacao" },
+  { slug: "upgrade-ssd", nome: "Upgrade de SSD e Memória", servicoSlugExistente: "upgrade-ssd-ram" },
+  { slug: "redes-wifi", nome: "Redes e Wi-Fi", servicoSlugExistente: "redes-e-wifi" },
+  { slug: "backup-recuperacao", nome: "Backup e Recuperação de Dados", servicoSlugExistente: "recuperacao-de-dados" },
+
   { slug: "suporte-empresas", nome: "Suporte Técnico para Empresas" },
   { slug: "atendimento-remoto", nome: "Atendimento Remoto" },
 ];

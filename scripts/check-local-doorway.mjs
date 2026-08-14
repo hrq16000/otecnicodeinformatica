@@ -21,7 +21,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { resolveLocal, LOTE_LOCAL_1 } from "./lib/local-index-policy.mjs";
+import { resolveLocal, LOTE_LOCAL_1, SERVICO_CIDADE_INDEXAVEIS } from "./lib/local-index-policy.mjs";
 
 const dist = process.argv[2] || "dist";
 const erros = [];
@@ -131,7 +131,8 @@ function extrair(path) {
 }
 
 // ── Coleta ────────────────────────────────────────────────────────────────
-const alvos = ["/", ...LOTE_LOCAL_1];
+// RODADA 5C: as rotas serviço × cidade promovidas também passam pelo antidoorway.
+const alvos = [...new Set(["/", ...LOTE_LOCAL_1, ...SERVICO_CIDADE_INDEXAVEIS])];
 const paginas = new Map();
 
 for (const path of alvos) {

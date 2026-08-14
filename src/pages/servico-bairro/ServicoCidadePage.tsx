@@ -16,22 +16,39 @@ import { ServiceCityLinks } from "@/components/ServiceCityLinks";
 import NotFound from "@/pages/NotFound";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import { resolveLocal } from "@/lib/localIndexPolicy";
+import { servicoCuritiba } from "@/lib/servicoCuritibaBlocos";
+
 
 const WHATSAPP_NUMBER = WA_NUMBER;
+
+/** Rótulo legível para links internos do bloco local (Rodada 5C). */
+const labelInterlink = (href: string) =>
+  href
+    .split("/")
+    .filter(Boolean)
+    .slice(-1)[0]
+    .replace(/-/g, " ")
+    .replace(/^\w/, (c) => c.toUpperCase());
 
 const ServicoCidadePage = () => {
   const { servico: servicoSlug, cidade: cidadeSlug } = useParams<{ servico: string; cidade: string }>();
   
   const servico = servicoSlug ? getServico(servicoSlug) : undefined;
   const cidade = cidadeSlug ? getCidade(cidadeSlug) : undefined;
+  // RODADA 5C: conteúdo local autoral serviço × Curitiba (fail-closed: null = template herdado).
+  const local = servicoCuritiba(servicoSlug ?? "", cidadeSlug ?? "");
 
   useEffect(() => {
     if (!servico || !cidade) return;
-    document.title = `${servico.nome} em ${cidade.nome} | Técnico a Domicílio | Atendimento Hoje`;
+    document.title = local
+      ? local.title
+      : `${servico.nome} em ${cidade.nome} | Técnico a Domicílio | Atendimento Hoje`;
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
+        local
+          ? local.description
+          : `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
       );
     }
     // RODADA 5: canonical e robots vêm da política local (fonte única).
@@ -46,14 +63,15 @@ const ServicoCidadePage = () => {
     }
     robots.content = decisao.indexability === "index" ? "index, follow" : "noindex, follow";
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
-  }, [servico, cidade, servicoSlug, cidadeSlug]);
+  }, [servico, cidade, servicoSlug, cidadeSlug, local]);
 
   if (!servico || !cidade) return <NotFound />;
 
   const isSemVisita = servico.slug === "conserto-tv" || servico.slug === "conserto-celular";
-  const faqs = getFaqPorServico(servico.slug, cidade.nome);
+  const faqs = local?.faq ?? getFaqPorServico(servico.slug, cidade.nome);
   const waMessage = encodeURIComponent(`Olá! Preciso de ${servico.nome} em ${cidade.nome}. Podem me atender hoje?`);
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+
 
   const handleWhatsAppClick = () => {
     trackCTAClick("whatsapp", `${servico.slug}-${cidade.slug}`);
@@ -71,6 +89,18 @@ const ServicoCidadePage = () => {
         "priceRange": "$$",
         "address": { "@type": "PostalAddress", addressLocality: cidade.nome, addressRegion: "PR", addressCountry: "BR" }
       },
+      // RODADA 5C: só páginas com intenção local própria declaram Service local.
+      ...(local
+        ? [{
+            "@type": "Service",
+            "name": `${local.nome} em ${cidade.nome}`,
+            "serviceType": local.nome,
+            "url": `${SITE_BASE_URL}${local.path}`,
+            "areaServed": { "@type": "City", name: cidade.nome, addressRegion: "PR", addressCountry: "BR" },
+            "provider": { "@type": "LocalBusiness", name: `Técnico de Informática em ${cidade.nome}`, url: SITE_BASE_URL },
+            "isRelatedTo": { "@type": "Service", url: `${SITE_BASE_URL}${local.parent}` }
+          }]
+        : []),
       {
         "@type": "FAQPage",
         "mainEntity": faqs.map(f => ({
@@ -81,6 +111,7 @@ const ServicoCidadePage = () => {
       }
     ]
   };
+
 
   const beneficios = isSemVisita ? [
     { icon: CheckCircle, titulo: "Atendimento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
@@ -122,15 +153,20 @@ const ServicoCidadePage = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
-              {servico.nome} em {cidade.nome}{isSemVisita ? " – Atendimento sem Compromisso" : " – Técnico a Domicílio"}
+              {local
+                ? local.h1
+                : `${servico.nome} em ${cidade.nome}${isSemVisita ? " – Atendimento sem Compromisso" : " – Técnico a Domicílio"}`}
             </h1>
 
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
-              {isSemVisita 
-                ? `atendimento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
-                : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
+              {local
+                ? local.subtitulo
+                : isSemVisita
+                  ? `atendimento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
+                  : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
               }
             </p>
+
 
             {isSemVisita && (
               <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-6 max-w-lg mx-auto">
@@ -215,6 +251,39 @@ const ServicoCidadePage = () => {
           </div>
         </div>
       </section>
+
+      {/* ═══ RODADA 5C — Conteúdo local autoral (serviço × Curitiba) ═══ */}
+      {local && (
+        <section className="py-10 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto space-y-8">
+              {local.blocos.map((b, i) => (
+                <article key={i} className="stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
+                  <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">{b.titulo}</h2>
+                  {b.paragrafos.map((p, j) => (
+                    <p key={j} className="text-muted-foreground leading-relaxed mb-3">{p}</p>
+                  ))}
+                </article>
+              ))}
+
+              <nav aria-label="Conteúdos relacionados" className="pt-2 border-t border-border">
+                <h2 className="text-lg font-heading font-bold text-foreground mb-3">Conteúdos relacionados</h2>
+                <ul className="space-y-2">
+                  {local.interlinks.map((href) => (
+                    <li key={href}>
+                      <Link to={href} className="text-accent hover:underline inline-flex items-center gap-2">
+                        <Zap className="h-4 w-4" aria-hidden="true" />
+                        {labelInterlink(href)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </section>
+      )}
+
 
       {/* ═══ FAQ with glass cards ═══ */}
       <section className="py-10 bg-background relative overflow-hidden">

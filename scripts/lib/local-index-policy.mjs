@@ -14,6 +14,10 @@ export const ENTIDADES = data.entities;
 export const BAIRROS_ANCORA = data.bairrosAncora.map((b) => b.slug);
 export const SERVICO_BAIRRO_INDEXAVEIS = data.servicoBairroIndexaveis;
 export const LOTE_LOCAL_1 = data.loteLocal1;
+// RODADA 5C: serviço × cidade promovidos (intenção local própria declarada).
+export const SERVICO_CIDADE_INDEXAVEIS = ENTIDADES.filter(
+  (e) => e.family === "SERVICO_CIDADE" && e.indexability === "index",
+).map((e) => e.path);
 export const PREFIXOS_NAO_INDEXAVEIS = data.prefixosNaoIndexaveis;
 
 const normalize = (p) => (p !== "/" && p.endsWith("/") ? p.slice(0, -1) : p) || "/";

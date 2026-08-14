@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-14T12:19:58.787Z",
+  "generatedAt": "2026-08-14T12:32:11.625Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 115,
-  "prontos": 39,
+  "total": 119,
+  "prontos": 43,
   "revisao": 21,
   "rascunho": 24,
   "semMetaCurada": 31,
@@ -497,7 +497,7 @@
       "grupo": "servicos",
       "title": "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
       "description": "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas.",
-      "similaridade": 0.14,
+      "similaridade": 0.15,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -958,6 +958,86 @@
       ],
       "curada": true,
       "estado": "revisao"
+    },
+    {
+      "path": "/servicos/conserto-notebook/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-notebook/curitiba",
+      "grupo": "servicos",
+      "title": "Conserto de Notebook em Curitiba | Coleta ou Visita",
+      "description": "Conserto de notebook em Curitiba com triagem por WhatsApp: coleta combinada, atendimento no endereço ou bancada. Visita de inspeção a partir de R$ 99,99.",
+      "similaridade": 0.53,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/conserto-pc/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-pc/curitiba",
+      "grupo": "servicos",
+      "title": "Conserto de PC em Curitiba | Atendimento no Endereço",
+      "description": "Conserto de computador de mesa em Curitiba: atendimento no seu endereço, coleta do gabinete quando necessário e orçamento antes da execução.",
+      "similaridade": 0.24,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/redes-wifi/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/redes-wifi/curitiba",
+      "grupo": "servicos",
+      "title": "Redes e Wi-Fi em Curitiba | Atendimento no Local",
+      "description": "Instalação e ajuste de redes e Wi-Fi em Curitiba: visita no imóvel, medição por ambiente e atendimento a escritórios. Solicite pelo WhatsApp.",
+      "similaridade": 0.18,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/backup-recuperacao/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/backup-recuperacao/curitiba",
+      "grupo": "servicos",
+      "title": "Backup e Recuperação de Dados em Curitiba | Coleta",
+      "description": "Backup e recuperação de dados em Curitiba com coleta do equipamento, registro do que foi recebido e devolução combinada. Fale pelo WhatsApp.",
+      "similaridade": 0.18,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
     },
     {
       "path": "/tecnico-informatica-curitiba",

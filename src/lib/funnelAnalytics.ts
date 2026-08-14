@@ -219,6 +219,8 @@ function onceInSession(key: string): boolean {
 
 export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
+  // Rodada 6: nome canônico do contrato emitido em paralelo ao histórico.
+  trackTriageStart(location);
   // Rate limit também no funil: em picos, só o envio é descartado.
   if (!podeMedirEvento("funnel_open", location).aceito) return;
   // Persistido para permitir medir abertura → conversão (wa_click) no painel.
@@ -266,6 +268,7 @@ export const trackFunnelStep = (
     sintoma: sintoma || "none",
     ctaLocation,
   });
+  trackTriageStep({ stepId: stepName || `step_${step}`, stepNumber: step, equipmentCategory: equipamento || undefined });
   // Rodada 4D: a etapa de triagem também é persistida em `click_events`,
   // com dedupe por (sessão + etapa) para não contar re-render/Strict Mode.
   if (onceInSession(`step:${step}:${stepName || "unknown"}`)) {
@@ -286,6 +289,7 @@ export const trackFunnelSubmit = (params: {
   minimumAccepted?: boolean;
 }) => {
   track("wa_funnel_submit", params);
+  trackTriageComplete({ cta_location: params.ctaLocation || "funnel" });
   if (onceInSession(`submit:${params.ctaLocation || "unknown"}:${params.equipamento || "none"}`)) {
     persistClickEvent("funnel_stage", params.ctaLocation || "wa_funnel", readTriageFallback(), {
       funnel_stage: "submit",

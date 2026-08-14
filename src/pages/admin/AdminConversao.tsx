@@ -753,7 +753,13 @@ const AdminConversao = () => {
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
 
       <div className="mt-6 space-y-6">
-        <JornadaSankey rows={rows as unknown as EventoOportunidade[]} />
+        <JornadaSankey
+          rows={rows as unknown as EventoOportunidade[]}
+          leads={leads}
+          osIntegrada={osVinculada}
+          inicioCarregado={inicio}
+        />
+
         <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
         <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
         <SegmentacaoCanal rows={rows} />

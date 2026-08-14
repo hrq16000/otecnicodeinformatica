@@ -54,3 +54,4 @@
 - [Rodada 6B — atribuição e data quality](mem://features/rodada-6b-atribuicao-data-quality) — Expand/Improve/Low evidence (30 sessões, 10% WA), Sankey, painel de qualidade e gates de PII/contexto local/jornada.
 - [Rodada 7 — CRO e OS](mem://features/rodada-7-cro-e-os) — Experimentos fail-closed por rota/cidade, vínculo lead↔ordem de serviço e Sankey 7/30/90 com gargalos.
 - [Rodada 8A — aquisição e indexação](mem://features/rodada-8a-aquisicao-indexacao) — Coortes de descoberta no GSC, canal `internal` (CTA/QA nunca é aquisição), veredito de soft-404 e vitrines públicas de dados.
+- [Rodada 8C — aquisição local controlada](mem://features/rodada-8c-aquisicao-local) — Link builder UTM, gate check:utm-governance, baseline fail-closed, reason codes de indexação e portal do pop-up.

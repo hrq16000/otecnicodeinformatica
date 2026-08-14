@@ -130,6 +130,10 @@ export const ExitIntentPopup = () => {
       {/* Wrapper de centralização — evita que a animação (transform) tire o modal da viewport */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-4">
         <div
+          ref={dialogRef}
+          tabIndex={-1}
+          data-testid="exit-intent-dialog"
+
           className={cn(
             "relative m-auto w-full max-w-md",
             "max-h-[calc(100dvh-1.5rem)] overflow-y-auto",

@@ -54,6 +54,34 @@ type LinhaPerf = {
   jornadasAssistidas?: number | null;
 };
 
+/** Comparação entre a última execução do relatório e a anterior. */
+type ComparacaoUrl = {
+  url: string;
+  estadoAnterior: string | null;
+  estado: string;
+  estadoMudou: boolean;
+  reasonAnterior: string | null;
+  reason: string;
+  reasonMudou: boolean;
+  deltaImpressoes: number | null;
+  deltaCliques: number | null;
+  deltaSessoes: number | null;
+};
+
+type Coorte = {
+  resumo?: Record<string, unknown>;
+  linhas?: Array<Record<string, unknown>>;
+  timeline?: Record<string, string>;
+  comparacao?: {
+    geradoEmAnterior: string | null;
+    statusAnterior: string | null;
+    decisaoAnterior: string | null;
+    statusMudou: boolean;
+    milestonesNovos: string[];
+    urls: ComparacaoUrl[];
+  } | null;
+};
+
 const BADGE: Record<DiscoveryState, "default" | "secondary" | "outline" | "destructive"> = {
   INDEXED: "default",
   CRAWLED: "secondary",
@@ -61,9 +89,12 @@ const BADGE: Record<DiscoveryState, "default" | "secondary" | "outline" | "destr
   UNKNOWN: "destructive",
 };
 
+const delta = (n: number | null) => (n == null ? "—" : n > 0 ? `+${n}` : String(n));
+
 export const PainelClusterEditorial = () => {
   const [discovery, setDiscovery] = useState<LinhaDiscovery[] | null>(null);
   const [perf, setPerf] = useState<LinhaPerf[] | null>(null);
+  const [coorte, setCoorte] = useState<Coorte | null>(null);
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
@@ -78,16 +109,22 @@ export const PainelClusterEditorial = () => {
       }
     };
     void (async () => {
-      const [d, p] = await Promise.all([buscar("content-discovery.json"), buscar("content-performance.json")]);
+      const [d, p, c] = await Promise.all([
+        buscar("content-discovery.json"),
+        buscar("content-performance.json"),
+        buscar("content-cohort.json"),
+      ]);
       if (!vivo) return;
       setDiscovery(d?.urls ?? null);
       setPerf(p?.urls ?? null);
+      setCoorte(c ?? null);
       setCarregando(false);
     })();
     return () => {
       vivo = false;
     };
   }, []);
+
 
   // RODADA 8G — sinais medidos por URL. `null` = fonte não conectada; nunca 0.
   const sinais: UrlSignals[] = useMemo(

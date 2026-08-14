@@ -33,6 +33,20 @@ jobs:
         run: npm run check:local-hierarchy
       - name: Canibalização (P0)
         run: npm run check:cannibalization
+      - name: Política local central (Rodada 5)
+        run: npm run build && npm run check:local-index-policy
+      - name: Antidoorway local (metadata/template únicos)
+        run: npm run check:local-doorway
+      - name: Relatório de risco de doorway (CSV/HTML)
+        run: npm run report:local-doorway
+      - name: Upload dos relatórios locais
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-local-doorway
+          path: |
+            reports/local-doorway.csv
+            reports/local-coverage.csv
+            reports/local-doorway.html
 
       # ── Governança editorial fail-closed
       - name: Governança editorial

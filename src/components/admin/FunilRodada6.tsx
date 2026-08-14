@@ -168,6 +168,81 @@ export const FunilRodada6 = ({ rows }: { rows: EventoRodada6[] }) => {
     };
   }, [rows]);
 
+  /** Agregação por janela móvel (7/30/90 dias) sobre o período carregado. */
+  const periodos = useMemo(() => {
+    const agora = Date.now();
+    return [7, 30, 90].map((dias) => {
+      const corte = agora - dias * 24 * 60 * 60 * 1000;
+      const b = novoBucket();
+      let eventos = 0;
+      for (const r of rows) {
+        if (new Date(r.created_at).getTime() < corte) continue;
+        eventos += 1;
+        acumular(b, r.event_type, r.session_id || r.created_at);
+      }
+      return { dias, bucket: b, eventos };
+    });
+  }, [rows]);
+
+  /** First touch × last touch × jornadas assistidas — sem PII. */
+  const jornadas = useMemo(() => {
+    const porSessao = new Map<
+      string,
+      { landing?: string; conversao?: string; converteu: boolean }
+    >();
+    for (const r of rows) {
+      const sid = r.session_id || r.created_at;
+      const s = porSessao.get(sid) ?? { converteu: false };
+      if (!s.landing) s.landing = r.landing_route || r.path || undefined;
+      if (r.event_type === "wa_click" || r.event_type === "whatsapp_open") {
+        s.converteu = true;
+        s.conversao = r.path || s.conversao;
+      }
+      porSessao.set(sid, s);
+    }
+    const sessoes = [...porSessao.values()];
+    const convertidas = sessoes.filter((s) => s.converteu);
+    const assistidas = convertidas.filter(
+      (s) => s.landing && s.conversao && s.landing !== s.conversao,
+    );
+    const contar = (chave: (s: (typeof sessoes)[number]) => string | undefined) => {
+      const m = new Map<string, { sessoes: number; conv: number }>();
+      for (const s of sessoes) {
+        const k = chave(s);
+        if (!k) continue;
+        const v = m.get(k) ?? { sessoes: 0, conv: 0 };
+        v.sessoes += 1;
+        if (s.converteu) v.conv += 1;
+        m.set(k, v);
+      }
+      return [...m.entries()]
+        .sort((a, b) => b[1].conv - a[1].conv || b[1].sessoes - a[1].sessoes)
+        .slice(0, 15);
+    };
+    return {
+      totalSessoes: sessoes.length,
+      convertidas: convertidas.length,
+      assistidas: assistidas.length,
+      firstTouch: contar((s) => s.landing),
+      lastTouch: contar((s) => s.conversao),
+    };
+  }, [rows]);
+
+  /** Rotas que mais convertem (destaque por WhatsApp por sessão). */
+  const topRotas = useMemo(
+    () =>
+      dados.porRota
+        .filter(([, b]) => b.whatsapp.size > 0)
+        .sort(
+          (a, b) =>
+            b[1].whatsapp.size - a[1].whatsapp.size ||
+            (rate(b[1].whatsapp.size, b[1].views.size) ?? 0) -
+              (rate(a[1].whatsapp.size, a[1].views.size) ?? 0),
+        )
+        .slice(0, 5),
+    [dados.porRota],
+  );
+
   const t = dados.total;
   const etapas = [
     { rotulo: "Sessões (page view)", valor: t.views.size, base: t.views.size },

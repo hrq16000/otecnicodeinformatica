@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   SAMPLE_LABEL,
   formatRate,
+  rate,
   sampleStatus,
   type RouteFamily,
 } from "@/lib/analyticsContract";
@@ -272,6 +273,118 @@ export const FunilRodada6 = ({ rows }: { rows: EventoRodada6[] }) => {
           Amostra global: <strong>{SAMPLE_LABEL[sampleStatus(t.views.size)]}</strong>. Volume baixo não
           gera recomendação automática.
         </p>
+      </Card>
+
+      <Card className="p-4">
+        <h3 className="font-heading text-lg font-semibold">Períodos (7 / 30 / 90 dias)</h3>
+        <p className="mb-3 text-xs text-muted-foreground">
+          Janelas móveis sobre o intervalo carregado. Tráfego de QA já excluído.
+        </p>
+        <div className="grid gap-3 md:grid-cols-3">
+          {periodos.map((p) => (
+            <div key={p.dias} className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs text-muted-foreground">Últimos {p.dias} dias</p>
+              {p.eventos === 0 ? (
+                <p className="py-4 text-sm text-muted-foreground">Sem dados no período.</p>
+              ) : (
+                <>
+                  <p className="text-2xl font-semibold tabular-nums">{p.bucket.views.size}</p>
+                  <p className="text-xs text-muted-foreground">sessões com page view</p>
+                  <ul className="mt-2 space-y-1 text-xs">
+                    <li>CTA: {p.bucket.cta.size} ({formatRate(p.bucket.cta.size, p.bucket.views.size)})</li>
+                    <li>Triagem: {p.bucket.triagem.size} ({formatRate(p.bucket.triagem.size, p.bucket.views.size)})</li>
+                    <li>WhatsApp: {p.bucket.whatsapp.size} ({formatRate(p.bucket.whatsapp.size, p.bucket.views.size)})</li>
+                  </ul>
+                  <Badge className="mt-2" variant={sampleStatus(p.bucket.views.size) === "actionable" ? "default" : "secondary"}>
+                    {SAMPLE_LABEL[sampleStatus(p.bucket.views.size)]}
+                  </Badge>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card className="p-4">
+        <h3 className="font-heading text-lg font-semibold">Rotas que mais convertem</h3>
+        <p className="mb-3 text-xs text-muted-foreground">
+          Destaque por aberturas de WhatsApp e taxa por sessão.
+        </p>
+        {topRotas.length === 0 ? (
+          <p className="py-6 text-center text-sm text-muted-foreground">Sem conversões no período.</p>
+        ) : (
+          <ol className="space-y-2">
+            {topRotas.map(([r, b], i) => (
+              <li key={r} className="flex items-center justify-between gap-3 rounded-lg border border-border/60 p-2">
+                <span className="truncate font-mono text-xs">
+                  {i + 1}. {r}
+                </span>
+                <span className="whitespace-nowrap text-xs tabular-nums text-muted-foreground">
+                  {b.whatsapp.size} WA · {formatRate(b.whatsapp.size, b.views.size)} de {b.views.size} sessões
+                </span>
+              </li>
+            ))}
+          </ol>
+        )}
+      </Card>
+
+      <Card className="p-4">
+        <h3 className="font-heading text-lg font-semibold">Jornadas: first touch, last touch e assistidas</h3>
+        <p className="mb-3 text-xs text-muted-foreground">
+          Pseudônimo efêmero de jornada (TTL 30 min). Nenhum dado pessoal envolvido.
+        </p>
+        <div className="mb-4 grid gap-3 md:grid-cols-3">
+          <div className="rounded-lg border border-border/60 p-3">
+            <p className="text-xs text-muted-foreground">Sessões</p>
+            <p className="text-2xl font-semibold tabular-nums">{jornadas.totalSessoes}</p>
+          </div>
+          <div className="rounded-lg border border-border/60 p-3">
+            <p className="text-xs text-muted-foreground">Com WhatsApp</p>
+            <p className="text-2xl font-semibold tabular-nums">{jornadas.convertidas}</p>
+            <p className="text-xs text-muted-foreground">{formatRate(jornadas.convertidas, jornadas.totalSessoes)} das sessões</p>
+          </div>
+          <div className="rounded-lg border border-border/60 p-3">
+            <p className="text-xs text-muted-foreground">Jornadas assistidas</p>
+            <p className="text-2xl font-semibold tabular-nums">{jornadas.assistidas}</p>
+            <p className="text-xs text-muted-foreground">
+              {formatRate(jornadas.assistidas, jornadas.convertidas)} das conversões (entrada ≠ rota de conversão)
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {[
+            { titulo: "First touch (rota de entrada)", linhas: jornadas.firstTouch },
+            { titulo: "Last touch (rota da conversão)", linhas: jornadas.lastTouch },
+          ].map((bloco) => (
+            <div key={bloco.titulo}>
+              <h4 className="mb-2 text-sm font-semibold">{bloco.titulo}</h4>
+              {bloco.linhas.length === 0 ? (
+                <p className="text-sm text-muted-foreground">Sem dados no período.</p>
+              ) : (
+                <table className="w-full text-sm">
+                  <thead className="text-left text-xs uppercase text-muted-foreground">
+                    <tr>
+                      <th className="py-1 pr-2">Rota</th>
+                      <th className="py-1 pr-2 text-right">Sessões</th>
+                      <th className="py-1 pr-2 text-right">WA</th>
+                      <th className="py-1 text-right">Taxa</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {bloco.linhas.map(([r, v]) => (
+                      <tr key={r} className="border-b border-border/60">
+                        <td className="max-w-[16rem] truncate py-1 pr-2 font-mono text-xs">{r}</td>
+                        <td className="py-1 pr-2 text-right tabular-nums">{v.sessoes}</td>
+                        <td className="py-1 pr-2 text-right tabular-nums">{v.conv}</td>
+                        <td className="py-1 text-right tabular-nums">{formatRate(v.conv, v.sessoes)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          ))}
+        </div>
       </Card>
 
       <Tabela titulo="Por rota" descricao="URLs com mais sessões no período." dados={dados.porRota} />

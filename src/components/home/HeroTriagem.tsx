@@ -2,7 +2,9 @@ import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Search, Wrench } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { brandConfig } from "@/lib/config";
-import { CAMINHOS_ENTRADA, filtrarSintomas } from "@/lib/homeContextos";
+import { CAMINHOS_ENTRADA } from "@/lib/homeContextos";
+import { resolverBusca, sugerir } from "@/lib/buscaInteligente";
+
 
 /**
  * Navegação interna não é lead: registramos apenas engajamento, sem tocar
@@ -27,14 +29,30 @@ const track = (loc: string) => {
  */
 export const HeroTriagem = () => {
   const [consulta, setConsulta] = useState("");
-  const sugestoes = useMemo(() => filtrarSintomas(consulta), [consulta]);
+  const sugestoes = useMemo(() => sugerir(consulta), [consulta]);
 
+  /**
+   * O botão "Diagnosticar meu problema" é o submit da caixa de pesquisa:
+   * interpreta o que foi digitado (sinônimos, gírias e erros de digitação)
+   * e leva ao cluster de problema/serviço correto. Sem confiança mínima,
+   * cai na triagem geral — nunca em rota inexistente.
+   */
   const enviar = (e: FormEvent) => {
     e.preventDefault();
-    const destino = sugestoes[0]?.href ?? "/diagnostico-tecnico";
+    const { href, intencaoId, confianca } = resolverBusca(consulta);
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "home_busca_sintoma", {
+        event_category: "engagement",
+        click_location: "hero_triagem_busca",
+        intencao: intencaoId ?? "sem_correspondencia",
+        confianca,
+        page_path: window.location.pathname,
+      });
+    }
     void track("hero_triagem_busca");
-    window.location.assign(destino);
+    window.location.assign(href);
   };
+
 
   return (
     <section
@@ -106,7 +124,7 @@ export const HeroTriagem = () => {
 
           <ul className="mt-4 flex flex-wrap gap-2" aria-label="Sintomas mais frequentes">
             {sugestoes.map((s) => (
-              <li key={s.label}>
+              <li key={s.id}>
                 <a
                   href={s.href}
                   onClick={() => track("hero_sintoma_chip")}

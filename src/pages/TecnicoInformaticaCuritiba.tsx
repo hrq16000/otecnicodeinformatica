@@ -633,8 +633,56 @@ const TecnicoInformaticaCuritiba = () => {
                 </p>
               </div>
             </div>
+
+            {/* Rodada 8B — descoberta do cluster /problemas a partir de uma
+                página já indexada. Anchors contextuais, sem repetição de
+                "computador lento Curitiba" e sem link artificial. */}
+            <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-heading text-base font-bold text-foreground">
+                Sintomas que mais chegam à bancada em Curitiba
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Antes de agendar, vale ler o que costuma estar por trás do sintoma. Cada página
+                abaixo explica como o problema é investigado e o que muda o custo do reparo.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {[
+                  {
+                    to: "/problemas/computador-lento",
+                    label: "quando a máquina demora para abrir tudo",
+                    desc: "onde o tempo é perdido entre disco, memória e programas de inicialização",
+                  },
+                  {
+                    to: "/problemas/notebook-nao-liga",
+                    label: "notebook sem reação ao apertar o botão",
+                    desc: "testes de fonte, bateria e placa antes de falar em troca de peça",
+                  },
+                  {
+                    to: "/problemas/tela-azul",
+                    label: "erros e telas azuis que reiniciam o Windows",
+                    desc: "como separar falha de driver de falha de hardware",
+                  },
+                  {
+                    to: "/problemas/wifi-instavel",
+                    label: "internet que cai em parte do imóvel",
+                    desc: "posicionamento, interferência e limites reais do roteador",
+                  },
+                ].map((l) => (
+                  <li key={l.to}>
+                    <Link
+                      to={l.to}
+                      className="font-medium text-foreground hover:text-accent hover:underline"
+                    >
+                      {l.label}
+                    </Link>
+                    <span className="text-muted-foreground"> — {l.desc}.</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
+
 
 
 

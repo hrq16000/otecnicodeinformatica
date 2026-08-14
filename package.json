@@ -96,6 +96,7 @@
     "alert:funnel": "node scripts/alert-funnel-thresholds.mjs",
     "alert:funnel:dry": "node scripts/alert-funnel-thresholds.mjs --dry",
     "check:cf-zone": "node scripts/check-cloudflare-zone.mjs",
+    "check:canonical-contact": "node scripts/check-canonical-contact.mjs",
     "check:nap": "node scripts/check-nap-whatsapp.mjs",
     "migration:export": "node scripts/export-redirects.mjs",
     "migration:cf:dry": "node scripts/publish-cloudflare-redirects.mjs --dry-run",

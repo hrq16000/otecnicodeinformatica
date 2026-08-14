@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T12:43:03.373Z",
+  "generatedAt": "2026-08-14T13:04:29.269Z",
   "resumo": {
-    "total": 89,
+    "total": 92,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 89,
+    "pendencias": 92,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -343,6 +343,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/formatacao-computador/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/formatacao",
       "detalhe": "página indexável sem foto real"
     },
@@ -421,6 +427,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/remocao-virus/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/suporte-home-office",
       "detalhe": "página indexável sem foto real"
     },
@@ -458,6 +470,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/upgrade-ssd-ram",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {

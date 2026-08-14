@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 import { AlertTriangle, MessageCircle, X, Shield, Clock, Star, Zap, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -97,7 +98,7 @@ export const ExitIntentPopup = () => {
   const minutes = Math.floor(countdown / 60);
   const seconds = countdown % 60;
 
-  return (
+  const conteudo = (
     <>
       {/* Backdrop */}
       <div
@@ -110,7 +111,7 @@ export const ExitIntentPopup = () => {
       <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-4">
         <div
           className={cn(
-            "relative my-auto w-full max-w-md",
+            "relative m-auto w-full max-w-md",
             "max-h-[calc(100dvh-1.5rem)] overflow-y-auto",
             "bg-card border border-accent/20 rounded-2xl shadow-2xl",
             "p-5 sm:p-6",
@@ -205,6 +206,10 @@ export const ExitIntentPopup = () => {
         </div>
       </div>
     </>
-
   );
+
+  // Portal no <body>: qualquer ancestral com transform/filter cria um novo
+  // containing block e tiraria o `fixed` da viewport (era a causa do modal
+  // "escondido" que exigia rolagem).
+  return typeof document === "undefined" ? conteudo : createPortal(conteudo, document.body);
 };

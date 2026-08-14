@@ -47,6 +47,28 @@ const FAMILIAS: { id: UrlIndex["family"]; label: string }[] = [
 const problematico = (u: UrlIndex) =>
   !u.indexed || u.verdict === "UNKNOWN" || u.verdict === "ERROR";
 
+/**
+ * Reason code sempre visível quando o status é incerto ou falha (Rodada 8C).
+ * Nunca inventamos motivo: se a fonte não trouxe `coverageState`, dizemos
+ * exatamente isso (`SEM_MOTIVO_REPORTADO`).
+ */
+const reasonCode = (u: UrlIndex): string => {
+  if (u.verdict === "UNKNOWN") return u.coverageState ?? "UNKNOWN_SEM_MOTIVO_REPORTADO";
+  if (u.verdict === "ERROR") return u.coverageState ?? "ERROR_SEM_MOTIVO_REPORTADO";
+  if (!u.indexed) return u.coverageState ?? "NAO_INDEXADA_SEM_MOTIVO_REPORTADO";
+  return u.coverageState ?? "OK";
+};
+
+const severidade = (u: UrlIndex): "unknown" | "erro" | "atencao" =>
+  u.verdict === "UNKNOWN" ? "unknown" : u.verdict === "ERROR" ? "erro" : "atencao";
+
+const CLASSE_BADGE: Record<"unknown" | "erro" | "atencao", string> = {
+  unknown: "border-destructive bg-destructive/10 text-destructive",
+  erro: "border-destructive bg-destructive/10 text-destructive",
+  atencao: "border-amber-500/60 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+};
+
+
 export const AlertaIndexacao = () => {
   const [indexacao, setIndexacao] = useState<StatusIndexacao | null>(null);
   const [discovery, setDiscovery] = useState<StatusDiscovery | null>(null);
@@ -135,6 +157,11 @@ export const AlertaIndexacao = () => {
                 <p className={`text-[11px] ${ruins ? "text-destructive" : "text-muted-foreground"}`}>
                   {ruins ? `${ruins} com problema` : "todas indexadas"}
                 </p>
+                {lote.some((u) => u.verdict === "UNKNOWN") && (
+                  <span className="mt-1 inline-block rounded-full border border-destructive bg-destructive/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-destructive">
+                    {lote.filter((u) => u.verdict === "UNKNOWN").length} UNKNOWN
+                  </span>
+                )}
               </div>
             );
           })}
@@ -149,9 +176,16 @@ export const AlertaIndexacao = () => {
             </li>
           ))}
           {criticas.slice(0, 12).map((u) => (
-            <li key={u.path} className="text-muted-foreground">
-              <code>{u.path}</code> — {u.verdict}
-              {u.coverageState ? ` · ${u.coverageState}` : ""}
+            <li key={u.path} className="flex flex-wrap items-center gap-2 text-muted-foreground">
+              <span
+                className={`rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${CLASSE_BADGE[severidade(u)]}`}
+              >
+                {u.verdict}
+              </span>
+              <code>{u.path}</code>
+              <span className="rounded bg-muted px-1.5 py-0.5 font-mono text-[10px]">
+                reason: {reasonCode(u)}
+              </span>
             </li>
           ))}
         </ul>

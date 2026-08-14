@@ -83,6 +83,7 @@ const AdminEditorLocal = lazy(() => import("./pages/admin/AdminEditorLocal"));
 const AdminPerformanceLocal = lazy(() => import("./pages/admin/AdminPerformanceLocal"));
 const AdminAuditoriaAcessos = lazy(() => import("./pages/admin/AdminAuditoriaAcessos"));
 const AdminQaTrafego = lazy(() => import("./pages/admin/AdminQaTrafego"));
+const AdminLinkBuilder = lazy(() => import("./pages/admin/AdminLinkBuilder"));
 
 const ConsertoImpressoraCuritiba = lazy(() => import("./pages/ConsertoImpressoraCuritiba"));
 const AssistenciaEletrodomesticosInteligentesCuritiba = lazy(() => import("./pages/AssistenciaEletrodomesticosInteligentesCuritiba"));
@@ -1053,6 +1054,7 @@ const App = () => (
             <Route path="/admin/provas-monitor" element={<AdminProvasMonitor />} />
             <Route path="/admin/provas-verticais" element={<AdminProvasVerticais />} />
             <Route path="/admin/conversao" element={<AdminConversao />} />
+            <Route path="/admin/link-builder" element={<AdminLinkBuilder />} />
             <Route path="/admin/experimento-wa" element={<AdminExperimentoWa />} />
             <Route path="/admin/publicacao" element={<AdminPublicacao />} />
             <Route path="/admin/fotos" element={<AdminFotos />} />

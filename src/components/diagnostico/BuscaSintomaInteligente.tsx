@@ -35,24 +35,40 @@ export const BuscaSintomaInteligente = () => {
 
   const enviar = (e: FormEvent) => {
     e.preventDefault();
+    // FASE 11 — somente dados categóricos. A frase digitada NUNCA é enviada.
+    medir("diagnostic_search_start", { query_length: Math.min(consulta.trim().length, 120) });
     const r = resolverComAmbiguidade(consulta);
     if (r.tipo === "ambiguo") {
       setPergunta(r.pergunta);
       setOpcoes(r.opcoes);
-      medir("diagnostico_busca_ambigua", { termo_normalizado: consulta.length, opcoes: r.opcoes.length });
+      medir("diagnostic_search_result", {
+        result_type: "ambiguous",
+        options_count: r.opcoes.length,
+        matched_category: r.opcoes[0]?.intencaoId ?? "nenhuma",
+      });
       return;
     }
     setPergunta(null);
     setOpcoes([]);
-    medir("diagnostico_busca_sintoma", {
-      intencao: r.intencaoId ?? "sem_correspondencia",
-      confianca: r.confianca,
-    });
+    if (!r.intencaoId) {
+      medir("diagnostic_no_result", { result_type: "fallback", result_slug: r.href });
+    } else {
+      medir("diagnostic_search_result", {
+        result_type: "direct",
+        result_slug: r.href,
+        matched_category: r.intencaoId,
+        confidence: r.confianca,
+      });
+    }
     navigate(r.href);
   };
 
   const escolher = (opcao: OpcaoClarificacao) => {
-    medir("diagnostico_busca_desambiguada", { intencao: opcao.intencaoId });
+    medir("diagnostic_result_click", {
+      result_type: "disambiguation",
+      result_slug: opcao.href,
+      matched_category: opcao.intencaoId,
+    });
     navigate(opcao.href);
   };
 
@@ -120,7 +136,11 @@ export const BuscaSintomaInteligente = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    medir("diagnostico_busca_sugestao", { intencao: s.id });
+                    medir("diagnostic_result_click", {
+                      result_type: "suggestion",
+                      result_slug: s.href,
+                      matched_category: s.id,
+                    });
                     navigate(s.href);
                   }}
                   className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground motion-surface hover:border-[hsl(var(--categoria))] hover:text-foreground"

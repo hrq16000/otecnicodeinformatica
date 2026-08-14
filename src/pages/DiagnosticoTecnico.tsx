@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { BuscaSintomaInteligente } from "@/components/diagnostico/BuscaSintomaInteligente";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
@@ -191,6 +192,10 @@ const DiagnosticoTecnico = () => {
             </div>
           </div>
         </section>
+
+        {/* BUSCA DE SINTOMAS COM DESAMBIGUAÇÃO (Rodada 8B) */}
+        <BuscaSintomaInteligente />
+
 
         {/* POR QUE O MESMO SINTOMA TEM VÁRIAS CAUSAS */}
         <section className="py-8 md:py-10 bg-background">

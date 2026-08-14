@@ -93,3 +93,14 @@ Estado: **READY_TO_DEPLOY** — não foi publicado nesta rodada.
 - 🟡 P2 — expansão editorial dos bairros citados na Home.
 - 🟢 P3 — painel `/admin` com alerta visual por família de URL (service_city,
   neighborhood, problem).
+
+## Frente A2 — descoberta, borda e busca com desambiguação (execução complementar)
+
+| Item | Estado | Evidência |
+| --- | --- | --- |
+| 404 real na borda | Contrato validado no build | `npm run cf:edge:test` → 18/18; `dist/_redirects` (1.182 linhas) + `dist/404.html` sem canonical/JSON-LD. Publicação depende do workflow `cloudflare-edge.yml` (credenciais Cloudflare). |
+| Auditoria do cluster /problemas | Concluída | `reports/problem-discovery-coverage.{json,md}` — 162 URLs mapeadas, 15 indexáveis, **0 órfãs**, 10 indexáveis sem caminho de navegação em ≤4 níveis. |
+| Gate de descoberta | Ativo | `npm run check:problem-discovery` (falha se URL indexável ficar sem link interno). |
+| Alerta diário no /admin | Ativo | `src/components/admin/AlertaIndexacao.tsx` lê `public/indexing-status.json` (famílias `service_city`/`neighborhood`/`problem`) e `public/problem-discovery-status.json`; alerta vermelho em UNKNOWN, ERROR, queda ou órfã. |
+| `wa.me` com `text=` | 100% | Últimos dois links sem mensagem (`TopOfferBanner`, `PoliticaPrivacidade`) migrados para `whatsappLinkComContexto`; `whatsapp_open` continua emitido em `trackWaClick`. |
+| Busca em /diagnostico-tecnico | Publicada | `BuscaSintomaInteligente` + `resolverComAmbiguidade` (5 regras de ambiguidade + empate técnico); 9 testes verdes. |

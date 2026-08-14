@@ -346,3 +346,114 @@ export function resolverBusca(consulta: string): Resolucao {
     confianca: melhor.score >= 10 ? "alta" : "media",
   };
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * RESOLUÇÃO DE AMBIGUIDADE (Rodada 8B)
+ *
+ * Alguns sintomas descrevem o MESMO efeito com causas distintas ("tela
+ * preta" pode ser fonte, vídeo, tela ou sistema). Nesses casos, rotear
+ * direto é chute: a interface pergunta antes, com opções em linguagem de
+ * cliente, e só então leva ao cluster certo.
+ *
+ * Duas origens de ambiguidade:
+ *   1. termo explicitamente ambíguo (mapa abaixo);
+ *   2. empate técnico entre as duas melhores intenções (score próximo).
+ * ──────────────────────────────────────────────────────────────────────── */
+
+export type OpcaoClarificacao = { label: string; href: string; intencaoId: string };
+export type ResolucaoAmbigua =
+  | { tipo: "destino"; href: string; intencaoId: string | null; confianca: Resolucao["confianca"] }
+  | { tipo: "ambiguo"; pergunta: string; opcoes: OpcaoClarificacao[] };
+
+type RegraAmbigua = { termos: string[]; pergunta: string; opcoes: OpcaoClarificacao[] };
+
+const AMBIGUIDADES: RegraAmbigua[] = [
+  {
+    termos: ["tela preta", "sem imagem", "nao da imagem", "monitor apagado", "tela escura"],
+    pergunta: "Quando a tela fica preta, o equipamento dá algum sinal de vida?",
+    opcoes: [
+      { label: "Não acende nada: sem luz, sem ventoinha", href: "/problemas/notebook-nao-liga", intencaoId: "notebook-nao-liga" },
+      { label: "Liga e faz barulho, mas a tela não mostra imagem", href: "/problemas/computador-nao-da-imagem", intencaoId: "computador-nao-da-imagem" },
+      { label: "Mostra imagem e depois apaga ou reinicia", href: "/problemas/computador-desliga-sozinho", intencaoId: "computador-desliga-sozinho" },
+    ],
+  },
+  {
+    termos: ["nao liga", "morreu", "nao funciona", "parou de funcionar"],
+    pergunta: "O que exatamente acontece ao apertar o botão de ligar?",
+    opcoes: [
+      { label: "Nada acontece, nem luz nem som", href: "/problemas/notebook-nao-liga", intencaoId: "notebook-nao-liga" },
+      { label: "Só funciona na tomada / não segura carga", href: "/problemas/notebook-nao-carrega", intencaoId: "notebook-nao-carrega" },
+      { label: "Liga, mas o Windows não abre", href: "/problemas/windows-nao-inicia", intencaoId: "windows-nao-inicia" },
+    ],
+  },
+  {
+    termos: ["barulho", "ruido", "zumbido", "estalo"],
+    pergunta: "De onde vem o barulho?",
+    opcoes: [
+      { label: "Barulho de clique ou raspagem vindo do disco", href: "/problemas/hd-fazendo-barulho", intencaoId: "hd-fazendo-barulho" },
+      { label: "Ventoinha acelerada, com o aparelho quente", href: "/problemas/computador-esquentando", intencaoId: "computador-esquentando" },
+    ],
+  },
+  {
+    termos: ["travando", "trava", "congela", "para do nada"],
+    pergunta: "Como o travamento acontece?",
+    opcoes: [
+      { label: "Fica lento e engasga o tempo todo", href: "/problemas/computador-lento", intencaoId: "computador-lento" },
+      { label: "Congela e aparece tela azul com código de erro", href: "/problemas/tela-azul", intencaoId: "tela-azul" },
+      { label: "Desliga sozinho sem aviso", href: "/problemas/computador-desliga-sozinho", intencaoId: "computador-desliga-sozinho" },
+    ],
+  },
+  {
+    termos: ["internet ruim", "internet caindo", "sinal fraco", "sem internet"],
+    pergunta: "A instabilidade acontece em qual situação?",
+    opcoes: [
+      { label: "Cai ou oscila no Wi-Fi, em partes da casa", href: "/problemas/wifi-instavel", intencaoId: "wifi-instavel" },
+      { label: "Só neste computador, mesmo perto do roteador", href: "/problemas/computador-lento", intencaoId: "computador-lento" },
+    ],
+  },
+];
+
+/** Só oferecemos opções cujo destino existe no índice de intenções. */
+function opcoesValidas(opcoes: OpcaoClarificacao[]): OpcaoClarificacao[] {
+  const rotas = new Set(INTENCOES.map((i) => i.href));
+  return opcoes.filter((o) => rotas.has(o.href));
+}
+
+/**
+ * Resolve a consulta podendo devolver uma pergunta de clarificação.
+ * Fail-safe: sem opções válidas, cai no comportamento determinístico
+ * de `resolverBusca` (nunca uma rota inventada).
+ */
+export function resolverComAmbiguidade(consulta: string): ResolucaoAmbigua {
+  const q = expandirConsulta(consulta);
+  if (q) {
+    for (const regra of AMBIGUIDADES) {
+      if (!regra.termos.some((t) => q.includes(normalizar(t)))) continue;
+      const opcoes = opcoesValidas(regra.opcoes);
+      if (opcoes.length >= 2) return { tipo: "ambiguo", pergunta: regra.pergunta, opcoes };
+    }
+  }
+
+  const resultados = pontuar(consulta);
+  const [primeiro, segundo] = resultados;
+  // Empate técnico: dois clusters plausíveis e nenhum claramente melhor.
+  if (primeiro && segundo && primeiro.score >= 4 && segundo.score / primeiro.score >= 0.8) {
+    const opcoes = opcoesValidas(
+      resultados.slice(0, 3).map((r) => ({
+        label: r.intencao.label,
+        href: r.intencao.href,
+        intencaoId: r.intencao.id,
+      })),
+    );
+    if (opcoes.length >= 2) {
+      return {
+        tipo: "ambiguo",
+        pergunta: "Encontrei mais de um caminho possível. Qual descreve melhor o seu caso?",
+        opcoes,
+      };
+    }
+  }
+
+  const r = resolverBusca(consulta);
+  return { tipo: "destino", href: r.href, intencaoId: r.intencaoId, confianca: r.confianca };
+}

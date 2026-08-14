@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { whatsappLinkComContexto } from "@/lib/waContextLink";
 
 const STORAGE_KEY = "top_offer_banner_dismissed_v1";
 
@@ -54,7 +54,10 @@ export const TopOfferBanner = () => {
               ⚡ 30 min · <span className="font-extrabold text-yellow-300">R$ 99,99</span>
             </span>
             <a
-              href={`https://wa.me/${WA_NUMBER}`}
+              href={whatsappLinkComContexto(
+                "Olá! Vim pelo banner de serviço rápido (até 30 min, R$ 99,99) do site e preciso de atendimento técnico.",
+                { medium: "cta_banner", servico: "servico-rapido", posicao: "top_banner", etapa: "triagem" },
+              )}
               onClick={openFunnel}
               data-wa-medium="top_banner"
               data-cta-location="top_banner"

@@ -35,7 +35,7 @@ export const PRESETS_AQUISICAO: PresetAquisicao[] = [
     descricao:
       "Link principal do perfil. Deve apontar para landing local ampla, nunca para uma página de serviço muito específica.",
     utm_source: "google",
-    utm_medium: "organic",
+    utm_medium: "organic_gbp",
     utm_campaign: "gbp_profile",
     destinoSugerido: "/tecnico-informatica-curitiba",
   },
@@ -44,11 +44,12 @@ export const PRESETS_AQUISICAO: PresetAquisicao[] = [
     label: "Google Business Profile — post",
     descricao: "Post individual do perfil. O tema vai em utm_content (slug curto).",
     utm_source: "google",
-    utm_medium: "organic",
+    utm_medium: "organic_gbp",
     utm_campaign: "gbp_post",
     destinoSugerido: "/problemas/computador-lento",
     exigeContent: true,
   },
+
   {
     id: "facebook_organic",
     label: "Facebook orgânico",

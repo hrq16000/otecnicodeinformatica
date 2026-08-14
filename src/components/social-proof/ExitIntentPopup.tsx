@@ -85,7 +85,27 @@ export const ExitIntentPopup = () => {
     return () => clearInterval(timer);
   }, [isVisible]);
 
-  const handleClose = () => setIsVisible(false);
+  // RODADA 8D — regressão do pop-up: Escape fecha e o foco volta ao elemento anterior.
+  const focoAnterior = useRef<HTMLElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClose = useCallback(() => setIsVisible(false), []);
+
+  useEffect(() => {
+    if (!isVisible) {
+      focoAnterior.current?.focus?.();
+      focoAnterior.current = null;
+      return;
+    }
+    focoAnterior.current = (document.activeElement as HTMLElement) ?? null;
+    dialogRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isVisible, handleClose]);
+
 
   const handleWhatsApp = () => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -110,6 +130,10 @@ export const ExitIntentPopup = () => {
       {/* Wrapper de centralização — evita que a animação (transform) tire o modal da viewport */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-4">
         <div
+          ref={dialogRef}
+          tabIndex={-1}
+          data-testid="exit-intent-dialog"
+
           className={cn(
             "relative m-auto w-full max-w-md",
             "max-h-[calc(100dvh-1.5rem)] overflow-y-auto",

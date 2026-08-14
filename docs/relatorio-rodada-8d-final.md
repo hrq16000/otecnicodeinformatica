@@ -28,9 +28,13 @@ Nenhuma rota criada nesta rodada.
 
 ## 7–9. Contrato de atribuição / first touch / last touch
 
-`src/lib/canalAtribuicao.ts` inalterado: interno/QA vence qualquer sinal e nunca vira
-aquisição; UNKNOWN nunca é convertido em direct. First touch persiste em `utm_payload_v1`
-(primeiro hit ganha) e sobrevive à navegação interna, que continua sem UTM na URL.
+Interno/QA vence qualquer sinal e nunca vira aquisição; UNKNOWN nunca é convertido em direct.
+**Complemento 8D:** a taxonomia ganhou o canal próprio `gbp` — `utm_medium=organic_gbp`
+(perfil e posts) não colapsa mais com Google Search orgânico, e social orgânico
+(`facebook`/`instagram` + `organic`) é classificado como `social`, não como organic/referral.
+First touch persiste em `utm_payload_v1` (primeiro hit ganha) e sobrevive à navegação interna,
+que continua sem UTM na URL.
+
 
 ## 10. WhatsApp attribution
 
@@ -64,16 +68,21 @@ Thresholds intocados. Experimento 1: **DISABLED**. Veredito: **LOW_EVIDENCE**.
 
 ## 20–21. Pop-up e Edge 404
 
-Pop-up de saída sem novo redesign (apenas regressão). Edge 404: **READY_TO_DEPLOY**
-(aguarda `CLOUDFLARE_API_TOKEN`; token nunca em código, log ou doc).
+Pop-up de saída sem novo redesign. Ganhou cobertura de regressão (`e2e/popup-saida.spec.ts`:
+topo, após rolagem, mobile e desktop, fechamento por botão e por Escape) e acessibilidade de
+modal: foco entra no diálogo ao abrir e retorna ao elemento anterior ao fechar. Edge 404:
+**READY_TO_DEPLOY** (aguarda `CLOUDFLARE_API_TOKEN`; token nunca em código, log ou doc).
 
 ## 22–25. Segurança, gates, build e testes
 
 Views públicas/RLS/admin authorization preservados. Gates verdes:
 `check:utm-governance`, `check:acquisition-attribution`. Typecheck limpo. Nenhum gate novo
-criado (sem lacuna real).
+criado (sem lacuna real). Unit: **649 testes verdes** (27 arquivos).
 
 ## 26. Pendências
+
+
+
 
 - **P0** — nenhuma.
 - **P1** — distribuição operacional real dos links GBP/social (ação humana fora do código).

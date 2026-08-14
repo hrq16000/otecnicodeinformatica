@@ -15,6 +15,7 @@ export const CANAIS = [
   "google_ads",
   "paid_other",
   "organic",
+  "gbp",
   "social",
   "referral",
   "direct",
@@ -28,6 +29,7 @@ export const CANAL_LABEL: Record<Canal, string> = {
   google_ads: "Google Ads",
   paid_other: "Outras mídias pagas",
   organic: "Orgânico / SEO",
+  gbp: "Google Business Profile",
   social: "Social",
   referral: "Referência",
   direct: "Direto",
@@ -40,12 +42,14 @@ export const CANAIS_DE_AQUISICAO: readonly Canal[] = [
   "google_ads",
   "paid_other",
   "organic",
+  "gbp",
   "social",
   "referral",
   "direct",
 ];
 
 export const ehAquisicao = (canal: Canal) => CANAIS_DE_AQUISICAO.includes(canal);
+
 
 export type FonteCanal = {
   utm_source?: string | null;
@@ -57,7 +61,11 @@ const norm = (v?: string | null) => (v ?? "").trim().toLowerCase();
 
 const MEDIUMS_PAGOS = ["cpc", "ppc", "paid", "paidsearch", "paid_search", "cpm", "display"];
 const MEDIUMS_ORGANICOS = ["organic", "seo", "organic_search"];
+/** RODADA 8D — sinais explícitos de Google Business Profile (perfil e posts). */
+const MEDIUMS_GBP = ["organic_gbp", "gbp", "gbp_post", "gbp_profile"];
+const FONTES_GBP = ["gbp", "google_business_profile", "google_business"];
 const FONTES_SOCIAIS = ["facebook", "instagram", "linkedin", "youtube", "tiktok", "whatsapp", "x", "twitter"];
+
 
 /**
  * RODADA 8A — CONTAMINAÇÃO DE ATRIBUIÇÃO
@@ -111,8 +119,12 @@ export function canalDoEvento(fonte: FonteCanal): Canal {
     return googleAds ? "google_ads" : "paid_other";
   }
 
-  if (MEDIUMS_ORGANICOS.includes(medium) || canal === "organic") return "organic";
+  // RODADA 8D — GBP nunca colapsa com Google Search orgânico.
+  if (MEDIUMS_GBP.includes(medium) || FONTES_GBP.includes(source) || canal === "gbp") return "gbp";
+  // Social orgânico é social (não "organic"): a UTM informa a rede.
   if (medium === "social" || canal === "social" || FONTES_SOCIAIS.includes(source)) return "social";
+  if (MEDIUMS_ORGANICOS.includes(medium) || canal === "organic") return "organic";
+
   if (medium === "referral" || canal === "referral") return "referral";
   if (canal === "direct" || (!source && !medium && canalBruto === "none")) return "direct";
   if (!source && !medium && !canalBruto) return "unknown";

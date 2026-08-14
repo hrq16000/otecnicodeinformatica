@@ -28,12 +28,14 @@ const LOTE_LOCAL_1: Caso[] = [
   { path: "/bairros/agua-verde", indexavel: true, canonical: "/bairros/agua-verde", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/centro", indexavel: true, canonical: "/bairros/centro", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/portao", indexavel: true, canonical: "/bairros/portao", sitemap: true, pai: "/tecnico-informatica-curitiba" },
-  // Serviço × cidade: canonicalizados no serviço-pai (anticanibalização)
-  { path: "/servicos/formatacao-computador/curitiba", indexavel: false, canonical: "/servicos/formatacao-computador", sitemap: false, pai: "/servicos/formatacao-computador" },
-  { path: "/servicos/remocao-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-virus", sitemap: false, pai: "/servicos/remocao-virus" },
-  { path: "/servicos/conserto-notebook/curitiba", indexavel: false, canonical: "/servicos/conserto-pc-notebook", sitemap: false, pai: "/servicos/conserto-pc-notebook" },
-  { path: "/servicos/conserto-pc/curitiba", indexavel: false, canonical: "/servicos/conserto-pc-notebook", sitemap: false, pai: "/servicos/conserto-pc-notebook" },
-  { path: "/servicos/upgrade-ssd/curitiba", indexavel: false, canonical: "/servicos/upgrade-ssd-memoria", sitemap: false, pai: "/servicos/upgrade-ssd-memoria" },
+  // Serviço × cidade sem intenção local própria: canonicalizados no serviço-pai real
+  { path: "/servicos/formatacao-computador/curitiba", indexavel: false, canonical: "/servicos/formatacao", sitemap: false, pai: "/servicos/formatacao" },
+  { path: "/servicos/remocao-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-de-virus", sitemap: false, pai: "/servicos/remocao-de-virus" },
+  { path: "/servicos/upgrade-ssd/curitiba", indexavel: false, canonical: "/servicos/upgrade-ssd-ram", sitemap: false, pai: "/servicos/upgrade-ssd-ram" },
+  // Rodada 5C — promovidos por intenção local (logística própria)
+  { path: "/servicos/conserto-notebook/curitiba", indexavel: true, canonical: "/servicos/conserto-notebook/curitiba", sitemap: true, pai: "/servicos/manutencao-de-notebook" },
+  { path: "/servicos/conserto-pc/curitiba", indexavel: true, canonical: "/servicos/conserto-pc/curitiba", sitemap: true, pai: "/servicos/manutencao-de-computador" },
+
 ];
 
 // O contrato de indexação vive no HTML estático publicado (dist), não no

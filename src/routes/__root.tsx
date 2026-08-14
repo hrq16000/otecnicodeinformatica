@@ -20,6 +20,7 @@ import { RouteTransition } from "@/components/motion/RouteTransition";
 import { RouteLoader } from "@/components/RouteLoader";
 import { WhatsAppFunnel } from "@/components/WhatsAppFunnel";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import ConsentBanner from "@/components/ConsentBanner";
 import {
   IdleEnhancements,
@@ -193,6 +194,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AppErrorBoundary>
         <MotionProvider>
+          <ScrollToTop />
           <GeoAutoDetect />
           <InstitutionalJsonLd />
           <PageViewTracker path={pathname} />

@@ -194,6 +194,7 @@
     {"token": ".gradient-text", "source": "src/index.css", "reappliedIn": "src/styles.css"},
     {"token": ".gradient-text-animated", "source": "src/index.css", "reappliedIn": "src/styles.css"},
     {"token": ".gradient-text-hover", "source": "src/index.css", "reappliedIn": "src/styles.css"},
+    {"token": ".group", "source": "src/index.css", "reappliedIn": "src/styles.css"},
     {"token": ".hero-caption", "source": "src/index.css", "reappliedIn": "src/styles.css"},
     {"token": ".hero-gradient", "source": "src/index.css", "reappliedIn": "src/styles.css"},
     {"token": ".hero-gradient--lcp", "source": "src/index.css", "reappliedIn": "src/styles.css"},

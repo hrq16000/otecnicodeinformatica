@@ -98,7 +98,7 @@ const PII = [
   /\bcpf\b|\bcnpj\b/i,
 ];
 
-export type ResultadoValidacao = { ok: true } | { ok: false; erro: string };
+export type ResultadoValidacao = { ok: boolean; erro?: string };
 
 export function validarDestino(destino: string): ResultadoValidacao {
   const valor = (destino || "").trim();
@@ -145,7 +145,7 @@ export type SaidaLink = { ok: true; url: string } | { ok: false; erro: string };
 /** Monta a URL final de campanha. Fail-closed: erro claro em vez de link torto. */
 export function construirLinkAquisicao(entrada: EntradaLink, base = BASE_URL): SaidaLink {
   const destino = validarDestino(entrada.destino);
-  if (!destino.ok) return { ok: false, erro: destino.erro };
+  if (!destino.ok) return { ok: false, erro: destino.erro ?? "Destino inválido." };
 
   const campos: [string, string | undefined][] = [
     ["utm_source", entrada.utm_source],
@@ -156,7 +156,7 @@ export function construirLinkAquisicao(entrada: EntradaLink, base = BASE_URL): S
 
   for (const [campo, valor] of campos) {
     const v = validarValorUtm(campo, valor ?? "");
-    if (!v.ok) return { ok: false, erro: v.erro };
+    if (!v.ok) return { ok: false, erro: v.erro ?? `${campo} inválido.` };
   }
 
   if (VALORES_PROIBIDOS_SOURCE.includes(entrada.utm_source.trim().toLowerCase()))

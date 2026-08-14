@@ -31,6 +31,11 @@ const avisos = [];
 const LIMITE_JACCARD = 0.45;
 const LIMITE_SEM_LOCALIDADE = 0.82;
 const LIMITE_INTRO_HOME_CIDADE = 0.35;
+// Unicidade de template dentro da mesma família (Rota B).
+const LIMITE_INTRO_FAMILIA = 0.4;
+const LIMITE_H2_OVERLAP = 0.7;
+const LIMITE_FAQ_OVERLAP = 0.6;
+
 
 const LOCALIDADES = [
   "curitiba",
@@ -188,12 +193,32 @@ for (const [familia, lista] of porFamilia) {
         erros.push(
           `DOORWAY ${familia}: ${a.path} ↔ ${b.path} — removendo a localidade os textos ficam ${(simSemLocal * 100).toFixed(1)}% iguais.`,
         );
+      // Introdução: primeira dobra é onde o doorway aparece mais cedo.
+      const simIntroPar = jaccard(ngrams(a.intro, 4), ngrams(b.intro, 4));
+      if (simIntroPar >= LIMITE_INTRO_FAMILIA)
+        erros.push(
+          `${familia}: ${a.path} ↔ ${b.path} — introduções ${simIntroPar.toFixed(3)} (limite ${LIMITE_INTRO_FAMILIA}).`,
+        );
       // Sequência de H2 idêntica é sinal de template puro com localidade trocada.
       if (a.h2.length > 2 && a.h2.join("|") === b.h2.join("|"))
         erros.push(`DOORWAY ${familia}: ${a.path} ↔ ${b.path} — sequência de H2 idêntica.`);
+      const h2Rep = a.h2.filter((h) => b.h2.includes(h)).length / Math.max(a.h2.length, b.h2.length, 1);
+      if (a.h2.length > 2 && h2Rep >= LIMITE_H2_OVERLAP)
+        erros.push(
+          `${familia}: ${a.path} ↔ ${b.path} — ${(h2Rep * 100).toFixed(0)}% dos H2 repetidos (limite ${LIMITE_H2_OVERLAP * 100}%).`,
+        );
       const faqIguais = a.faqs.filter((q) => b.faqs.includes(q));
       if (a.faqs.length && faqIguais.length === a.faqs.length && faqIguais.length === b.faqs.length)
         erros.push(`DOORWAY ${familia}: ${a.path} ↔ ${b.path} — FAQ integralmente repetida.`);
+      // Ordem de FAQ idêntica denuncia template mesmo quando o texto varia.
+      if (a.faqs.length > 1 && a.faqs.join("|") === b.faqs.join("|"))
+        erros.push(`DOORWAY ${familia}: ${a.path} ↔ ${b.path} — mesma FAQ na mesma ordem.`);
+      const faqRep = a.faqs.length ? faqIguais.length / Math.max(a.faqs.length, b.faqs.length) : 0;
+      if (a.faqs.length > 1 && faqRep >= LIMITE_FAQ_OVERLAP)
+        erros.push(
+          `${familia}: ${a.path} ↔ ${b.path} — ${(faqRep * 100).toFixed(0)}% das perguntas de FAQ repetidas (limite ${LIMITE_FAQ_OVERLAP * 100}%).`,
+        );
+
     }
   }
 }

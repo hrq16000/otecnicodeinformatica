@@ -47,3 +47,4 @@
 - [Rodada 4C — consolidação e hardening](mem://features/rodada-4c-consolidacao-hardening) — 21 páginas "reavaliar" decididas (17 canonical, 4 Lote 2), colunas sensíveis de parceiros bloqueadas e realtime sem PII.
 - [Painel de auditoria de acessos](mem://features/painel-auditoria-acessos) — /admin/auditoria-acessos, sondas anon/authenticated, broadcast sanitizado e allowlist RLS de partner_program_settings.
 - [Rodada 5B — antidoorway local](mem://features/rodada-5b-antidoorway) — Home × Curitiba coexistem indexáveis, gate check:local-doorway (0,45 / 0,82 / 550 palavras) e baseline de similaridade medido.
+- [Rodada 5C — Rota B](mem://features/rodada-5c-rota-b) — Lote Local 2 fechado até aprofundar os 5 bairros âncora; limites de unicidade de template, report:local-doorway e budgets lh:local.

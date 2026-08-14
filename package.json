@@ -225,7 +225,9 @@
     "generate:robots": "node scripts/generate-robots.mjs",
     "check:robots": "node scripts/check-robots.mjs dist",
     "check:local-index-policy": "node scripts/check-local-index-policy.mjs dist",
-    "check:local-doorway": "node scripts/check-local-doorway.mjs dist"
+    "check:local-doorway": "node scripts/check-local-doorway.mjs dist",
+    "report:local-doorway": "node scripts/report-local-doorway.mjs dist",
+    "lh:local": "lhci autorun --config=lighthouserc.local.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

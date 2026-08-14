@@ -1,0 +1,31 @@
+{
+  "descricao": "Limites mínimos por etapa do funil (Rodada 6). Taxas em fração da etapa base. Só dispara alerta quando houver amostra mínima — evita alarme com 2 visitas.",
+  "amostraMinima": 30,
+  "janelaDias": 7,
+  "global": {
+    "cta_rate": 0.05,
+    "triage_rate": 0.02,
+    "whatsapp_rate": 0.01,
+    "lead_rate": 0.005
+  },
+  "recortes": [
+    {
+      "tipo": "route_family",
+      "valor": "service_city",
+      "amostraMinima": 40,
+      "limites": { "cta_rate": 0.08, "whatsapp_rate": 0.02 }
+    },
+    {
+      "tipo": "city",
+      "valor": "curitiba",
+      "amostraMinima": 50,
+      "limites": { "whatsapp_rate": 0.02, "lead_rate": 0.008 }
+    },
+    {
+      "tipo": "city",
+      "valor": "sao-jose-dos-pinhais",
+      "amostraMinima": 30,
+      "limites": { "whatsapp_rate": 0.015 }
+    }
+  ]
+}

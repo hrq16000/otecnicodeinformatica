@@ -6,7 +6,6 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs",
     "dev": "vite dev",
-    "prebuild": "node scripts/check-brand-isolation.mjs && node scripts/check-observability-env.mjs && node scripts/generate-interlinks.mjs && node scripts/generate-robots.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs && node scripts/report-publish-status.mjs && node scripts/report-photo-review.mjs && node scripts/check-content-intent.mjs",
     "report:photo-review": "node scripts/report-photo-review.mjs",
     "report:gates": "node scripts/report-gates.mjs",
     "report:daily-ui": "node scripts/report-daily-ui-performance.mjs",
@@ -26,7 +25,6 @@
     "check:missing-exports": "node scripts/check-missing-exports.mjs",
     "check:telemetry-transparency": "node scripts/check-telemetry-transparency.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/check-motion-audit.mjs && node scripts/check-motion-loading.mjs && bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/generate-noindex-shells.mjs dist && node scripts/check-soft-404.mjs && node scripts/check-http-route-semantics.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist && node scripts/check-image-integrity.mjs dist && node scripts/check-canonical-anchors.mjs dist && node scripts/check-imageobject-jsonld.mjs dist && node scripts/check-cross-cluster-similarity.mjs dist && node scripts/check-geo-conformance.mjs dist && node scripts/check-schema-standards.mjs dist && node scripts/check-robots.mjs dist && node scripts/check-local-index-policy.mjs dist && node scripts/check-local-doorway.mjs dist && node scripts/check-local-service-intent.mjs && node scripts/check-local-neighborhood-intent.mjs dist && node scripts/generate-local-audit.mjs dist && node scripts/report-gates.mjs",
     "build:dev": "vite build --mode development",
     "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "check:seo:curated": "bun scripts/check-seo-basics.ts --curated dist",
@@ -264,7 +262,9 @@
     "report:rodada-8f": "npm run report:content-discovery && npm run report:content-query-intent && npm run report:content-distribution && npm run report:content-performance",
     "report:rodada-8g": "npm run report:rodada-8f && npm run report:content-cohort",
     "report:distribution": "node scripts/report-distribution-matrix.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "legacy:prebuild": "node scripts/check-brand-isolation.mjs && node scripts/check-observability-env.mjs && node scripts/generate-interlinks.mjs && node scripts/generate-robots.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs && node scripts/report-publish-status.mjs && node scripts/report-photo-review.mjs && node scripts/check-content-intent.mjs",
+    "legacy:postbuild": "node scripts/check-motion-audit.mjs && node scripts/check-motion-loading.mjs && bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/generate-noindex-shells.mjs dist && node scripts/check-soft-404.mjs && node scripts/check-http-route-semantics.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist && node scripts/check-image-integrity.mjs dist && node scripts/check-canonical-anchors.mjs dist && node scripts/check-imageobject-jsonld.mjs dist && node scripts/check-cross-cluster-similarity.mjs dist && node scripts/check-geo-conformance.mjs dist && node scripts/check-schema-standards.mjs dist && node scripts/check-robots.mjs dist && node scripts/check-local-index-policy.mjs dist && node scripts/check-local-doorway.mjs dist && node scripts/check-local-service-intent.mjs && node scripts/check-local-neighborhood-intent.mjs dist && node scripts/generate-local-audit.mjs dist && node scripts/report-gates.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

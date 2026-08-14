@@ -202,7 +202,9 @@ export const ExitIntentPopup = () => {
         <p className="text-[9px] text-muted-foreground text-center mt-3">
           Oferta válida apenas para novos atendimentos. Sem compromisso.
         </p>
+        </div>
       </div>
     </>
+
   );
 };

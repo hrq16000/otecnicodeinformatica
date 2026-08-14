@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { resolverBusca, sugerir, expandirConsulta, ROTA_FALLBACK } from "./buscaInteligente";
+import { resolverBusca, resolverComAmbiguidade, sugerir, expandirConsulta, INTENCOES, ROTA_FALLBACK } from "./buscaInteligente";
 
 describe("busca inteligente de sintomas", () => {
   it("interpreta gírias e leva ao cluster de lentidão", () => {

@@ -31,6 +31,11 @@ const avisos = [];
 const LIMITE_JACCARD = 0.45;
 const LIMITE_SEM_LOCALIDADE = 0.82;
 const LIMITE_INTRO_HOME_CIDADE = 0.35;
+// Unicidade de template dentro da mesma família (Rota B).
+const LIMITE_INTRO_FAMILIA = 0.4;
+const LIMITE_H2_OVERLAP = 0.7;
+const LIMITE_FAQ_OVERLAP = 0.6;
+
 
 const LOCALIDADES = [
   "curitiba",

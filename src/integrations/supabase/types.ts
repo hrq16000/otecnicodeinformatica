@@ -689,6 +689,45 @@ export type Database = {
         }
         Relationships: []
       }
+      qa_exclusion_justifications: {
+        Row: {
+          author_id: string | null
+          created_at: string
+          id: string
+          justification: string
+          period_end: string
+          period_start: string
+          qa_events: number
+          scope_type: string
+          scope_value: string
+          total_events: number
+        }
+        Insert: {
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          justification: string
+          period_end: string
+          period_start: string
+          qa_events?: number
+          scope_type: string
+          scope_value: string
+          total_events?: number
+        }
+        Update: {
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          justification?: string
+          period_end?: string
+          period_start?: string
+          qa_events?: number
+          scope_type?: string
+          scope_value?: string
+          total_events?: number
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           author_name: string

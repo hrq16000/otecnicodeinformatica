@@ -27,6 +27,8 @@ export type JornadaSankeyProps = {
   leads?: number | null;
   /** OS vinculada à jornada: `null` = integração inexistente. */
   osIntegrada?: number | null;
+  /** Data (YYYY-MM-DD) inicial já carregada — define quais janelas são reais. */
+  inicioCarregado?: string;
 };
 
 const DIMENSOES: { valor: Dimensao; rotulo: string }[] = [
@@ -102,7 +104,48 @@ const LinhaQueda = ({ de, para }: { de: Etapa; para: Etapa }) => {
   );
 };
 
-export const JornadaSankey = ({ rows, leads = null, osIntegrada = null }: JornadaSankeyProps) => {
+const JANELAS = [7, 30, 90] as const;
+type Janela = (typeof JANELAS)[number];
+
+const diasAtras = (dias: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() - dias);
+  return d;
+};
+
+/** Recorte da janela dentro do que já foi carregado (sem inventar dados). */
+function subconjunto(rows: EventoOportunidade[], dias: number): EventoOportunidade[] {
+  const corte = diasAtras(dias).getTime();
+  return rows.filter((r) => new Date(r.created_at).getTime() >= corte);
+}
+
+type ResumoJanela = {
+  dias: Janela;
+  coberta: boolean;
+  sessoes: number;
+  cta: number;
+  triagem: number;
+  whatsapp: number;
+};
+
+/** Maior queda percentual entre etapas de um recorte. */
+function gargalo(r: RecorteOportunidade): { etapa: string; perda: number } | null {
+  const etapas = [
+    { rotulo: "Sessões → CTA", de: r.sessoes, para: r.cta },
+    { rotulo: "CTA → Triagem", de: r.cta, para: r.triagem },
+    { rotulo: "Triagem → WhatsApp", de: r.triagem, para: r.whatsapp },
+  ].filter((e) => e.de > 0);
+  if (etapas.length === 0) return null;
+  const pior = etapas.reduce((a, b) => (1 - b.para / b.de > 1 - a.para / a.de ? b : a));
+  return { etapa: pior.rotulo, perda: 1 - pior.para / pior.de };
+}
+
+export const JornadaSankey = ({
+  rows,
+  leads = null,
+  osIntegrada = null,
+  inicioCarregado,
+}: JornadaSankeyProps) => {
   const [dimensao, setDimensao] = useState<Dimensao>("rota");
   const recortes = useMemo(() => analisarOportunidades(rows), [rows]);
 
@@ -114,6 +157,41 @@ export const JornadaSankey = ({ rows, leads = null, osIntegrada = null }: Jornad
         .slice(0, 6),
     [recortes, dimensao],
   );
+
+  /** Comparação automática 7 / 30 / 90 dias sobre o mesmo carregamento. */
+  const janelas: ResumoJanela[] = useMemo(() => {
+    const inicio = inicioCarregado ? new Date(`${inicioCarregado}T00:00:00Z`).getTime() : null;
+    return JANELAS.map((dias) => {
+      const coberta = inicio === null ? true : inicio <= diasAtras(dias).getTime();
+      if (!coberta) {
+        return { dias, coberta: false, sessoes: 0, cta: 0, triagem: 0, whatsapp: 0 };
+      }
+      const parcial = analisarOportunidades(subconjunto(rows, dias)).filter((r) => r.dimensao === "canal");
+      const soma = (campo: keyof RecorteOportunidade) =>
+        parcial.reduce((acc, r) => acc + (r[campo] as number), 0);
+      return {
+        dias,
+        coberta: true,
+        sessoes: soma("sessoes"),
+        cta: soma("cta"),
+        triagem: soma("triagem"),
+        whatsapp: soma("whatsapp"),
+      };
+    });
+  }, [rows, inicioCarregado]);
+
+  /** Maiores gargalos por rota e por serviço, ordenados pela perda. */
+  const gargalos = useMemo(() => {
+    return (["rota", "servico"] as Dimensao[]).map((dim) => ({
+      dimensao: dim,
+      itens: recortes
+        .filter((r) => r.dimensao === dim && r.sessoes > 0)
+        .map((r) => ({ chave: r.chave, sessoes: r.sessoes, g: gargalo(r) }))
+        .filter((x) => x.g !== null)
+        .sort((a, b) => b.sessoes * (b.g?.perda ?? 0) - a.sessoes * (a.g?.perda ?? 0))
+        .slice(0, 5),
+    }));
+  }, [recortes]);
 
   const global = useMemo(() => {
     const soma = (campo: keyof RecorteOportunidade) =>
@@ -127,6 +205,9 @@ export const JornadaSankey = ({ rows, leads = null, osIntegrada = null }: Jornad
   }, [recortes]);
 
   const etapasComLead: Etapa[] = leads === null ? global : [...global, { rotulo: "Lead", valor: leads }];
+  const etapasFinais: Etapa[] =
+    osIntegrada === null ? etapasComLead : [...etapasComLead, { rotulo: "OS", valor: osIntegrada }];
+
 
   return (
     <Card className="mt-6 p-4">
@@ -155,7 +236,7 @@ export const JornadaSankey = ({ rows, leads = null, osIntegrada = null }: Jornad
         <p className="py-8 text-center text-sm text-muted-foreground">Sem eventos comerciais no período.</p>
       ) : (
         <>
-          <FluxoSvg etapas={etapasComLead} />
+          <FluxoSvg etapas={etapasFinais} />
 
           <div className="mt-2 flex flex-wrap gap-2 text-xs">
             {leads === null && <Badge variant="secondary">Lead: leitura não carregada neste filtro</Badge>}
@@ -173,12 +254,78 @@ export const JornadaSankey = ({ rows, leads = null, osIntegrada = null }: Jornad
                 </tr>
               </thead>
               <tbody>
-                {etapasComLead.slice(0, -1).map((e, i) => (
-                  <LinhaQueda key={e.rotulo} de={e} para={etapasComLead[i + 1]} />
+                {etapasFinais.slice(0, -1).map((e, i) => (
+                  <LinhaQueda key={e.rotulo} de={e} para={etapasFinais[i + 1]} />
                 ))}
               </tbody>
             </table>
           </div>
+
+          <h4 className="mt-5 text-sm font-semibold">Comparação automática 7 · 30 · 90 dias</h4>
+          <div className="mt-2 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left text-xs uppercase text-muted-foreground">
+                <tr>
+                  <th className="py-2 pr-3">Janela</th>
+                  <th className="py-2 pr-3 text-right">Sessões</th>
+                  <th className="py-2 pr-3 text-right">CTA/sessão</th>
+                  <th className="py-2 pr-3 text-right">Triagem/CTA</th>
+                  <th className="py-2 text-right">WhatsApp/sessão</th>
+                </tr>
+              </thead>
+              <tbody>
+                {janelas.map((j) => (
+                  <tr key={j.dias} className="border-b border-border/60">
+                    <td className="py-1.5 pr-3 text-xs">{j.dias} dias</td>
+                    {j.coberta ? (
+                      <>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">{j.sessoes}</td>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.sessoes > 0 ? j.cta / j.sessoes : null)}
+                        </td>
+                        <td className="py-1.5 pr-3 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.cta > 0 ? j.triagem / j.cta : null)}
+                        </td>
+                        <td className="py-1.5 text-right text-xs tabular-nums">
+                          {formatarTaxa(j.sessoes > 0 ? j.whatsapp / j.sessoes : null)}
+                        </td>
+                      </>
+                    ) : (
+                      <td colSpan={4} className="py-1.5 text-right text-xs text-muted-foreground">
+                        fora do período carregado — amplie a data inicial do filtro
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="mt-5 text-sm font-semibold">Maiores gargalos</h4>
+          <div className="mt-2 grid gap-3 md:grid-cols-2">
+            {gargalos.map((g) => (
+              <div key={g.dimensao} className="rounded-lg border border-border/60 p-3">
+                <p className="mb-2 text-xs uppercase text-muted-foreground">
+                  {g.dimensao === "rota" ? "Por rota" : "Por serviço"}
+                </p>
+                {g.itens.length === 0 ? (
+                  <p className="text-xs text-muted-foreground">Sem recortes com dados suficientes.</p>
+                ) : (
+                  <ul className="space-y-1.5">
+                    {g.itens.map((i) => (
+                      <li key={i.chave} className="flex items-center justify-between gap-2 text-xs">
+                        <span className="truncate font-mono">{i.chave}</span>
+                        <span className="shrink-0 tabular-nums text-muted-foreground">
+                          {i.g?.etapa} · -{Math.round((i.g?.perda ?? 0) * 100)}% · {i.sessoes} sessões
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+
 
           <h4 className="mt-5 text-sm font-semibold">Queda por {DIMENSOES.find((d) => d.valor === dimensao)?.rotulo}</h4>
           <div className="mt-2 space-y-3">

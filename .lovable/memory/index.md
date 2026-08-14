@@ -52,3 +52,4 @@
 
 - [Rodada 6 — conversão e mensuração](mem://features/rodada-6-conversao-mensuracao) — Contrato de analytics, vínculo lead↔rota, painel com períodos 7/30/90 + jornadas e monitor diário de similaridade.
 - [Rodada 6B — atribuição e data quality](mem://features/rodada-6b-atribuicao-data-quality) — Expand/Improve/Low evidence (30 sessões, 10% WA), Sankey, painel de qualidade e gates de PII/contexto local/jornada.
+- [Rodada 7 — CRO e OS](mem://features/rodada-7-cro-e-os) — Experimentos fail-closed por rota/cidade, vínculo lead↔ordem de serviço e Sankey 7/30/90 com gargalos.

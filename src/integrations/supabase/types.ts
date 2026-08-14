@@ -370,57 +370,83 @@ export type Database = {
       }
       ordens_servico: {
         Row: {
+          city: string | null
           cliente_nome: string | null
           created_at: string
           equipamento: string | null
           etapas: Json
           fotos: Json
           id: string
+          journey_id: string | null
+          lead_id: string | null
           marca_modelo: string | null
           modalidade: string | null
+          neighborhood_slug: string | null
           observacoes_publicas: string | null
+          origin_route: string | null
           previsao_conclusao: string | null
           protocolo: string
+          service_slug: string | null
           sintomas: string | null
           status: string
           telefone: string
           updated_at: string
         }
         Insert: {
+          city?: string | null
           cliente_nome?: string | null
           created_at?: string
           equipamento?: string | null
           etapas?: Json
           fotos?: Json
           id?: string
+          journey_id?: string | null
+          lead_id?: string | null
           marca_modelo?: string | null
           modalidade?: string | null
+          neighborhood_slug?: string | null
           observacoes_publicas?: string | null
+          origin_route?: string | null
           previsao_conclusao?: string | null
           protocolo: string
+          service_slug?: string | null
           sintomas?: string | null
           status?: string
           telefone: string
           updated_at?: string
         }
         Update: {
+          city?: string | null
           cliente_nome?: string | null
           created_at?: string
           equipamento?: string | null
           etapas?: Json
           fotos?: Json
           id?: string
+          journey_id?: string | null
+          lead_id?: string | null
           marca_modelo?: string | null
           modalidade?: string | null
+          neighborhood_slug?: string | null
           observacoes_publicas?: string | null
+          origin_route?: string | null
           previsao_conclusao?: string | null
           protocolo?: string
+          service_slug?: string | null
           sintomas?: string | null
           status?: string
           telefone?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "ordens_servico_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "funnel_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       os_lookup_attempts: {
         Row: {
@@ -933,6 +959,38 @@ export type Database = {
       }
     }
     Functions: {
+      admin_link_os_lead: {
+        Args: { _lead_id: string; _protocolo: string }
+        Returns: {
+          city: string | null
+          cliente_nome: string | null
+          created_at: string
+          equipamento: string | null
+          etapas: Json
+          fotos: Json
+          id: string
+          journey_id: string | null
+          lead_id: string | null
+          marca_modelo: string | null
+          modalidade: string | null
+          neighborhood_slug: string | null
+          observacoes_publicas: string | null
+          origin_route: string | null
+          previsao_conclusao: string | null
+          protocolo: string
+          service_slug: string | null
+          sintomas: string | null
+          status: string
+          telefone: string
+          updated_at: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "ordens_servico"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
       admin_list_partners: {
         Args: never
         Returns: {

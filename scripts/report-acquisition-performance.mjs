@@ -16,6 +16,9 @@ const URL_BASE = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const DIAS = Number(process.env.JANELA_DIAS || 30);
 const SAIDA = "docs/relatorios/aquisicao-baseline.md";
+const SAIDA_MD = "reports/acquisition-performance.md";
+const SAIDA_JSON = "reports/acquisition-performance.json";
+
 
 const desde = new Date(Date.now() - DIAS * 86400000).toISOString();
 

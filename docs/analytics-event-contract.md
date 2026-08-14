@@ -81,3 +81,17 @@ Fail-closed: sem credenciais ou webhook, nada é enviado.
 `/admin/qa-trafego` mostra a proporção de eventos de QA por rota e período,
 o motivo técnico da exclusão e permite registrar justificativas permanentes
 (tabela `qa_exclusion_justifications`, somente admin, sem edição/exclusão).
+
+## Rodada 7A — exposição de experimento
+
+Evento `experiment_exposure` (denominador do CRO): emitido uma vez por
+sessão × experimento, com `experiment_id` e `variant` somados ao contexto
+comum de rota. Sem PII e sem fallback geográfico.
+
+A variação vira `activeVariant()`, portanto viaja em `click_events.variant`
+nos eventos seguintes (CTA, triagem, WhatsApp, lead) — é isso que permite
+comparar variações no painel `/admin/conversao`.
+
+Gate bloqueante: `npm run check:cro-experiment` (2+ variações, funil completo
+quando ativo, amostra mínima ≥ 100/variação, exposição instrumentada e
+nenhuma variação de preço/prazo/garantia/SEO).

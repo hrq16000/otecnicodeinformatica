@@ -48,3 +48,5 @@
 - [Painel de auditoria de acessos](mem://features/painel-auditoria-acessos) — /admin/auditoria-acessos, sondas anon/authenticated, broadcast sanitizado e allowlist RLS de partner_program_settings.
 - [Rodada 5B — antidoorway local](mem://features/rodada-5b-antidoorway) — Home × Curitiba coexistem indexáveis, gate check:local-doorway (0,45 / 0,82 / 550 palavras) e baseline de similaridade medido.
 - [Rodada 5C — Rota B](mem://features/rodada-5c-rota-b) — Lote Local 2 fechado até aprofundar os 5 bairros âncora; limites de unicidade de template, report:local-doorway e budgets lh:local.
+- [Rodada 5C — serviço × Curitiba](mem://features/rodada-5c-servico-curitiba) — 4 serviços com logística local viram indexáveis, os demais canonicalizam no pai real; gate check:local-service-intent e fonte servicoCuritibaBlocos.json.
+

@@ -26,21 +26,21 @@ const BOT = /(bot|crawler|spider|headless|lighthouse|playwright)/i;
 function classificar(ev) {
   const source = (ev.utm_source || "").trim().toLowerCase();
   const medium = (ev.utm_medium || "").trim().toLowerCase();
-  const ua = (ev.user_agent || "").toLowerCase();
-  if (BOT.test(ua)) return { grupo: "bot", reason: "USER_AGENT_AUTOMATIZADO" };
-  if (INTERNO.test(source) || medium === "cta" || medium === "cta_interno")
+  const canal = (ev.attribution_channel || "").trim().toLowerCase();
+  if (BOT.test(source) || BOT.test(canal)) return { grupo: "bot", reason: "ORIGEM_AUTOMATIZADA" };
+  if (canal === "internal" || INTERNO.test(source) || medium === "cta" || medium === "cta_interno")
     return { grupo: "interno", reason: "UTM_INTERNA_OU_CTA_PROPRIO" };
   if (PAGO.test(medium)) return { grupo: "aquisicao", reason: "MIDIA_PAGA" };
   if (source && medium) return { grupo: "aquisicao", reason: `CAMPANHA_${source.toUpperCase()}` };
-  if (ev.referrer) return { grupo: "aquisicao", reason: "REFERRER_EXTERNO" };
-  return { grupo: "desconhecido", reason: "SEM_UTM_E_SEM_REFERRER" };
+  if (canal && canal !== "direto") return { grupo: "aquisicao", reason: `CANAL_${canal.toUpperCase()}` };
+  return { grupo: "desconhecido", reason: "SEM_UTM_E_SEM_CANAL" };
 }
 
 async function buscar() {
   if (!URL_BASE || !KEY) return null;
   const url =
     `${URL_BASE}/rest/v1/click_events` +
-    `?select=created_at,event_type,path,session_id,utm_source,utm_medium,utm_campaign,referrer,user_agent` +
+    `?select=created_at,event_type,path,session_id,utm_source,utm_medium,utm_campaign,attribution_channel,landing_route` +
     `&created_at=gte.${desde}&limit=50000`;
   const res = await fetch(url, { headers: { apikey: KEY, Authorization: `Bearer ${KEY}` } });
   if (!res.ok) {

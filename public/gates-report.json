@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T13:28:59.452Z",
+  "generatedAt": "2026-08-14T13:47:01.895Z",
   "resumo": {
-    "total": 98,
+    "total": 102,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 98,
+    "pendencias": 102,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -289,6 +289,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/conserto-monitor",
       "detalhe": "página indexável sem foto real"
     },
@@ -296,6 +302,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/conserto-notebook/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -314,6 +326,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/conserto-pc/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-pc/sao-jose-dos-pinhais",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -428,6 +446,12 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/servicos/redes-wifi/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/redes-wifi/sao-jose-dos-pinhais",
       "detalhe": "página indexável sem foto real"
     },
     {

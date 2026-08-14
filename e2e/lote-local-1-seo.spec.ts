@@ -28,10 +28,10 @@ const LOTE_LOCAL_1: Caso[] = [
   { path: "/bairros/agua-verde", indexavel: true, canonical: "/bairros/agua-verde", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/centro", indexavel: true, canonical: "/bairros/centro", sitemap: true, pai: "/tecnico-informatica-curitiba" },
   { path: "/bairros/portao", indexavel: true, canonical: "/bairros/portao", sitemap: true, pai: "/tecnico-informatica-curitiba" },
-  // Serviço × cidade sem intenção local própria: canonicalizados no serviço-pai real
-  { path: "/servicos/formatacao-computador/curitiba", indexavel: false, canonical: "/servicos/formatacao", sitemap: false, pai: "/servicos/formatacao" },
-  { path: "/servicos/remocao-virus/curitiba", indexavel: false, canonical: "/servicos/remocao-de-virus", sitemap: false, pai: "/servicos/remocao-de-virus" },
-  { path: "/servicos/upgrade-ssd/curitiba", indexavel: false, canonical: "/servicos/upgrade-ssd-ram", sitemap: false, pai: "/servicos/upgrade-ssd-ram" },
+  // Rodada 5C (lote 2) — promovidos após receberem conteúdo local autoral
+  { path: "/servicos/formatacao-computador/curitiba", indexavel: true, canonical: "/servicos/formatacao-computador/curitiba", sitemap: true, pai: "/servicos/formatacao" },
+  { path: "/servicos/remocao-virus/curitiba", indexavel: true, canonical: "/servicos/remocao-virus/curitiba", sitemap: true, pai: "/servicos/remocao-de-virus" },
+  { path: "/servicos/upgrade-ssd/curitiba", indexavel: true, canonical: "/servicos/upgrade-ssd/curitiba", sitemap: true, pai: "/servicos/upgrade-ssd-ram" },
   // Rodada 5C — promovidos por intenção local (logística própria)
   { path: "/servicos/conserto-notebook/curitiba", indexavel: true, canonical: "/servicos/conserto-notebook/curitiba", sitemap: true, pai: "/servicos/manutencao-de-notebook" },
   { path: "/servicos/conserto-pc/curitiba", indexavel: true, canonical: "/servicos/conserto-pc/curitiba", sitemap: true, pai: "/servicos/manutencao-de-computador" },

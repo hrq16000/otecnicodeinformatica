@@ -1,0 +1,353 @@
+{
+  "cidade": {
+    "slug": "sao-jose-dos-pinhais",
+    "nome": "São José dos Pinhais",
+    "parent": "/tecnico-informatica-sao-jose-pinhais"
+  },
+  "paginas": {
+    "conserto-notebook": {
+      "path": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "parent": "/servicos/manutencao-de-notebook",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "cidadeNome": "São José dos Pinhais",
+      "nome": "Conserto de Notebook",
+      "intentGlobal": "entender o serviço de manutenção de notebook: sintomas, causas, peças e procedimentos",
+      "intentLocal": "contratar conserto de notebook em São José dos Pinhais sabendo como funciona a coleta intermunicipal, a janela de rota e o custo de deslocamento",
+      "title": "Conserto de Notebook em São José dos Pinhais",
+      "description": "Conserto de notebook em São José dos Pinhais: triagem no WhatsApp, coleta combinada por rota do dia e bancada. Deslocamento e prazo informados antes.",
+      "h1": "Conserto de notebook em São José dos Pinhais",
+      "subtitulo": "Como funciona contratar o conserto do seu notebook em São José dos Pinhais: rota de coleta, janela de atendimento, custo de deslocamento e o que resolvemos antes de sair do lugar.",
+      "blocos": [
+        {
+          "titulo": "Rota do dia: por que o agendamento em São José dos Pinhais funciona diferente",
+          "paragrafos": [
+            "São José dos Pinhais não faz parte da agenda de bairro em bairro que usamos na cidade-sede. Aqui o atendimento é organizado por rota: reunimos os chamados confirmados da região e definimos uma janela de deslocamento, normalmente por período. Isso significa que o horário é combinado com antecedência e confirmado no dia, em vez de encaixado a qualquer hora.",
+            "Na prática, quem procura o conserto de um notebook em São José dos Pinhais recebe duas informações logo na triagem: qual é a próxima janela disponível para a região e se o caso pode ser resolvido antes disso por acesso remoto. Nenhum deslocamento é iniciado sem essa confirmação, e nenhuma data é prometida sem que a rota exista de fato."
+          ]
+        },
+        {
+          "titulo": "Coleta combinada do aparelho e devolução",
+          "paragrafos": [
+            "Notebook é portátil, e em São José dos Pinhais isso pesa mais do que em Curitiba: como o deslocamento é intermunicipal, a coleta costuma sair mais barata e mais rápida que uma visita para diagnóstico. Combinamos endereço, ponto de referência e horário dentro da janela da rota, registramos o estado do aparelho na retirada e informamos o número de acompanhamento pelo WhatsApp.",
+            "A devolução acontece na rota seguinte da região, após a aprovação do orçamento. Se o reparo depender de peça encomendada, o prazo do fornecedor entra na conta e é informado por escrito antes de qualquer aprovação — não existe cobrança por tentativa nem por diagnóstico já combinado."
+          ]
+        },
+        {
+          "titulo": "Quando a visita ao endereço compensa",
+          "paragrafos": [
+            "A visita continua disponível para quem não pode ficar sem o equipamento no local: home office com máquina única, consultório com prontuário aberto, escritório pequeno em que o notebook fica atrelado a impressora, leitor ou sistema instalado. Nesses casos vamos até o endereço dentro da janela combinada.",
+            "A regra comercial de deslocamento é a mesma de todo o atendimento: dentro do raio previsto não há adicional conforme a modalidade; acima dele, o excedente é cobrado por quilômetro e informado antes de você confirmar. Você sempre sabe o custo do deslocamento antes de o técnico sair."
+          ]
+        },
+        {
+          "titulo": "Remoto primeiro, quando o sintoma permite",
+          "paragrafos": [
+            "Boa parte dos chamados de notebook que chegam de São José dos Pinhais não exige presença física: lentidão após atualização, aplicativo que não abre, impressora que sumiu da rede, e-mail travado, conta bloqueada, senha perdida em programa de trabalho. Nesses casos abrimos acesso remoto no mesmo dia e evitamos completamente o deslocamento.",
+            "Só encaminhamos para coleta ou visita o que realmente depende de mão em hardware: aparelho que não liga, tela quebrada, conector de energia solto, superaquecimento, teclado com teclas mortas, dobradiça rompida. Essa triagem é o que mantém o custo final honesto para quem está fora da cidade-sede."
+          ]
+        },
+        {
+          "titulo": "Cobertura dentro do município",
+          "paragrafos": [
+            "Atendemos a área urbana de São José dos Pinhais, incluindo a região central, os bairros ao longo da avenida Rui Barbosa, o entorno do aeroporto Afonso Pena e os bairros residenciais mais próximos da divisa com Curitiba. Regiões rurais e distritos afastados dependem de confirmação de rota — dizemos isso na triagem em vez de aceitar o chamado e desmarcar depois.",
+            "Se o seu endereço estiver fora da rota da semana, a alternativa oferecida é a entrega do aparelho em bancada ou o atendimento remoto. Preferimos indicar o caminho possível a manter um pedido aberto sem data."
+          ]
+        },
+        {
+          "titulo": "Para empresas e comércios da região",
+          "paragrafos": [
+            "O entorno logístico e industrial do município gera um perfil de chamado diferente do residencial: várias máquinas do mesmo modelo, notebooks usados em turno e equipamentos que não podem parar no meio do expediente. Para esses casos combinamos a coleta de mais de um aparelho na mesma rota e a devolução escalonada, para que a operação nunca fique sem máquina.",
+            "Quando o contrato envolve manutenção contínua, o acompanhamento passa a ser feito pelo mesmo canal, com registro do que foi trocado em cada equipamento. Detalhes técnicos de cada reparo continuam descritos na página do serviço, que é onde a parte técnica é aprofundada."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês atendem São José dos Pinhais mesmo não estando na cidade?",
+          "resposta": "Sim. O atendimento é organizado por rota da região, com janela confirmada antes do deslocamento. Se não houver rota próxima na data, oferecemos acesso remoto ou entrega do aparelho em bancada."
+        },
+        {
+          "pergunta": "É possível pedir coleta do notebook em São José dos Pinhais?",
+          "resposta": "Sim, e costuma ser a melhor opção para reparos de bancada. Combinamos endereço e horário dentro da janela da rota, registramos o estado do aparelho na retirada e devolvemos após a aprovação do orçamento."
+        },
+        {
+          "pergunta": "Como funciona o custo de deslocamento até São José dos Pinhais?",
+          "resposta": "Dentro do raio previsto não há adicional conforme a modalidade; acima do raio, o excedente é cobrado por quilômetro. O valor é informado na triagem, antes de você confirmar o atendimento."
+        },
+        {
+          "pergunta": "Preciso levar o notebook até algum lugar?",
+          "resposta": "Não é obrigatório. Você pode optar pela coleta, pela visita ao endereço ou pela entrega em bancada — o que for mais rápido para o seu caso é indicado na triagem pelo WhatsApp."
+        },
+        {
+          "pergunta": "Dá para resolver sem ninguém ir até minha casa?",
+          "resposta": "Em muitos casos sim. Problemas de sistema, rede, impressora, e-mail e programas costumam ser resolvidos por acesso remoto no mesmo dia, sem deslocamento e sem espera de rota."
+        }
+      ],
+      "interlinks": [
+        "/servicos/manutencao-de-notebook",
+        "/tecnico-informatica-sao-jose-pinhais",
+        "/areas-atendidas",
+        "/coleta-e-entrega",
+        "/problemas/notebook-nao-liga"
+      ]
+    },
+    "conserto-pc": {
+      "path": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "parent": "/servicos/manutencao-de-computador",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "cidadeNome": "São José dos Pinhais",
+      "nome": "Conserto de PC",
+      "intentGlobal": "entender a manutenção de computador de mesa: diagnóstico, componentes, limpeza e troca de peças",
+      "intentLocal": "contratar conserto de computador de mesa em São José dos Pinhais, onde o gabinete raramente se desloca e a visita é a modalidade padrão",
+      "title": "Conserto de PC em São José dos Pinhais | Visita Agendada",
+      "description": "Conserto de computador de mesa em São José dos Pinhais com visita agendada por rota, diagnóstico no local e transporte do gabinete só quando necessário.",
+      "h1": "Conserto de PC em São José dos Pinhais",
+      "subtitulo": "Computador de mesa não é equipamento de carregar: veja como a visita é agendada em São José dos Pinhais, quando o gabinete precisa sair e como fica o transporte.",
+      "blocos": [
+        {
+          "titulo": "Por que o desktop muda a logística no município",
+          "paragrafos": [
+            "Diferente do notebook, o computador de mesa envolve monitor, cabos, estabilizador, periféricos e, muitas vezes, uma instalação inteira montada em cima da mesa do cliente. Em São José dos Pinhais, onde o deslocamento é intermunicipal, isso empurra o atendimento para a visita: é mais barato levar o técnico uma vez do que transportar um gabinete duas.",
+            "Por isso, quando o chamado é de desktop, a triagem já tenta reunir tudo o que será feito na mesma ida: limpeza interna, troca de pasta térmica, revisão de fonte, instalação de SSD, organização de cabos e ajuste do sistema. Uma visita bem preparada evita uma segunda cobrança de deslocamento."
+          ]
+        },
+        {
+          "titulo": "O que perguntamos antes de agendar a visita",
+          "paragrafos": [
+            "Antes de marcar, pedimos três informações: o que a máquina faz (não liga, reinicia, trava, faz barulho, demora a abrir), há quanto tempo isso acontece e se houve queda de energia, mudança de lugar ou instalação recente. Com isso decidimos quais peças de reposição levar na rota, em vez de descobrir a falta no meio do serviço.",
+            "Essa preparação é o que permite resolver a maioria dos casos em uma única ida. Quando o diagnóstico apontar necessidade de peça específica, informamos o prazo de aquisição antes de continuar e você decide se aprova."
+          ]
+        },
+        {
+          "titulo": "Quando o gabinete precisa sair do endereço",
+          "paragrafos": [
+            "Alguns reparos não têm como ser feitos na mesa do cliente: teste demorado de fonte e memória, reparo de placa em bancada, montagem que exige troca de vários componentes ao mesmo tempo. Nesses casos levamos apenas o gabinete, deixando monitor, teclado, mouse e cabos no local.",
+            "O gabinete é retirado com registro do estado, transportado com proteção e devolvido na rota seguinte da região, reinstalado e testado com você presente. Você não fica sem monitor nem sem periférico enquanto isso."
+          ]
+        },
+        {
+          "titulo": "Atendimento remoto como triagem prévia",
+          "paragrafos": [
+            "Se o computador ainda liga e chega ao sistema, o primeiro passo pode ser remoto. Lentidão, erro de atualização, programa que não abre, impressora sumida e configuração de conta são resolvidos por acesso à distância no mesmo dia, sem esperar rota e sem cobrança de deslocamento.",
+            "Quando o remoto mostra que o problema é físico — disco falhando, memória com erro, fonte instável — a visita já é agendada com o diagnóstico adiantado, o que encurta bastante o tempo de máquina parada."
+          ]
+        },
+        {
+          "titulo": "Custo, deslocamento e transparência",
+          "paragrafos": [
+            "A referência comercial é a mesma de toda a operação: a visita de inspeção tem valor informado antes do agendamento e o deslocamento segue a política de raio e quilometragem excedente. Peças e mão de obra são apresentadas separadamente, para você saber exatamente o que está pagando.",
+            "Nada é executado sem aprovação. Se, durante o diagnóstico, ficar claro que o reparo não compensa diante do valor da máquina, dizemos isso — trocar um equipamento antigo às vezes é a recomendação mais honesta."
+          ]
+        },
+        {
+          "titulo": "Escritórios, lojas e consultórios do município",
+          "paragrafos": [
+            "Em ambientes comerciais de São José dos Pinhais o desktop costuma estar ligado a impressora fiscal, leitor, catraca ou sistema de gestão. Nesses casos a visita é agendada fora do horário de pico do estabelecimento e testamos o conjunto inteiro, não só a máquina.",
+            "Quando são várias estações, organizamos o atendimento por etapas na mesma rota, para que o balcão ou o caixa nunca fique totalmente parado. O conteúdo técnico sobre componentes e diagnóstico continua na página do serviço."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês vão até São José dos Pinhais para consertar computador de mesa?",
+          "resposta": "Sim. Para desktop a visita é a modalidade padrão, agendada dentro da janela de rota da região e confirmada antes do deslocamento."
+        },
+        {
+          "pergunta": "Preciso desmontar o computador e levar até vocês?",
+          "resposta": "Não. Na maior parte dos casos o serviço é feito no seu endereço. Se o reparo exigir bancada, levamos somente o gabinete e deixamos monitor, teclado, mouse e cabos com você."
+        },
+        {
+          "pergunta": "Dá para resolver o problema do meu PC sem visita?",
+          "resposta": "Se a máquina liga e chega ao sistema, muitas vezes sim: fazemos acesso remoto no mesmo dia. A visita fica reservada para falhas físicas comprovadas."
+        },
+        {
+          "pergunta": "Como é cobrado o deslocamento até o município?",
+          "resposta": "Segue a política de raio de atendimento e quilometragem excedente, informada na triagem. Você aprova o custo total antes de o técnico sair."
+        },
+        {
+          "pergunta": "Atendem empresas e comércios em São José dos Pinhais?",
+          "resposta": "Sim. Agendamos fora do horário de pico e, quando há várias estações, o atendimento é feito por etapas na mesma rota para não parar a operação."
+        }
+      ],
+      "interlinks": [
+        "/servicos/manutencao-de-computador",
+        "/tecnico-informatica-sao-jose-pinhais",
+        "/areas-atendidas",
+        "/empresas",
+        "/problemas/computador-lento"
+      ]
+    },
+    "redes-wifi": {
+      "path": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "parent": "/servicos/redes-e-wifi",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "cidadeNome": "São José dos Pinhais",
+      "nome": "Redes e Wi-Fi",
+      "intentGlobal": "entender projeto e correção de redes: cabeamento, roteadores, canais, repetidores e mesh",
+      "intentLocal": "resolver Wi-Fi e rede em São José dos Pinhais, onde o serviço é sempre presencial e depende de medição no imóvel",
+      "title": "Wi-Fi e Rede em São José dos Pinhais | Visita Técnica",
+      "description": "Correção de Wi-Fi e rede em São José dos Pinhais: medição de sinal no imóvel, ajuste de roteador e cabeamento com visita agendada por rota.",
+      "h1": "Wi-Fi e rede em São José dos Pinhais",
+      "subtitulo": "Rede não se conserta à distância: veja como é feita a medição no imóvel, o que muda em casas maiores e terrenos amplos do município e como agendar.",
+      "blocos": [
+        {
+          "titulo": "Rede é serviço presencial — e isso define o agendamento",
+          "paragrafos": [
+            "Wi-Fi depende de parede, distância, interferência e do ponto onde o roteador foi instalado. Nenhuma dessas variáveis pode ser medida por acesso remoto, então todo chamado de rede em São José dos Pinhais vira visita técnica. O que o remoto resolve é apenas configuração de senha, rede de convidados e ajuste pontual do roteador.",
+            "Por isso, para esse serviço, a rota da região não é só uma conveniência: é a própria condição do atendimento. Confirmamos a janela, levamos o equipamento de medição e reservamos tempo suficiente para percorrer o imóvel inteiro."
+          ]
+        },
+        {
+          "titulo": "Como é feita a medição no imóvel",
+          "paragrafos": [
+            "Chegando ao endereço, medimos o sinal cômodo a cômodo e nos pontos onde você realmente usa a internet — não só ao lado do roteador. Registramos a potência recebida, a interferência de redes vizinhas e a diferença entre as faixas de frequência disponíveis.",
+            "Só depois disso apresentamos o caminho: reposicionar o roteador, trocar o canal, passar cabo até um segundo ponto, instalar um equipamento adicional ou substituir o aparelho que a operadora deixou. A recomendação vem da medição, nunca de um pacote fechado vendido antes de entrar na casa."
+          ]
+        },
+        {
+          "titulo": "O que muda nos imóveis de São José dos Pinhais",
+          "paragrafos": [
+            "Boa parte das casas atendidas no município tem terreno maior, edícula, área de serviço afastada ou construção em etapas, com paredes de espessuras diferentes. Isso cria pontos cegos que um único roteador no meio da sala não cobre, mesmo sendo um aparelho novo.",
+            "Nesses casos a solução costuma ser cabo até um segundo ponto de distribuição, e não mais um repetidor empilhado. Falamos isso abertamente porque repetidor mal posicionado é a causa mais comum de rede lenta que já encontramos na região."
+          ]
+        },
+        {
+          "titulo": "Rede em comércios e escritórios do município",
+          "paragrafos": [
+            "Em estabelecimentos comerciais o problema raramente é só o Wi-Fi: costuma envolver máquina de cartão, impressora fiscal, câmeras e computador do caixa disputando a mesma rede. O trabalho é separar o que é operação do que é acesso de cliente e garantir que o essencial não caia no horário de movimento.",
+            "Quando há mais de um ambiente ou um segundo pavimento, o projeto é dividido em etapas executadas na mesma visita sempre que possível, para concentrar o deslocamento em uma única ida."
+          ]
+        },
+        {
+          "titulo": "Agendamento, tempo e custo",
+          "paragrafos": [
+            "Chamados de rede levam mais tempo que um atendimento comum: a medição, os testes e a validação final consomem boa parte do período. Por isso agendamos com janela dedicada dentro da rota da região e informamos, antes, o valor da visita e a regra de deslocamento por quilometragem.",
+            "Materiais como cabo, conector e canaleta são orçados separadamente da mão de obra, e a instalação só começa depois da sua aprovação."
+          ]
+        },
+        {
+          "titulo": "Validação antes de encerrar",
+          "paragrafos": [
+            "Antes de sair, refazemos a medição nos mesmos pontos do início e mostramos a diferença. Se algum cômodo continuar fora do padrão, isso é registrado com a explicação técnica do motivo, em vez de ser deixado sem resposta.",
+            "Você recebe o resumo do que foi alterado — posição, canal, senha, equipamentos e pontos de cabo — para não depender de memória caso precise chamar alguém no futuro."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Vocês fazem instalação de rede em São José dos Pinhais?",
+          "resposta": "Sim, com visita agendada dentro da janela de rota da região. Rede exige medição no imóvel, então esse serviço nunca é feito apenas por acesso remoto."
+        },
+        {
+          "pergunta": "Meu Wi-Fi não pega nos fundos da casa. Dá para resolver?",
+          "resposta": "Na maioria dos casos sim. Medimos o sinal ponto a ponto e indicamos se a solução é reposicionar o roteador, passar cabo até um segundo ponto ou instalar equipamento adicional."
+        },
+        {
+          "pergunta": "Repetidor resolve?",
+          "resposta": "Depende da medição. Em imóveis maiores, comuns no município, o repetidor costuma piorar a estabilidade e o cabo até um segundo ponto entrega resultado melhor."
+        },
+        {
+          "pergunta": "Atendem comércio com máquina de cartão e impressora fiscal?",
+          "resposta": "Sim. Nesses casos separamos a rede de operação da rede de clientes e testamos todos os equipamentos antes de encerrar o atendimento."
+        },
+        {
+          "pergunta": "Quanto tempo demora uma visita de rede?",
+          "resposta": "Mais que um atendimento comum, porque inclui medição inicial, execução e nova medição de validação. A janela é reservada no agendamento e informada antes."
+        }
+      ],
+      "interlinks": [
+        "/servicos/redes-e-wifi",
+        "/tecnico-informatica-sao-jose-pinhais",
+        "/areas-atendidas",
+        "/problemas/wifi-instavel",
+        "/atendimento-domicilio"
+      ]
+    },
+    "backup-recuperacao": {
+      "path": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "parent": "/servicos/recuperacao-de-dados",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "cidadeNome": "São José dos Pinhais",
+      "nome": "Backup e Recuperação de Dados",
+      "intentGlobal": "entender técnicas de backup e recuperação: mídias, falhas lógicas, falhas físicas, chances reais e limites",
+      "intentLocal": "acionar backup ou recuperação de dados em São José dos Pinhais com o cuidado no transporte da mídia e prazos honestos de bancada",
+      "title": "Recuperação de Dados em São José dos Pinhais | Coleta",
+      "description": "Backup e recuperação de dados em São José dos Pinhais: coleta cuidadosa da mídia, avaliação em bancada e prazo informado antes de qualquer tentativa.",
+      "h1": "Backup e recuperação de dados em São José dos Pinhais",
+      "subtitulo": "O que fazer primeiro, como a mídia é retirada e transportada com segurança e por que esse serviço é o único em que pedimos para você não tentar nada antes.",
+      "blocos": [
+        {
+          "titulo": "A primeira orientação é parar de usar o equipamento",
+          "paragrafos": [
+            "Quando o chamado é perda de arquivo, disco que não aparece ou pen drive que pede formatação, a instrução inicial dada ainda no WhatsApp é desligar o equipamento e não instalar programas de recuperação. Cada nova gravação diminui a chance de trazer o arquivo de volta, e isso vale muito mais que a pressa de resolver sozinho.",
+            "Essa orientação é dada antes de qualquer combinação de horário, justamente porque o cliente de São José dos Pinhais vai esperar a rota da região. O tempo de espera não prejudica o resultado; o uso continuado do disco, sim."
+          ]
+        },
+        {
+          "titulo": "Retirada e transporte da mídia",
+          "paragrafos": [
+            "Esse é o único serviço em que o transporte exige cuidado especial. A mídia é retirada do equipamento no local, embalada com proteção antiestática e registrada com identificação e estado aparente. Discos com ruído mecânico não são ligados novamente durante o trajeto.",
+            "Se você preferir, é possível entregar apenas o disco ou o pen drive, sem mover o computador inteiro. Para quem está fora da cidade-sede, isso costuma ser o caminho mais rápido para começar a avaliação."
+          ]
+        },
+        {
+          "titulo": "Avaliação antes de qualquer promessa",
+          "paragrafos": [
+            "Na bancada, o primeiro passo é distinguir falha lógica de falha física, porque as duas têm custos, prazos e chances completamente diferentes. Só depois dessa avaliação informamos o que é possível, o que é improvável e o que está fora do nosso alcance.",
+            "Não existe garantia de recuperação total, e não prometemos isso para fechar serviço. Quando o caso exige sala limpa ou equipamento que não temos, dizemos claramente — e você decide se quer seguir por outro caminho."
+          ]
+        },
+        {
+          "titulo": "Prazos reais para quem está no município",
+          "paragrafos": [
+            "Recuperação não tem prazo de balcão: a leitura de um disco danificado pode levar horas ou dias, e apressar o processo aumenta o risco de perder o que ainda está legível. Informamos uma estimativa após a avaliação e mantemos o acompanhamento pelo WhatsApp.",
+            "A devolução da mídia e da cópia dos arquivos acontece na rota seguinte da região ou por retirada combinada, conforme o que for mais rápido para você."
+          ]
+        },
+        {
+          "titulo": "Backup preventivo depois do susto",
+          "paragrafos": [
+            "Boa parte de quem aciona esse serviço no município nunca teve rotina de backup. Depois da recuperação, configuramos uma rotina simples: uma cópia local e uma cópia fora do equipamento, com verificação periódica de que a cópia está mesmo sendo feita.",
+            "Para casa, isso costuma ser um disco externo mais uma nuvem. Para escritórios da região, o desenho envolve também o teste de restauração — porque backup que nunca foi restaurado não é backup, é esperança."
+          ]
+        },
+        {
+          "titulo": "Sigilo dos arquivos",
+          "paragrafos": [
+            "Arquivos pessoais, fotos, documentos de escritório e dados de clientes passam por bancada, então o compromisso de sigilo é parte do serviço. Os dados recuperados são entregues a você e removidos das nossas mídias de trabalho após a confirmação da entrega.",
+            "Detalhes técnicos sobre tipos de falha, mídias suportadas e limites de cada procedimento ficam na página do serviço, que é a referência para a parte teórica."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "pergunta": "Perdi arquivos e moro em São José dos Pinhais. O que faço agora?",
+          "resposta": "Desligue o equipamento e não instale programas de recuperação. Fale pelo WhatsApp: combinamos a retirada da mídia na próxima rota da região ou a entrega direta para avaliação."
+        },
+        {
+          "pergunta": "Preciso levar o computador inteiro?",
+          "resposta": "Não. Na maioria dos casos basta o disco, o SSD ou o pen drive. Retiramos a mídia no local ou você entrega apenas ela, o que agiliza bastante o início da avaliação."
+        },
+        {
+          "pergunta": "Vocês garantem que vão recuperar tudo?",
+          "resposta": "Não. Nenhuma recuperação séria promete resultado antes da avaliação. Distinguimos falha lógica de falha física e informamos as chances reais, incluindo os casos em que o serviço está fora do nosso alcance."
+        },
+        {
+          "pergunta": "Quanto tempo demora?",
+          "resposta": "Depende do estado da mídia: a leitura pode levar de horas a dias. A estimativa é dada após a avaliação em bancada e o andamento é acompanhado pelo WhatsApp."
+        },
+        {
+          "pergunta": "Depois vocês ajudam a configurar backup?",
+          "resposta": "Sim. Configuramos uma rotina com cópia local e cópia fora do equipamento e, no caso de escritórios, incluímos o teste de restauração para confirmar que o backup funciona."
+        }
+      ],
+      "interlinks": [
+        "/servicos/recuperacao-de-dados",
+        "/tecnico-informatica-sao-jose-pinhais",
+        "/areas-atendidas",
+        "/seguranca-dos-dados",
+        "/problemas/arquivos-apagados"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.admin_link_os_lead(text, uuid) FROM anon;

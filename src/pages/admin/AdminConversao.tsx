@@ -16,6 +16,10 @@ import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
 import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
+import { JornadaSankey, type EventoJornada } from "@/components/admin/JornadaSankey";
+import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
+import { QualidadeDados, type EventoQualidade } from "@/components/admin/QualidadeDados";
+import type { EventoOportunidade } from "@/lib/oportunidadeAnalise";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).

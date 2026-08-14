@@ -110,6 +110,42 @@ const AdminConversao = () => {
   }, [carregar]);
 
   /**
+   * RODADA 7 — fechamento operacional: leads reais e OS já vinculada à
+   * jornada. `null` significa "não carregado", nunca zero.
+   */
+  const [leads, setLeads] = useState<number | null>(null);
+  const [osVinculada, setOsVinculada] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    let vivo = true;
+    void (async () => {
+      const faixa = { de: `${inicio}T00:00:00Z`, ate: `${fim}T23:59:59Z` };
+      const [{ count: leadCount }, { count: osCount }] = await Promise.all([
+        supabase
+          .from("funnel_submissions")
+          .select("id", { count: "exact", head: true })
+          .gte("created_at", faixa.de)
+          .lte("created_at", faixa.ate),
+        supabase
+          .from("ordens_servico")
+          .select("id", { count: "exact", head: true })
+          .not("journey_id", "is", null)
+          .gte("created_at", faixa.de)
+          .lte("created_at", faixa.ate),
+      ]);
+      if (!vivo) return;
+      setLeads(typeof leadCount === "number" ? leadCount : null);
+      setOsVinculada(typeof osCount === "number" ? osCount : null);
+    })();
+    return () => {
+      vivo = false;
+    };
+  }, [isAdmin, inicio, fim]);
+
+
+
+  /**
    * Tempo real: novos cliques entram na lista sem recarregar a consulta.
    * Respeita os mesmos filtros de tela e o corte de QA (filtrarComerciais).
    */

@@ -53,11 +53,45 @@ async function buscar() {
   return res.json();
 }
 
+/** RODADA 8D — funil por canal e por landing (só aquisição; internal fica fora). */
+const ETAPA = {
+  cta_click: "cta",
+  funnel_open: "triagem",
+  triage_start: "triagem",
+  triage_complete: "triagem",
+  wa_click: "whatsapp",
+  whatsapp_open: "whatsapp",
+  n: "whatsapp",
+  lead_submitted: "lead",
+  wa_funnel_submit: "lead",
+};
+const novoBucket = () => ({ sessoes: new Set(), cta: new Set(), triagem: new Set(), whatsapp: new Set(), lead: new Set() });
+const tamanhos = (b) => ({
+  sessions: b.sessoes.size,
+  cta: b.cta.size,
+  triage: b.triagem.size,
+  whatsapp: b.whatsapp.size,
+  lead: b.lead.size,
+});
+
 const linhas = [];
 const eventos = await buscar();
-linhas.push("# Baseline de aquisição — Rodada 8C", "");
+const resumo = {
+  gerado_em: new Date().toISOString(),
+  janela_dias: DIAS,
+  desde,
+  evidencia: eventos ? "ok" : "sem_evidencia",
+  eventos: eventos?.length ?? 0,
+  sessoes: { total: 0, aquisicao: 0, internal: 0, desconhecido: 0, bot: 0 },
+  reason_codes: {},
+  por_canal: [],
+  por_landing: [],
+  veredito: "LOW_EVIDENCE",
+};
+
+linhas.push("# Baseline de aquisição — Rodadas 8C/8D", "");
 linhas.push(`- Janela: últimos ${DIAS} dias (desde ${desde.slice(0, 10)})`);
-linhas.push(`- Gerado em: ${new Date().toISOString()}`, "");
+linhas.push(`- Gerado em: ${resumo.gerado_em}`, "");
 
 if (!eventos) {
   linhas.push("> **Sem evidência.** Credenciais ausentes ou consulta recusada.");
@@ -68,31 +102,90 @@ if (!eventos) {
   const grupos = new Map();
   const reasons = new Map();
   const sessoes = new Map();
+  const canais = new Map();
+  const landings = new Map();
+
   for (const ev of eventos) {
     const { grupo, reason } = classificar(ev);
     grupos.set(grupo, (grupos.get(grupo) || 0) + 1);
-    reasons.set(`${grupo} · ${reason}`, (reasons.get(`${grupo} · ${reason}`) || 0) + 1);
-    if (ev.session_id) sessoes.set(ev.session_id, grupo);
+    const chaveReason = `${grupo} · ${reason}`;
+    reasons.set(chaveReason, (reasons.get(chaveReason) || 0) + 1);
+    const sid = ev.session_id || ev.created_at || "sessao-desconhecida";
+    sessoes.set(sid, grupo);
+    if (grupo !== "aquisicao") continue;
+
+    const canal = (ev.utm_source || ev.attribution_channel || "unknown").toLowerCase();
+    const landing = ev.landing_route || ev.path || "(sem rota)";
+    for (const [mapa, chave] of [
+      [canais, canal],
+      [landings, landing],
+    ]) {
+      const b = mapa.get(chave) ?? novoBucket();
+      b.sessoes.add(sid);
+      const etapa = ETAPA[ev.event_type];
+      if (etapa) b[etapa].add(sid);
+      mapa.set(chave, b);
+    }
   }
+
   const total = eventos.length;
   const pct = (n) => `${Math.round((n / total) * 1000) / 10}%`;
   linhas.push("## Eventos por grupo", "", "| Grupo | Eventos | % |", "| --- | ---: | ---: |");
-  for (const [g, n] of [...grupos].sort((a, b) => b[1] - a[1]))
-    linhas.push(`| ${g} | ${n} | ${pct(n)} |`);
+  for (const [g, n] of [...grupos].sort((a, b) => b[1] - a[1])) linhas.push(`| ${g} | ${n} | ${pct(n)} |`);
+
   linhas.push("", "## Reason codes", "", "| Grupo · motivo | Eventos |", "| --- | ---: |");
-  for (const [r, n] of [...reasons].sort((a, b) => b[1] - a[1]).slice(0, 20))
+  for (const [r, n] of [...reasons].sort((a, b) => b[1] - a[1]).slice(0, 20)) {
     linhas.push(`| ${r} | ${n} |`);
-  const sessoesAquisicao = [...sessoes.values()].filter((g) => g === "aquisicao").length;
+    resumo.reason_codes[r] = n;
+  }
+
+  const contarGrupo = (g) => [...sessoes.values()].filter((v) => v === g).length;
+  resumo.sessoes = {
+    total: sessoes.size,
+    aquisicao: contarGrupo("aquisicao"),
+    internal: contarGrupo("interno"),
+    desconhecido: contarGrupo("desconhecido"),
+    bot: contarGrupo("bot"),
+  };
+
+  const tabela = (titulo, rotulo, mapa) => {
+    linhas.push(
+      "",
+      `## ${titulo}`,
+      "",
+      `| ${rotulo} | Sessões | CTA | Triagem | WhatsApp | Lead |`,
+      "| --- | ---: | ---: | ---: | ---: | ---: |",
+    );
+    const itens = [...mapa.entries()].sort((a, b) => b[1].sessoes.size - a[1].sessoes.size);
+    if (itens.length === 0) linhas.push("| (sem aquisição na janela) | 0 | 0 | 0 | 0 | 0 |");
+    for (const [chave, b] of itens) {
+      const t = tamanhos(b);
+      linhas.push(`| ${chave} | ${t.sessions} | ${t.cta} | ${t.triage} | ${t.whatsapp} | ${t.lead} |`);
+    }
+    return itens.map(([chave, b]) => ({ chave, ...tamanhos(b) }));
+  };
+
+  resumo.por_canal = tabela("Funil por canal (somente aquisição)", "Canal", canais);
+  resumo.por_landing = tabela("Funil por landing (somente aquisição)", "Landing", landings);
+
+  resumo.veredito = resumo.sessoes.aquisicao >= 25 ? "AMOSTRA_INICIAL" : "LOW_EVIDENCE";
   linhas.push(
     "",
-    `- Sessões distintas: ${sessoes.size}`,
-    `- Sessões de aquisição real: ${sessoesAquisicao}`,
-    sessoesAquisicao === 0
+    `- Sessões distintas: ${resumo.sessoes.total}`,
+    `- Sessões de aquisição real: ${resumo.sessoes.aquisicao}`,
+    `- Sessões internas/QA (fora da soma): ${resumo.sessoes.internal}`,
+    `- Veredito de amostra: **${resumo.veredito}**`,
+    resumo.sessoes.aquisicao === 0
       ? "- **Veredito:** sem aquisição externa mensurável nesta janela."
       : "- **Veredito:** há aquisição externa mensurável; comparar com a próxima janela antes de concluir tendência.",
   );
 }
 
+const markdown = `${linhas.join("\n")}\n`;
 mkdirSync("docs/relatorios", { recursive: true });
-writeFileSync(SAIDA, `${linhas.join("\n")}\n`);
-console.log(`✔ Relatório gerado em ${SAIDA}`);
+mkdirSync("reports", { recursive: true });
+writeFileSync(SAIDA, markdown);
+writeFileSync(SAIDA_MD, markdown);
+writeFileSync(SAIDA_JSON, `${JSON.stringify(resumo, null, 2)}\n`);
+console.log(`✔ Relatório gerado em ${SAIDA}, ${SAIDA_MD} e ${SAIDA_JSON}`);
+

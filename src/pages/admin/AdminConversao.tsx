@@ -753,7 +753,9 @@ const AdminConversao = () => {
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
 
       <div className="mt-6 space-y-6">
+        <PainelExperimentosCro rows={rows as unknown as EventoExperimento[]} />
         <JornadaSankey
+
           rows={rows as unknown as EventoOportunidade[]}
           leads={leads}
           osIntegrada={osVinculada}

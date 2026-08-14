@@ -35,14 +35,9 @@ describe("croExposicao", () => {
   });
 
   it("emite uma única exposição por sessão, sem PII", () => {
-    const decidir = vi.spyOn({ f: 0 }, "constructor" as never);
-    decidir.mockRestore?.();
-    // exposição via registro injetado
-    const params = { path: "/servicos/formatacao/curitiba", cidade: "curitiba", sessionId: "s2" };
-    const registro = [ativo];
-    // decidirExperimento aceita registro custom via croRodada7; replicamos o caminho:
-    const primeira = registrarExposicaoCom(registro, params);
-    const segunda = registrarExposicaoCom(registro, params);
+    const params = { path: "/servicos/formatacao/curitiba", cidade: "curitiba", sessionId: "s2", registro: [ativo] };
+    const primeira = registrarExposicao(params);
+    const segunda = registrarExposicao(params);
     expect(primeira.habilitado).toBe(true);
     expect(segunda.habilitado).toBe(true);
     expect(trackMock).toHaveBeenCalledTimes(1);
@@ -57,11 +52,3 @@ describe("croExposicao", () => {
   });
 });
 
-/** Helper: usa o registro injetado mantendo o mesmo caminho de exposição. */
-function registrarExposicaoCom(
-  registro: ExperimentoCro[],
-  params: { path: string; cidade?: string | null; sessionId: string },
-) {
-  const original = registro;
-  return registrarExposicao({ ...params, registro: original } as never);
-}

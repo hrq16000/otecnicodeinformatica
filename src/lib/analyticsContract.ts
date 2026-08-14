@@ -229,7 +229,10 @@ export const CONTEXT_KEYS = [
   "session_id",
   "journey_id",
   "event_id",
+  "experiment_id",
+  "variant",
 ] as const;
+
 
 /** Chaves proibidas — gate `check:analytics-event-contract` falha se aparecerem. */
 export const FORBIDDEN_CONTEXT_KEYS = [

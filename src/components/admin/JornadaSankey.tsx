@@ -27,6 +27,8 @@ export type JornadaSankeyProps = {
   leads?: number | null;
   /** OS vinculada à jornada: `null` = integração inexistente. */
   osIntegrada?: number | null;
+  /** Data (YYYY-MM-DD) inicial já carregada — define quais janelas são reais. */
+  inicioCarregado?: string;
 };
 
 const DIMENSOES: { valor: Dimensao; rotulo: string }[] = [

@@ -157,6 +157,11 @@ export const AlertaIndexacao = () => {
                 <p className={`text-[11px] ${ruins ? "text-destructive" : "text-muted-foreground"}`}>
                   {ruins ? `${ruins} com problema` : "todas indexadas"}
                 </p>
+                {lote.some((u) => u.verdict === "UNKNOWN") && (
+                  <span className="mt-1 inline-block rounded-full border border-destructive bg-destructive/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-destructive">
+                    {lote.filter((u) => u.verdict === "UNKNOWN").length} UNKNOWN
+                  </span>
+                )}
               </div>
             );
           })}
@@ -171,9 +176,16 @@ export const AlertaIndexacao = () => {
             </li>
           ))}
           {criticas.slice(0, 12).map((u) => (
-            <li key={u.path} className="text-muted-foreground">
-              <code>{u.path}</code> — {u.verdict}
-              {u.coverageState ? ` · ${u.coverageState}` : ""}
+            <li key={u.path} className="flex flex-wrap items-center gap-2 text-muted-foreground">
+              <span
+                className={`rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${CLASSE_BADGE[severidade(u)]}`}
+              >
+                {u.verdict}
+              </span>
+              <code>{u.path}</code>
+              <span className="rounded bg-muted px-1.5 py-0.5 font-mono text-[10px]">
+                reason: {reasonCode(u)}
+              </span>
             </li>
           ))}
         </ul>

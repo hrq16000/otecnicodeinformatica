@@ -242,7 +242,9 @@
     "check:local-regression:alert": "node scripts/check-local-regression.mjs dist --alert",
     "report:local-doorway": "node scripts/report-local-doorway.mjs dist",
     "lh:local": "lhci autorun --config=lighthouserc.local.json",
-    "check:cro-experiment": "node scripts/check-cro-experiment.mjs"
+    "check:cro-experiment": "node scripts/check-cro-experiment.mjs",
+    "check:experiment-readiness": "node scripts/check-experiment-readiness.mjs",
+    "check:experiment-activation": "node scripts/check-experiment-activation.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

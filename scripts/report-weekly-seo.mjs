@@ -27,7 +27,11 @@ const GATES = [
   { id: "trust-claims", label: "Claims de confiança e copy proibida", cmd: "npm run check:copy" },
   { id: "nap", label: "NAP / WhatsApp oficial", cmd: "npm run check:nap" },
   { id: "sitemap-source", label: "Manifesto × sitemap", cmd: "npm run check:sitemap-source" },
+  { id: "cro-experiment", label: "Integridade dos experimentos de CRO", cmd: "npm run check:cro-experiment" },
+  { id: "experiment-readiness", label: "Política de prontidão de experimento", cmd: "npm run check:experiment-readiness" },
+  { id: "experiment-activation", label: "Ativação auditável de experimento", cmd: "npm run check:experiment-activation" },
 ];
+
 
 /**
  * Taxonomia de conversão acompanhada no painel /admin/conversao.

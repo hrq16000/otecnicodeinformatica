@@ -20,6 +20,8 @@ import { JornadaSankey } from "@/components/admin/JornadaSankey";
 import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
 import { QualidadeDados, type EventoQualidade } from "@/components/admin/QualidadeDados";
 import { PainelExperimentosCro, type EventoExperimento } from "@/components/admin/PainelExperimentosCro";
+import { PainelReadinessExperimento } from "@/components/admin/PainelReadinessExperimento";
+import type { EventoReadiness } from "@/lib/experimentReadiness";
 
 import type { EventoOportunidade } from "@/lib/oportunidadeAnalise";
 
@@ -756,6 +758,7 @@ const AdminConversao = () => {
 
       <div className="mt-6 space-y-6">
         <PainelExperimentosCro rows={rows as unknown as EventoExperimento[]} />
+        <PainelReadinessExperimento rows={rows as unknown as EventoReadiness[]} />
         <JornadaSankey
 
           rows={rows as unknown as EventoOportunidade[]}

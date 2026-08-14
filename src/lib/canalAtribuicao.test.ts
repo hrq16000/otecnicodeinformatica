@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canalDoEvento, funilPorCanal } from "./canalAtribuicao";
+import { canalDoEvento, ehAquisicao, funilPorCanal } from "./canalAtribuicao";
 import { relatorioParaCsv, relatoriosParaHtml } from "./relatorioExport";
 
 describe("canalDoEvento", () => {

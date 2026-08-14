@@ -92,12 +92,63 @@ if (!/nao_definida|undefined/.test(contrato)) {
 // 4) Deduplicação por event_id.
 if (!/event_id/.test(funil)) erros.push("persistência sem event_id — dedupe impossível (FASE 36)");
 
+/* ─────────────────────────────────────────────────────────────────────────
+ * 5) DIVERGÊNCIA CONTRA O SNAPSHOT DO CONTRATO
+ *    Detecta antes do build qualquer evento novo, removido ou renomeado e
+ *    qualquer mudança nos campos de contexto permitidos/proibidos.
+ *    `--update` regrava o snapshot (usar só após revisão consciente).
+ * ───────────────────────────────────────────────────────────────────────── */
+const SNAPSHOT = "docs/analytics-event-contract.snapshot.json";
+const ATUALIZAR = process.argv.includes("--update");
+
+const eventosEmitidos = [
+  ...new Set(
+    arquivos("src")
+      .filter((p) => !/\.test\.tsx?$/.test(p))
+      .flatMap((p) => [...readFileSync(p, "utf8").matchAll(/track\(\s*"([a-z0-9_]+)"/g)].map((m) => m[1])),
+  ),
+].sort();
+
+const contextoAtual = [
+  ...(contrato.match(/export const CONTEXT_KEYS = \[([\s\S]*?)\] as const/)?.[1] ?? "").matchAll(/"([a-z0-9_]+)"/g),
+].map((m) => m[1]);
+
+const snapshotAtual = {
+  descricao:
+    "Snapshot do contrato de analytics (Rodada 6). Atualize com `npm run check:analytics-event-contract -- --update` SOMENTE após revisar a mudança de nomes/parâmetros.",
+  eventosCanonicos: [...EVENTOS_OBRIGATORIOS, "os_created", "conversion"],
+  eventosEmitidos,
+  camposContextoPermitidos: contextoAtual,
+  camposProibidos: CAMPOS_PROIBIDOS,
+};
+
+if (ATUALIZAR) {
+  writeFileSync(SNAPSHOT, `${JSON.stringify(snapshotAtual, null, 2)}\n`);
+  console.log(`✓ Snapshot regravado (${eventosEmitidos.length} eventos emitidos).`);
+} else {
+  const anterior = JSON.parse(readFileSync(SNAPSHOT, "utf8"));
+  const diff = (nome, antes, agora) => {
+    const removidos = antes.filter((v) => !agora.includes(v));
+    const novos = agora.filter((v) => !antes.includes(v));
+    if (removidos.length) erros.push(`${nome}: removido(s)/renomeado(s) → ${removidos.join(", ")}`);
+    if (novos.length) erros.push(`${nome}: não declarado(s) no snapshot → ${novos.join(", ")}`);
+  };
+  diff("eventos emitidos", anterior.eventosEmitidos ?? [], eventosEmitidos);
+  diff("campos de contexto", anterior.camposContextoPermitidos ?? [], contextoAtual);
+  diff("campos proibidos", anterior.camposProibidos ?? [], CAMPOS_PROIBIDOS);
+  diff("eventos canônicos", anterior.eventosCanonicos ?? [], snapshotAtual.eventosCanonicos);
+}
+
 if (erros.length) {
   console.error(`\n✖ BLOQUEADO: ${erros.length} violação(ões) do contrato de analytics:`);
   for (const e of erros) console.error(`  · ${e}`);
+  console.error(
+    "\nSe a mudança for intencional, revise o impacto em GA4/Ads e rode:\n  npm run check:analytics-event-contract -- --update\n",
+  );
   process.exit(1);
 }
 
 console.log(
-  `✓ Contrato de analytics íntegro — ${EVENTOS_OBRIGATORIOS.length} eventos canônicos, 0 campos sensíveis, 0 fallback geográfico.`,
+  `✓ Contrato de analytics íntegro — ${EVENTOS_OBRIGATORIOS.length} eventos canônicos, ${eventosEmitidos.length} eventos emitidos sem divergência, 0 campos sensíveis, 0 fallback geográfico.`,
 );
+

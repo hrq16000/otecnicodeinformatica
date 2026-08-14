@@ -23,7 +23,15 @@ const ALERT = args.includes("--alert");
 const STRICT = args.includes("--strict");
 
 const policy = JSON.parse(readFileSync("src/lib/localIndexPolicy.json", "utf8"));
-const promovidas = policy.entities.filter((e) => e.indexability === "index");
+// RODADA 5E: bairros âncora promovidos entram no escopo da revalidação.
+const bairros = (policy.bairrosAncora ?? []).map((b) => ({
+  path: `/bairros/${b.slug}`,
+  indexability: "index",
+  sitemap: true,
+  cidade: b.cidade,
+  family: "BAIRRO",
+}));
+const promovidas = [...policy.entities.filter((e) => e.indexability === "index"), ...bairros];
 
 const problemas = [];
 const rotas = [];
@@ -69,6 +77,14 @@ for (const e of promovidas) {
     }
     // areaServed deve nomear a cidade da própria URL (nunca herdar Curitiba).
     const cidade = e.path.split("/")[3];
+    if (e.family === "BAIRRO") {
+      // Bairro nunca pode herdar a cidade errada nem criar filial fictícia.
+      const nomeCidade = e.cidade ?? "";
+      if (nomeCidade && !new RegExp(nomeCidade.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i").test(html))
+        problemas.push(`${e.path}: página não menciona a cidade-pai (${nomeCidade})`);
+      if (!row.schemas.includes("WebPage")) problemas.push(`${e.path}: WebPage ausente`);
+      if (!row.schemas.includes("BreadcrumbList")) problemas.push(`${e.path}: BreadcrumbList ausente`);
+    }
     if (cidade === "sao-jose-dos-pinhais" && !/S[aã]o Jos[eé] dos Pinhais/.test(html)) {
       problemas.push(`${e.path}: areaServed/conteúdo não menciona São José dos Pinhais`);
     }
@@ -83,6 +99,7 @@ const GATES = [
   ["local-index-policy", "check:local-index-policy"],
   ["local-doorway", "check:local-doorway"],
   ["local-service-intent", "check:local-service-intent"],
+  ["local-neighborhood-intent", "check:local-neighborhood-intent"],
   ["schema-standards", "check:schema-standards"],
   ["robots", "check:robots"],
   ["sitemap-source", "check:sitemap-source"],

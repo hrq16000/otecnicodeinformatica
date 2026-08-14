@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T14:02:15.738Z",
+  "generatedAt": "2026-08-14T14:49:02.864Z",
   "resumo": {
-    "total": 102,
+    "total": 110,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 102,
+    "pendencias": 110,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -37,6 +37,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/bairros/afonso-pena",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/bairros/agua-verde",
       "detalhe": "página indexável sem foto real"
     },
@@ -44,6 +50,24 @@
       "gate": "imagem",
       "severidade": "pendencia",
       "pagina": "/bairros/batel",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/bigorrilho",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/boa-vista",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/cabral",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -61,7 +85,31 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/bairros/costeira",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/cruzeiro",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/guatupe",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/bairros/portao",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/santa-felicidade",
       "detalhe": "página indexável sem foto real"
     },
     {

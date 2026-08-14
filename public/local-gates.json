@@ -1,0 +1,983 @@
+{
+  "geradoEm": "2026-08-14T14:46:01.403Z",
+  "rodada": "5E",
+  "gates": [
+    {
+      "id": "local-index-policy",
+      "status": "pass"
+    },
+    {
+      "id": "local-doorway",
+      "status": "pass"
+    },
+    {
+      "id": "local-service-intent",
+      "status": "pass"
+    },
+    {
+      "id": "local-neighborhood-intent",
+      "status": "pass"
+    }
+  ],
+  "resumo": {
+    "total": 56,
+    "index": 50,
+    "canonicalized": 0,
+    "noindex": 6,
+    "disabled": 0
+  },
+  "rotas": [
+    {
+      "path": "/",
+      "familia": "HOME",
+      "indexability": "index",
+      "canonical": "/",
+      "sitemap": true,
+      "parent": null,
+      "intent": "marca + oferta geral de assistência em informática + região de atuação",
+      "motivo": "Página de marca: apresenta a operação, os públicos (PF/PJ), os problemas e o fluxo de atendimento. Não é landing de cidade.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/areas-atendidas",
+      "familia": "OUTRA_LOCAL",
+      "indexability": "index",
+      "canonical": "/areas-atendidas",
+      "sitemap": true,
+      "parent": null,
+      "intent": "hub de cobertura: cidades prioritárias e bairros âncora",
+      "motivo": "Hub de navegação local; lista apenas URLs indexáveis.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/assistencia-tecnica-curitiba",
+      "familia": "OUTRA_LOCAL",
+      "indexability": "noindex",
+      "canonical": "/assistencia-tecnica-curitiba",
+      "sitemap": false,
+      "parent": null,
+      "intent": "assistência técnica genérica (multieletrônicos) em Curitiba",
+      "motivo": "Sobreposição alta com /tecnico-informatica-curitiba. Mantida noindex nesta rodada (não é promovida sem passar o checklist); candidata a Lote Local 2 com intenção multieletrônicos separada.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/bairros/afonso-pena",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/afonso-pena",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/agua-verde",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/agua-verde",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/batel",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/batel",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/bigorrilho",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/bigorrilho",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/boa-vista",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/boa-vista",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/cabral",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/cabral",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/centro",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/centro",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/cic",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/cic",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/costeira",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/costeira",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/cruzeiro",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/cruzeiro",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/guatupe",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/guatupe",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/portao",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/portao",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/bairros/santa-felicidade",
+      "familia": "BAIRRO",
+      "indexability": "index",
+      "canonical": "/bairros/santa-felicidade",
+      "sitemap": true,
+      "parent": "/tecnico-informatica-curitiba",
+      "intent": null,
+      "motivo": "Bairro âncora aprovado pelo checklist anticanibalização.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "pass"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/empresa-de-ti-curitiba",
+      "familia": "OUTRA_LOCAL",
+      "indexability": "index",
+      "canonical": "/empresa-de-ti-curitiba",
+      "sitemap": true,
+      "parent": null,
+      "intent": "empresa de TI / suporte PJ em Curitiba",
+      "motivo": "Cluster empresarial, público PJ — não concorre com a landing PF da cidade.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/backup-para-empresas/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-para-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/backup-para-empresas",
+      "intent": "implantar e manter a rotina de backup de uma empresa em Curitiba, com teste de restauração e responsabilidade definida sobre quem confere",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/backup-recuperacao/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "intent": "contratar backup e recuperação de dados em Curitiba (coleta, sigilo, devolução)",
+      "motivo": "Rodada 5C: a decisão local é logística e de confiança (coleta, registro, sigilo); o pai mantém o conteúdo técnico de recuperação.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "intent": "acionar backup ou recuperação de dados em São José dos Pinhais com retirada cuidadosa da mídia",
+      "motivo": "Rodada 5D: instrução de parar o uso, transporte protegido da mídia e prazo de bancada para quem espera rota — logística local própria.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-notebook/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "intent": "contratar conserto de notebook em Curitiba (coleta, visita, prazo)",
+      "motivo": "Rodada 5C: logística local muda o serviço (coleta x visita x bancada). Conteúdo local próprio em src/lib/servicoCuritibaBlocos.json; pai responde 'o que é/como funciona'.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "intent": "contratar conserto de notebook em São José dos Pinhais com coleta por rota e custo de deslocamento informado antes",
+      "motivo": "Rodada 5D: rota intermunicipal, coleta combinada e triagem remota prévia são operação local, ausentes no serviço-pai e distintas da página de Curitiba.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-pc-notebook/agua-verde",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc-notebook/agua-verde",
+      "sitemap": true,
+      "parent": "/servicos/conserto-pc-notebook",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-pc-notebook/centro",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc-notebook/centro",
+      "sitemap": true,
+      "parent": "/servicos/conserto-pc-notebook",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-pc/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "intent": "contratar conserto de PC de mesa em Curitiba (atendimento no endereço, coleta do gabinete)",
+      "motivo": "Rodada 5C: desktop tem logística distinta do notebook (técnico vai até o endereço, coleta apenas do gabinete).",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "intent": "contratar conserto de computador de mesa em São José dos Pinhais com visita agendada por rota",
+      "motivo": "Rodada 5D: desktop não se desloca — a visita preparada e o transporte apenas do gabinete são a intenção local do município.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/formatacao-computador/agua-verde",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/agua-verde",
+      "sitemap": true,
+      "parent": "/servicos/formatacao-computador",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/formatacao-computador/batel",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/batel",
+      "sitemap": true,
+      "parent": "/servicos/formatacao-computador",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/formatacao-computador/cic",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/cic",
+      "sitemap": true,
+      "parent": "/servicos/formatacao-computador",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/formatacao-computador/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/formatacao",
+      "intent": "contratar formatação em Curitiba escolhendo entre remoto, visita e coleta, com backup combinado antes",
+      "motivo": "Rodada 5C lote 2: a decisão remoto × presencial × coleta e o backup prévio são operação local, não conteúdo do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-preventiva-empresas",
+      "intent": "agendar a rotina preventiva do parque de máquinas de uma empresa em Curitiba sem parar o expediente e sabendo o que é feito em cada visita",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/montagem-de-pc/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/montagem-de-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/montagem-de-pc",
+      "intent": "montar um computador em Curitiba sabendo quem compra as peças, onde a montagem acontece e como fica a garantia de cada componente",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/pc-gamer/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/pc-gamer/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/pc-gamer",
+      "intent": "montar, revisar ou consertar um PC gamer em Curitiba, com bancada, teste sob carga e cuidado no transporte da máquina",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/redes-wifi/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "intent": "contratar instalação/ajuste de rede e Wi-Fi em Curitiba (visita obrigatória no imóvel)",
+      "motivo": "Rodada 5C: rede é 100% presencial e depende do imóvel; a intenção local é a própria execução no endereço.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "intent": "resolver Wi-Fi e rede em São José dos Pinhais com medição presencial no imóvel",
+      "motivo": "Rodada 5D: serviço obrigatoriamente presencial, com medição no imóvel e imóveis de terreno maior — contexto local real.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/remocao-virus/agua-verde",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/remocao-virus/agua-verde",
+      "sitemap": true,
+      "parent": "/servicos/remocao-virus",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/remocao-virus/cic",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/remocao-virus/cic",
+      "sitemap": true,
+      "parent": "/servicos/remocao-virus",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/remocao-virus/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/remocao-virus/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/remocao-de-virus",
+      "intent": "contratar remoção de vírus em Curitiba com urgência, incluindo contenção em rede de empresa",
+      "motivo": "Rodada 5C lote 2: urgência, contenção de rede e decisão remoto imediato × visita são específicas do atendimento em Curitiba.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/suporte-home-office/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-home-office/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-home-office",
+      "intent": "resolver o home office de quem trabalha de casa em Curitiba, com atendimento rápido para não perder o dia de trabalho",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-tecnico-empresarial",
+      "intent": "contratar suporte técnico para uma empresa em Curitiba sabendo tempo de deslocamento, rotina de visitas e como abrir chamado no dia a dia",
+      "motivo": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/agua-verde",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd-memoria/agua-verde",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-memoria",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/centro",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd-memoria/centro",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-memoria",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/cic",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd-memoria/cic",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-memoria",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/upgrade-ssd-memoria/portao",
+      "familia": "SERVICO_BAIRRO",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd-memoria/portao",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-memoria",
+      "intent": null,
+      "motivo": "Blocos autorais 4S.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/servicos/upgrade-ssd/curitiba",
+      "familia": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-ram",
+      "intent": "contratar upgrade de SSD/memória em Curitiba sabendo quem fornece a peça, prazo e migração sem formatar",
+      "motivo": "Rodada 5C lote 2: fornecimento de peça, tempo de máquina parada e coleta são a intenção local; a parte técnica fica no serviço-pai.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "pass",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-almirante-tamandare",
+      "familia": "CIDADE",
+      "indexability": "noindex",
+      "canonical": "/tecnico-informatica-almirante-tamandare",
+      "sitemap": false,
+      "parent": null,
+      "intent": "—",
+      "motivo": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/tecnico-informatica-araucaria",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-araucaria",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em Araucária",
+      "motivo": "Operação real declarada e conteúdo local próprio.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-campo-largo",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-campo-largo",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em Campo Largo",
+      "motivo": "Operação real declarada e conteúdo local próprio.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-campo-magro",
+      "familia": "CIDADE",
+      "indexability": "noindex",
+      "canonical": "/tecnico-informatica-campo-magro",
+      "sitemap": false,
+      "parent": null,
+      "intent": "—",
+      "motivo": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/tecnico-informatica-colombo",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-colombo",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em Colombo",
+      "motivo": "Operação real declarada e conteúdo local próprio.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-curitiba",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-curitiba",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em Curitiba — cobertura, modalidades, bairros e logística da cidade",
+      "motivo": "Operação real, conteúdo próprio > 550 palavras, bairros âncora vinculados.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-fazenda-rio-grande",
+      "familia": "CIDADE",
+      "indexability": "noindex",
+      "canonical": "/tecnico-informatica-fazenda-rio-grande",
+      "sitemap": false,
+      "parent": null,
+      "intent": "—",
+      "motivo": "Sem operação declarada e conteúdo raso (< 130 palavras). Rota preservada, fora do índice.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/tecnico-informatica-pinhais",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-pinhais",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em Pinhais",
+      "motivo": "Operação real declarada e conteúdo local próprio.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    },
+    {
+      "path": "/tecnico-informatica-piraquara",
+      "familia": "CIDADE",
+      "indexability": "noindex",
+      "canonical": "/tecnico-informatica-piraquara",
+      "sitemap": false,
+      "parent": null,
+      "intent": "—",
+      "motivo": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/tecnico-informatica-quatro-barras",
+      "familia": "CIDADE",
+      "indexability": "noindex",
+      "canonical": "/tecnico-informatica-quatro-barras",
+      "sitemap": false,
+      "parent": null,
+      "intent": "—",
+      "motivo": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "NOINDEX"
+    },
+    {
+      "path": "/tecnico-informatica-sao-jose-pinhais",
+      "familia": "CIDADE",
+      "indexability": "index",
+      "canonical": "/tecnico-informatica-sao-jose-pinhais",
+      "sitemap": true,
+      "parent": null,
+      "intent": "técnico de informática em São José dos Pinhais",
+      "motivo": "Operação real declarada e conteúdo local próprio.",
+      "gates": {
+        "local-index-policy": "pass",
+        "local-doorway": "pass",
+        "local-service-intent": "n/a",
+        "local-neighborhood-intent": "n/a"
+      },
+      "veredito": "INDEX"
+    }
+  ]
+}

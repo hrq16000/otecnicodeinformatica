@@ -21,7 +21,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { resolveLocal, LOTE_LOCAL_1, SERVICO_CIDADE_INDEXAVEIS } from "./lib/local-index-policy.mjs";
+import { resolveLocal, LOTE_LOCAL_1, LOTE_LOCAL_2, SERVICO_CIDADE_INDEXAVEIS, BAIRROS_ANCORA_META } from "./lib/local-index-policy.mjs";
 
 const dist = process.argv[2] || "dist";
 const erros = [];
@@ -132,7 +132,12 @@ function extrair(path) {
 
 // ── Coleta ────────────────────────────────────────────────────────────────
 // RODADA 5C: as rotas serviço × cidade promovidas também passam pelo antidoorway.
-const alvos = [...new Set(["/", ...LOTE_LOCAL_1, ...SERVICO_CIDADE_INDEXAVEIS])];
+// RODADA 5E: os bairros âncora (lotes 1 e 2) e suas cidades-pai entram no escopo.
+const CIDADES_PAI = [...new Set(BAIRROS_ANCORA_META.map((b) => b.parent).filter(Boolean))];
+const BAIRROS_PATHS = BAIRROS_ANCORA_META.map((b) => `/bairros/${b.slug}`);
+const alvos = [
+  ...new Set(["/", ...LOTE_LOCAL_1, ...LOTE_LOCAL_2, ...BAIRROS_PATHS, ...CIDADES_PAI, ...SERVICO_CIDADE_INDEXAVEIS]),
+];
 const paginas = new Map();
 
 for (const path of alvos) {
@@ -163,6 +168,31 @@ if (home && curitiba) {
   const simCorpo = jaccard(home.grams, curitiba.grams);
   if (simCorpo > LIMITE_JACCARD)
     erros.push(`HOME × CURITIBA: corpo com similaridade ${simCorpo.toFixed(3)}.`);
+}
+
+// ── 1b. BAIRRO × CIDADE-PAI (Rodada 5E) ───────────────────────────────────
+// A cidade responde "atendimento na cidade toda"; o bairro responde
+// "cobertura e funcionamento naquele recorte". Convergência = canibalização.
+const LIMITE_BAIRRO_CIDADE = 0.4;
+for (const b of BAIRROS_ANCORA_META) {
+  const bairro = paginas.get(`/bairros/${b.slug}`);
+  const pai = paginas.get(b.parent);
+  if (!bairro || !pai || bairro.decisao.indexability !== "index") continue;
+  const sim = jaccard(bairro.grams, pai.grams);
+  if (sim >= LIMITE_BAIRRO_CIDADE)
+    erros.push(
+      `BAIRRO × CIDADE: ${bairro.path} ↔ ${pai.path} com Jaccard ${sim.toFixed(3)} (limite ${LIMITE_BAIRRO_CIDADE}).`,
+    );
+  const simIntro = jaccard(ngrams(bairro.intro, 4), ngrams(pai.intro, 4));
+  if (simIntro >= LIMITE_BAIRRO_CIDADE)
+    erros.push(
+      `BAIRRO × CIDADE: ${bairro.path} ↔ ${pai.path} — introduções ${simIntro.toFixed(3)}.`,
+    );
+  const norm = (s) => semAcento(s).replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+  if (norm(bairro.h1) === norm(pai.h1))
+    erros.push(`BAIRRO × CIDADE: ${bairro.path} ↔ ${pai.path} — H1 equivalente.`);
+  if (norm(bairro.description) === norm(pai.description))
+    erros.push(`BAIRRO × CIDADE: ${bairro.path} ↔ ${pai.path} — description equivalente.`);
 }
 
 // ── 2/3. Intrafamília + substituição de localidade ────────────────────────

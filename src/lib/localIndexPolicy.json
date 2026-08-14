@@ -312,23 +312,107 @@
   "bairrosAncora": [
     {
       "slug": "cic",
-      "intent": "atendimento de informática na CIC (indústria e residencial)"
+      "intent": "atendimento de informática na CIC (indústria e residencial)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
     },
     {
       "slug": "batel",
-      "intent": "atendimento de informática no Batel (escritórios e home office)"
+      "intent": "atendimento de informática no Batel (escritórios e home office)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
     },
     {
       "slug": "agua-verde",
-      "intent": "atendimento de informática no Água Verde (residencial denso)"
+      "intent": "atendimento de informática no Água Verde (residencial denso)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
     },
     {
       "slug": "centro",
-      "intent": "atendimento de informática no Centro (comércio e coleta)"
+      "intent": "atendimento de informática no Centro (comércio e coleta)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
     },
     {
       "slug": "portao",
-      "intent": "atendimento de informática no Portão (residencial e comércio de bairro)"
+      "intent": "atendimento de informática no Portão (residencial e comércio de bairro)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "santa-felicidade",
+      "intent": "atendimento de informática em Santa Felicidade (casas amplas, comércio de bairro e Wi-Fi com alcance difícil)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "boa-vista",
+      "intent": "atendimento de informática na Boa Vista (residencial extenso e clínicas/escritórios de bairro)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "bigorrilho",
+      "intent": "atendimento de informática no Bigorrilho (prédios verticais, home office e coleta em portaria)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "cabral",
+      "intent": "atendimento de informática no Cabral (consultórios, escritórios pequenos e rede de apartamento)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "afonso-pena",
+      "intent": "atendimento de informática no Afonso Pena, SJP (empresas do entorno do aeroporto e residências)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "cruzeiro",
+      "intent": "atendimento de informática no Cruzeiro, SJP (residencial e comércio de rua)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "costeira",
+      "intent": "atendimento de informática na Costeira, SJP (residencial próximo à divisa com Curitiba)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "guatupe",
+      "intent": "atendimento de informática no Guatupê, SJP (misto residencial e pequenas operações)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
     }
   ],
   "servicoBairroIndexaveis": [
@@ -375,5 +459,15 @@
       "indexability": "noindex",
       "reason": "Vertical adjacente: não integra a arquitetura local CORE de informática nem infla cobertura geográfica."
     }
+  ],
+  "loteLocal2": [
+    "/bairros/santa-felicidade",
+    "/bairros/boa-vista",
+    "/bairros/bigorrilho",
+    "/bairros/cabral",
+    "/bairros/afonso-pena",
+    "/bairros/cruzeiro",
+    "/bairros/costeira",
+    "/bairros/guatupe"
   ]
 }

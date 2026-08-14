@@ -17,6 +17,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
+import { BAIRROS_ANCORA_META } from "./lib/local-index-policy.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
 import { imageObjectFor } from "./lib/fotos-rotas.mjs";
 import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
@@ -217,6 +218,13 @@ const PROBLEMA_CRUMB_LABEL = {
   "/problemas/notebook-nao-liga": "Notebook não liga",
 };
 
+/** Cidade-pai do bairro (política local). Sem fallback herdado. */
+export function cidadePaiDoBairro(path) {
+  const slug = path.startsWith("/bairros/") ? path.replace("/bairros/", "") : "";
+  const b = BAIRROS_ANCORA_META.find((x) => x.slug === slug);
+  return b ? { path: b.parent, nome: b.cidade } : null;
+}
+
 export function breadcrumbFor(path) {
   const fam = familyOf(path);
   const crumbs = [{ path: "/", name: "Início" }];
@@ -228,8 +236,17 @@ export function breadcrumbFor(path) {
   }
   // "Problemas" é o hub do cluster de sintomas (/problemas) — nível navegável com URL própria.
   if (fam === "problema") crumbs.push({ path: "/problemas", name: "Problemas" });
-  if (fam === "bairro" || fam === "cidade")
-    crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
+  if (fam === "bairro" || fam === "cidade") {
+    // RODADA 5E: a trilha do bairro passa por Áreas atendidas e pela CIDADE-PAI
+    // declarada na política — nunca por Curitiba fixa.
+    crumbs.push({ path: "/areas-atendidas", name: "Áreas atendidas" });
+    const pai = cidadePaiDoBairro(path);
+    crumbs.push(
+      pai
+        ? { path: pai.path, name: `Técnico de Informática em ${pai.nome}` }
+        : { path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" },
+    );
+  }
   crumbs.push({ path, name: PROBLEMA_CRUMB_LABEL[path] ?? labelFor(path) });
   return crumbs;
 }
@@ -490,9 +507,17 @@ export function linksFor(path) {
     case "servico":
       out = SERVICO_LINKS[path] ?? ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
       break;
-    case "bairro":
-      out = ["/tecnico-informatica-curitiba", ...siblings(BAIRROS, path, 2), "/servicos", "/atendimento-domicilio"];
+    case "bairro": {
+      const pai = cidadePaiDoBairro(path);
+      out = [
+        pai?.path ?? "/tecnico-informatica-curitiba",
+        "/areas-atendidas",
+        ...siblings(BAIRROS, path, 2),
+        "/servicos",
+        "/atendimento-domicilio",
+      ];
       break;
+    }
     case "cidade":
       out = ["/tecnico-informatica-curitiba", ...siblings(CIDADES, path, 2), "/servicos", "/coleta-e-entrega"];
       break;
@@ -1099,15 +1124,41 @@ export function jsonLdFor(route) {
   }
 
   const hasService = out.some((n) => n["@type"] === "Service");
-  if (fam === "bairro" || fam === "cidade" || fam === "cidade-mae" || fam === "modalidade") {
+  // RODADA 5E — FASE 31: bairro NÃO emite LocalBusiness (seria filial fictícia).
+  // Emite WebPage + Service com areaServed restrito ao bairro.
+  if (fam === "bairro") {
+    const areaBairro = h1For(route)
+      .replace(/^Técnico (de Informática )?(em|no|na) /i, "")
+      .split("(")[0]
+      .split("|")[0]
+      .split("–")[0]
+      .trim();
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      name: h1For(route),
+      description: route.description,
+      url,
+      inLanguage: "pt-BR",
+      about: { "@type": "Place", name: areaBairro },
+      isPartOf: { "@id": `${SITE}/#website` },
+      publisher: { "@id": `${SITE}/#organization` },
+    });
+    if (!hasService) {
+      const svc = serviceNode(route);
+      svc.areaServed = [{ "@type": "City", name: cidadePaiDoBairro(path)?.nome ?? areaBairro }];
+      out.push(svc);
+    }
+  } else if (fam === "cidade" || fam === "cidade-mae" || fam === "modalidade") {
     const local =
-      fam === "cidade" || fam === "bairro"
+      fam === "cidade"
         ? [h1For(route).replace(/^Técnico (de Informática )?(em|no|na) /i, "").split("(")[0].split("|")[0].trim()]
         : undefined;
     out.push(localBusiness(path, { name: h1For(route), description: route.description, areaServed: local }));
     // Rotas locais também declaram o serviço prestado, com a área restrita à
     // localidade da página (reforça elegibilidade em busca local).
-    if (!hasService && (fam === "bairro" || fam === "cidade")) {
+    if (!hasService && fam === "cidade") {
       const svc = serviceNode(route);
       if (local?.length) svc.areaServed = local.map((n) => ({ "@type": "City", name: n }));
       out.push(svc);

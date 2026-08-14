@@ -1,4 +1,4 @@
-import { GA4_EVENTS, cityFromPath, normalizeTrackingLabel, routeTypeFromPath, serviceSlugFromPath, viewportBucket } from '@/lib/trackingTaxonomy';
+import { GA4_EVENTS, cityFromPath, neighborhoodSlugFromPath, normalizeTrackingLabel, routeTypeFromPath, serviceSlugFromPath, viewportBucket } from '@/lib/trackingTaxonomy';
 import { capturarEvento } from '@/lib/observability';
 
 
@@ -149,6 +149,8 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLoca
       // Conversão por cidade e por serviço (metas GA4/Ads da Rodada 5D).
       city: cityFromPath(window.location.pathname),
       service_slug: serviceSlugFromPath(window.location.pathname),
+      // Bairro como taxonomia editorial (slug categórico), nunca endereço.
+      neighborhood_slug: neighborhoodSlugFromPath(window.location.pathname),
       value: 1,
       lead_id: leadId,
       app_version: appVersion,
@@ -192,6 +194,7 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLoca
       route_type: payload.route_type,
       city: payload.city,
       service_slug: payload.service_slug,
+      neighborhood_slug: payload.neighborhood_slug,
       lead_id: leadId,
       first_of_session: isNew,
       path: window.location.pathname,

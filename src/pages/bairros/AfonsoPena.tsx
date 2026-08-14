@@ -1,20 +1,7 @@
-import { BairroTemplate } from "./BairroTemplate";
+import { BairroLocalLayout } from "@/components/bairro/BairroLocalLayout";
+import { BAIRROS } from "@/lib/bairrosData";
 
-const data = {
-  nome: "Afonso Pena",
-  slug: "afonso-pena",
-  cidade: "São José dos Pinhais",
-  metaTitle: "Técnico de Informática no Afonso Pena SJP | O Técnico de Informática",
-  metaDescription: "Técnico de informática no Afonso Pena, São José dos Pinhais. Visita técnica a domicílio. Conserto de PC, formatação e suporte. a partir de R$ 99,99.",
-  h1: "Técnico de Informática no Afonso Pena – SJP",
-  subtitulo: "Atendimento técnico no Afonso Pena e proximidades do aeroporto",
-  descricaoLonga: `O bairro Afonso Pena em São José dos Pinhais é uma região estratégica próxima 
-    ao Aeroporto Internacional. Nossa assistência técnica atende residências e empresas locais 
-    com serviços completos de informática. Atendemos também bairros vizinhos como Aviação e Costeira.`,
-  pontosReferencia: ["Aeroporto Afonso Pena", "Aviação", "Costeira", "Guatupê"],
-  tempoDeslocamento: "Atendimento conforme a agenda",
-  servicosDestaque: ["Formatação", "Remoção de vírus", "Upgrade", "Rede Wi-Fi", "Backup", "Suporte remoto"]
-};
+// RODADA 5E — Lote 2 de bairros âncora. Rota preexistente; conteúdo autoral.
+const AfonsoPena = () => <BairroLocalLayout data={BAIRROS["afonso-pena"]} />;
 
-const AfonsoPena = () => <BairroTemplate data={data} />;
 export default AfonsoPena;

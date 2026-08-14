@@ -33,6 +33,9 @@ export async function recordSubmission(payload: {
   };
   try {
     const { supabase } = await import("@/integrations/supabase/client");
+    // RODADA 6 — vínculo lead ↔ rota de origem (sem PII, sem fallback falso).
+    const { buildRouteContext, getJourneyId, readTouchpoint } = await import("@/lib/analyticsContract");
+    const ctx = buildRouteContext();
     await supabase.from("funnel_submissions").insert({
       session_id: payload.sessionId,
       equipamento: payload.equipamento?.slice(0, 80),
@@ -44,6 +47,13 @@ export async function recordSubmission(payload: {
         payload.waMessage,
         `\n\n[tracking] cta_location=${payload.ctaLocation || "unknown"}; minimum_accepted=${payload.minimumAccepted ? "true" : "false"}`,
       ].join("").slice(0, 4000),
+      origin_route: ctx.route,
+      route_family: ctx.route_family,
+      city: ctx.city ?? null,
+      neighborhood_slug: ctx.neighborhood_slug ?? null,
+      service_slug: ctx.service_slug ?? null,
+      journey_id: getJourneyId(),
+      landing_route: readTouchpoint("first")?.landing_route ?? null,
       ...utm,
     });
   } catch (err) {

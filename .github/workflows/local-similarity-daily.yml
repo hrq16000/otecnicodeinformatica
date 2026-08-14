@@ -1,0 +1,38 @@
+name: Monitoramento diário de similaridade local
+
+# Detecta canibalização cedo: bairro×cidade e bairro×bairro, além de
+# regressão de canonical/robots/sitemap nas rotas locais promovidas.
+on:
+  schedule:
+    - cron: "20 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  similaridade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          VITE_SITE_DOMAIN: ${{ secrets.VITE_SITE_DOMAIN }}
+          VITE_WHATSAPP_NUMBER: ${{ secrets.VITE_WHATSAPP_NUMBER }}
+      - name: Similaridade entre páginas locais
+        run: node scripts/check-programmatic-similarity.mjs dist --report
+      - name: Similaridade entre clusters
+        run: node scripts/check-cross-cluster-similarity.mjs dist
+      - name: Regressão das rotas locais promovidas
+        run: node scripts/check-local-regression.mjs dist --alert
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relatorios-similaridade-local
+          path: reports/

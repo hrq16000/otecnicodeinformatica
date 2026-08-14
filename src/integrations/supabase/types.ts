@@ -231,14 +231,21 @@ export type Database = {
         Row: {
           atendido_em: string | null
           atendido_por: string | null
+          city: string | null
           created_at: string
           equipamento: string | null
           gclid: string | null
           id: string
+          journey_id: string | null
+          landing_route: string | null
           marca: string | null
           media_paths: Json
+          neighborhood_slug: string | null
           notas_admin: string | null
+          origin_route: string | null
           requires_coleta: boolean
+          route_family: string | null
+          service_slug: string | null
           session_id: string
           sintoma: string | null
           status_atendimento: string
@@ -252,14 +259,21 @@ export type Database = {
         Insert: {
           atendido_em?: string | null
           atendido_por?: string | null
+          city?: string | null
           created_at?: string
           equipamento?: string | null
           gclid?: string | null
           id?: string
+          journey_id?: string | null
+          landing_route?: string | null
           marca?: string | null
           media_paths?: Json
+          neighborhood_slug?: string | null
           notas_admin?: string | null
+          origin_route?: string | null
           requires_coleta?: boolean
+          route_family?: string | null
+          service_slug?: string | null
           session_id: string
           sintoma?: string | null
           status_atendimento?: string
@@ -273,14 +287,21 @@ export type Database = {
         Update: {
           atendido_em?: string | null
           atendido_por?: string | null
+          city?: string | null
           created_at?: string
           equipamento?: string | null
           gclid?: string | null
           id?: string
+          journey_id?: string | null
+          landing_route?: string | null
           marca?: string | null
           media_paths?: Json
+          neighborhood_slug?: string | null
           notas_admin?: string | null
+          origin_route?: string | null
           requires_coleta?: boolean
+          route_family?: string | null
+          service_slug?: string | null
           session_id?: string
           sintoma?: string | null
           status_atendimento?: string

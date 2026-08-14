@@ -40,6 +40,10 @@ type Evento = {
   session_id: string | null;
   servico: string | null;
   utm_medium: string | null;
+  landing_route?: string | null;
+  route_family?: string | null;
+  intent?: string | null;
+  neighborhood_slug?: string | null;
 };
 
 const ROTAS_FOCO = [
@@ -80,7 +84,7 @@ const AdminConversao = () => {
     let q = supabase
       .from("click_events")
       .select(
-        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug",
+        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug,landing_route",
       )
       .gte("created_at", `${inicio}T00:00:00Z`)
       .lte("created_at", `${fim}T23:59:59Z`)
@@ -384,6 +388,21 @@ const AdminConversao = () => {
       </header>
 
       <Card className="mb-6 grid gap-3 p-4 md:grid-cols-6">
+        <div className="flex gap-1" role="group" aria-label="Período rápido">
+          {[7, 30, 90].map((d) => (
+            <Button
+              key={d}
+              size="sm"
+              variant={inicio === hojeMenos(d - 1) && fim === hojeMenos(0) ? "default" : "outline"}
+              onClick={() => {
+                setInicio(hojeMenos(d - 1));
+                setFim(hojeMenos(0));
+              }}
+            >
+              {d}d
+            </Button>
+          ))}
+        </div>
         <Input type="date" value={inicio} onChange={(e) => setInicio(e.target.value)} aria-label="Data inicial" />
         <Input type="date" value={fim} onChange={(e) => setFim(e.target.value)} aria-label="Data final" />
         <Select value={rota} onValueChange={setRota}>

@@ -18,7 +18,7 @@ const ARQUIVOS = [
 const CHAVES = [
   "name", "nome", "email", "phone", "telefone", "whatsapp_number", "address", "endereco",
   "cpf", "cnpj", "document", "documento", "lat", "lng", "latitude", "longitude",
-  "message", "mensagem", "description", "descricao", "free_text",
+  "mensagem", "description", "descricao", "free_text", "wa_message",
 ];
 
 const TIPOS = "string|number|boolean|unknown|undefined|null|Record|Array|Set|Map";
@@ -39,8 +39,9 @@ for (const arquivo of ARQUIVOS) {
       const re = new RegExp(`(?:^|[{,\\s])${chave}\\s*:\\s*(?!\\s*(?:${TIPOS})\\b)`, "i");
       if (re.test(linha)) erros.push(`${arquivo}:${i + 1} — chave sensível "${chave}" em payload`);
     }
-    // FASE 17 — repasse cego de objetos que podem conter texto livre.
-    if (/\b(?:track|persistClickEvent|gtag)\([^)]*\b(?:formData|payload|values|dados|form)\b\s*[,)]/.test(linha)) {
+    // FASE 17 — repasse cego de objetos de formulário (texto livre digitado).
+    // `payload` local já sanitizado não conta: só objetos vindos direto do form.
+    if (/\b(?:track|persistClickEvent|gtag)\([^)]*\b(?:formData|formValues|values|form|inputs)\b\s*[,)]/.test(linha)) {
       erros.push(`${arquivo}:${i + 1} — repasse cego de objeto de formulário para analytics`);
     }
   });

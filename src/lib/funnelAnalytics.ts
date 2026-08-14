@@ -17,6 +17,12 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { podeMedirEvento } from "./clickDedup";
 import { gtagReportConversion, ADS_SEND_TO } from "./analytics";
+import {
+  buildRouteContext,
+  getJourneyId,
+  newEventId,
+  readTouchpoint,
+} from "./analyticsContract";
 
 
 type GtagFn = (...args: unknown[]) => void;

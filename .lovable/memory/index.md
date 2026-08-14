@@ -51,3 +51,4 @@
 - [Rodada 5C — serviço × Curitiba](mem://features/rodada-5c-servico-curitiba) — 4 serviços com logística local viram indexáveis, os demais canonicalizam no pai real; gate check:local-service-intent e fonte servicoCuritibaBlocos.json.
 
 - [Rodada 6 — conversão e mensuração](mem://features/rodada-6-conversao-mensuracao) — Contrato de analytics, vínculo lead↔rota, painel com períodos 7/30/90 + jornadas e monitor diário de similaridade.
+- [Rodada 6B — atribuição e data quality](mem://features/rodada-6b-atribuicao-data-quality) — Expand/Improve/Low evidence (30 sessões, 10% WA), Sankey, painel de qualidade e gates de PII/contexto local/jornada.

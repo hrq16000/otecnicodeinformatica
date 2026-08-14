@@ -16,6 +16,10 @@ import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
 import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
+import { JornadaSankey } from "@/components/admin/JornadaSankey";
+import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
+import { QualidadeDados, type EventoQualidade } from "@/components/admin/QualidadeDados";
+import type { EventoOportunidade } from "@/lib/oportunidadeAnalise";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).
@@ -86,7 +90,7 @@ const AdminConversao = () => {
     let q = supabase
       .from("click_events")
       .select(
-        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug,landing_route",
+        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug,landing_route,journey_id,event_id",
       )
       .gte("created_at", `${inicio}T00:00:00Z`)
       .lte("created_at", `${fim}T23:59:59Z`)
@@ -713,6 +717,9 @@ const AdminConversao = () => {
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
 
       <div className="mt-6 space-y-6">
+        <JornadaSankey rows={rows as unknown as EventoOportunidade[]} />
+        <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
+        <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
         <SegmentacaoCanal rows={rows} />
         <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />
         <p className="text-xs text-muted-foreground">
@@ -723,6 +730,7 @@ const AdminConversao = () => {
           .
         </p>
       </div>
+
 
     </main>
   );

@@ -101,23 +101,26 @@ export const ExitIntentPopup = () => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 animate-in fade-in duration-300"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] animate-in fade-in duration-300"
         onClick={handleClose}
         aria-hidden="true"
       />
 
-      {/* Modal */}
-      <div
-        className={cn(
-          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50",
-          "bg-card border border-accent/20 rounded-2xl shadow-2xl",
-          "w-[calc(100vw-1.5rem)] max-w-md p-5 sm:p-6",
-          "animate-in zoom-in-95 fade-in duration-300"
-        )}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="exit-intent-title"
-      >
+      {/* Wrapper de centralização — evita que a animação (transform) tire o modal da viewport */}
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto overscroll-contain p-3 sm:p-4">
+        <div
+          className={cn(
+            "relative my-auto w-full max-w-md",
+            "max-h-[calc(100dvh-1.5rem)] overflow-y-auto",
+            "bg-card border border-accent/20 rounded-2xl shadow-2xl",
+            "p-5 sm:p-6",
+            "animate-in zoom-in-95 fade-in duration-300"
+          )}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="exit-intent-title"
+        >
+
         {/* Close */}
         <button
           onClick={handleClose}

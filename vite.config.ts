@@ -8,9 +8,9 @@ import { execSync } from "node:child_process";
 import { imagetools } from "vite-imagetools";
 
 const resolveAppVersion = () => {
-  if (process.env.APP_VERSION) return process.env.APP_VERSION;
-  if (process.env.VERCEL_GIT_COMMIT_SHA) return process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7);
-  if (process.env.COMMIT_REF) return process.env.COMMIT_REF.slice(0, 7);
+  if (process.env['APP_VERSION']) return process.env['APP_VERSION'];
+  if (process.env['VERCEL_GIT_COMMIT_SHA']) return process.env['VERCEL_GIT_COMMIT_SHA'].slice(0, 7);
+  if (process.env['COMMIT_REF']) return process.env['COMMIT_REF'].slice(0, 7);
   try {
     return execSync("git rev-parse --short HEAD", { stdio: ["ignore", "pipe", "ignore"] })
       .toString()

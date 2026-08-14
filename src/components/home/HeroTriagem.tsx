@@ -124,7 +124,7 @@ export const HeroTriagem = () => {
 
           <ul className="mt-4 flex flex-wrap gap-2" aria-label="Sintomas mais frequentes">
             {sugestoes.map((s) => (
-              <li key={s.label}>
+              <li key={s.id}>
                 <a
                   href={s.href}
                   onClick={() => track("hero_sintoma_chip")}

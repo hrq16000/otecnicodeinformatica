@@ -20,6 +20,7 @@
     "cta_final",
     "cta_visible",
     "data_deletion_request",
+    "experiment_exposure",
     "experiment_view",
     "fluxo_atendimento_cta",
     "funnel_stage",
@@ -74,7 +75,9 @@
     "source",
     "session_id",
     "journey_id",
-    "event_id"
+    "event_id",
+    "experiment_id",
+    "variant"
   ],
   "camposProibidos": [
     "nome",

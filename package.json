@@ -240,9 +240,9 @@
     "report:rodada-5e": "node scripts/report-rodada-5e.mjs",
     "check:local-regression": "node scripts/check-local-regression.mjs dist --strict",
     "check:local-regression:alert": "node scripts/check-local-regression.mjs dist --alert",
-
     "report:local-doorway": "node scripts/report-local-doorway.mjs dist",
-    "lh:local": "lhci autorun --config=lighthouserc.local.json"
+    "lh:local": "lhci autorun --config=lighthouserc.local.json",
+    "check:cro-experiment": "node scripts/check-cro-experiment.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

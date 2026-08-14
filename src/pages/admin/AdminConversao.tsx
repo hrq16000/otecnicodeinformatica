@@ -19,6 +19,8 @@ import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 import { JornadaSankey } from "@/components/admin/JornadaSankey";
 import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
 import { QualidadeDados, type EventoQualidade } from "@/components/admin/QualidadeDados";
+import { PainelExperimentosCro, type EventoExperimento } from "@/components/admin/PainelExperimentosCro";
+
 import type { EventoOportunidade } from "@/lib/oportunidadeAnalise";
 
 /**
@@ -753,7 +755,9 @@ const AdminConversao = () => {
       <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
 
       <div className="mt-6 space-y-6">
+        <PainelExperimentosCro rows={rows as unknown as EventoExperimento[]} />
         <JornadaSankey
+
           rows={rows as unknown as EventoOportunidade[]}
           leads={leads}
           osIntegrada={osVinculada}

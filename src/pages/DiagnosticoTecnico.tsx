@@ -192,6 +192,10 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
+        {/* BUSCA DE SINTOMAS COM DESAMBIGUAÇÃO (Rodada 8B) */}
+        <BuscaSintomaInteligente />
+
+
         {/* POR QUE O MESMO SINTOMA TEM VÁRIAS CAUSAS */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">

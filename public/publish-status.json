@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-14T13:27:14.998Z",
+  "generatedAt": "2026-08-14T13:28:15.977Z",
   "base": "https://otecnicodeinformatica.com.br",
   "total": 128,
-  "prontos": 50,
-  "revisao": 23,
+  "prontos": 52,
+  "revisao": 21,
   "rascunho": 24,
   "semMetaCurada": 31,
   "urls": [
@@ -557,7 +557,7 @@
       "grupo": "servicos",
       "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
       "description": "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado.",
-      "similaridade": 0.32,
+      "similaridade": 0.3,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1104,44 +1104,40 @@
       "url": "https://otecnicodeinformatica.com.br/servicos/suporte-tecnico-empresarial/curitiba",
       "grupo": "servicos",
       "title": "Suporte Técnico Empresarial em Curitiba | Chamado e Visita",
-      "description": "Suporte técnico empresarial em Curitiba: abertura de chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme a região e a urgência do chamado.",
-      "similaridade": 0.21,
+      "description": "Suporte técnico empresarial em Curitiba: chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme urgência.",
+      "similaridade": 0.23,
       "foto": null,
       "checklist": {
         "rascunho": true,
         "conteudo": true,
         "metaTitle": true,
-        "metaDescription": false,
+        "metaDescription": true,
         "fotos": true,
         "originalidade": true
       },
-      "pendencias": [
-        "metaDescription"
-      ],
+      "pendencias": [],
       "curada": true,
-      "estado": "revisao"
+      "estado": "pronto"
     },
     {
       "path": "/servicos/manutencao-preventiva-empresas/curitiba",
       "url": "https://otecnicodeinformatica.com.br/servicos/manutencao-preventiva-empresas/curitiba",
       "grupo": "servicos",
-      "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
-      "description": "Manutenção preventiva de computadores para empresas em Curitiba: visitas agendadas fora do pico do expediente, checklist por máquina e relatório do que precisa de troca.",
-      "similaridade": 0.32,
+      "title": "Preventiva de TI em Curitiba | Visita Agendada",
+      "description": "Preventiva de computadores para empresas em Curitiba: visitas agendadas em lotes de máquinas e relatório do que precisa de troca.",
+      "similaridade": 0.29,
       "foto": null,
       "checklist": {
         "rascunho": true,
         "conteudo": true,
         "metaTitle": true,
-        "metaDescription": false,
+        "metaDescription": true,
         "fotos": true,
         "originalidade": true
       },
-      "pendencias": [
-        "metaDescription"
-      ],
+      "pendencias": [],
       "curada": true,
-      "estado": "revisao"
+      "estado": "pronto"
     },
     {
       "path": "/servicos/backup-para-empresas/curitiba",

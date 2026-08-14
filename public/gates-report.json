@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T13:04:29.269Z",
+  "generatedAt": "2026-08-14T13:28:59.452Z",
   "resumo": {
-    "total": 92,
+    "total": 98,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 92,
+    "pendencias": 98,
     "fontesAusentes": [
       "imageobject-jsonld"
     ]
@@ -271,6 +271,12 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/backup-para-empresas/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/backup-para-empresas",
       "detalhe": "página indexável sem foto real"
     },
@@ -373,13 +379,31 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/manutencao-preventiva-empresas",
       "detalhe": "página indexável sem foto real"
     },
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/montagem-de-pc/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/montagem-de-pc",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/pc-gamer/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {
@@ -433,7 +457,19 @@
     {
       "gate": "imagem",
       "severidade": "pendencia",
+      "pagina": "/servicos/suporte-home-office/curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
       "pagina": "/servicos/suporte-home-office",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/suporte-tecnico-empresarial/curitiba",
       "detalhe": "página indexável sem foto real"
     },
     {

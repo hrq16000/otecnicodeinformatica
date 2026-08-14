@@ -589,7 +589,7 @@
       "intentGlobal": "entender modelos de suporte, escopo de atendimento, níveis de serviço e o que um contrato de TI cobre",
       "intentLocal": "contratar suporte técnico para uma empresa em Curitiba sabendo tempo de deslocamento, rotina de visitas e como abrir chamado no dia a dia",
       "title": "Suporte Técnico Empresarial em Curitiba | Chamado e Visita",
-      "description": "Suporte técnico empresarial em Curitiba: abertura de chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme a região e a urgência do chamado.",
+      "description": "Suporte técnico empresarial em Curitiba: chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme urgência.",
       "h1": "Suporte técnico empresarial em Curitiba",
       "subtitulo": "Como funciona o atendimento para empresas de Curitiba: quem abre o chamado, o que é resolvido remoto na hora e quando o técnico vai até o escritório.",
       "blocos": [
@@ -672,8 +672,8 @@
       "nome": "Manutenção preventiva para empresas",
       "intentGlobal": "entender o que é manutenção preventiva, periodicidade recomendada, checklist técnico e impacto na vida útil dos equipamentos",
       "intentLocal": "agendar a rotina preventiva do parque de máquinas de uma empresa em Curitiba sem parar o expediente e sabendo o que é feito em cada visita",
-      "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
-      "description": "Manutenção preventiva de computadores para empresas em Curitiba: visitas agendadas fora do pico do expediente, checklist por máquina e relatório do que precisa de troca.",
+      "title": "Preventiva de TI em Curitiba | Visita Agendada",
+      "description": "Preventiva de computadores para empresas em Curitiba: visitas agendadas em lotes de máquinas e relatório do que precisa de troca.",
       "h1": "Manutenção preventiva de computadores para empresas em Curitiba",
       "subtitulo": "Como a rotina preventiva é agendada em Curitiba: quantas máquinas por visita, em que horário e o que sai por escrito no fim de cada passagem.",
       "blocos": [

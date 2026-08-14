@@ -85,6 +85,40 @@ writeFileSync(
   ].join("\n"),
 );
 
+/**
+ * Espelho público e enxuto para o painel /admin (Rodada 8B).
+ * Sem token, sem PII: apenas path, família de URL, verdict e cobertura.
+ * Famílias acompanhadas: service_city · neighborhood · problem · other.
+ */
+function familia(path) {
+  if (/^\/problemas\//.test(path)) return "problem";
+  if (/^\/servicos\/[^/]+\/[^/]+/.test(path)) return "service_city";
+  if (/^\/bairros\//.test(path) || /-(bairro|batel|portao|boqueirao)\b/.test(path)) return "neighborhood";
+  return "other";
+}
+
+writeFileSync(
+  "public/indexing-status.json",
+  `${JSON.stringify(
+    {
+      generatedAt: report.generatedAt,
+      coverage: report.coverage,
+      previousCoverage: report.previousCoverage,
+      regressions: report.regressions,
+      urls: results.map((r) => ({
+        path: r.path,
+        family: familia(r.path),
+        verdict: r.verdict,
+        coverageState: r.coverageState ?? null,
+        indexed: r.indexed,
+        lastCrawlTime: r.lastCrawlTime ?? null,
+      })),
+    },
+    null,
+    2,
+  )}\n`,
+);
+
 console.log(`Cobertura: ${report.coverage}% (${report.indexed}/${report.total})`);
 if (notIndexed.length) {
   console.log("Não indexadas:");

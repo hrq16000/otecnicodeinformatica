@@ -16,6 +16,8 @@ import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
 import { AquisicaoReal } from "@/components/admin/AquisicaoReal";
+import { PainelClusterEditorial } from "@/components/admin/PainelClusterEditorial";
+
 
 import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 import { JornadaSankey } from "@/components/admin/JornadaSankey";

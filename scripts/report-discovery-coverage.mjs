@@ -93,6 +93,16 @@ function coorte(estado) {
   return "OUTRO";
 }
 
+const LEITURA = {
+  INDEXADA: "OK — manter e observar posição.",
+  DESCOBERTA_NAO_INDEXADA: "Google conhece a URL e adiou o rastreio: reforçar links internos e demanda real.",
+  RASTREADA_NAO_INDEXADA: "Rastreada e descartada: sinal de qualidade/duplicidade, revisar conteúdo único.",
+  DESCONHECIDA: "Falha de descoberta: URL no sitemap sem chegar ao Google (links internos ou sitemap não processado).",
+  BLOQUEADA: "Bloqueio técnico: robots, noindex ou canônico apontando para outra URL.",
+  ERRO: "Falha de leitura na API — reexecutar.",
+  OUTRO: "Estado não mapeado — inspecionar manualmente.",
+};
+
 const todas = coletarUrls();
 if (todas.length === 0) {
   console.error("✖ Nenhum sitemap de rota encontrado em public/.");

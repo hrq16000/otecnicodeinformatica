@@ -202,9 +202,74 @@ const resumo = {
   milestonesNovos: novos,
 };
 
+/* ── comparação com a execução anterior (Rodada 8G) ──
+ * O snapshot anterior é lido ANTES de sobrescrever o arquivo. Nada aqui
+ * inventa progresso: campo sem medição continua null e a transição fica
+ * registrada como "—", não como queda. */
+const ANTERIOR = ler("content-cohort.json");
+const cmp = (a, b) => (a == null && b == null ? null : (b ?? 0) - (a ?? 0));
+const comparacao = ANTERIOR
+  ? {
+      geradoEmAnterior: ANTERIOR.resumo?.geradoEm ?? null,
+      statusAnterior: ANTERIOR.resumo?.status ?? null,
+      decisaoAnterior: ANTERIOR.resumo?.decisao ?? null,
+      statusMudou: (ANTERIOR.resumo?.status ?? null) !== status,
+      deltas: {
+        impressoes: cmp(ANTERIOR.resumo?.impressoes, impressoes),
+        cliques: cmp(ANTERIOR.resumo?.cliques, cliques),
+        sessoes: cmp(ANTERIOR.resumo?.sessoes, sessoes),
+        assists: cmp(ANTERIOR.resumo?.assists, assists),
+      },
+      urls: linhas.map((l) => {
+        const a = ANTERIOR.linhas?.find((x) => x.url === l.url);
+        return {
+          url: l.url,
+          estadoAnterior: a?.estado ?? null,
+          estado: l.estado,
+          estadoMudou: !!a && a.estado !== l.estado,
+          reasonAnterior: a?.reason ?? null,
+          reason: l.reason,
+          reasonMudou: !!a && a.reason !== l.reason,
+          deltaImpressoes: cmp(a?.impressions, l.impressions),
+          deltaCliques: cmp(a?.clicks, l.clicks),
+          deltaSessoes: cmp(a?.sessions, l.sessions),
+        };
+      }),
+      milestonesNovos: novos,
+    }
+  : null;
+
 mkdirSync(OUT, { recursive: true });
-writeFileSync(path.join(OUT, "content-cohort.json"), JSON.stringify({ resumo, linhas, timeline }, null, 2));
+const payload = { resumo, linhas, timeline, comparacao };
+writeFileSync(path.join(OUT, "content-cohort.json"), JSON.stringify(payload, null, 2));
 writeFileSync(TIMELINE_FILE, JSON.stringify(timeline, null, 2));
+
+/* histórico curto (últimas 30 execuções) para leitura de progresso */
+const HIST_FILE = path.join(OUT, "content-cohort-history.json");
+const historico = existsSync(HIST_FILE) ? JSON.parse(readFileSync(HIST_FILE, "utf8")) : [];
+historico.push({
+  geradoEm: resumo.geradoEm,
+  status,
+  decisao: decisao.decision,
+  discovered: resumo.discovered,
+  indexed: resumo.indexed,
+  impressoes,
+  cliques,
+  sessoes,
+  assists,
+});
+writeFileSync(HIST_FILE, JSON.stringify(historico.slice(-30), null, 2));
+
+/* cópia servida pelo app (painel /admin lê de /reports/…) */
+const PUB = path.join(ROOT, "public/reports");
+mkdirSync(PUB, { recursive: true });
+writeFileSync(path.join(PUB, "content-cohort.json"), JSON.stringify(payload, null, 2));
+writeFileSync(path.join(PUB, "content-cohort-history.json"), JSON.stringify(historico.slice(-30), null, 2));
+for (const f of ["content-discovery.json", "content-performance.json"]) {
+  const src = path.join(OUT, f);
+  if (existsSync(src)) writeFileSync(path.join(PUB, f), readFileSync(src, "utf8"));
+}
+
 
 const md = [
   "# Coorte do Cluster 1 — observação (Rodada 8G)",

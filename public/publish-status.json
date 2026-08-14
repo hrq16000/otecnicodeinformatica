@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T22:20:12.959Z",
+  "generatedAt": "2026-08-14T22:38:09.161Z",
   "base": "https://otecnicodeinformatica.com.br",
   "total": 142,
   "prontos": 56,
-  "revisao": 23,
-  "rascunho": 30,
+  "revisao": 24,
+  "rascunho": 29,
   "semMetaCurada": 33,
   "urls": [
     {
@@ -1426,7 +1426,11 @@
       "title": "Técnico de Informática no CIC (Curitiba) | Notebook e PC",
       "description": "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99.",
       "similaridade": 0.67,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1449,7 +1453,11 @@
       "title": "Técnico de Informática no Batel (Curitiba) | Notebook e PC",
       "description": "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
       "similaridade": 0.73,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1473,7 +1481,11 @@
       "title": "Técnico de Informática no Água Verde | Notebook e PC",
       "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99.",
       "similaridade": 0.73,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1496,7 +1508,11 @@
       "title": "Técnico de Informática no Centro de Curitiba | Notebook e PC",
       "description": "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios.",
       "similaridade": 0.67,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1519,7 +1535,11 @@
       "title": "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
       "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD.",
       "similaridade": 0.64,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1792,21 +1812,24 @@
       "title": "Wi-Fi caindo ou lento: causas e o que checar | O Técnico de Informática",
       "description": "Wi-Fi que cai, fica lento em alguns cômodos ou desconecta sozinho quase nunca é problema do plano. Veja as causas reais, o que testar antes e quando chamar técnico.",
       "similaridade": 0.28,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/roteador-wifi.jpg",
+        "status": "ok",
+        "exclusiva": true
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
         "metaTitle": false,
         "metaDescription": true,
-        "fotos": false,
+        "fotos": true,
         "originalidade": true
       },
       "pendencias": [
-        "metaTitle",
-        "fotos"
+        "metaTitle"
       ],
       "curada": true,
-      "estado": "rascunho"
+      "estado": "revisao"
     },
     {
       "path": "/problemas/tela-azul",
@@ -1815,7 +1838,11 @@
       "title": "Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática",
       "description": "Tela azul travando o computador? O código do erro aponta a origem: memória, driver, disco ou energia. Veja o que anotar antes de reiniciar e quando o reparo compensa.",
       "similaridade": 0.26,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1839,7 +1866,11 @@
       "title": "Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática",
       "description": "Apagou arquivos, formatou por engano ou o HD parou de abrir? O que você faz na primeira hora define a chance de recuperação. Veja o que evitar e como funciona a avaliação.",
       "similaridade": 0.12,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1863,7 +1894,11 @@
       "title": "Computador desliga sozinho: causas e o que checar | O Técnico de Informática",
       "description": "Desligamento súbito quase sempre é temperatura, fonte ou alimentação — raramente vírus. Veja como identificar a causa, o que testar antes e quando parar de usar.",
       "similaridade": 0.28,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1886,7 +1921,11 @@
       "title": "Notebook não carrega: causas e o que testar | O Técnico de Informática",
       "description": "Notebook ligado na tomada que não carrega pode ser fonte, conector, bateria ou placa. Veja como identificar cada caso, o que testar sozinho e o que evita gasto errado.",
       "similaridade": 0.24,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1910,7 +1949,11 @@
       "title": "HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática",
       "description": "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente. Entenda cada ruído, o que fazer imediatamente e o que destrói a chance de recuperar os arquivos.",
       "similaridade": 0.18,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1934,7 +1977,11 @@
       "title": "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
       "description": "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
       "similaridade": 0.24,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/bancada-tecnica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1958,7 +2005,11 @@
       "title": "Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática",
       "description": "Cheiro de queimado vindo do gabinete, da fonte ou do carregador é sinal elétrico e urgente. Veja o que desligar agora, o que nunca fazer e como o diagnóstico é conduzido.",
       "similaridade": 0.21,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -1982,7 +2033,11 @@
       "title": "Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática",
       "description": "Derramou líquido no notebook? Os primeiros minutos decidem o custo do reparo. Veja o que desligar, o que nunca fazer (arroz e secador) e quando o caso é de bancada.",
       "similaridade": 0.19,
-      "foto": null,
+      "foto": {
+        "src": "/fotos/placa-eletronica.jpg",
+        "status": "ok",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -2005,7 +2060,11 @@
       "title": "Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática",
       "description": "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização. Veja o que checar.",
       "similaridade": 0.26,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -2029,7 +2088,11 @@
       "title": "Computador esquentando muito: causas e o que fazer | O Técnico de Informática",
       "description": "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico. Veja as causas, o que medir antes e qual manutenção resolve.",
       "similaridade": 0.17,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -2053,7 +2116,11 @@
       "title": "Impressora não imprime: causas e o que checar | O Técnico de Informática",
       "description": "Documento fica na fila, a impressora aparece offline ou sai página em branco? Veja o que separa falha de rede, driver e cabeça de impressão — e o que testar antes de chamar técnico.",
       "similaridade": 0.26,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,
@@ -2077,7 +2144,11 @@
       "title": "Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática",
       "description": "Teclas que não respondem, letra repetida ou teclado morto depois de líquido? Veja como separar falha de software, flat solto e dano físico antes de trocar a peça.",
       "similaridade": 0.24,
-      "foto": null,
+      "foto": {
+        "src": null,
+        "status": "sem_foto",
+        "exclusiva": false
+      },
       "checklist": {
         "rascunho": true,
         "conteudo": true,

@@ -227,6 +227,7 @@ const HomeApp = () => {
       <GeoAutoDetect />
       <InstitutionalJsonLd />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
+      <PageViewTracker path={routePath} />
       {showNavLoader ? <NavigationOverlay /> : null}
       {/* RODADA 5: toda rota (home e lazy) entra pela mesma primitiva de
           transição — fallback imediato e neutro sob reduced-motion. */}

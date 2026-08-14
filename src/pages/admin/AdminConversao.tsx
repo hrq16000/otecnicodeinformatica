@@ -40,6 +40,10 @@ type Evento = {
   session_id: string | null;
   servico: string | null;
   utm_medium: string | null;
+  landing_route?: string | null;
+  route_family?: string | null;
+  intent?: string | null;
+  neighborhood_slug?: string | null;
 };
 
 const ROTAS_FOCO = [

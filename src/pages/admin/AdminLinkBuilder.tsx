@@ -41,6 +41,37 @@ const AdminLinkBuilder = () => {
 
   const faltaContent = preset.exigeContent && !content.trim();
 
+  /**
+   * RODADA 8D — QR CODE do link já validado.
+   * O QR nunca é gerado a partir de texto livre: só do `resultado.url` aprovado
+   * por `construirLinkAquisicao` (fail-closed contra PII, destino inválido,
+   * fonte interna). A lib é carregada sob demanda para não pesar no bundle.
+   */
+  const [qr, setQr] = useState<string | null>(null);
+  const urlValida = resultado.ok && !faltaContent ? resultado.url : null;
+
+  useEffect(() => {
+    let ativo = true;
+    if (!urlValida) {
+      setQr(null);
+      return;
+    }
+    import("qrcode")
+      .then((mod) =>
+        mod.default.toDataURL(urlValida, { width: 512, margin: 2, errorCorrectionLevel: "M" }),
+      )
+      .then((dataUrl) => {
+        if (ativo) setQr(dataUrl);
+      })
+      .catch(() => {
+        if (ativo) setQr(null);
+      });
+    return () => {
+      ativo = false;
+    };
+  }, [urlValida]);
+
+
   if (loading)
     return (
       <div className="flex min-h-screen items-center justify-center">

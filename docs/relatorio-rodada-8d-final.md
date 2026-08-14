@@ -28,9 +28,13 @@ Nenhuma rota criada nesta rodada.
 
 ## 7–9. Contrato de atribuição / first touch / last touch
 
-`src/lib/canalAtribuicao.ts` inalterado: interno/QA vence qualquer sinal e nunca vira
-aquisição; UNKNOWN nunca é convertido em direct. First touch persiste em `utm_payload_v1`
-(primeiro hit ganha) e sobrevive à navegação interna, que continua sem UTM na URL.
+Interno/QA vence qualquer sinal e nunca vira aquisição; UNKNOWN nunca é convertido em direct.
+**Complemento 8D:** a taxonomia ganhou o canal próprio `gbp` — `utm_medium=organic_gbp`
+(perfil e posts) não colapsa mais com Google Search orgânico, e social orgânico
+(`facebook`/`instagram` + `organic`) é classificado como `social`, não como organic/referral.
+First touch persiste em `utm_payload_v1` (primeiro hit ganha) e sobrevive à navegação interna,
+que continua sem UTM na URL.
+
 
 ## 10. WhatsApp attribution
 

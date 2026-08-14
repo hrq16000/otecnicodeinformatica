@@ -836,5 +836,5 @@ export const registrarAbandonoSePendente = () => {
   } catch {
     return;
   }
-  track("triage_abandon", buildRouteContext());
+  track("triage_abandon", { ...buildRouteContext() });
 };

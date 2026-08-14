@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-14T13:03:43.498Z",
+  "generatedAt": "2026-08-14T13:28:15.977Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 122,
-  "prontos": 46,
+  "total": 128,
+  "prontos": 52,
   "revisao": 21,
   "rascunho": 24,
   "semMetaCurada": 31,
@@ -577,7 +577,7 @@
       "grupo": "servicos",
       "title": "Backup para Empresas em Curitiba | Proteção de Arquivos",
       "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração.",
-      "similaridade": 0.11,
+      "similaridade": 0.32,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -597,7 +597,7 @@
       "grupo": "servicos",
       "title": "Suporte Técnico para Home Office em Curitiba",
       "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail.",
-      "similaridade": 0.16,
+      "similaridade": 0.21,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -637,7 +637,7 @@
       "grupo": "servicos",
       "title": "Manutenção de PC Gamer em Curitiba | Desempenho e Upgrade",
       "description": "Manutenção de PC gamer em Curitiba: queda de FPS, travamento, superaquecimento e desligamento em jogo. Medição de temperatura, revisão de fonte e upgrade avaliado antes.",
-      "similaridade": 0.12,
+      "similaridade": 0.14,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1086,6 +1086,126 @@
       "title": "Backup e Recuperação de Dados em Curitiba | Coleta",
       "description": "Backup e recuperação de dados em Curitiba com coleta do equipamento, registro do que foi recebido e devolução combinada. Fale pelo WhatsApp.",
       "similaridade": 0.18,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/suporte-tecnico-empresarial/curitiba",
+      "grupo": "servicos",
+      "title": "Suporte Técnico Empresarial em Curitiba | Chamado e Visita",
+      "description": "Suporte técnico empresarial em Curitiba: chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme urgência.",
+      "similaridade": 0.23,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/manutencao-preventiva-empresas/curitiba",
+      "grupo": "servicos",
+      "title": "Preventiva de TI em Curitiba | Visita Agendada",
+      "description": "Preventiva de computadores para empresas em Curitiba: visitas agendadas em lotes de máquinas e relatório do que precisa de troca.",
+      "similaridade": 0.29,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/backup-para-empresas/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/backup-para-empresas/curitiba",
+      "grupo": "servicos",
+      "title": "Backup para Empresas em Curitiba | Implantação e Teste",
+      "description": "Backup para empresas em Curitiba: implantação da rotina no local, cópia fora do escritório e teste de restauração periódico para você saber que o backup funciona.",
+      "similaridade": 0.32,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/montagem-de-pc/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/montagem-de-pc/curitiba",
+      "grupo": "servicos",
+      "title": "Montagem de Computador em Curitiba | Peças e Garantia",
+      "description": "Montagem de computador em Curitiba: conferência da lista de peças antes da compra, montagem em bancada com testes e orientação sobre garantia de cada componente.",
+      "similaridade": 0.16,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/suporte-home-office/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/suporte-home-office/curitiba",
+      "grupo": "servicos",
+      "title": "Suporte para Home Office em Curitiba | Atendimento Rápido",
+      "description": "Suporte para home office em Curitiba: acesso remoto imediato para reunião que não abre, VPN, impressora e internet instável, com visita quando o problema é físico.",
+      "similaridade": 0.23,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/pc-gamer/curitiba",
+      "url": "https://otecnicodeinformatica.com.br/servicos/pc-gamer/curitiba",
+      "grupo": "servicos",
+      "title": "PC Gamer em Curitiba | Montagem, Revisão e Manutenção",
+      "description": "PC gamer em Curitiba: montagem em bancada com teste sob carga, revisão térmica de máquina que está travando e coleta com transporte cuidadoso da sua torre.",
+      "similaridade": 0.14,
       "foto": null,
       "checklist": {
         "rascunho": true,

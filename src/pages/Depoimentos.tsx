@@ -44,13 +44,11 @@ const Depoimentos = () => {
     let cancelled = false;
     (async () => {
       const { data } = await supabase
-        .from("reviews")
+        .from("reviews_public")
         .select(
           "id, author_name, rating, comment, service_slug, city, neighborhood, review_date",
         )
-        // Apenas avaliações autorizadas (verificadas) e publicadas pelo admin.
-        .eq("verified", true)
-        .eq("published", true)
+        // A vitrine reviews_public já expõe só avaliações verificadas e publicadas.
         .order("review_date", { ascending: false })
         .limit(120);
       if (!cancelled) {

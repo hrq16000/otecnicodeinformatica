@@ -46,12 +46,18 @@ export function readUtms(): UtmPayload {
   }
 }
 
+/**
+ * Anexa a UTM de aquisição capturada na entrada da sessão a um link de saída
+ * (WhatsApp). Quando não houve UTM real de aquisição, o link é marcado como
+ * CTA interno — nunca como "organic", que falsificaria a origem da sessão
+ * (Rodada 8A: `utm_medium=organic` fixo contaminava o funil).
+ */
 export function appendUtmsToUrl(url: URL): URL {
   const utms = readUtms();
   for (const [k, v] of Object.entries(utms)) {
     if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
   }
   if (!url.searchParams.has("utm_source")) url.searchParams.set("utm_source", "site");
-  if (!url.searchParams.has("utm_medium")) url.searchParams.set("utm_medium", "organic");
+  if (!url.searchParams.has("utm_medium")) url.searchParams.set("utm_medium", "cta_interno");
   return url;
 }

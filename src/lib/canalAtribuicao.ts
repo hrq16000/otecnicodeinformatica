@@ -18,6 +18,7 @@ export const CANAIS = [
   "social",
   "referral",
   "direct",
+  "internal",
   "unknown",
 ] as const;
 
@@ -30,8 +31,21 @@ export const CANAL_LABEL: Record<Canal, string> = {
   social: "Social",
   referral: "Referência",
   direct: "Direto",
+  internal: "Interno / QA (não é aquisição)",
   unknown: "Não identificado",
 };
+
+/** Canais que representam aquisição real — denominador válido de CRO/SEO. */
+export const CANAIS_DE_AQUISICAO: readonly Canal[] = [
+  "google_ads",
+  "paid_other",
+  "organic",
+  "social",
+  "referral",
+  "direct",
+];
+
+export const ehAquisicao = (canal: Canal) => CANAIS_DE_AQUISICAO.includes(canal);
 
 export type FonteCanal = {
   utm_source?: string | null;
@@ -45,26 +59,67 @@ const MEDIUMS_PAGOS = ["cpc", "ppc", "paid", "paidsearch", "paid_search", "cpm",
 const MEDIUMS_ORGANICOS = ["organic", "seo", "organic_search"];
 const FONTES_SOCIAIS = ["facebook", "instagram", "linkedin", "youtube", "tiktok", "whatsapp", "x", "twitter"];
 
+/**
+ * RODADA 8A — CONTAMINAÇÃO DE ATRIBUIÇÃO
+ * Origens/mídias emitidas pelo próprio site (CTAs internos) e por automações de
+ * QA/CI nunca podem ser lidas como aquisição. Antes desta rodada elas chegavam
+ * ao banco como `utm_source=site|ci|ga4ci` + `utm_medium=cta` e eram
+ * classificadas como "direto"/"ads", inflando o funil com sessões que nunca
+ * vieram de uma busca ou de um anúncio.
+ */
+export const FONTES_INTERNAS = ["site", "interno", "internal", "lovable", "preview"];
+export const FONTES_QA = ["ci", "ga4ci", "qa", "test", "teste", "playwright", "e2e", "smoke"];
+export const MEDIUMS_INTERNOS = ["cta", "cta_interno", "internal", "interno", "qa", "test", "e2e"];
+
+/** Alias legados gravados antes do contrato v1 (não reescrevemos histórico no banco). */
+const ALIAS_CANAL: Record<string, Canal> = {
+  direto: "direct",
+  ads: "google_ads",
+  adwords: "google_ads",
+  organico: "organic",
+  referencia: "referral",
+  interno: "internal",
+  qa: "internal",
+};
+
+/** Verdadeiro quando o evento foi originado pelo próprio site ou por automação. */
+export function ehTrafegoInterno(fonte: FonteCanal): boolean {
+  const source = norm(fonte.utm_source);
+  const medium = norm(fonte.utm_medium);
+  return (
+    FONTES_INTERNAS.includes(source) ||
+    FONTES_QA.includes(source) ||
+    MEDIUMS_INTERNOS.includes(medium)
+  );
+}
+
 /** Deriva o canal de um evento. Sempre devolve um dos valores de `CANAIS`. */
 export function canalDoEvento(fonte: FonteCanal): Canal {
   const source = norm(fonte.utm_source);
   const medium = norm(fonte.utm_medium);
-  const canal = norm(fonte.attribution_channel);
+  const canalBruto = norm(fonte.attribution_channel);
+  const canal = ALIAS_CANAL[canalBruto] ?? canalBruto;
 
-  const pago = MEDIUMS_PAGOS.includes(medium) || canal === "paid";
-  if (pago) {
-    const googleAds = source === "google" || source === "googleads" || source === "google_ads" || source === "adwords";
+  // 1) Interno/QA vence qualquer outro sinal: nunca vira aquisição.
+  if (ehTrafegoInterno(fonte) || canal === "internal") return "internal";
+
+  const pago = MEDIUMS_PAGOS.includes(medium) || canalBruto === "paid";
+  if (pago || canal === "google_ads" || canal === "paid_other") {
+    const googleAds =
+      source === "google" || source === "googleads" || source === "google_ads" || source === "adwords";
+    if (canal === "google_ads" && !source) return "google_ads";
     return googleAds ? "google_ads" : "paid_other";
   }
 
   if (MEDIUMS_ORGANICOS.includes(medium) || canal === "organic") return "organic";
   if (medium === "social" || canal === "social" || FONTES_SOCIAIS.includes(source)) return "social";
   if (medium === "referral" || canal === "referral") return "referral";
-  if (canal === "direct" || (!source && !medium && canal === "none")) return "direct";
-  if (!source && !medium && !canal) return "unknown";
+  if (canal === "direct" || (!source && !medium && canalBruto === "none")) return "direct";
+  if (!source && !medium && !canalBruto) return "unknown";
   if (source && !medium) return "referral";
   return "unknown";
 }
+
 
 export type EtapaCanal = {
   sessoes: Set<string>;

@@ -67,9 +67,8 @@ export async function listPartners(filtros: {
   termo?: string;
 } = {}): Promise<Partner[]> {
   let query = supabase
-    .from("partners")
+    .from("partners_public")
     .select(PARTNER_FIELDS)
-    .eq("status", "ativo")
     .order("nome_profissional", { ascending: true });
 
   if (filtros.estado) query = query.ilike("estado", filtros.estado.replace(/-/g, " "));
@@ -93,10 +92,9 @@ export async function listPartners(filtros: {
 /** Perfil público — retorna null quando o parceiro não está ativo. */
 export async function getPartnerBySlug(slug: string): Promise<Partner | null> {
   const { data, error } = await supabase
-    .from("partners")
+    .from("partners_public")
     .select(PARTNER_FIELDS)
     .eq("slug", slug)
-    .eq("status", "ativo")
     .maybeSingle();
   if (error || !data) return null;
   return data as unknown as Partner;

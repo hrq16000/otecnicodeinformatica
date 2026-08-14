@@ -957,6 +957,51 @@ export type Database = {
         }
         Relationships: []
       }
+      reviews_public: {
+        Row: {
+          author_name: string | null
+          author_photo_url: string | null
+          city: string | null
+          comment: string | null
+          created_at: string | null
+          google_review_url: string | null
+          id: string | null
+          neighborhood: string | null
+          rating: number | null
+          review_date: string | null
+          service_slug: string | null
+          source: string | null
+        }
+        Insert: {
+          author_name?: string | null
+          author_photo_url?: string | null
+          city?: string | null
+          comment?: string | null
+          created_at?: string | null
+          google_review_url?: string | null
+          id?: string | null
+          neighborhood?: string | null
+          rating?: number | null
+          review_date?: string | null
+          service_slug?: string | null
+          source?: string | null
+        }
+        Update: {
+          author_name?: string | null
+          author_photo_url?: string | null
+          city?: string | null
+          comment?: string | null
+          created_at?: string | null
+          google_review_url?: string | null
+          id?: string | null
+          neighborhood?: string | null
+          rating?: number | null
+          review_date?: string | null
+          service_slug?: string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       admin_link_os_lead: {

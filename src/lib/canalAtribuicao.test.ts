@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canalDoEvento, funilPorCanal } from "./canalAtribuicao";
+import { canalDoEvento, ehAquisicao, funilPorCanal } from "./canalAtribuicao";
 import { relatorioParaCsv, relatoriosParaHtml } from "./relatorioExport";
 
 describe("canalDoEvento", () => {
@@ -72,5 +72,33 @@ describe("exportação de relatórios", () => {
   it("mostra estado vazio sem tabela", () => {
     const html = relatoriosParaHtml([{ ...rel, linhas: [] }]);
     expect(html).toContain("Sem dados no período.");
+  });
+});
+
+// ── RODADA 8A — separação de tráfego interno/QA ───────────────────────────
+describe("canalDoEvento — contaminação interna (Rodada 8A)", () => {
+  it("classifica CTA interno do próprio site como internal, nunca direct", () => {
+    expect(canalDoEvento({ utm_source: "site", utm_medium: "cta" })).toBe("internal");
+    expect(canalDoEvento({ utm_source: "site", utm_medium: "cta_interno" })).toBe("internal");
+  });
+
+  it("classifica automações de CI/QA como internal mesmo com canal legado 'ads'", () => {
+    expect(canalDoEvento({ utm_source: "ci", utm_medium: "cta", attribution_channel: "ads" })).toBe("internal");
+    expect(canalDoEvento({ utm_source: "ga4ci", utm_medium: "cta", attribution_channel: "ads" })).toBe("internal");
+  });
+
+  it("normaliza canais legados gravados antes do contrato", () => {
+    expect(canalDoEvento({ attribution_channel: "direto" })).toBe("direct");
+    expect(canalDoEvento({ utm_source: "google", utm_medium: "cpc", attribution_channel: "ads" })).toBe("google_ads");
+  });
+
+  it("mantém aquisição real intacta", () => {
+    expect(canalDoEvento({ utm_source: "google", utm_medium: "organic" })).toBe("organic");
+    expect(canalDoEvento({ utm_source: "google", utm_medium: "cpc" })).toBe("google_ads");
+  });
+
+  it("internal não integra os canais de aquisição", () => {
+    expect(ehAquisicao("internal")).toBe(false);
+    expect(ehAquisicao("organic")).toBe(true);
   });
 });

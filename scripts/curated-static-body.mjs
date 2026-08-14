@@ -65,6 +65,34 @@ function editorialInboundHtml(path) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
 }
 
+// RODADA 8F — entradas internas do cluster piloto de formatação.
+// Sem esses links no HTML servido, os dois guias ficavam a 6 cliques da Home
+// (gate check:content-discovery). Escopo restrito: Home + as duas páginas
+// semanticamente ligadas. Nada de link em todo o site.
+const CLUSTER_8F_INBOUND = {
+  "/": [
+    { href: "/blog/quanto-custa-formatar-um-computador", label: "Quanto custa formatar um computador" },
+    { href: "/blog/como-formatar-pc-sem-perder-arquivos", label: "Como formatar o PC sem perder arquivos" },
+  ],
+  "/servicos/formatacao": [
+    { href: "/blog/quanto-custa-formatar-um-computador", label: "O que entra no valor de uma formatação" },
+    { href: "/blog/como-formatar-pc-sem-perder-arquivos", label: "Veja quando a formatação realmente faz sentido" },
+  ],
+  "/problemas/computador-lento": [
+    { href: "/blog/como-formatar-pc-sem-perder-arquivos", label: "Como formatar o PC sem perder arquivos" },
+    { href: "/blog/quanto-custa-formatar-um-computador", label: "Quanto custa formatar um computador" },
+  ],
+};
+
+function cluster8fInboundHtml(path) {
+  const itens = CLUSTER_8F_INBOUND[path] ?? [];
+  if (itens.length === 0) return "";
+  const li = itens
+    .map((i) => `<li><a href="${i.href}" style="color:#7fd4ec">${esc(i.label)}</a></li>`)
+    .join("");
+  return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Formatação: entenda antes de decidir</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
+}
+
 import { BASE_URL, WHATSAPP_NUMBER, OPENING_HOURS } from "./lib/site-env.mjs";
 
 // Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
@@ -930,6 +958,7 @@ export function staticBodyFor(route) {
           ${offersHtml}
           ${faqHtml}
           ${editorialInboundHtml(route.path)}
+          ${cluster8fInboundHtml(route.path)}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>

@@ -221,7 +221,26 @@ const FAQS = [
     answer:
       "Atendimentos pontuais de pequenos negócios são feitos por esta página. Necessidades mais amplas — vários usuários, rede estruturada ou avaliação de suporte recorrente — são tratadas na página empresarial.",
   },
+  // ── Formatação em Curitiba (cluster piloto, Rodada 8F) ──────────
+  // Perguntas ancoradas na decisão local, sem repetir as do guia
+  // informacional nem as do guia de custo.
+  {
+    question: "Formatação em Curitiba é feita em casa ou o computador precisa sair?",
+    answer:
+      "Quando o sistema ainda inicia e o volume de dados é razoável, a formatação costuma ser feita no endereço ou remotamente. Quando o sistema não sobe, quando o disco apresenta falha ou quando há muita coisa a preservar, o caminho passa a ser coleta e bancada — e isso é dito na triagem, não no meio do serviço.",
+  },
+  {
+    question: "O que precisa estar pronto antes do técnico chegar para formatar?",
+    answer:
+      "Ter em mãos as senhas das contas usadas no computador (e-mail, navegador, sistemas de trabalho) e saber quais programas você realmente usa. Isso encurta a reinstalação. O levantamento e a cópia dos arquivos são feitos junto, com conferência antes de apagar qualquer coisa.",
+  },
+  {
+    question: "Formatar vai resolver a lentidão do meu computador?",
+    answer:
+      "Só se a causa for software. Disco desgastado, memória insuficiente e superaquecimento continuam depois da formatação. Por isso a lentidão é diagnosticada antes de a formatação ser oferecida como solução.",
+  },
 ];
+
 
 const TecnicoInformaticaCuritiba = () => {
   const waHref = whatsappLink(WA_MESSAGE);

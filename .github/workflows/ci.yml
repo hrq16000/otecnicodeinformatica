@@ -93,6 +93,8 @@ jobs:
 
       - name: Atribuição /problemas (GA4 x Ads x UTM)
         run: npm run report:problemas-attribution
+      - name: Contrato de eventos de analytics (divergência de nomes/parâmetros)
+        run: npm run check:analytics-event-contract
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity
       - name: Interlinking local gate (mãe ⇄ bairros/cidades)

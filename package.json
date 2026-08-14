@@ -89,6 +89,8 @@
     "check:analytics-parity": "node scripts/check-analytics-parity.mjs",
     "report:rodada-6": "node scripts/report-rodada-6.mjs",
     "check:analytics-event-contract": "node scripts/check-analytics-event-contract.mjs",
+    "alert:funnel": "node scripts/alert-funnel-thresholds.mjs",
+    "alert:funnel:dry": "node scripts/alert-funnel-thresholds.mjs --dry",
     "check:cf-zone": "node scripts/check-cloudflare-zone.mjs",
     "check:nap": "node scripts/check-nap-whatsapp.mjs",
     "migration:export": "node scripts/export-redirects.mjs",

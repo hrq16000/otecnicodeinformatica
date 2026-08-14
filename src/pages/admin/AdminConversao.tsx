@@ -774,6 +774,8 @@ const AdminConversao = () => {
         <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
         <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
         <AquisicaoReal rows={rows} />
+        <PainelClusterEditorial />
+
         <SegmentacaoCanal rows={rows} />
 
         <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />

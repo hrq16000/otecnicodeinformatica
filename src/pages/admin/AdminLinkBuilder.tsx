@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { Copy, Link2, Loader2 } from "lucide-react";
+import { Copy, Download, Link2, Loader2, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -13,6 +13,7 @@ import {
   construirLinkAquisicao,
   type PresetAquisicao,
 } from "@/lib/utmLinkBuilder";
+
 
 /**
  * RODADA 8C — GERADOR DE LINKS DE AQUISIÇÃO (/admin/link-builder)

@@ -115,8 +115,12 @@ export function canalDoEvento(fonte: FonteCanal): Canal {
     return googleAds ? "google_ads" : "paid_other";
   }
 
-  if (MEDIUMS_ORGANICOS.includes(medium) || canal === "organic") return "organic";
+  // RODADA 8D — GBP nunca colapsa com Google Search orgânico.
+  if (MEDIUMS_GBP.includes(medium) || FONTES_GBP.includes(source) || canal === "gbp") return "gbp";
+  // Social orgânico é social (não "organic"): a UTM informa a rede.
   if (medium === "social" || canal === "social" || FONTES_SOCIAIS.includes(source)) return "social";
+  if (MEDIUMS_ORGANICOS.includes(medium) || canal === "organic") return "organic";
+
   if (medium === "referral" || canal === "referral") return "referral";
   if (canal === "direct" || (!source && !medium && canalBruto === "none")) return "direct";
   if (!source && !medium && !canalBruto) return "unknown";

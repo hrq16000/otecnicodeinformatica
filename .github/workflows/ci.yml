@@ -321,7 +321,7 @@ jobs:
         if: steps.changes.outputs.ping == 'true'
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          INDEXNOW_HOST: tecnico.curitiba.br
+          INDEXNOW_HOST: otecnicodeinformatica.com.br
         run: |
           if [ -z "$INDEXNOW_KEY" ]; then
             echo "::warning::INDEXNOW_KEY ausente — pulando ping."

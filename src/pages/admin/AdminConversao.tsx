@@ -15,6 +15,8 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
+import { AquisicaoReal } from "@/components/admin/AquisicaoReal";
+
 import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 import { JornadaSankey } from "@/components/admin/JornadaSankey";
 import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
@@ -769,7 +771,9 @@ const AdminConversao = () => {
 
         <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
         <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
+        <AquisicaoReal rows={rows} />
         <SegmentacaoCanal rows={rows} />
+
         <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />
         <p className="text-xs text-muted-foreground">
           Auditoria de tráfego de teste em{" "}

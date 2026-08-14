@@ -434,6 +434,13 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
     ),
     utm_campaign: utms.utm_campaign || campaignFromPath(path),
     attribution_channel: readAttribution().channel,
+    // Rodada 6 — contexto contratual (nunca fallback geográfico falso).
+    route_family: contrato.route_family,
+    intent: contrato.intent ?? null,
+    neighborhood_slug: contrato.neighborhood_slug ?? null,
+    journey_id: getJourneyId(),
+    event_id: newEventId(),
+    landing_route: readTouchpoint("first")?.landing_route ?? null,
   };
   // `device` é derivável de viewport_bucket e não existe como coluna.
   // `viewport_width` deixou de ser persistido pela decisão de governança 4E.4

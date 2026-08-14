@@ -87,8 +87,8 @@ const Avaliar = () => {
       rating,
       comment: comentario.trim().slice(0, 1500),
       source: "site",
-      verified: false,
-      published: false,
+      // `verified` e `published` NÃO entram no payload público: o GRANT INSERT
+      // do role anon não cobre essas colunas (o banco aplica o default false).
       authorized_publication: autoriza,
       service_slug: servico ? servico.slice(0, 80) : null,
       neighborhood: bairro ? bairro.slice(0, 80) : null,

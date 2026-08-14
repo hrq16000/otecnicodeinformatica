@@ -165,6 +165,52 @@ export const PainelClusterEditorial = () => {
   const decisao = useMemo(() => decideCluster({ urls: sinais }), [sinais]);
 
   const links = useMemo(() => matrizDistribuicao(), []);
+  const comparacao = coorte?.comparacao ?? null;
+
+  const linhasExport = useMemo(
+    () =>
+      rows.map((r) => ({
+        url: r.url,
+        intencao: r.intent,
+        publicadoEm: r.publishedAt,
+        idadeDias: r.ageDays,
+        estado: r.estado,
+        discovery: r.discovery,
+        reason: r.reason,
+        impressoes: r.impressions ?? "",
+        cliques: r.clicks ?? "",
+        sessoes: r.sessions ?? "",
+        whatsapp: r.whatsapp ?? "",
+        assist: r.assists ?? "",
+      })),
+    [rows],
+  );
+
+  const exportarPdf = async () => {
+    const [{ jsPDF }, { default: autoTable }] = await Promise.all([import("jspdf"), import("jspdf-autotable")]);
+    const doc = new jsPDF({ orientation: "landscape" });
+    doc.setFontSize(14);
+    doc.text(`Cluster 1 — observação (${CONTENT_COHORT_ID})`, 14, 16);
+    doc.setFontSize(10);
+    doc.text(`Status ${status} · decisão ${decisao.decision}`, 14, 23);
+    autoTable(doc, {
+      startY: 28,
+      head: [["URL", "Idade", "Estado", "Reason", "Impr.", "Cliques", "Sessões", "WhatsApp", "Assist"]],
+      body: rows.map((r) => [
+        r.url,
+        `${r.ageDays}d`,
+        r.estado,
+        r.reason,
+        r.impressions ?? "—",
+        r.clicks ?? "—",
+        r.sessions ?? "—",
+        r.whatsapp ?? "—",
+        r.assists ?? "—",
+      ]),
+      styles: { fontSize: 8 },
+    });
+    doc.save(`cluster-1-${new Date().toISOString().slice(0, 10)}.pdf`);
+  };
 
   return (
     <Card className="p-4">
@@ -177,6 +223,66 @@ export const PainelClusterEditorial = () => {
         </div>
       </div>
       <p className="mb-3 text-xs text-muted-foreground">{decisao.motivo}</p>
+
+      <div className="mb-4 flex flex-wrap gap-2">
+        <Button size="sm" variant="outline" onClick={() => exportarCsv("cluster-1", linhasExport)}>
+          Exportar CSV
+        </Button>
+        <Button size="sm" variant="outline" onClick={() => void exportarPdf()}>
+          Exportar PDF
+        </Button>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() =>
+            exportarJson("cluster-1", coorte ?? { resumo: { status, decisao: decisao.decision }, linhas: rows })
+          }
+        >
+          Exportar JSON
+        </Button>
+      </div>
+
+      {comparacao ? (
+        <div className="mb-4 rounded-lg border border-border p-3">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <h3 className="font-heading text-sm font-bold text-foreground">Comparação com a execução anterior</h3>
+            {comparacao.statusMudou ? (
+              <Badge>
+                {comparacao.statusAnterior ?? "—"} → {status}
+              </Badge>
+            ) : (
+              <Badge variant="outline">Status estável</Badge>
+            )}
+            {comparacao.milestonesNovos?.length ? (
+              <Badge variant="secondary">Novos milestones: {comparacao.milestonesNovos.join(", ")}</Badge>
+            ) : null}
+          </div>
+          <ul className="space-y-1 text-xs">
+            {comparacao.urls.map((c) => (
+              <li key={c.url} className="flex flex-wrap items-center gap-2">
+                <code className="text-[11px]">{c.url}</code>
+                {c.estadoMudou ? (
+                  <Badge variant="default">
+                    {c.estadoAnterior} → {c.estado}
+                  </Badge>
+                ) : (
+                  <span className="text-muted-foreground">sem transição de estado</span>
+                )}
+                {c.reasonMudou ? (
+                  <Badge variant="secondary">
+                    {c.reasonAnterior} → {c.reason}
+                  </Badge>
+                ) : null}
+                <span className="text-muted-foreground">
+                  Δ impr. {delta(c.deltaImpressoes)} · Δ cliques {delta(c.deltaCliques)} · Δ sessões{" "}
+                  {delta(c.deltaSessoes)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
 
       {carregando ? (
         <div className="space-y-2" aria-busy="true">

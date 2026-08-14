@@ -1,12 +1,11 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
+// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
+// or the app will break with duplicate plugins:
+//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
+//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
+//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { execSync } from "node:child_process";
-import { componentTagger } from "lovable-tagger";
 import { imagetools } from "vite-imagetools";
-// @ts-expect-error - JS plugin without types
-import { prerenderCitiesPlugin } from "./scripts/prerender-cities.mjs";
-
 
 const resolveAppVersion = () => {
   if (process.env.APP_VERSION) return process.env.APP_VERSION;
@@ -20,60 +19,21 @@ const resolveAppVersion = () => {
     return `b${Date.now().toString(36)}`;
   }
 };
-const APP_VERSION = resolveAppVersion();
-const APP_BUILD_TIME = new Date().toISOString();
-const GOOGLE_SITE_VERIFICATION =
-  process.env.VITE_GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_SITE_VERIFICATION || "";
 
-const googleSiteVerificationPlugin = () => ({
-  name: "google-site-verification-meta",
-  transformIndexHtml(html: string) {
-    const token = GOOGLE_SITE_VERIFICATION.trim();
-    if (!token) return html;
-    if (html.includes('name="google-site-verification"')) return html;
-    return html.replace(
-      /<meta name="msvalidate\.01" content="" \/>/,
-      `<meta name="msvalidate.01" content="" />\n    <meta name="google-site-verification" content="${token.replace(/"/g, "&quot;")}" />`,
-    );
+export default defineConfig({
+  tanstackStart: {
+    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+    // nitro/vite builds from this
+    server: { entry: "server" },
+  },
+  vite: {
+    plugins: [imagetools()],
+    define: {
+      __APP_VERSION__: JSON.stringify(resolveAppVersion()),
+      __APP_BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    },
+    build: {
+      chunkSizeWarningLimit: 800,
+    },
   },
 });
-
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    imagetools(),
-    googleSiteVerificationPlugin(),
-    mode === "development" && componentTagger(),
-    prerenderCitiesPlugin(),
-  ].filter(Boolean),
-
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  define: {
-    __APP_VERSION__: JSON.stringify(APP_VERSION),
-    __APP_BUILD_TIME__: JSON.stringify(APP_BUILD_TIME),
-  },
-  build: {
-    chunkSizeWarningLimit: 800,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes("node_modules")) return undefined;
-
-          // Produção estava congelando antes da hidratação por um ciclo TDZ entre
-          // vendor-react e vendor (`Cannot access 'kf' before initialization`).
-          // Um único vendor elimina imports circulares entre chunks de libs.
-          return "vendor";
-        },
-      },
-    },
-  },
-}));

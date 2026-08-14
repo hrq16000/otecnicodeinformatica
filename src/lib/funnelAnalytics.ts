@@ -20,6 +20,7 @@ import { gtagReportConversion, ADS_SEND_TO } from "./analytics";
 import {
   buildRouteContext,
   getJourneyId,
+  isAssistedJourney,
   newEventId,
   normalizeCtaLocation,
   readTouchpoint,

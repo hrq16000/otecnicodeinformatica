@@ -95,6 +95,12 @@ jobs:
         run: npm run report:problemas-attribution
       - name: Contrato de eventos de analytics (divergência de nomes/parâmetros)
         run: npm run check:analytics-event-contract
+      - name: PII em analytics (Rodada 6B)
+        run: npm run check:analytics-pii
+      - name: Contexto local em analytics (sem fallback geográfico)
+        run: npm run check:analytics-local-context
+      - name: Integridade da jornada (TTL, dedupe, first/last touch)
+        run: npm run check:analytics-journey-integrity
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity
       - name: Interlinking local gate (mãe ⇄ bairros/cidades)

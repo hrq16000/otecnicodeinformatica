@@ -23,6 +23,7 @@ import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
 import { BLOCOS_3U, CTA_3U } from "./lib/blocos-3u.mjs";
 import { BLOCOS_4A, CTA_4A } from "./lib/blocos-4a.mjs";
 import { SERVICO_VISUAL_3Q } from "./lib/servico-visual-3q.mjs";
+import { servicoCuritibaPorPath } from "./lib/servico-curitiba.mjs";
 
 // Rodada 3G/A1 — segundo link de entrada dos artigos aprovados, servido
 // no HTML estático das páginas comerciais. Espelha
@@ -1008,7 +1009,15 @@ function serviceNode(route, { name } = {}) {
     serviceType: label,
     description: route.description,
     url,
-    areaServed: SITE_CONFIG.serviceArea.map((n) => ({ "@type": "City", name: n })),
+    // RODADA 5D: serviço × cidade com conteúdo local declara SOMENTE a cidade
+    // da página (areaServed não pode herdar Curitiba por efeito colateral).
+    areaServed: (() => {
+      const local = servicoCuritibaPorPath(route.path);
+      const cidade = local?.cidadeNome ?? (local ? "Curitiba" : null);
+      return cidade
+        ? [{ "@type": "City", name: cidade, addressRegion: "PR", addressCountry: "BR" }]
+        : SITE_CONFIG.serviceArea.map((n) => ({ "@type": "City", name: n }));
+    })(),
     provider: { "@id": `${SITE}/#organization` },
     ...(route.offers?.length
       ? {

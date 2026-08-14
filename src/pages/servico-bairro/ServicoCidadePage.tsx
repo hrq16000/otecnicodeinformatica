@@ -16,7 +16,7 @@ import { ServiceCityLinks } from "@/components/ServiceCityLinks";
 import NotFound from "@/pages/NotFound";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import { resolveLocal } from "@/lib/localIndexPolicy";
-import { servicoCuritiba } from "@/lib/servicoCuritibaBlocos";
+import { servicoLocal } from "@/lib/servicoCuritibaBlocos";
 
 
 const WHATSAPP_NUMBER = WA_NUMBER;
@@ -36,7 +36,7 @@ const ServicoCidadePage = () => {
   const servico = servicoSlug ? getServico(servicoSlug) : undefined;
   const cidade = cidadeSlug ? getCidade(cidadeSlug) : undefined;
   // RODADA 5C: conteúdo local autoral serviço × Curitiba (fail-closed: null = template herdado).
-  const local = servicoCuritiba(servicoSlug ?? "", cidadeSlug ?? "");
+  const local = servicoLocal(servicoSlug ?? "", cidadeSlug ?? "");
 
   useEffect(() => {
     if (!servico || !cidade) return;

@@ -6,7 +6,7 @@
 // NÃO adicionar rotas fora do manifesto curado (scripts/lib/curated-urls.mjs).
 import { SERVICO_BAIRRO } from "./lib/curated-urls.mjs";
 import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
-import { SERVICO_CURITIBA_PAGINAS } from "./lib/servico-curitiba.mjs";
+import { TODAS_PAGINAS_LOCAIS } from "./lib/servico-curitiba.mjs";
 import { priorityFaq } from "./lib/priority-faq.mjs";
 import { priorityOffers } from "./lib/priority-offers.mjs";
 import { servicoBlocos } from "./lib/servico-blocos.mjs";
@@ -1003,7 +1003,7 @@ const withBlocos4q = (r) => {
 
 // RODADA 5C — serviço × Curitiba: metadados espelhados de
 // src/lib/servicoCuritibaBlocos.json (mesma fonte do runtime React).
-const SERVICO_CURITIBA_ROUTES = Object.values(SERVICO_CURITIBA_PAGINAS).map((p) => ({
+const SERVICO_CURITIBA_ROUTES = TODAS_PAGINAS_LOCAIS.map((p) => ({
   path: p.path,
   title: p.title,
   description: p.description,

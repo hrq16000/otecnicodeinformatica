@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-14T13:28:15.977Z",
+  "generatedAt": "2026-08-14T13:46:04.933Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 128,
-  "prontos": 52,
+  "total": 132,
+  "prontos": 56,
   "revisao": 21,
   "rascunho": 24,
   "semMetaCurada": 31,
@@ -517,7 +517,7 @@
       "grupo": "servicos",
       "title": "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
       "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho.",
-      "similaridade": 0.11,
+      "similaridade": 0.12,
       "foto": null,
       "checklist": {
         "rascunho": true,
@@ -1206,6 +1206,86 @@
       "title": "PC Gamer em Curitiba | Montagem, Revisão e Manutenção",
       "description": "PC gamer em Curitiba: montagem em bancada com teste sob carga, revisão térmica de máquina que está travando e coleta com transporte cuidadoso da sua torre.",
       "similaridade": 0.14,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "grupo": "servicos",
+      "title": "Conserto de Notebook em São José dos Pinhais",
+      "description": "Conserto de notebook em São José dos Pinhais: triagem no WhatsApp, coleta combinada por rota do dia e bancada. Deslocamento e prazo informados antes.",
+      "similaridade": 0.35,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "grupo": "servicos",
+      "title": "Conserto de PC em São José dos Pinhais | Visita Agendada",
+      "description": "Conserto de computador de mesa em São José dos Pinhais com visita agendada por rota, diagnóstico no local e transporte do gabinete só quando necessário.",
+      "similaridade": 0.29,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "grupo": "servicos",
+      "title": "Wi-Fi e Rede em São José dos Pinhais | Visita Técnica",
+      "description": "Correção de Wi-Fi e rede em São José dos Pinhais: medição de sinal no imóvel, ajuste de roteador e cabeamento com visita agendada por rota.",
+      "similaridade": 0.22,
+      "foto": null,
+      "checklist": {
+        "rascunho": true,
+        "conteudo": true,
+        "metaTitle": true,
+        "metaDescription": true,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [],
+      "curada": true,
+      "estado": "pronto"
+    },
+    {
+      "path": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "url": "https://otecnicodeinformatica.com.br/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "grupo": "servicos",
+      "title": "Recuperação de Dados em São José dos Pinhais | Coleta",
+      "description": "Backup e recuperação de dados em São José dos Pinhais: coleta cuidadosa da mídia, avaliação em bancada e prazo informado antes de qualquer tentativa.",
+      "similaridade": 0.26,
       "foto": null,
       "checklist": {
         "rascunho": true,

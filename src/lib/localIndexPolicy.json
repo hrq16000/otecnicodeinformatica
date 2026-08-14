@@ -263,6 +263,50 @@
       "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
       "intent": "montar, revisar ou consertar um PC gamer em Curitiba, com bancada, teste sob carga e cuidado no transporte da máquina",
       "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de notebook em São José dos Pinhais com coleta por rota e custo de deslocamento informado antes",
+      "reason": "Rodada 5D: rota intermunicipal, coleta combinada e triagem remota prévia são operação local, ausentes no serviço-pai e distintas da página de Curitiba."
+    },
+    {
+      "path": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de computador de mesa em São José dos Pinhais com visita agendada por rota",
+      "reason": "Rodada 5D: desktop não se desloca — a visita preparada e o transporte apenas do gabinete são a intenção local do município."
+    },
+    {
+      "path": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "resolver Wi-Fi e rede em São José dos Pinhais com medição presencial no imóvel",
+      "reason": "Rodada 5D: serviço obrigatoriamente presencial, com medição no imóvel e imóveis de terreno maior — contexto local real."
+    },
+    {
+      "path": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "acionar backup ou recuperação de dados em São José dos Pinhais com retirada cuidadosa da mídia",
+      "reason": "Rodada 5D: instrução de parar o uso, transporte protegido da mídia e prazo de bancada para quem espera rota — logística local própria."
     }
   ],
   "bairrosAncora": [

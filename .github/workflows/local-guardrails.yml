@@ -1,0 +1,38 @@
+name: Guardrails locais (canonical/robots/sitemap + schemas + gates)
+
+# Revalidação periódica das rotas locais promovidas pela localIndexPolicy
+# (serviço × Curitiba e serviço × São José dos Pinhais). Dispara alerta
+# (Slack / e-mail) quando houver regressão de canonical, robots, sitemap,
+# schema ou nos gates antidoorway / intenção local.
+on:
+  schedule:
+    - cron: "15 6 * * *" # diário, 06:15 UTC (03:15 America/Sao_Paulo)
+  workflow_dispatch:
+
+jobs:
+  local-guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (HTML estático curado)
+        run: npm run build
+
+      - name: Revalidar rotas promovidas + gates (com alerta)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: npm run check:local-regression:alert
+
+      - name: Guardar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-regression
+          path: reports/local-regression.json

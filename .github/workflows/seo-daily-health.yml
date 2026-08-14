@@ -14,7 +14,7 @@ jobs:
   seo-health:
     runs-on: ubuntu-latest
     env:
-      CHECK_BASE_URL: https://tecnico.curitiba.br
+      CHECK_BASE_URL: https://otecnicodeinformatica.com.br
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,7 +32,7 @@ jobs:
       - name: Saúde de indexação em produção (canônicos, noindex, JSON-LD)
         continue-on-error: true
         timeout-minutes: 20
-        run: npm run check:index-health -- --base=https://tecnico.curitiba.br --strict
+        run: npm run check:index-health -- --base=https://otecnicodeinformatica.com.br --strict
 
       - name: Soft-404 e 404 reais
         continue-on-error: true
@@ -47,7 +47,7 @@ jobs:
         env:
           LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
           GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
-          GSC_SITE_URL: sc-domain:tecnico.curitiba.br
+          GSC_SITE_URL: sc-domain:otecnicodeinformatica.com.br
         run: npm run check:sitemap-status
 
       - name: Alertar quando o sitemap ficar degraded/unhealthy

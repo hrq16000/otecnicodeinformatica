@@ -473,6 +473,41 @@ const WAVE_5I: EditorialApproval[] = [
 ];
 
 
+// Rodada 8E — cluster piloto de aquisição orgânica (formatação/lentidão).
+// Uma URL informacional reaproveitada e reescrita + uma URL comercial nova.
+// As duas capas são FOTOGRAFIAS REAIS licenciadas (Wikimedia Commons).
+// Limite total de artigos indexáveis: 32.
+const WAVE_8E: EditorialApproval[] = [
+  {
+    slug: "como-formatar-pc-sem-perder-arquivos",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-14",
+    approvedAt: "2026-08-14",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 2.0",
+    imageAttribution:
+      "Foto: Hamed Saber (Wikimedia Commons), CC BY 2.0 — https://commons.wikimedia.org/wiki/File:VAIO_TZ_laptop_hard_disk.jpg",
+    notes:
+      "Reescrita integral na Onda 8E (o rascunho programático homônimo foi removido); intenção informacional declarada em contentIntentMap.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "quanto-custa-formatar-um-computador",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-14",
+    approvedAt: "2026-08-14",
+    imageOrigin: "licensed",
+    imageLicense: "Domínio público (obra do governo federal dos EUA)",
+    imageAttribution:
+      "Foto: Airman 1st Class Jordyn Fetter, U.S. Air Force (Wikimedia Commons), domínio público — https://commons.wikimedia.org/wiki/File:Replacing_hardware_160210-F-KR223-021.jpg",
+    notes:
+      "URL nova da Onda 8E com intenção comercial de avaliação de custo; todos os valores vêm de src/lib/precosConfig.ts; capa é fotografia real de domínio público, sem IA.",
+  },
+];
+
 
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
@@ -514,6 +549,7 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5G.map((a) => [a.slug, a] as [string, EditorialApproval]),
   ...WAVE_5H.map((a) => [a.slug, a] as [string, EditorialApproval]),
   ...WAVE_5I.map((a) => [a.slug, a] as [string, EditorialApproval]),
+  ...WAVE_8E.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

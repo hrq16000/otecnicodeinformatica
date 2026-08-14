@@ -15,6 +15,7 @@ export const CANAIS = [
   "google_ads",
   "paid_other",
   "organic",
+  "gbp",
   "social",
   "referral",
   "direct",
@@ -28,6 +29,7 @@ export const CANAL_LABEL: Record<Canal, string> = {
   google_ads: "Google Ads",
   paid_other: "Outras mídias pagas",
   organic: "Orgânico / SEO",
+  gbp: "Google Business Profile",
   social: "Social",
   referral: "Referência",
   direct: "Direto",
@@ -40,12 +42,14 @@ export const CANAIS_DE_AQUISICAO: readonly Canal[] = [
   "google_ads",
   "paid_other",
   "organic",
+  "gbp",
   "social",
   "referral",
   "direct",
 ];
 
 export const ehAquisicao = (canal: Canal) => CANAIS_DE_AQUISICAO.includes(canal);
+
 
 export type FonteCanal = {
   utm_source?: string | null;

@@ -29,14 +29,30 @@ const track = (loc: string) => {
  */
 export const HeroTriagem = () => {
   const [consulta, setConsulta] = useState("");
-  const sugestoes = useMemo(() => filtrarSintomas(consulta), [consulta]);
+  const sugestoes = useMemo(() => sugerir(consulta), [consulta]);
 
+  /**
+   * O botão "Diagnosticar meu problema" é o submit da caixa de pesquisa:
+   * interpreta o que foi digitado (sinônimos, gírias e erros de digitação)
+   * e leva ao cluster de problema/serviço correto. Sem confiança mínima,
+   * cai na triagem geral — nunca em rota inexistente.
+   */
   const enviar = (e: FormEvent) => {
     e.preventDefault();
-    const destino = sugestoes[0]?.href ?? "/diagnostico-tecnico";
+    const { href, intencaoId, confianca } = resolverBusca(consulta);
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "home_busca_sintoma", {
+        event_category: "engagement",
+        click_location: "hero_triagem_busca",
+        intencao: intencaoId ?? "sem_correspondencia",
+        confianca,
+        page_path: window.location.pathname,
+      });
+    }
     void track("hero_triagem_busca");
-    window.location.assign(destino);
+    window.location.assign(href);
   };
+
 
   return (
     <section

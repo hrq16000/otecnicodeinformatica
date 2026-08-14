@@ -498,15 +498,41 @@ function registrarConversaoClique(
   if (ADS_SEND_TO) gtagReportConversion();
 }
 
+/**
+ * RODADA 6 — contexto de rota anexado a toda conversão (WhatsApp/ligação).
+ * `city` e `neighborhood_slug` só existem quando a rota os declara: ausência
+ * é ausência, nunca "curitiba" por herança.
+ */
+function contextoConversao(): Record<string, unknown> {
+  const c = buildRouteContext();
+  const out: Record<string, unknown> = {
+    route: c.route,
+    route_family: c.route_family,
+    page_slug: c.page_slug,
+    journey_id: getJourneyId(),
+    landing_route: readTouchpoint("first")?.landing_route,
+    assisted_journey: isAssistedJourney(c.route),
+  };
+  if (c.city) out.city = c.city;
+  if (c.neighborhood_slug) out.neighborhood_slug = c.neighborhood_slug;
+  if (c.service_slug) out.service_slug = c.service_slug;
+  if (c.intent) out.intent = c.intent;
+  return out;
+}
+
 export const trackWaClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
-  track("wa_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
+  const conv = contextoConversao();
+  track("wa_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...conv, ...extra });
+  // Nome canônico do contrato emitido em paralelo (conversão GA4/Ads por rota).
+  track("whatsapp_open", { cta_location: location, ...conv });
   registrarConversaoClique("wa_click", location, ctx, extra);
 };
 
 export const trackCallClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
-  track("call_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
+  const conv = contextoConversao();
+  track("call_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...conv, ...extra });
   registrarConversaoClique("call_click", location, ctx, extra);
 };
 

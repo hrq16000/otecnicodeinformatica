@@ -29,7 +29,7 @@ test.describe("Mobile CTAs", () => {
     const wa = page.locator("a[href*='wa.me']").first();
     await expect(wa).toBeVisible({ timeout: 8000 });
     const href = await wa.getAttribute("href");
-    expect(href).toContain("wa.me/5541997452053");
+    expect(href).toContain("wa.me/5541997086380");
 
     // Verifica que NÃO existem links tel: ativos (regra de negócio: só WhatsApp)
     const telLinks = await page.locator("a[href^='tel:']").count();
@@ -43,6 +43,6 @@ test.describe("Mobile CTAs", () => {
   test("noscript fallback: WhatsApp CTA presente no HTML estático", async ({ request }) => {
     const res = await request.get("/");
     const html = await res.text();
-    expect(html).toMatch(/wa\.me\/5541997452053/i);
+    expect(html).toMatch(/wa\.me\/5541997086380/i);
   });
 });

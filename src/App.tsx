@@ -10,6 +10,7 @@ import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 import { GeoAutoDetect } from "./components/GeoAutoDetect";
 import { MotionProvider } from "./components/MotionProvider";
 import { RouteTransition } from "./components/motion/RouteTransition";
+import { PageViewTracker } from "./components/PageViewTracker";
 
 
 
@@ -227,6 +228,7 @@ const HomeApp = () => {
       <GeoAutoDetect />
       <InstitutionalJsonLd />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
+      <PageViewTracker path={routePath} />
       {showNavLoader ? <NavigationOverlay /> : null}
       {/* RODADA 5: toda rota (home e lazy) entra pela mesma primitiva de
           transição — fallback imediato e neutro sob reduced-motion. */}

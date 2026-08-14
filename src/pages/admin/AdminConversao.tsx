@@ -13,6 +13,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { filtrarComerciais } from "@/lib/qaExclusion";
+import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).
@@ -79,7 +80,7 @@ const AdminConversao = () => {
     let q = supabase
       .from("click_events")
       .select(
-        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico",
+        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug",
       )
       .gte("created_at", `${inicio}T00:00:00Z`)
       .lte("created_at", `${fim}T23:59:59Z`)
@@ -688,6 +689,8 @@ const AdminConversao = () => {
           </ul>
         </Card>
       </div>
+      <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
+
     </main>
   );
 };

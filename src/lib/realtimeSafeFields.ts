@@ -30,6 +30,13 @@ export const CAMPOS_CLIQUE_PERMITIDOS = [
   "utm_medium",
   "utm_campaign",
   "session_id",
+  // Rodada 6 — contexto contratual explicitamente liberado no broadcast.
+  "route_family",
+  "intent",
+  "neighborhood_slug",
+  "journey_id",
+  "event_id",
+  "landing_route",
 ] as const;
 
 /** Campos que NUNCA podem sair do banco para o navegador via broadcast. */

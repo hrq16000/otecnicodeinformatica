@@ -57,12 +57,18 @@ export type Database = {
           cta_position: string | null
           customer_type: string | null
           equipamento: string | null
+          event_id: string | null
           event_type: string
           funnel_stage: string | null
           id: string
+          intent: string | null
+          journey_id: string | null
+          landing_route: string | null
           modalidade: string | null
+          neighborhood_slug: string | null
           path: string | null
           problema: string | null
+          route_family: string | null
           route_type: string | null
           servico: string | null
           session_id: string | null
@@ -82,12 +88,18 @@ export type Database = {
           cta_position?: string | null
           customer_type?: string | null
           equipamento?: string | null
+          event_id?: string | null
           event_type: string
           funnel_stage?: string | null
           id?: string
+          intent?: string | null
+          journey_id?: string | null
+          landing_route?: string | null
           modalidade?: string | null
+          neighborhood_slug?: string | null
           path?: string | null
           problema?: string | null
+          route_family?: string | null
           route_type?: string | null
           servico?: string | null
           session_id?: string | null
@@ -107,12 +119,18 @@ export type Database = {
           cta_position?: string | null
           customer_type?: string | null
           equipamento?: string | null
+          event_id?: string | null
           event_type?: string
           funnel_stage?: string | null
           id?: string
+          intent?: string | null
+          journey_id?: string | null
+          landing_route?: string | null
           modalidade?: string | null
+          neighborhood_slug?: string | null
           path?: string | null
           problema?: string | null
+          route_family?: string | null
           route_type?: string | null
           servico?: string | null
           session_id?: string | null

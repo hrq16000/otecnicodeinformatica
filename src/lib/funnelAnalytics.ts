@@ -17,6 +17,13 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { podeMedirEvento } from "./clickDedup";
 import { gtagReportConversion, ADS_SEND_TO } from "./analytics";
+import {
+  buildRouteContext,
+  getJourneyId,
+  newEventId,
+  normalizeCtaLocation,
+  readTouchpoint,
+} from "./analyticsContract";
 
 
 type GtagFn = (...args: unknown[]) => void;
@@ -212,6 +219,8 @@ function onceInSession(key: string): boolean {
 
 export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
+  // Rodada 6: nome canônico do contrato emitido em paralelo ao histórico.
+  trackTriageStart(location);
   // Rate limit também no funil: em picos, só o envio é descartado.
   if (!podeMedirEvento("funnel_open", location).aceito) return;
   // Persistido para permitir medir abertura → conversão (wa_click) no painel.
@@ -259,6 +268,7 @@ export const trackFunnelStep = (
     sintoma: sintoma || "none",
     ctaLocation,
   });
+  trackTriageStep({ stepId: stepName || `step_${step}`, stepNumber: step, equipmentCategory: equipamento || undefined });
   // Rodada 4D: a etapa de triagem também é persistida em `click_events`,
   // com dedupe por (sessão + etapa) para não contar re-render/Strict Mode.
   if (onceInSession(`step:${step}:${stepName || "unknown"}`)) {
@@ -279,6 +289,7 @@ export const trackFunnelSubmit = (params: {
   minimumAccepted?: boolean;
 }) => {
   track("wa_funnel_submit", params);
+  trackTriageComplete({ cta_location: params.ctaLocation || "funnel" });
   if (onceInSession(`submit:${params.ctaLocation || "unknown"}:${params.equipamento || "none"}`)) {
     persistClickEvent("funnel_stage", params.ctaLocation || "wa_funnel", readTriageFallback(), {
       funnel_stage: "submit",
@@ -405,6 +416,7 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
   if (typeof window === "undefined") return;
   const path = window.location.pathname;
   const utms = readUtms();
+  const contrato = buildRouteContext(path);
   const payload = {
     event_type: eventType,
     cta_location: location,
@@ -434,6 +446,13 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
     ),
     utm_campaign: utms.utm_campaign || campaignFromPath(path),
     attribution_channel: readAttribution().channel,
+    // Rodada 6 — contexto contratual (nunca fallback geográfico falso).
+    route_family: contrato.route_family,
+    intent: contrato.intent ?? null,
+    neighborhood_slug: contrato.neighborhood_slug ?? null,
+    journey_id: getJourneyId(),
+    event_id: newEventId(),
+    landing_route: readTouchpoint("first")?.landing_route ?? null,
   };
   // `device` é derivável de viewport_bucket e não existe como coluna.
   // `viewport_width` deixou de ser persistido pela decisão de governança 4E.4
@@ -760,3 +779,66 @@ export const trackTriageMessageCopy = (params: {
     page_path: typeof window !== "undefined" ? window.location.pathname.slice(0, 120) : undefined,
     copy_status: params.ok ? "ok" : "blocked",
   });
+
+/* ==========================================================================
+ * RODADA 6 — CAMADA CONTRATUAL (nomes canônicos + page view persistido)
+ * Os eventos históricos continuam saindo (histórico do GA4 preservado);
+ * aqui emitimos o nome canônico do contrato em paralelo.
+ * ========================================================================== */
+
+/** Page view persistido 1x por (sessão × rota) — vira o denominador do funil. */
+export const registrarPageView = () => {
+  if (typeof window === "undefined") return;
+  const ctx = buildRouteContext();
+  if (!onceInSession(`page_view:${ctx.route}`)) return;
+  persistClickEvent("page_view", "page", readTriageFallback(), {
+    funnel_stage: "view",
+    servico: ctx.service_slug,
+  });
+};
+
+const TRIAGE_FLAG = "triage_open_v1";
+
+/** FASE 11 — início da triagem no vocabulário do contrato. */
+export const trackTriageStart = (ctaLocation: string) => {
+  track("triage_start", { cta_location: normalizeCtaLocation(ctaLocation), ...buildRouteContext() });
+  try {
+    sessionStorage.setItem(TRIAGE_FLAG, "1");
+  } catch { /* storage bloqueado */ }
+};
+
+/** FASE 12 — etapa da triagem: só identificadores, nunca valor digitado. */
+export const trackTriageStep = (params: {
+  stepId: string;
+  stepNumber: number;
+  equipmentCategory?: string | null;
+}) =>
+  track("triage_step", {
+    step_id: normalizeCtaLocation(params.stepId) === "other" ? params.stepId.slice(0, 40) : params.stepId,
+    step_number: params.stepNumber,
+    equipment_category: params.equipmentCategory || undefined,
+    ...buildRouteContext(),
+  });
+
+/** Conclusão da triagem — encerra o estado de abandono. */
+export const trackTriageComplete = (extra: Record<string, unknown> = {}) => {
+  track("triage_complete", { ...buildRouteContext(), ...extra });
+  try {
+    sessionStorage.removeItem(TRIAGE_FLAG);
+  } catch { /* storage bloqueado */ }
+};
+
+/**
+ * FASE 13 — abandono sem timer invasivo: a sessão iniciou a triagem, a página
+ * está sendo descarregada e a conclusão nunca aconteceu.
+ */
+export const registrarAbandonoSePendente = () => {
+  if (typeof window === "undefined") return;
+  try {
+    if (!sessionStorage.getItem(TRIAGE_FLAG)) return;
+    sessionStorage.removeItem(TRIAGE_FLAG);
+  } catch {
+    return;
+  }
+  track("triage_abandon", { ...buildRouteContext() });
+};

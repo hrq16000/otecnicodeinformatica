@@ -21,6 +21,8 @@ import {
   type DiscoveryState,
 } from "@/lib/contentCohort";
 import { PAUTAS_8F, matrizDistribuicao, ESTADO_PUBLICACAO_EXTERNA } from "@/lib/contentDistribution";
+import { estadoDistribuicao, matrizOperacional, publicacoesPorCanal, OFFLINE_QR } from "@/lib/distribuicaoOperacional";
+
 import {
   buildCohortRow,
   clusterStatus,
@@ -165,7 +167,11 @@ export const PainelClusterEditorial = () => {
   const decisao = useMemo(() => decideCluster({ urls: sinais }), [sinais]);
 
   const links = useMemo(() => matrizDistribuicao(), []);
+  const opMatriz = useMemo(() => matrizOperacional(), []);
+  const publicacoes = useMemo(() => publicacoesPorCanal(opMatriz), [opMatriz]);
+  const estadoExterno = useMemo(() => estadoDistribuicao(opMatriz), [opMatriz]);
   const comparacao = coorte?.comparacao ?? null;
+
 
   const linhasExport = useMemo(
     () =>
@@ -343,11 +349,48 @@ export const PainelClusterEditorial = () => {
         </div>
       )}
 
+      {/* RODADA 8H — distribuição operacional, compacta e por canal. */}
       <div className="mt-5 border-t border-border pt-4">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-          <h3 className="font-heading text-base font-bold text-foreground">Distribuição preparada</h3>
+          <h3 className="font-heading text-base font-bold text-foreground">Distribuição do Cluster 1</h3>
+          <Badge variant="outline">{estadoExterno}</Badge>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border text-left text-xs uppercase text-muted-foreground">
+                <th className="py-2">Canal</th>
+                <th className="text-right">Publicações</th>
+                <th className="text-right">Sessões</th>
+                <th className="text-right">CTA</th>
+                <th className="text-right">WhatsApp</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(["gbp", "facebook", "instagram"] as const).map((c) => (
+                <tr key={c} className="border-b border-border/60 last:border-0">
+                  <td className="py-2">{c}</td>
+                  <td className="text-right">{publicacoes[c]}</td>
+                  <td className="text-right">—</td>
+                  <td className="text-right">—</td>
+                  <td className="text-right">—</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Sessões, CTA e WhatsApp por canal vêm de <code>report:acquisition-performance</code>. Enquanto não houver
+          publicação comprovada, "—" significa fonte sem dado — não zero de desempenho. Offline/QR: {OFFLINE_QR.status}.
+        </p>
+      </div>
+
+      <div className="mt-5 border-t border-border pt-4">
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+          <h3 className="font-heading text-base font-bold text-foreground">Links preparados</h3>
           <Badge variant="outline">{ESTADO_PUBLICACAO_EXTERNA}</Badge>
         </div>
+
         <p className="mb-3 text-xs text-muted-foreground">
           {PAUTAS_8F.length} pautas × {links.length / PAUTAS_8F.length} canais. Nenhuma rota nova foi criada para
           distribuir. A publicação externa é manual — o sistema entrega o link rastreável, não o post publicado.

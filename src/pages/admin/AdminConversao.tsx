@@ -19,6 +19,8 @@ import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 import { JornadaSankey } from "@/components/admin/JornadaSankey";
 import { RelatorioOportunidade } from "@/components/admin/RelatorioOportunidade";
 import { QualidadeDados, type EventoQualidade } from "@/components/admin/QualidadeDados";
+import { PainelExperimentosCro, type EventoExperimento } from "@/components/admin/PainelExperimentosCro";
+
 import type { EventoOportunidade } from "@/lib/oportunidadeAnalise";
 
 /**

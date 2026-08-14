@@ -2,7 +2,9 @@ import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Search, Wrench } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { brandConfig } from "@/lib/config";
-import { CAMINHOS_ENTRADA, filtrarSintomas } from "@/lib/homeContextos";
+import { CAMINHOS_ENTRADA } from "@/lib/homeContextos";
+import { resolverBusca, sugerir } from "@/lib/buscaInteligente";
+
 
 /**
  * Navegação interna não é lead: registramos apenas engajamento, sem tocar

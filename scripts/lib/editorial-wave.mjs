@@ -301,6 +301,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Windows 11 lento: achar a causa real",
     cover: "/blog/como-remover-virus-windows-iniciantes.jpg",
   },
+  // ── Rodada 8E — cluster piloto formatação (informacional + comercial).
+  {
+    slug: "como-formatar-pc-sem-perder-arquivos",
+    approvedAt: "2026-08-14",
+    pilar: "/servicos/formatacao",
+    pilarLabel: "Formatação e instalação do sistema",
+    apoio: "/blog/quanto-custa-formatar-um-computador",
+    apoioLabel: "Quanto custa formatar um computador",
+    cover: "/blog/como-formatar-pc-sem-perder-arquivos.jpg",
+  },
+  {
+    slug: "quanto-custa-formatar-um-computador",
+    approvedAt: "2026-08-14",
+    pilar: "/servicos/formatacao",
+    pilarLabel: "Formatação e instalação do sistema",
+    apoio: "/blog/como-formatar-pc-sem-perder-arquivos",
+    apoioLabel: "Formatar sem perder arquivos: o guia",
+    cover: "/blog/quanto-custa-formatar-um-computador.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

@@ -508,6 +508,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5I): distinção entre adware/sequestro de navegador e malware, contenção antes da limpeza, ordem de remoção em camadas, causas de reinfecção (persistência, sincronização de perfil, origem ativa), proibição de pagamento de resgate e critério de reinstalação. Sem indicação de marca de ferramenta. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-formatar-pc-sem-perder-arquivos": {
+    slug: "como-formatar-pc-sem-perder-arquivos",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-14",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 8E): critério de quando reinstalar resolve e quando não resolve, backup verificado (abrir o arquivo no destino) como pré-requisito, chave de criptografia antes de qualquer formatação, diferença entre redefinir, reinstalar por cima e instalação limpa, vínculo de licença e ordem de drivers. Sem promessa de prazo, sem marca comercial e sem passo comercial disfarçado de tutorial. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "quanto-custa-formatar-um-computador": {
+    slug: "quanto-custa-formatar-um-computador",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-14",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 8E): todos os valores citados vêm da fonte única src/lib/precosConfig.ts (visita avulsa a partir de R$ 99,99 a cada 30 minutos, pacote de 2 horas R$ 279,99 e mínimo pré-aprovado de R$ 299,99 com coleta e entrega). Peças e licenças declaradas como não inclusas. Nenhum valor estimado, nenhuma média de mercado inventada e nenhuma comparação com concorrente.",
+  },
 };
 
 

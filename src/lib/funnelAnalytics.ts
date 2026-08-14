@@ -21,6 +21,7 @@ import {
   buildRouteContext,
   getJourneyId,
   newEventId,
+  normalizeCtaLocation,
   readTouchpoint,
 } from "./analyticsContract";
 

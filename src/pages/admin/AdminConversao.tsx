@@ -16,6 +16,8 @@ import { filtrarComerciais } from "@/lib/qaExclusion";
 import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 import { SegmentacaoCanal } from "@/components/admin/SegmentacaoCanal";
 import { AquisicaoReal } from "@/components/admin/AquisicaoReal";
+import { PainelClusterEditorial } from "@/components/admin/PainelClusterEditorial";
+
 
 import { RelatoriosConversao } from "@/components/admin/RelatoriosConversao";
 import { JornadaSankey } from "@/components/admin/JornadaSankey";
@@ -772,6 +774,8 @@ const AdminConversao = () => {
         <RelatorioOportunidade rows={rows as unknown as EventoOportunidade[]} periodo={`${inicio} a ${fim}`} />
         <QualidadeDados rows={rows as unknown as EventoQualidade[]} />
         <AquisicaoReal rows={rows} />
+        <PainelClusterEditorial />
+
         <SegmentacaoCanal rows={rows} />
 
         <RelatoriosConversao rows={rows as unknown as EventoRodada6[]} />

@@ -59,6 +59,56 @@ const CATEGORY_EXTRA: Record<string, FAQItem[]> = {
 // categoria (que contêm valores comerciais).
 // ─────────────────────────────────────────────────────────────
 const PILOT_FAQ: Record<string, FAQItem[]> = {
+  // ── Cluster piloto de formatação (Rodada 8E/8F) ──────────────
+  // O guia informacional responde "como fazer sem perder nada".
+  // Nenhuma pergunta aqui repete as do guia comercial de custo.
+  "como-formatar-pc-sem-perder-arquivos": [
+    {
+      q: "O que exatamente a formatação apaga?",
+      a: "Apaga o disco onde o sistema está instalado: programas, configurações, contas salvas no navegador e os arquivos que estiverem nas pastas do usuário. Um segundo disco de dados, quando existe e não é formatado, permanece intacto.",
+    },
+    {
+      q: "Copiar as pastas Documentos e Imagens é backup suficiente?",
+      a: "Normalmente não. Ficam de fora e-mails configurados no aplicativo, senhas do navegador, licenças de programas, perfis de jogos e arquivos que ficaram na Área de Trabalho ou em pastas fora do padrão. A conferência item a item antes da formatação é o que evita a perda.",
+    },
+    {
+      q: "Como conferir se o backup realmente funcionou?",
+      a: "Abrindo os arquivos a partir da cópia, e não apenas olhando o tamanho da pasta. Um arquivo corrompido ou uma cópia interrompida só aparecem quando você tenta abrir o conteúdo.",
+    },
+    {
+      q: "Dá para formatar mantendo os arquivos no mesmo computador?",
+      a: "Existe a opção de reinstalar preservando arquivos pessoais, mas ela não recupera programas nem configurações e depende de o sistema estar íntegro. Quando o disco apresenta falha, essa opção deixa de ser confiável e a cópia externa passa a ser obrigatória.",
+    },
+    {
+      q: "Depois de formatar, o que precisa ser reinstalado?",
+      a: "Drivers do equipamento, os programas que você usa, o navegador com suas contas e as licenças. Ter a lista pronta antes reduz bastante o tempo em que o computador fica inutilizável.",
+    },
+  ],
+
+  // O guia comercial explica composição de valor sem virar tabela de preço.
+  "quanto-custa-formatar-um-computador": [
+    {
+      q: "Por que o valor de uma formatação varia entre equipamentos?",
+      a: "Porque o tempo técnico varia. Um equipamento com disco saudável e poucos programas é diferente de um com disco lento, muitos dados a preservar e drivers antigos. O que muda o valor é o trabalho envolvido, não o modelo do aparelho.",
+    },
+    {
+      q: "O backup está incluído na formatação?",
+      a: "A separação e a cópia dos dados fazem parte do serviço quando combinadas antes. O que é tratado à parte é recuperação de dados de disco com falha, que é outro procedimento e tem outro grau de dificuldade.",
+    },
+    {
+      q: "A licença do Windows entra no valor?",
+      a: "Não. Licença é produto, não mão de obra. Quando o equipamento já tem licença vinculada, ela é reaproveitada; quando não tem, o custo da licença é informado separadamente antes de qualquer execução.",
+    },
+    {
+      q: "E se durante a formatação aparecer um problema de hardware?",
+      a: "O trabalho é interrompido e a situação é apresentada antes de continuar. Peça é sempre item separado da mão de obra, com aprovação explícita antes da troca.",
+    },
+    {
+      q: "Atendimento remoto sai diferente do atendimento presencial?",
+      a: "Sim, porque a modalidade muda o tempo e o deslocamento envolvidos. Nem toda formatação pode ser feita remotamente: quando o sistema não inicia, o atendimento presencial ou a bancada passam a ser necessários.",
+    },
+  ],
+
   "notebook-nao-liga-o-que-fazer": [
     {
       q: "O notebook não dá nenhum sinal ao ligar. O que pode ser?",

@@ -170,9 +170,29 @@ export const INTENCOES: IntencaoBusca[] = [
     id: "formatacao",
     label: "Preciso formatar e reinstalar o Windows",
     href: "/servicos/formatacao",
-    termos: ["formatacao", "instalar windows", "reinstalar sistema", "windows corrompido"],
+    // Cauda longa real do cluster piloto (Rodada 8F): quem digita
+    // "quanto custa" tem intenção comercial, quem digita "sem perder
+    // arquivos" ainda está se informando. Ambos entram por aqui e são
+    // desambiguados pelo mapa de cauda longa.
+    termos: [
+      "formatacao",
+      "formatar",
+      "formatar pc",
+      "formatar notebook",
+      "formatar computador",
+      "quanto custa formatar",
+      "preco formatacao",
+      "valor para formatar",
+      "formatar sem perder arquivos",
+      "formatar sem perder nada",
+      "instalar windows",
+      "reinstalar sistema",
+      "reinstalar windows",
+      "windows corrompido",
+    ],
     peso: 5,
   },
+
   {
     id: "impressora",
     label: "Problema com impressora",

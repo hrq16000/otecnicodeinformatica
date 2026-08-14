@@ -450,6 +450,132 @@ export const HomeSections = () => {
         </div>
       </section>
 
+      {/* 8b. FORMATAÇÃO — passo a passo e dúvidas (cluster piloto, Rodada 8F) */}
+      <section className="border-y border-border bg-secondary/30 py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle
+            eyebrow="Formatação de computador"
+            title="Como uma formatação é feita sem virar prejuízo"
+            sub="A ordem importa mais que a velocidade. Estes são os passos que evitam perda de arquivo e retrabalho."
+          />
+          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[1.15fr_1fr]">
+            <ol className="space-y-4 rounded-2xl border border-border bg-card p-5 md:p-6">
+              {[
+                {
+                  t: "Levantar o que precisa sobreviver",
+                  d: "Documentos, fotos, e-mails configurados no aplicativo, senhas do navegador, licenças e perfis de programa. A lista vem antes de qualquer clique em “formatar”.",
+                },
+                {
+                  t: "Checar a saúde do disco",
+                  d: "Formatar um disco que já está falhando adianta pouco e pode inviabilizar a cópia dos dados. A verificação define se o caminho é formatação ou troca.",
+                },
+                {
+                  t: "Copiar e conferir o backup",
+                  d: "Cópia feita não é cópia válida. Os arquivos são abertos a partir do destino para confirmar que estão íntegros.",
+                },
+                {
+                  t: "Instalar o sistema a partir da fonte oficial",
+                  d: "Somente mídia e download oficiais da Microsoft. Imagem modificada e ativador trazem risco de segurança e problema de licença.",
+                },
+                {
+                  t: "Drivers, programas e atualizações",
+                  d: "Drivers do modelo, os programas de uso real e as atualizações pendentes. É esta etapa que define se a máquina volta útil ou só volta ligando.",
+                },
+                {
+                  t: "Devolver com os dados no lugar",
+                  d: "Restauração do backup, conferência junto com você e orientação sobre o que mudou no equipamento.",
+                },
+              ].map((p, i) => (
+                <li key={p.t} className="flex gap-4">
+                  <span
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-sm font-bold text-accent"
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">{p.t}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="space-y-4">
+              <div className="divide-y divide-border rounded-2xl border border-border bg-card">
+                {[
+                  {
+                    q: "Formatar deixa o computador rápido de novo?",
+                    a: "Quando a lentidão vem de software acumulado, sim. Quando vem de disco desgastado, pouca memória ou superaquecimento, a máquina volta lenta em pouco tempo — por isso o diagnóstico vem antes.",
+                  },
+                  {
+                    q: "Preciso levar o computador?",
+                    a: "Nem sempre. Se o sistema ainda inicia, boa parte dos casos é resolvida remotamente ou em visita. Quando o sistema não sobe, o caminho passa a ser bancada.",
+                  },
+                  {
+                    q: "Quanto tempo demora?",
+                    a: "O que consome tempo é o backup e a reinstalação dos programas, não a formatação em si. O prazo é estimado depois de ver o volume de dados e o estado do disco.",
+                  },
+                ].map((f) => (
+                  <details key={f.q} className="group px-5 py-4">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
+                      {f.q}
+                      <span className="text-accent transition-transform group-open:rotate-45" aria-hidden="true">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+
+              <nav aria-label="Conteúdo sobre formatação" className="rounded-2xl border border-border bg-card p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                  Aprofundar antes de decidir
+                </p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  <li>
+                    <a
+                      href="/blog/quanto-custa-formatar-um-computador"
+                      className="font-medium text-foreground transition-colors hover:text-accent hover:underline"
+                    >
+                      Quanto custa formatar um computador
+                    </a>
+                    <span className="block text-xs text-muted-foreground">O que entra no valor e o que é cobrado à parte.</span>
+                  </li>
+                  <li>
+                    <a
+                      href="/blog/como-formatar-pc-sem-perder-arquivos"
+                      className="font-medium text-foreground transition-colors hover:text-accent hover:underline"
+                    >
+                      Como formatar sem perder arquivos
+                    </a>
+                    <span className="block text-xs text-muted-foreground">O backup que realmente cobre tudo que importa.</span>
+                  </li>
+                  <li>
+                    <a
+                      href="/problemas/computador-lento"
+                      className="font-medium text-foreground transition-colors hover:text-accent hover:underline"
+                    >
+                      Computador lento: descobrir a causa
+                    </a>
+                    <span className="block text-xs text-muted-foreground">Antes de formatar, saber se formatar resolve.</span>
+                  </li>
+                  <li>
+                    <a
+                      href="/servicos/formatacao"
+                      className="font-medium text-foreground transition-colors hover:text-accent hover:underline"
+                    >
+                      Serviço de formatação
+                    </a>
+                    <span className="block text-xs text-muted-foreground">Escopo, modalidades e condições do atendimento.</span>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* 9. FAQ */}

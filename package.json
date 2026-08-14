@@ -253,7 +253,14 @@
     "check:utm-governance": "node scripts/check-utm-governance.mjs",
     "report:acquisition-performance": "node scripts/report-acquisition-performance.mjs",
     "check:content-intent": "node scripts/check-content-intent.mjs",
-    "report:content-intent": "node scripts/report-content-intent.mjs"
+    "report:content-intent": "node scripts/report-content-intent.mjs",
+    "report:content-discovery": "node scripts/report-content-discovery.mjs",
+    "report:content-query-intent": "node scripts/report-content-query-intent.mjs",
+    "report:content-distribution": "node scripts/report-content-distribution.mjs",
+    "report:content-performance": "node scripts/report-content-performance.mjs",
+    "check:content-discovery": "node scripts/check-content-discovery.mjs",
+    "smoke:edge-404": "node scripts/smoke-edge-404.mjs",
+    "report:rodada-8f": "npm run report:content-discovery && npm run report:content-query-intent && npm run report:content-distribution && npm run report:content-performance"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

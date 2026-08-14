@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-14T20:38:41.667Z",
+  "generatedAt": "2026-08-14T20:41:57.422Z",
   "resumo": {
     "total": 162,
     "orfas": 0,
-    "semNavegacao": 157,
+    "semNavegacao": 10,
     "porStatus": {
       "UNKNOWN": 162
     }
@@ -166,7 +166,7 @@
     {
       "url": "/problemas/computador-desliga-sozinho",
       "sitemap": true,
-      "links": 4,
+      "links": 5,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -180,7 +180,7 @@
     {
       "url": "/problemas/computador-esquentando",
       "sitemap": true,
-      "links": 5,
+      "links": 6,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -222,7 +222,7 @@
     {
       "url": "/problemas/computador-nao-da-imagem",
       "sitemap": true,
-      "links": 4,
+      "links": 5,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -432,7 +432,7 @@
     {
       "url": "/problemas/hd-fazendo-barulho",
       "sitemap": true,
-      "links": 4,
+      "links": 5,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -593,7 +593,7 @@
     {
       "url": "/problemas/notebook-nao-carrega",
       "sitemap": true,
-      "links": 3,
+      "links": 4,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -1132,7 +1132,7 @@
     {
       "url": "/problemas/windows-nao-inicia",
       "sitemap": true,
-      "links": 3,
+      "links": 4,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },

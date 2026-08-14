@@ -140,7 +140,8 @@ const linhas = rotas.map((rota) => {
 });
 
 const orfas = linhas.filter((l) => l.sitemap && l.incomingInternalLinks === 0);
-const semNavegacao = linhas.filter((l) => l.clickDepth === null);
+// Só cobramos caminho de navegação das URLs indexáveis (as do sitemap).
+const semNavegacao = linhas.filter((l) => l.sitemap && l.clickDepth === null);
 
 const resumo = {
   generatedAt: new Date().toISOString(),

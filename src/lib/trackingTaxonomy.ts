@@ -95,6 +95,33 @@ export function routeTypeFromPath(pathname: string): RouteType {
 }
 
 /**
+ * Cidade inferida a partir da rota — dimensão `city` dos eventos de conversão.
+ * Cobre as famílias locais reais do projeto:
+ *   /servicos/<slug>/<cidade>       → cidade do sufixo
+ *   /tecnico-informatica-<cidade>   → cidade do slug
+ *   /assistencia-tecnica-<cidade>   → cidade do slug
+ *   /bairros/<bairro>               → curitiba (bairros são de Curitiba)
+ * Sem correspondência ⇒ "nao_definida" (nunca cair em Curitiba por fallback).
+ */
+export function cityFromPath(pathname: string): string {
+  const p = (pathname || "/").toLowerCase().replace(/\/+$/, "") || "/";
+  const svc = p.match(/^\/servicos\/[^/]+\/([a-z0-9-]+)$/);
+  if (svc) return normalizeTrackingLabel(svc[1]);
+  const local = p.match(/^\/(?:tecnico-informatica|assistencia-tecnica|arrumar-pc|cftv)-([a-z0-9-]+)$/);
+  if (local) return normalizeTrackingLabel(local[1]);
+  if (/^\/bairros\//.test(p)) return "curitiba";
+  if (/curitiba/.test(p)) return "curitiba";
+  return "nao_definida";
+}
+
+/** Slug do serviço quando a rota pertence à família /servicos. */
+export function serviceSlugFromPath(pathname: string): string {
+  const p = (pathname || "/").toLowerCase().replace(/\/+$/, "") || "/";
+  const m = p.match(/^\/servicos\/([^/]+)/);
+  return m ? normalizeTrackingLabel(m[1]) : "nao_aplicavel";
+}
+
+/**
  * Faixa de viewport para segmentar conversão mobile nos relatórios GA4
  * (360 / 390 / 430 são os alvos de QA das páginas empresariais).
  */

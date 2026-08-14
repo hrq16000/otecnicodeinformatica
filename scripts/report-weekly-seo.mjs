@@ -96,7 +96,31 @@ const md = [
   `UTMs: ${UTMS_CONVERSAO.map((u) => `\`${u}\``).join(", ")}.`,
   `Recortes: ${RECORTES_CONVERSAO.map((r) => `\`${r}\``).join(", ")}.`,
   "",
+  /* RODADA 8H — bloco do Cluster 1: lê os relatórios existentes, não recalcula nada. */
+  ...(() => {
+    const ler = (f) => {
+      try {
+        return JSON.parse(readFileSync(path.join(process.cwd(), "reports", f), "utf8"));
+      } catch {
+        return null;
+      }
+    };
+    const coorte = ler("content-cohort.json");
+    const dist = ler("distribuicao-cluster-1.json");
+    const n = (v) => (v == null ? "sem fonte" : v);
+    return [
+      "## Cluster 1",
+      "",
+      `- Distribuições preparadas: ${dist ? dist.total : "sem fonte"} · publicadas com prova: ${dist ? dist.publicados : "sem fonte"} (estado ${dist ? dist.estado : "sem fonte"})`,
+      `- GBP / Facebook / Instagram: ${dist ? ["gbp", "facebook", "instagram"].map((c) => `${c} ${dist.linhas.filter((l) => l.canal === c && l.status === "PUBLISHED").length}`).join(" · ") : "sem fonte"}`,
+      `- Sessões humanas: ${n(coorte?.resumo?.sessoes)} · CTA/WhatsApp: ${n(coorte?.resumo?.whatsapp)} · assists: ${n(coorte?.resumo?.assists)}`,
+      `- Organic Search: impressões ${n(coorte?.resumo?.impressoes)} · cliques ${n(coorte?.resumo?.cliques)} · indexadas ${n(coorte?.resumo?.indexed)}/${n(coorte?.resumo?.total)}`,
+      `- Search status: ${coorte?.resumo?.status ?? "sem fonte"} · observation decision: ${coorte?.resumo?.decisao ?? "sem fonte"}`,
+      "",
+    ];
+  })(),
   "## Resultado por gate",
+
   "",
   "| Gate | Status | Tempo | Observação |",
   "| --- | --- | --- | --- |",

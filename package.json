@@ -262,7 +262,8 @@
     "check:content-discovery": "node scripts/check-content-discovery.mjs",
     "smoke:edge-404": "node scripts/smoke-edge-404.mjs",
     "report:rodada-8f": "npm run report:content-discovery && npm run report:content-query-intent && npm run report:content-distribution && npm run report:content-performance",
-    "report:rodada-8g": "npm run report:rodada-8f && npm run report:content-cohort"
+    "report:rodada-8g": "npm run report:rodada-8f && npm run report:content-cohort",
+    "report:distribution": "node scripts/report-distribution-matrix.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

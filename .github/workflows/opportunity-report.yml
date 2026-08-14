@@ -1,0 +1,31 @@
+name: Relatório de oportunidade
+
+on:
+  schedule:
+    - cron: "20 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: "Janela em dias"
+        required: false
+        default: "30"
+
+jobs:
+  oportunidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Gerar relatório
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/report-opportunity.mjs --dias "${{ github.event.inputs.dias || '30' }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-oportunidade
+          path: docs/relatorio-oportunidade.md
+          if-no-files-found: ignore

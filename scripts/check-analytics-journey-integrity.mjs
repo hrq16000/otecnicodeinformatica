@@ -10,7 +10,12 @@
  */
 import { readFileSync } from "node:fs";
 
-const contrato = readFileSync("src/lib/analyticsContract.ts", "utf8");
+const contratoBruto = readFileSync("src/lib/analyticsContract.ts", "utf8");
+// Comentários não são código: a menção "sem fingerprint" na doc não é uso.
+const contrato = contratoBruto
+  .split("\n")
+  .filter((l) => !/^\s*(?:\/\/|\*|\/\*)/.test(l))
+  .join("\n");
 const funil = readFileSync("src/lib/funnelAnalytics.ts", "utf8");
 const erros = [];
 

@@ -1,0 +1,1147 @@
+{
+  "generatedAt": "2026-08-14T20:38:41.667Z",
+  "resumo": {
+    "total": 162,
+    "orfas": 0,
+    "semNavegacao": 157,
+    "porStatus": {
+      "UNKNOWN": 162
+    }
+  },
+  "urls": [
+    {
+      "url": "/problemas/alto-falante-queimado-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/amplificador-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/arquivos-apagados",
+      "sitemap": true,
+      "links": 8,
+      "clickDepth": 2,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/assistencia-tecnica-urgente-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/backup-perdido-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/bluetooth-nao-conecta",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/cabo-rede-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/caixa-som-sem-audio-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/caixa-som-sem-bluetooth-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-bateria-inchada-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-com-virus-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-lento-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-listras-na-tela-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-molhou-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-nao-carrega-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/celular-tela-quebrada-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/cheiro-de-queimado",
+      "sitemap": true,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-com-cheiro-de-queimado-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-com-som-estranho-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-com-tela-preta-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-com-virus-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-desliga-sozinho",
+      "sitemap": true,
+      "links": 4,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-desligando-apos-segundos-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-esquentando",
+      "sitemap": true,
+      "links": 5,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-lento",
+      "sitemap": true,
+      "links": 27,
+      "clickDepth": 2,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-lento-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-liga-e-desliga-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-muito-barulhento-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-nao-conecta-bluetooth-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-nao-da-imagem",
+      "sitemap": true,
+      "links": 4,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-nao-liga",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 5,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-reiniciando-sozinho-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-sem-video-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-sem-wifi-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/computador-travando-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/conserto-computador-domicilio-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/curitiba-computador-lento",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/curto-em-placa-eletronica",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/custo-reparo-vs-novo",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0x80004005-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0x80070005-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0x800f081f-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0x80240034-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0xc00000e-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-0xc000021a-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-ao-instalar-memoria-ram",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-apos-formatacao",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-atualizacao-windows-11-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-bios-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-disco-cheio-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-driver-windows-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-particao-windows-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erro-registro-windows-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/erros-comuns-em-upgrade",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/fonte-queimada-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/formatacao-resolve-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/gpu-desgastada",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/hd-externo-nao-reconhece-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/hd-fazendo-barulho",
+      "sitemap": true,
+      "links": 4,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/hd-fazendo-barulho-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-cartucho-nao-reconhece-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-erro-conexao-usb-wifi-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-nao-imprime",
+      "sitemap": true,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-nao-imprime-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-papel-preso-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/impressora-tinta-nao-sai-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/internet-lenta-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/memoria-ram-com-defeito-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/monitor-piscando-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/monitor-sem-sinal-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-apos-upgrade-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-bateria-nao-carrega-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-com-agua-ou-liquido-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-com-tela-piscando-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-com-tela-quebrada-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-desligando-sozinho-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-esquentando-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-esquentando-desligando-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-esquentando-muito-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-lento-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-molhado",
+      "sitemap": true,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-nao-carrega",
+      "sitemap": true,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-nao-carrega-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-nao-conecta-bluetooth-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-nao-liga",
+      "sitemap": true,
+      "links": 22,
+      "clickDepth": 2,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-sem-audio-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-sem-imagem-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-sem-webcam-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-sem-wifi-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-superaquecendo-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-teclado-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-tela-preta-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/notebook-touchpad-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/o-que-e-tela-azul",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/o-que-fazer-computador-nao-liga",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-com-barulho-estranho-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-com-pop-ups-e-propagandas-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-com-tela-preta-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-com-virus-ransomware-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-desligando-sozinho-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-nao-conecta-bluetooth-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-nao-conecta-internet-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-nao-conecta-wifi-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-nao-reconhece-hd-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-nao-reconhece-usb-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-reiniciando-sozinho-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-sem-imagem-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-sem-som-hdmi-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-superaquecendo-curitiba",
+      "sitemap": false,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-trava-ao-jogar-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/pc-travando-em-jogos-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/placa-de-video-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/placa-mae-com-defeito-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/placa-mae-queimada",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/por-que-conserto-placa-mae-custa-caro-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/por-que-display-e-caro-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/preco-troca-de-tela",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/quando-nao-compensa-reparo",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/quando-trocar-computador",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/quanto-custa-trocar-tela-celular-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/quanto-custa-trocar-tela-tv-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/radio-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/reparo-placa-mae-celular-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/reparo-placa-mae-notebook-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/reparo-placa-principal-tv-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/reparo-placa-som-amplificador-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/riscos-de-tentar-consertar",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/smart-tv-lenta-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/som-chiando-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/som-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/ssd-nao-reconhece-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/teclado-mouse-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/teclado-nao-funciona-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/teclado-notebook-nao-funciona",
+      "sitemap": true,
+      "links": 4,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tecnico-computador-perto-de-mim",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tecnico-informatica-emergencia-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tela-azul",
+      "sitemap": true,
+      "links": 10,
+      "clickDepth": 2,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tela-azul-windows-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-cheiro-queimado-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-com-som-sem-imagem-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-demora-ligar-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-desliga-sozinha-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-imagem-fantasma-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-listras-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-listras-na-tela-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-manchas-na-tela-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-nao-liga-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-sem-imagem-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-sem-wifi-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-som-sem-video-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/tv-tela-quebrada-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/upgrade-deu-problema",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/vale-a-pena-consertar-computador",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/vale-a-pena-consertar-notebook",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/wifi-caindo-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/wifi-instavel",
+      "sitemap": true,
+      "links": 11,
+      "clickDepth": 2,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/windows-lento-curitiba",
+      "sitemap": false,
+      "links": 2,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/windows-nao-inicia",
+      "sitemap": true,
+      "links": 3,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    },
+    {
+      "url": "/problemas/windows-travando-na-atualizacao-curitiba",
+      "sitemap": false,
+      "links": 1,
+      "clickDepth": null,
+      "searchStatus": "UNKNOWN"
+    }
+  ]
+}

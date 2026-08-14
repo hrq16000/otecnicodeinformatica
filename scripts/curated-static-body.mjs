@@ -1118,6 +1118,23 @@ export function jsonLdFor(route) {
     });
   }
 
+  // RODADA 5C — páginas serviço × cidade emitem Service E WebPage: o Service
+  // descreve a oferta local e o WebPage ancora o documento no grafo do site.
+  if (fam === "servico-bairro" && !out.some((n) => n["@type"] === "WebPage")) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      name: h1For(route),
+      description: route.description,
+      url,
+      inLanguage: "pt-BR",
+      isPartOf: { "@id": `${SITE}/#website` },
+      publisher: { "@id": `${SITE}/#organization` },
+    });
+  }
+
+
   // Institucionais: NAP/área/horários explícitos para busca local.
   if (EXTRA_LOCAL_BUSINESS_PATHS.has(path) && !out.some((n) => slotFor(n) === "local-business")) {
     out.push(localBusiness(path, { description: route.description }));

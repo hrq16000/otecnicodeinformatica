@@ -116,6 +116,15 @@ const CURADORIA = [
     slug: "como-remover-virus-windows-iniciantes",
     commons: "File:MEMZ Trojan running on Samsung N130, 13 December 2019.jpg",
   },
+  // Onda 8E — cluster piloto de formatação (informacional + comercial).
+  {
+    slug: "como-formatar-pc-sem-perder-arquivos",
+    commons: "File:VAIO TZ laptop hard disk.jpg",
+  },
+  {
+    slug: "quanto-custa-formatar-um-computador",
+    commons: "File:Replacing hardware 160210-F-KR223-021.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

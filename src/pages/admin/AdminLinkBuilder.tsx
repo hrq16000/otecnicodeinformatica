@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { Copy, Link2, Loader2 } from "lucide-react";
+import { Copy, Download, Link2, Loader2, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -13,6 +13,7 @@ import {
   construirLinkAquisicao,
   type PresetAquisicao,
 } from "@/lib/utmLinkBuilder";
+
 
 /**
  * RODADA 8C — GERADOR DE LINKS DE AQUISIÇÃO (/admin/link-builder)
@@ -39,6 +40,37 @@ const AdminLinkBuilder = () => {
   );
 
   const faltaContent = preset.exigeContent && !content.trim();
+
+  /**
+   * RODADA 8D — QR CODE do link já validado.
+   * O QR nunca é gerado a partir de texto livre: só do `resultado.url` aprovado
+   * por `construirLinkAquisicao` (fail-closed contra PII, destino inválido,
+   * fonte interna). A lib é carregada sob demanda para não pesar no bundle.
+   */
+  const [qr, setQr] = useState<string | null>(null);
+  const urlValida = resultado.ok && !faltaContent ? resultado.url : null;
+
+  useEffect(() => {
+    let ativo = true;
+    if (!urlValida) {
+      setQr(null);
+      return;
+    }
+    import("qrcode")
+      .then((mod) =>
+        mod.default.toDataURL(urlValida, { width: 512, margin: 2, errorCorrectionLevel: "M" }),
+      )
+      .then((dataUrl) => {
+        if (ativo) setQr(dataUrl);
+      })
+      .catch(() => {
+        if (ativo) setQr(null);
+      });
+    return () => {
+      ativo = false;
+    };
+  }, [urlValida]);
+
 
   if (loading)
     return (
@@ -142,11 +174,38 @@ const AdminLinkBuilder = () => {
         {resultado.ok && !faltaContent && (
           <div className="rounded-lg border border-border bg-muted/40 p-3">
             <p className="break-all font-mono text-xs">{resultado.url}</p>
-            <Button type="button" size="sm" className="mt-3 gap-2" onClick={copiar}>
-              <Copy className="h-4 w-4" aria-hidden="true" /> Copiar URL
-            </Button>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button type="button" size="sm" className="gap-2" onClick={copiar}>
+                <Copy className="h-4 w-4" aria-hidden="true" /> Copiar URL
+              </Button>
+              {qr && (
+                <Button asChild type="button" size="sm" variant="secondary" className="gap-2">
+                  <a href={qr} download={`qr-${preset.id}.png`}>
+                    <Download className="h-4 w-4" aria-hidden="true" /> Baixar QR code
+                  </a>
+                </Button>
+              )}
+            </div>
+            {qr ? (
+              <figure className="mt-4">
+                <img
+                  src={qr}
+                  alt={`QR code do link de aquisição do preset ${preset.label}`}
+                  width={160}
+                  height={160}
+                  className="rounded-md border border-border bg-background p-2"
+                />
+                <figcaption className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
+                  <QrCode className="h-3.5 w-3.5" aria-hidden="true" /> QR gerado a partir da URL já validada
+                  pelo contrato de UTM.
+                </figcaption>
+              </figure>
+            ) : (
+              <div className="skel mt-4 h-[160px] w-[160px] rounded-md" aria-hidden="true" />
+            )}
           </div>
         )}
+
       </Card>
     </main>
   );

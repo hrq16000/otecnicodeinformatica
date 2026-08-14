@@ -86,7 +86,7 @@ const AdminConversao = () => {
     let q = supabase
       .from("click_events")
       .select(
-        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug,landing_route",
+        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico,route_family,intent,neighborhood_slug,landing_route,journey_id,event_id",
       )
       .gte("created_at", `${inicio}T00:00:00Z`)
       .lte("created_at", `${fim}T23:59:59Z`)

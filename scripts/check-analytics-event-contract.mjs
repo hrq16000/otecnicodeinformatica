@@ -8,7 +8,7 @@
  *   3. o contexto local recebe fallback falso (ex.: "curitiba" hard-coded como
  *      padrão de cidade quando a rota não declara cidade).
  */
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const EVENTOS_OBRIGATORIOS = [

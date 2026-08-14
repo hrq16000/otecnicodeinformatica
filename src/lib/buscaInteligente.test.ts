@@ -37,3 +37,26 @@ describe("busca inteligente de sintomas", () => {
     expect(sugerir("").length).toBe(6);
   });
 });
+
+describe("resolverComAmbiguidade", () => {
+  it("pergunta antes de rotear quando o sintoma é ambíguo", () => {
+    const r = resolverComAmbiguidade("a tela fica preta");
+    expect(r.tipo).toBe("ambiguo");
+    if (r.tipo === "ambiguo") {
+      expect(r.opcoes.length).toBeGreaterThanOrEqual(2);
+      expect(r.pergunta.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("roteia direto quando a intenção é clara", () => {
+    const r = resolverComAmbiguidade("meu pc ta muito devagar");
+    expect(r.tipo).toBe("destino");
+    if (r.tipo === "destino") expect(r.href).toBe("/problemas/computador-lento");
+  });
+
+  it("nunca devolve opção fora do índice de intenções", () => {
+    const rotas = new Set(INTENCOES.map((i) => i.href));
+    const r = resolverComAmbiguidade("nao liga");
+    if (r.tipo === "ambiguo") for (const o of r.opcoes) expect(rotas.has(o.href)).toBe(true);
+  });
+});

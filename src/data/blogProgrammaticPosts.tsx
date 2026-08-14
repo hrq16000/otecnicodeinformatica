@@ -291,22 +291,6 @@ const defs: PostDef[] = [
     whenToCall: "Configuro backup automático na nuvem + local remotamente em ~40 minutos. Ideal para quem tem fotos de família e documentos importantes e não quer arriscar.",
   },
   {
-    slug: "como-formatar-pc-sem-perder-arquivos",
-    title: "Como Formatar o PC Sem Perder Arquivos: Guia Passo a Passo 2026",
-    excerpt: "Formatação limpa do Windows preservando seus documentos, fotos e configurações. Método profissional para Windows 10 e 11.",
-    category: "Procedimentos Técnicos",
-    lead: "Dá para 'formatar' o Windows mantendo arquivos pessoais — usando o recurso 'Redefinir este PC' ou um in-place upgrade. Veja o método correto.",
-    sections: [
-      { h: "Antes de tudo: backup completo", p: "Mesmo que o Windows prometa manter arquivos, faça backup em HD externo ou nuvem das pastas Documentos, Imagens, Downloads, Área de Trabalho. Backup é sagrado." },
-      { h: "Anote licenças e contas", p: "Liste programas pagos (Office, Photoshop, antivírus), senhas de Wi-Fi, contas de e-mail no Outlook. Exporte favoritos do navegador." },
-      { h: "Opção 1: Redefinir este PC (mantém arquivos)", p: "Configurações → Sistema → Recuperação → Redefinir o PC → 'Manter meus arquivos' → 'Download na nuvem' (mais limpo)." },
-      { h: "Opção 2: In-place upgrade (mais limpo ainda)", p: "Baixe a ISO oficial do Windows, monte o arquivo, execute setup.exe e escolha 'Manter arquivos, configurações e aplicativos pessoais'. Repara o sistema sem perder nada." },
-      { h: "Opção 3: Formatação completa (recomendada para vírus)", p: "Crie pendrive bootável com Media Creation Tool, dê boot pelo pendrive, formate a partição C: e instale do zero. Mais demorado mas mais seguro." },
-      { h: "Após formatar", p: "Instale drivers (chipset primeiro, depois GPU, áudio, rede). Ative Windows. Restaure backup. Instale programas essenciais." },
-    ],
-    whenToCall: "Faço formatação remota completa com backup, instalação de drivers, programas essenciais e ativação do Windows — tudo via AnyDesk em 2-3 horas.",
-  },
-  {
     slug: "como-recuperar-arquivos-apagados",
     title: "Como Recuperar Arquivos Apagados (Mesmo da Lixeira)",
     excerpt: "Apagou por engano? Esvaziou a lixeira? Pen drive corrompido? Veja como recuperar arquivos com ferramentas gratuitas e profissionais.",

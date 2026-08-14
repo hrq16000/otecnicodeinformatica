@@ -10,6 +10,7 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { filtrarComerciais } from "@/lib/qaExclusion";
 import { Loader2, RefreshCw, Download, LogOut } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { AlertaIndexacao } from "@/components/admin/AlertaIndexacao";
 
 type ClickEvent = {
   id: string;
@@ -258,6 +259,7 @@ const AdminDashboard = () => {
       </Helmet>
       <Header />
       <main className="flex-1 container mx-auto px-4 py-6">
+        <AlertaIndexacao />
         <div className="flex items-center justify-between gap-2 mb-6 flex-wrap">
           <div>
             <h1 className="text-2xl font-bold">Dashboard de Conversão</h1>

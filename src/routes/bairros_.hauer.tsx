@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { legacyRouteElements } from "@/legacyRouteElements";
 
+const RouteComponent = legacyRouteElements["/bairros/hauer"];
+
 export const Route = createFileRoute("/bairros_/hauer")({
-  component: legacyRouteElements["/bairros/hauer"],
+  component: RouteComponent,
 });

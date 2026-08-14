@@ -405,6 +405,7 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
   if (typeof window === "undefined") return;
   const path = window.location.pathname;
   const utms = readUtms();
+  const contrato = buildRouteContext(path);
   const payload = {
     event_type: eventType,
     cta_location: location,

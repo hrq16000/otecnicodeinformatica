@@ -1,5 +1,5 @@
 import { SmartImage } from "@/components/SmartImage";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { IMAGES } from "@/lib/images";
 import { 
   AlertTriangle, 

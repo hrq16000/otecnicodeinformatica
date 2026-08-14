@@ -18,7 +18,7 @@ import {
   MapPin,
   CreditCard,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 
 const WHATSAPP_NUMBER = WA_NUMBER;

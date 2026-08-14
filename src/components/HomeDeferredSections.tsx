@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, useInRouterContext } from "react-router-dom";
+import { BrowserRouter, useInRouterContext } from "@/lib/router-compat";
 import { PageSEO } from "@/components/PageSEO";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LazyOnVisible } from "@/components/LazyOnVisible";

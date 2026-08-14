@@ -1,5 +1,5 @@
 import { SmartImage } from "@/components/SmartImage";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight } from "lucide-react";
 import type { TechnicalCase, TechnicalCasePhoto } from "@/lib/technicalCases";
 import { validateTechnicalCase } from "@/lib/technicalCases";

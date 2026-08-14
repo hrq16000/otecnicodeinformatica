@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "@/lib/router-compat";
 import { Helmet } from "react-helmet";
 import { Copy, Download, Link2, Loader2, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";

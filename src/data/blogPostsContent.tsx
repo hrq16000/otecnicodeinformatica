@@ -10789,5 +10789,121 @@ crontab -e
       </>
     ),
   },
+
+  // ── Onda 8E — cluster piloto FORMATAÇÃO / LENTIDÃO / DIAGNÓSTICO.
+  // Intenção informacional. Não localiza a página: a ponte comercial e local
+  // acontece por links contextuais, nunca por repetição de cidade no texto.
+  "como-formatar-pc-sem-perder-arquivos": {
+    title: "Como formatar o PC ou notebook sem perder arquivos",
+    excerpt:
+      "O que decidir antes de formatar: quando a reinstalação resolve, quando não resolve, como preservar arquivos, contas e licenças, e a diferença entre redefinir o sistema e instalar do zero.",
+    date: "2026-08-14",
+    readTime: "12 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Formatar é uma decisão, não um botão. Feita na hora certa, devolve uma máquina previsível. Feita como palpite, apaga anos de arquivo e devolve o mesmo problema em duas semanas. Este guia mostra como decidir e como executar sem perder o que importa.</p>
+
+        <h2>Antes: formatar resolve o seu caso?</h2>
+        <p>Reinstalar o sistema resolve o que é software: configuração quebrada, perfil corrompido, resíduo de programas desinstalados pela metade, atualização mal aplicada, infecção persistente. Não resolve o que é físico nem o que é limite de hardware.</p>
+        <ul>
+          <li><strong>Disco mecânico com Windows 10/11:</strong> a máquina volta rápida por poucos dias e regride. O gargalo é a fila de leitura do disco, não o sistema.</li>
+          <li><strong>Pouca memória:</strong> o sistema recém-instalado abre menos coisas ao mesmo tempo — isso não é ganho de desempenho, é uso menor.</li>
+          <li><strong>Superaquecimento:</strong> queda de velocidade depois de alguns minutos é temperatura, não software.</li>
+          <li><strong>Disco com setores em falha:</strong> formatar sobre um disco falhando costuma travar no meio da instalação e pode inviabilizar a recuperação depois.</li>
+          <li><strong>Travamento ao ligar, sem chegar ao sistema:</strong> investigue hardware antes; formatação não é diagnóstico.</li>
+        </ul>
+        <p>Se a queixa é lentidão e você ainda não sabe a causa, o caminho honesto é medir antes de apagar: veja <Link to="/problemas/computador-lento">como identificar por que o computador está lento</Link> e só depois decida.</p>
+
+        <h2>Backup: o passo que não pode ser presumido</h2>
+        <p>Backup só existe quando foi conferido. Copiar a pasta e não abrir nenhum arquivo depois não é backup — é esperança. O mínimo antes de qualquer formatação:</p>
+        <ol>
+          <li>Copie Documentos, Imagens, Vídeos, Downloads e Área de Trabalho para um disco externo ou nuvem.</li>
+          <li>Abra pelo menos um arquivo de cada pasta copiada, no destino, para confirmar integridade.</li>
+          <li>Exporte favoritos e senhas do navegador (ou confirme que a conta sincroniza).</li>
+          <li>Localize os dados de e-mail: contas configuradas em programa local guardam mensagens em arquivo próprio, que precisa ser copiado.</li>
+          <li>Anote licenças de programas pagos e onde foram compradas.</li>
+          <li>Se o disco estiver criptografado, salve a chave de recuperação antes — sem ela, o conteúdo é irrecuperável.</li>
+        </ol>
+        <p>Arquivos que não abrem, mídia que some do explorador ou pasta que trava a cópia são sinal de disco doente. Nesse caso pare: continuar tentando reduz as chances de <Link to="/servicos/recuperacao-de-dados">recuperação de dados</Link>.</p>
+
+        <h2>Redefinir o sistema x instalar do zero</h2>
+        <p>São procedimentos diferentes com resultados diferentes:</p>
+        <ul>
+          <li><strong>Redefinir mantendo arquivos:</strong> o Windows reinstala a si mesmo e preserva as pastas do usuário. Remove programas instalados. É o caminho mais rápido para configuração quebrada.</li>
+          <li><strong>Reinstalação por cima (mantendo tudo):</strong> repara componentes do sistema preservando programas e arquivos. Útil quando o Windows falha em atualizar ou apresenta erro recorrente.</li>
+          <li><strong>Instalação limpa:</strong> apaga a partição do sistema e começa do zero. É a única opção confiável quando houve infecção séria ou quando a máquina acumulou anos de instalação.</li>
+        </ul>
+        <p>O passo a passo detalhado da instalação limpa, incluindo mídia de instalação e particionamento, está em <Link to="/blog/como-instalar-windows-11-do-zero">como instalar o Windows 11 do zero</Link>. Se a motivação for infecção, leia antes <Link to="/blog/como-remover-virus-windows-iniciantes">como remover vírus e adware</Link>: em boa parte dos casos a limpeza dirigida resolve sem apagar nada.</p>
+
+        <h2>Licença, contas e drivers</h2>
+        <p>Em máquinas de fábrica, a licença normalmente está vinculada ao equipamento e é reconhecida automaticamente após a instalação. Em máquinas montadas, a licença costuma estar vinculada a uma conta — entrar com a mesma conta evita perder a ativação. Programas pagos exigem o registro original; sem ele, reinstalar significa comprar de novo.</p>
+        <p>Depois da instalação, a ordem dos drivers importa: chipset primeiro, depois vídeo, rede, áudio e periféricos. Prefira sempre o site do fabricante do equipamento. Pacotes genéricos de "atualizador de drivers" são uma das causas mais comuns de instabilidade em máquina recém-formatada.</p>
+
+        <h2>O que costuma dar errado</h2>
+        <ul>
+          <li>Descobrir, no meio da instalação, que a chave de criptografia não foi salva.</li>
+          <li>Formatar a partição errada em máquina com dois discos.</li>
+          <li>Perder e-mails que estavam apenas no programa local.</li>
+          <li>Reinstalar sem ter a rede funcionando: sem driver de rede, não há como baixar os outros.</li>
+          <li>Reinstalar sobre disco com falha e travar no meio, sem backup verificado.</li>
+        </ul>
+
+        <h2>Quando faz sentido chamar alguém</h2>
+        <p>Não porque o procedimento é secreto — ele está inteiro aí em cima. Faz sentido quando o custo de errar é alto: arquivo de trabalho sem cópia, e-mail de anos, sistema de gestão instalado localmente, disco com sinais de falha ou máquina que precisa voltar a funcionar no mesmo dia.</p>
+        <p>Se você não tem certeza de que formatar é o caminho, o passo anterior é o <Link to="/diagnostico-tecnico">diagnóstico técnico</Link>. E se já decidiu, o escopo, as condições e o que está incluso estão em <Link to="/servicos/formatacao">formatação e instalação do sistema</Link> — o custo dessa e das demais modalidades está detalhado em <Link to="/blog/quanto-custa-formatar-um-computador">quanto custa formatar um computador</Link>.</p>
+      </>
+    ),
+  },
+
+  // ── Onda 8E — intenção COMERCIAL (avaliação de custo). Não repete o passo a
+  // passo do guia informacional e usa exclusivamente a tabela do projeto.
+  "quanto-custa-formatar-um-computador": {
+    title: "Quanto custa formatar um computador?",
+    excerpt:
+      "O que entra no valor de uma formatação: tempo técnico, modalidade de atendimento, backup, licença e peças. Os valores praticados aqui e o que não está incluso.",
+    date: "2026-08-14",
+    readTime: "8 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Formatação não tem preço único porque não é um serviço único. O que muda o valor é a modalidade de atendimento, o tempo técnico envolvido e o que precisa ser preservado. Abaixo está como o custo se forma e quais são os valores praticados por {BRAND_NAME}.</p>
+
+        <h2>O que você está pagando</h2>
+        <p>Reinstalar o sistema é a parte curta. O que consome tempo técnico é o entorno:</p>
+        <ul>
+          <li><strong>Conferência do backup:</strong> copiar e verificar arquivos, e-mails locais, favoritos e chaves de criptografia.</li>
+          <li><strong>Verificação do disco:</strong> reinstalar sobre disco em falha é retrabalho garantido.</li>
+          <li><strong>Instalação e drivers:</strong> chipset, vídeo, rede, áudio e periféricos, na ordem correta.</li>
+          <li><strong>Restauração:</strong> devolver arquivos, contas, impressora e programas essenciais ao estado de trabalho.</li>
+          <li><strong>Ativação e licenças:</strong> confirmar sistema ativado e programas pagos válidos.</li>
+        </ul>
+
+        <h2>Valores praticados</h2>
+        <p>Os valores abaixo são os do projeto e valem para qualquer serviço, inclusive formatação. A tabela completa, com regras e condições, está em <Link to="/precos-e-politicas">preços e políticas</Link>.</p>
+        <ul>
+          <li><strong>Visita técnica de inspeção (avulsa):</strong> a partir de R$ 99,99 por até 30 minutos de atendimento — e a cada 30 minutos adicionais.</li>
+          <li><strong>Pacote de visita de até 2 horas:</strong> R$ 279,99, pré-acordado antes do deslocamento.</li>
+          <li><strong>Diagnóstico com compromisso, com coleta e entrega inclusas:</strong> mínimo pré-aprovado de R$ 299,99.</li>
+        </ul>
+        <p>Peças, componentes, licenças e materiais não estão inclusos em nenhuma modalidade. Reparos acima do mínimo pré-aprovado dependem de autorização por escrito.</p>
+
+        <h2>O que pode aumentar o valor</h2>
+        <ul>
+          <li><strong>Volume de dados:</strong> centenas de gigabytes para copiar e conferir consomem tempo real, não é etapa simbólica.</li>
+          <li><strong>Disco em falha:</strong> quando há suspeita de falha física, o caminho deixa de ser formatação e passa a ser preservação de dados.</li>
+          <li><strong>Licenças e sistemas de trabalho:</strong> programas de gestão, certificado digital e configurações fiscais exigem reinstalação assistida.</li>
+          <li><strong>Deslocamento:</strong> o valor mínimo pode variar conforme a região.</li>
+        </ul>
+
+        <h2>Quando formatar é o gasto errado</h2>
+        <p>Se a máquina usa disco mecânico ou tem pouca memória, a formatação entrega alívio temporário e o dinheiro rende mais em <Link to="/servicos/upgrade-ssd-ram">upgrade de SSD e memória</Link>. Se o problema é infecção localizada, muitas vezes a <Link to="/servicos/remocao-de-virus">remoção de vírus</Link> resolve sem apagar nada. E se ninguém sabe ainda qual é a causa, o passo correto é o <Link to="/diagnostico-tecnico">diagnóstico técnico</Link> — formatar sem diagnóstico é pagar duas vezes.</p>
+
+        <h2>Prefere fazer você mesmo?</h2>
+        <p>É perfeitamente possível, e o procedimento está descrito em <Link to="/blog/como-formatar-pc-sem-perder-arquivos">como formatar o PC ou notebook sem perder arquivos</Link>. O serviço existe para quem não pode arriscar os dados ou não pode ficar sem a máquina: escopo e condições em <Link to="/servicos/formatacao">formatação e instalação do sistema</Link>.</p>
+      </>
+    ),
+  },
 };
+
 

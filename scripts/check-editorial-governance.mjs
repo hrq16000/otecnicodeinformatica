@@ -63,32 +63,14 @@ async function checkRegistry() {
 
   // Paridade runtime × build: o registro só pode aprovar slugs da onda.
   const waveBlock = src.match(/FIRST_WAVE_SLUGS\s*=\s*\[([\s\S]*?)\]/);
-  const wave4xBlock = src.match(/WAVE_4X:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave4yBlock = src.match(/WAVE_4Y:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave4zBlock = src.match(/WAVE_4Z:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5bBlock = src.match(/WAVE_5B:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5cBlock = src.match(/WAVE_5C:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5dBlock = src.match(/WAVE_5D:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5eBlock = src.match(/WAVE_5E:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5fBlock = src.match(/WAVE_5F:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5gBlock = src.match(/WAVE_5G:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5hBlock = src.match(/WAVE_5H:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5iBlock = src.match(/WAVE_5I:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
-  const wave5aBlock = src.match(/WAVE_5A:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
+  // Paridade genérica: qualquer bloco `const WAVE_XX: EditorialApproval[] = [...]`
+  // entra automaticamente na conferência (não precisa editar o gate a cada onda).
+  const waveBlocks = [
+    ...src.matchAll(/WAVE_[0-9A-Z]+:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/g),
+  ];
   const registered = [
     ...(waveBlock ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave4xBlock ? [...wave4xBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave4yBlock ? [...wave4yBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave4zBlock ? [...wave4zBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5aBlock ? [...wave5aBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5bBlock ? [...wave5bBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5cBlock ? [...wave5cBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5dBlock ? [...wave5dBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5eBlock ? [...wave5eBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5fBlock ? [...wave5fBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5gBlock ? [...wave5gBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5hBlock ? [...wave5hBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
-    ...(wave5iBlock ? [...wave5iBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
+    ...waveBlocks.flatMap((b) => [...b[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1])),
   ];
   const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
   const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));

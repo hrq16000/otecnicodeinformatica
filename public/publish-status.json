@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-14T20:44:00.571Z",
+  "generatedAt": "2026-08-14T22:20:12.959Z",
   "base": "https://otecnicodeinformatica.com.br",
-  "total": 140,
+  "total": 142,
   "prontos": 56,
   "revisao": 23,
   "rascunho": 30,
-  "semMetaCurada": 31,
+  "semMetaCurada": 33,
   "urls": [
     {
       "path": "/",
@@ -3087,6 +3087,56 @@
     {
       "path": "/blog/como-remover-virus-windows-iniciantes",
       "url": "https://otecnicodeinformatica.com.br/blog/como-remover-virus-windows-iniciantes",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "curada": false,
+      "estado": "sem_meta_curada"
+    },
+    {
+      "path": "/blog/como-formatar-pc-sem-perder-arquivos",
+      "url": "https://otecnicodeinformatica.com.br/blog/como-formatar-pc-sem-perder-arquivos",
+      "grupo": "blog",
+      "title": "",
+      "description": "",
+      "similaridade": 0,
+      "foto": null,
+      "checklist": {
+        "rascunho": false,
+        "conteudo": false,
+        "metaTitle": false,
+        "metaDescription": false,
+        "fotos": true,
+        "originalidade": true
+      },
+      "pendencias": [
+        "rascunho",
+        "conteudo",
+        "metaTitle",
+        "metaDescription"
+      ],
+      "curada": false,
+      "estado": "sem_meta_curada"
+    },
+    {
+      "path": "/blog/quanto-custa-formatar-um-computador",
+      "url": "https://otecnicodeinformatica.com.br/blog/quanto-custa-formatar-um-computador",
       "grupo": "blog",
       "title": "",
       "description": "",

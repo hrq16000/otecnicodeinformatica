@@ -426,7 +426,17 @@ const ComputadorLento = () => {
               </Link>
             </li>
           </ul>
+          {/* Onda 8E — ponte de intenção: diagnóstico → procedimento (informacional). */}
+          <p className="mt-4 text-sm text-muted-foreground">
+            Já concluiu que a causa é software e quer reinstalar por conta própria? O procedimento e os cuidados com
+            backup estão em{" "}
+            <Link to="/blog/como-formatar-pc-sem-perder-arquivos" className="font-medium text-accent hover:underline">
+              como formatar sem perder arquivos
+            </Link>
+            .
+          </p>
         </section>
+
 
         <section className="mb-12 rounded-xl border border-accent/30 bg-accent/5 p-6">
           <h2 className="mb-4 text-2xl font-bold text-foreground">

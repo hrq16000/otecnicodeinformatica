@@ -182,6 +182,16 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
   ],
   "/servicos/formatacao": [
     {
+      slug: "como-formatar-pc-sem-perder-arquivos",
+      label: "Formatar sem perder arquivos: o guia",
+      hint: "Quando reinstalar resolve, como preservar arquivos e a diferença entre redefinir e instalar do zero.",
+    },
+    {
+      slug: "quanto-custa-formatar-um-computador",
+      label: "Quanto custa formatar um computador",
+      hint: "O que forma o valor: modalidade, tempo técnico, backup, licença e o que não está incluso.",
+    },
+    {
       slug: "windows-11-lento-como-resolver",
       label: "Windows 11 lento: achar a causa real",
       hint: "Como medir qual recurso satura antes de otimizar, trocar peça ou reinstalar.",

@@ -207,6 +207,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 8E — cluster piloto de formatação (fotografias reais licenciadas).
+  "como-formatar-pc-sem-perder-arquivos": {
+    src: "/blog/como-formatar-pc-sem-perder-arquivos.jpg",
+    alt: "Disco rígido de notebook removido do equipamento, ao lado do compartimento aberto",
+    width: 1200,
+    height: 630,
+  },
+  "quanto-custa-formatar-um-computador": {
+    src: "/blog/quanto-custa-formatar-um-computador.jpg",
+    alt: "Técnico substituindo componentes internos de um computador sobre bancada de trabalho",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

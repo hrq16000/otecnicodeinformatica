@@ -51,6 +51,9 @@ jobs:
       # ── Governança editorial fail-closed
       - name: Governança editorial
         run: npm run check:editorial-governance
+
+      - name: Intenção editorial (Rodada 8E)
+        run: npm run check:content-intent
       - name: Cluster editorial e interlinking artigo ⇄ pilar
         run: npm run check:editorial-cluster
       - name: Onda editorial empresarial (3O)

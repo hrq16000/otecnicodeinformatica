@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/check-brand-isolation.mjs && node scripts/check-observability-env.mjs && node scripts/generate-interlinks.mjs && node scripts/generate-robots.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs && node scripts/report-publish-status.mjs && node scripts/report-photo-review.mjs",
+    "prebuild": "node scripts/check-brand-isolation.mjs && node scripts/check-observability-env.mjs && node scripts/generate-interlinks.mjs && node scripts/generate-robots.mjs && node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs && node scripts/check-telemetry-transparency.mjs && node scripts/check-missing-exports.mjs && node scripts/check-media-assets.mjs && node scripts/report-build-gates.mjs && node scripts/report-publish-status.mjs && node scripts/report-photo-review.mjs && node scripts/check-content-intent.mjs",
     "report:photo-review": "node scripts/report-photo-review.mjs",
     "report:gates": "node scripts/report-gates.mjs",
     "report:daily-ui": "node scripts/report-daily-ui-performance.mjs",
@@ -251,7 +251,9 @@
     "check:acquisition-attribution": "node scripts/check-acquisition-attribution.mjs",
     "report:discovery-coverage": "node scripts/report-discovery-coverage.mjs",
     "check:utm-governance": "node scripts/check-utm-governance.mjs",
-    "report:acquisition-performance": "node scripts/report-acquisition-performance.mjs"
+    "report:acquisition-performance": "node scripts/report-acquisition-performance.mjs",
+    "check:content-intent": "node scripts/check-content-intent.mjs",
+    "report:content-intent": "node scripts/report-content-intent.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

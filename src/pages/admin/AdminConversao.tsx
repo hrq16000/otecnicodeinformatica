@@ -13,6 +13,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { filtrarComerciais } from "@/lib/qaExclusion";
+import { FunilRodada6, type EventoRodada6 } from "@/components/admin/FunilRodada6";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).
@@ -688,6 +689,8 @@ const AdminConversao = () => {
           </ul>
         </Card>
       </div>
+      <FunilRodada6 rows={rows as unknown as EventoRodada6[]} />
+
     </main>
   );
 };

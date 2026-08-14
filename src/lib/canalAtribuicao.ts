@@ -61,7 +61,11 @@ const norm = (v?: string | null) => (v ?? "").trim().toLowerCase();
 
 const MEDIUMS_PAGOS = ["cpc", "ppc", "paid", "paidsearch", "paid_search", "cpm", "display"];
 const MEDIUMS_ORGANICOS = ["organic", "seo", "organic_search"];
+/** RODADA 8D — sinais explícitos de Google Business Profile (perfil e posts). */
+const MEDIUMS_GBP = ["organic_gbp", "gbp", "gbp_post", "gbp_profile"];
+const FONTES_GBP = ["gbp", "google_business_profile", "google_business"];
 const FONTES_SOCIAIS = ["facebook", "instagram", "linkedin", "youtube", "tiktok", "whatsapp", "x", "twitter"];
+
 
 /**
  * RODADA 8A — CONTAMINAÇÃO DE ATRIBUIÇÃO

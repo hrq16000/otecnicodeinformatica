@@ -22,7 +22,7 @@ test.describe("First touch do cluster de formatação", () => {
     await page.waitForLoadState("networkidle");
 
     const first = await page.evaluate(() => {
-      const bruto = sessionStorage.getItem("otdi_first_touch") ?? localStorage.getItem("otdi_first_touch");
+      const bruto = sessionStorage.getItem("touch_first_v1") ?? localStorage.getItem("touch_first_v1");
       return bruto ? JSON.parse(bruto) : null;
     });
 
@@ -35,7 +35,7 @@ test.describe("First touch do cluster de formatação", () => {
     await page.waitForLoadState("networkidle");
 
     const depois = await page.evaluate(() => {
-      const bruto = sessionStorage.getItem("otdi_first_touch") ?? localStorage.getItem("otdi_first_touch");
+      const bruto = sessionStorage.getItem("touch_first_v1") ?? localStorage.getItem("touch_first_v1");
       return bruto ? JSON.parse(bruto) : null;
     });
 
@@ -51,7 +51,7 @@ test.describe("First touch do cluster de formatação", () => {
     await page.waitForLoadState("networkidle");
 
     const first = await page.evaluate(() => {
-      const bruto = sessionStorage.getItem("otdi_first_touch") ?? localStorage.getItem("otdi_first_touch");
+      const bruto = sessionStorage.getItem("touch_first_v1") ?? localStorage.getItem("touch_first_v1");
       return bruto ? JSON.parse(bruto) : null;
     });
 

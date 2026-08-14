@@ -219,7 +219,21 @@ for (const p of indexaveis) {
 console.log(
   `check:local-doorway — ${paginas.size} páginas analisadas (${indexaveis.length} indexáveis do Lote Local 1).`,
 );
+if (home && curitiba) {
+  console.log(
+    `  HOME × CURITIBA: intro ${jaccard(ngrams(home.intro, 4), ngrams(curitiba.intro, 4)).toFixed(3)} · corpo ${jaccard(home.grams, curitiba.grams).toFixed(3)}`,
+  );
+}
+for (const [familia, lista] of porFamilia) {
+  console.log(`  ${familia} (${lista.length} páginas, ${lista.map((p) => p.palavras).join("/")} palavras):`);
+  for (let i = 0; i < lista.length; i++)
+    for (let j = i + 1; j < lista.length; j++)
+      console.log(
+        `    ${lista[i].path} ↔ ${lista[j].path}: jaccard ${jaccard(lista[i].grams, lista[j].grams).toFixed(3)} · sem-localidade ${jaccard(ngrams(semLocalidade(lista[i].texto)), ngrams(semLocalidade(lista[j].texto))).toFixed(3)}`,
+      );
+}
 for (const a of avisos) console.log(`  aviso: ${a}`);
+
 if (erros.length) {
   console.error(`\n✖ ${erros.length} falha(s) antidoorway:`);
   for (const e of erros) console.error(`  - ${e}`);

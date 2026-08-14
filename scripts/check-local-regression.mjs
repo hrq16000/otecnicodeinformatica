@@ -58,10 +58,14 @@ for (const e of promovidas) {
     if (row.canonical !== esperado) problemas.push(`${e.path}: canonical "${row.canonical}" ≠ policy "${esperado}"`);
     if (/noindex/i.test(row.robots)) problemas.push(`${e.path}: robots "${row.robots}" contradiz policy index`);
     row.schemas = [...html.matchAll(/"@type"\s*:\s*"([A-Za-z]+)"/g)].map((m) => m[1]);
-    if (!row.schemas.includes("BreadcrumbList")) problemas.push(`${e.path}: BreadcrumbList ausente`);
-    if (!row.schemas.includes("WebPage")) problemas.push(`${e.path}: WebPage ausente`);
-    if (/\/servicos\//.test(e.path) && !row.schemas.includes("Service")) {
-      problemas.push(`${e.path}: Service ausente em rota de serviço`);
+    const servicoCidade = /^\/servicos\/[^/]+\/[^/]+$/.test(e.path);
+    if (servicoCidade) {
+      // Contrato completo das rotas serviço × cidade (Rodadas 5C/5D).
+      for (const tipo of ["Service", "WebPage", "BreadcrumbList"]) {
+        if (!row.schemas.includes(tipo)) problemas.push(`${e.path}: ${tipo} ausente`);
+      }
+    } else if (!row.schemas.some((t) => ["WebPage", "WebSite", "CollectionPage", "LocalBusiness", "Organization"].includes(t))) {
+      problemas.push(`${e.path}: nenhum schema principal emitido`);
     }
     // areaServed deve nomear a cidade da própria URL (nunca herdar Curitiba).
     const cidade = e.path.split("/")[3];

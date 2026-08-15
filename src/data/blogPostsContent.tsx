@@ -11579,6 +11579,33 @@ crontab -e
           <li>Escolha uma especialização só depois de consolidar a base</li>
         </ul>
 
+        <h2>Glossário do estudo de informática</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>Explicação simples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trilha de aprendizado</td><td>Sequência ordenada de assuntos, do mais simples ao mais complexo.</td></tr>
+            <tr><td>Prática deliberada</td><td>Treino com objetivo definido e correção de erro, não repetição aleatória.</td></tr>
+            <tr><td>Certificação</td><td>Prova aplicada por uma instituição que atesta um conjunto de competências.</td></tr>
+            <tr><td>Ambiente de teste</td><td>Máquina, pasta ou máquina virtual usada para errar sem prejuízo real.</td></tr>
+            <tr><td>Máquina virtual</td><td>Computador simulado por software dentro do seu computador.</td></tr>
+            <tr><td>Backup</td><td>Cópia de segurança dos arquivos guardada em outro lugar.</td></tr>
+            <tr><td>Curva de retenção</td><td>Efeito de esquecer o que não é revisado; por isso a revisão espaçada existe.</td></tr>
+            <tr><td>Especialização</td><td>Escolha de um campo (redes, suporte, dados, desenvolvimento) após a base.</td></tr>
+          </tbody>
+        </table>
+
+        <aside className="rounded-lg border border-border bg-muted/40 p-4 not-prose my-6">
+          <h2 className="text-base font-semibold m-0">Leia também</h2>
+          <ul className="mt-2 mb-0 list-disc pl-5 text-sm">
+            <li><Link to="/blog/o-que-e-informatica" className="text-accent">O que é informática</Link> — a definição e o mapa da área antes de escolher o que estudar.</li>
+            <li><Link to="/blog/informatica-basica" className="text-accent">Informática básica</Link> — o conteúdo exato da primeira fase deste roteiro.</li>
+            <li><Link to="/blog/como-formatar-pc-sem-perder-arquivos" className="text-accent">Como formatar o PC sem perder arquivos</Link> — exercício prático de sistema operacional e backup.</li>
+            <li><Link to="/blog/como-configurar-roteador-wifi-iniciantes" className="text-accent">Como configurar um roteador Wi-Fi</Link> — exercício prático do módulo de redes.</li>
+          </ul>
+        </aside>
+
         <h2>Referências e fontes</h2>
         <ul>
           <li><a href="https://learn.microsoft.com/pt-br/training/" rel="nofollow noopener" target="_blank">Microsoft Learn — trilhas de treinamento</a> — cursos gratuitos oficiais sobre sistemas, nuvem e segurança.</li>

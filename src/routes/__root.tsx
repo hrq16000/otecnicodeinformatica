@@ -15,6 +15,11 @@ import { AppErrorBoundary } from "@/components/AppErrorBoundary";
 import { MotionProvider } from "@/components/MotionProvider";
 import { GeoAutoDetect } from "@/components/GeoAutoDetect";
 import { InstitutionalJsonLd } from "@/components/InstitutionalJsonLd";
+import {
+  JsonLdCollectorContext,
+  JsonLdSsrSink,
+  createJsonLdCollector,
+} from "@/lib/jsonLdSsr";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { RouteTransition } from "@/components/motion/RouteTransition";
 import { RouteLoader } from "@/components/RouteLoader";

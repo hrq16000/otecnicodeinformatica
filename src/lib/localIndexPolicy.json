@@ -445,6 +445,38 @@
       "cidadeSlug": "sao-jose-dos-pinhais",
       "parent": "/tecnico-informatica-sao-jose-pinhais",
       "lote": 3
+    },
+    {
+      "slug": "boqueirao",
+      "intent": "atendimento de informática no Boqueirão (residencial extenso e comércio de rua)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 4
+    },
+    {
+      "slug": "cajuru",
+      "intent": "atendimento de informática no Cajuru (notebook de estudo e trabalho)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 4
+    },
+    {
+      "slug": "pinheirinho",
+      "intent": "atendimento de informática no Pinheirinho (cobertura de Wi-Fi e PC doméstico)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 4
+    },
+    {
+      "slug": "cidade-jardim-sjp",
+      "intent": "atendimento de informática no Cidade Jardim (home office e MEI)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 4
     }
   ],
   "servicoBairroIndexaveis": [
@@ -507,5 +539,11 @@
     "/bairros/sitio-cercado",
     "/bairros/aviacao",
     "/bairros/ouro-fino-sjp"
+  ],
+  "loteLocal4": [
+    "/bairros/boqueirao",
+    "/bairros/cajuru",
+    "/bairros/pinheirinho",
+    "/bairros/cidade-jardim-sjp"
   ]
 }

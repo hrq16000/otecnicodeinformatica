@@ -46,10 +46,10 @@ const TOPONIMOS = [
   "sjp",
 ];
 
-const html = (path) => {
-  const file = join(DIST, path.replace(/^\//, ""), "index.html");
-  return existsSync(file) ? readFileSync(file, "utf8") : null;
-};
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: DIST });
+abortarSeBloqueado("check-local-service-intent");
+
+const html = (path) => htmlDaRota(path, DIST);
 
 const sitemapUrls = () => {
   const f = join(DIST, "sitemap-servicos.xml");

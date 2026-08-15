@@ -30,9 +30,11 @@ const errors = [];
 const warnings = [];
 const skipped = [];
 
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: ROOT });
+abortarSeBloqueado("check-local-seo-quality");
+
 function htmlFor(route) {
-  const file = route === "/" ? join(ROOT, "index.html") : join(ROOT, route.replace(/^\//, ""), "index.html");
-  return existsSync(file) ? readFileSync(file, "utf8") : null;
+  return htmlDaRota(route, ROOT);
 }
 
 const textOf = (html) => {

@@ -16,19 +16,17 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { ENTIDADES, resolveLocal } from "./lib/local-index-policy.mjs";
 import { CURATED_PATHS } from "./lib/curated-urls.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
+
 
 const dist = process.argv[2] || "dist";
 const erros = [];
 const avisos = [];
 
-function htmlPath(p) {
-  const clean = p === "/" ? "/index" : p.replace(/\/$/, "");
-  const a = resolve(dist, `.${clean}.html`);
-  const b = resolve(dist, `.${clean}/index.html`);
-  if (existsSync(a)) return a;
-  if (existsSync(b)) return b;
-  return null;
-}
+// Harness SSR: HTML renderizado é a única fonte aceita (Micro-Rodada Local 1.1).
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist });
+abortarSeBloqueado("check-local-index-policy");
 
 const sitemapUrls = new Set();
 const arquivosSitemap = existsSync(dist)
@@ -47,16 +45,15 @@ for (const file of arquivosSitemap) {
 
 for (const entidade of ENTIDADES) {
   const d = resolveLocal(entidade.path);
-  const file = htmlPath(d.path);
+  const html = htmlDaRota(d.path, dist);
 
-  if (!file) {
+  if (!html) {
     if (d.indexability === "index") {
       erros.push(`${d.path}: declarado indexável, mas não existe HTML estático no dist.`);
     }
     continue;
   }
 
-  const html = readFileSync(file, "utf8");
   const robots = html.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? "";
   const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1] ?? "";
   const canonicalPath = canonical ? (canonical.startsWith("http") ? new URL(canonical).pathname : canonical) : "";

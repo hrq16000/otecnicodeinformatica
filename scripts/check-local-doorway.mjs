@@ -21,6 +21,8 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 import { resolveLocal, LOTE_LOCAL_1, LOTE_LOCAL_2, SERVICO_CIDADE_INDEXAVEIS, BAIRROS_ANCORA_META } from "./lib/local-index-policy.mjs";
 
 const dist = process.argv[2] || "dist";
@@ -67,13 +69,8 @@ const LOCALIDADES = [
   "rmc",
 ];
 
-function htmlPath(p) {
-  const clean = p === "/" ? "/index" : p.replace(/\/$/, "");
-  for (const c of [resolve(dist, `.${clean}.html`), resolve(dist, `.${clean}/index.html`)]) {
-    if (existsSync(c)) return c;
-  }
-  return null;
-}
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist });
+abortarSeBloqueado("check-local-doorway");
 
 const semAcento = (s) =>
   s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -113,9 +110,8 @@ function semLocalidade(texto) {
 }
 
 function extrair(path) {
-  const file = htmlPath(path);
-  if (!file) return null;
-  const html = readFileSync(file, "utf8");
+  const html = htmlDaRota(path, dist);
+  if (!html) return null;
   const texto = textoDe(html);
   const h2 = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)].map((m) =>
     semAcento(m[1].replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim(),

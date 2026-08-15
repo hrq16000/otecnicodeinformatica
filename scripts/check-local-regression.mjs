@@ -37,14 +37,10 @@ const problemas = [];
 const rotas = [];
 
 // ── 1. canonical / robots / HTML por rota promovida ───────────────────────
-const htmlDe = (path) => {
-  const candidatos = [
-    join(DIST, path === "/" ? "index.html" : `${path.replace(/^\//, "")}/index.html`),
-    join(DIST, `${path.replace(/^\//, "")}.html`),
-  ];
-  const hit = candidatos.find((f) => existsSync(f));
-  return hit ? readFileSync(hit, "utf8") : null;
-};
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: DIST });
+abortarSeBloqueado("check-local-regression");
+
+const htmlDe = (path) => htmlDaRota(path, DIST);
 
 const sitemapUrls = new Set();
 for (const f of ["public/sitemap.xml", "public/sitemap-servicos.xml", "public/sitemap-main.xml", "public/sitemap-regioes.xml", "public/sitemap-bairros.xml"]) {

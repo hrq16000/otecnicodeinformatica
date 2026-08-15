@@ -76,9 +76,8 @@ notes.push(`páginas locais indexáveis: ${localPaths.length}`);
 const IGNORE = /\.(png|jpe?g|webp|svg|css|js|json|xml|txt|ico|woff2?)$/i;
 
 function linksOf(path) {
-  const file = join(DIST, path.replace(/^\//, ""), "index.html");
-  if (!existsSync(file)) return null;
-  const html = readFileSync(file, "utf8");
+  const html = htmlDaRota(path, DIST);
+  if (!html) return null;
   const body = html.slice(html.indexOf("<body"));
   const set = new Set();
   for (const m of body.matchAll(/href="(\/[^"#?]*)"/g)) {

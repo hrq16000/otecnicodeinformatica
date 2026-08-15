@@ -1,0 +1,197 @@
+{
+  "geradoEm": "2026-08-15T16:17:35.063Z",
+  "baseUrl": "https://otecnicodeinformatica.com.br",
+  "indexacaoLiberada": true,
+  "rotasAuditadas": 109,
+  "erros": [],
+  "avisos": [
+    {
+      "rota": "/servicos/formatacao",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/remocao-de-virus",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/pc-gamer",
+      "msg": "description com 169 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/sobre",
+      "msg": "description com 164 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/como-funciona",
+      "msg": "description com 164 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/precos-e-politicas",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/contato",
+      "msg": "title com 69 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/bairros/batel",
+      "msg": "description com 167 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/atendimento-domicilio",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/quando-nao-compensa",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/bairros/bigorrilho",
+      "msg": "description com 167 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/bairros/cruzeiro",
+      "msg": "description com 168 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/bairros/costeira",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/wifi-instavel",
+      "msg": "description com 164 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/tela-azul",
+      "msg": "description com 166 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/computador-desliga-sozinho",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/notebook-nao-carrega",
+      "msg": "title com 70 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/problemas/notebook-nao-carrega",
+      "msg": "description com 167 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/notebook-molhado",
+      "msg": "description com 164 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/computador-nao-da-imagem",
+      "msg": "description com 166 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/cheiro-de-queimado",
+      "msg": "description com 170 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/problemas/teclado-notebook-nao-funciona",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/equipamentos",
+      "msg": "description com 167 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/equipamentos/notebook",
+      "msg": "title com 68 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/equipamentos/desktop",
+      "msg": "title com 66 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/equipamentos/impressora",
+      "msg": "title com 69 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/equipamentos/roteador",
+      "msg": "title com 63 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/solucoes",
+      "msg": "title com 63 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/solucoes",
+      "msg": "description com 166 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/solucoes/diagnostico",
+      "msg": "description com 165 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/solucoes/ssd",
+      "msg": "title com 65 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/solucoes/ssd",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/solucoes/backup",
+      "msg": "title com 70 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/solucoes/recuperacao-de-dados",
+      "msg": "title com 70 chars (ideal ≤ 60)"
+    },
+    {
+      "rota": "/solucoes/recuperacao-de-dados",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/formatacao-computador/agua-verde",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/remocao-virus/agua-verde",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/conserto-pc-notebook/centro",
+      "msg": "description com 170 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/conserto-pc-notebook/agua-verde",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/upgrade-ssd-memoria/centro",
+      "msg": "description com 169 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/upgrade-ssd-memoria/agua-verde",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/formatacao-computador/curitiba",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/remocao-virus/curitiba",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/upgrade-ssd/curitiba",
+      "msg": "description com 164 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/backup-para-empresas/curitiba",
+      "msg": "description com 162 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/montagem-de-pc/curitiba",
+      "msg": "description com 161 chars (ideal ≤ 160)"
+    },
+    {
+      "rota": "/servicos/suporte-home-office/curitiba",
+      "msg": "description com 163 chars (ideal ≤ 160)"
+    }
+  ]
+}

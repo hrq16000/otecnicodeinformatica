@@ -151,6 +151,8 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // Coletor por renderização (SSR); no cliente os slots seguem via efeito.
+  const jsonLdCollector = useMemo(() => createJsonLdCollector(), [pathname]);
 
   // ported from main.tsx — observabilidade, indexing policy, analytics, cache-bust
   useEffect(() => {

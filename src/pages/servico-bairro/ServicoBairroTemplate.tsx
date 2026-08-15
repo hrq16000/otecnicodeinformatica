@@ -1,6 +1,7 @@
 import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { resolveLocal } from "@/lib/localIndexPolicy";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { IMAGES } from "@/lib/images";
 import { Link } from "@/lib/router-compat";
@@ -167,9 +168,15 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
   };
 
 
+  // Fonte única de indexabilidade: a política local manda sobre a flag manual
+  // do arquivo de dados (evita rota promovida na policy renderizando noindex).
+  const rotaCanonica = `/servicos/${data.servicoSlug}/${data.bairroSlug}`;
+  const decisaoLocal = resolveLocal(rotaCanonica);
+  const noindexRota = decisaoLocal.indexability !== "index" && !data.indexable;
+
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex={!data.indexable} title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} breadcrumbs={[
+      <PageSEO noindex={noindexRota} title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: data.servico, path: `/servicos/${data.servicoSlug}` },

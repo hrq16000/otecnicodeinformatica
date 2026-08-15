@@ -24,6 +24,8 @@ import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ENTIDADES } from "./lib/local-index-policy.mjs";
 import { TODAS_PAGINAS_LOCAIS, servicoCuritibaPorPath } from "./lib/servico-curitiba.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const DIST = join(process.cwd(), "dist");
 const MIN_PALAVRAS = 550;
@@ -46,10 +48,10 @@ const TOPONIMOS = [
   "sjp",
 ];
 
-const html = (path) => {
-  const file = join(DIST, path.replace(/^\//, ""), "index.html");
-  return existsSync(file) ? readFileSync(file, "utf8") : null;
-};
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: DIST });
+abortarSeBloqueado("check-local-service-intent");
+
+const html = (path) => htmlDaRota(path, DIST);
 
 const sitemapUrls = () => {
   const f = join(DIST, "sitemap-servicos.xml");
@@ -58,7 +60,7 @@ const sitemapUrls = () => {
 };
 
 const tag = (src, re) => src.match(re)?.[1]?.trim() ?? "";
-const titleOf = (src) => tag(src, /<title>([\s\S]*?)<\/title>/i);
+const titleOf = (src) => tag(src, /<title[^>]*>([\s\S]*?)<\/title>/i);
 const h1Of = (src) => tag(src, /<h1[^>]*>([\s\S]*?)<\/h1>/i).replace(/<[^>]+>/g, " ").trim();
 const canonicalOf = (src) => tag(src, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i);
 const robotsOf = (src) => tag(src, /<meta[^>]+name="robots"[^>]+content="([^"]+)"/i);

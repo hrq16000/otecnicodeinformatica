@@ -17,6 +17,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { LOCAIS_DECLARADOS, LOCAIS_INDEXAVEIS } from "./lib/local-inventory.mjs";
 import { CURATED_PATHS, BASE_URL } from "./lib/curated-urls.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const ROOT = process.argv[2] || "dist";
 /**
@@ -30,9 +32,11 @@ const errors = [];
 const warnings = [];
 const skipped = [];
 
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: ROOT });
+abortarSeBloqueado("check-local-seo-quality");
+
 function htmlFor(route) {
-  const file = route === "/" ? join(ROOT, "index.html") : join(ROOT, route.replace(/^\//, ""), "index.html");
-  return existsSync(file) ? readFileSync(file, "utf8") : null;
+  return htmlDaRota(route, ROOT);
 }
 
 const textOf = (html) => {
@@ -52,14 +56,19 @@ let checked = 0;
 for (const entry of LOCAIS_DECLARADOS) {
   const html = htmlFor(entry.path);
   if (!html) {
-    skipped.push(entry.path);
+    // Fail-closed (FASE 20): rota indexável sem HTML renderizado é falha, não skip.
+    if (LOCAIS_INDEXAVEIS.includes(entry.path)) {
+      errors.push(`${entry.path}: FAIL_ROUTE_NOT_RENDERED — indexável sem HTML SSR verificável`);
+    } else {
+      skipped.push(entry.path);
+    }
     continue;
   }
   const indexavel = LOCAIS_INDEXAVEIS.includes(entry.path);
   const robots = attr(html, /<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i).toLowerCase();
   const noindex = robots.includes("noindex");
   const canonical = attr(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i);
-  const title = attr(html, /<title>([\s\S]*?)<\/title>/i);
+  const title = attr(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   const desc = attr(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
   const h1s = [...html.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)].map((m) =>
     m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(),
@@ -112,5 +121,5 @@ warnings.forEach((w) => console.warn(`  ! ${w}`));
 console.log(
   `[local-seo-quality] OK — ${checked} rota(s) locais verificadas ` +
     `(${LOCAIS_INDEXAVEIS.length} indexáveis).` +
-    (skipped.length ? ` Sem HTML em ${ROOT}: ${skipped.length}.` : ""),
+    (skipped.length ? ` SKIPPED_NON_INDEXABLE (sem HTML SSR): ${skipped.length}.` : ""),
 );

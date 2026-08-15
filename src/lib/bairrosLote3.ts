@@ -204,7 +204,7 @@ export const BAIRROS_LOTE_3: Record<string, BairroLocalData> = {
     faqLocal: [
       { question: "Vocês atendem empresa no bairro Aviação?", answer: "Sim, com suporte pontual ou recorrente para estações, impressoras e rede local. A triagem começa pelo impacto da parada para definir a ordem de atendimento e a modalidade." },
       { question: "Dá para resolver sem parar o expediente?", answer: "Quando a máquina liga e conecta, boa parte dos casos de sistema, permissão e rede é resolvida por acesso remoto, sem deslocamento. Se a parada for inevitável, avisamos antes da aprovação." },
-      { question: "Vocês têm escritório no bairro?", answer: "Não. O atendimento é agendado e acontece no seu endereço, por acesso remoto ou com coleta para bancada. Não anunciamos unidade, endereço ou técnico fixo no bairro." },
+      { question: "Existe endereço fixo de atendimento no Aviação?", answer: "Não. O atendimento é agendado e acontece no seu endereço, por acesso remoto ou com coleta para bancada. Não anunciamos ponto físico nem profissional fixo na região." },
       { question: "Fazem manutenção preventiva?", answer: "Sim. Em máquinas ligadas o dia inteiro, a preventiva costuma envolver limpeza interna, verificação térmica, checagem da saúde do disco e revisão de backup — decidido conforme o parque de equipamentos." },
       { question: "Como funciona o valor para empresa?", answer: "A avaliação vem primeiro. Depois apresentamos o valor por atendimento ou por escopo, conforme o caso, sempre aprovado antes da execução. Diária técnica e serviço pontual são coisas diferentes e são informados separadamente." },
     ],

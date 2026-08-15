@@ -50,7 +50,10 @@ export interface BairroLocalData {
    * para elas quando a intenção local for semanticamente melhor que o pai global.
    */
   servicosCidade?: { to: string; label: string; desc: string }[];
+  /** Páginas de sintoma (/problemas/*) contextualmente pertinentes ao bairro */
+  problemasRelacionados?: { to: string; label: string; desc: string }[];
   /** FAQ local visível (espelhada em FAQPage) — distinta entre bairros */
+
   faqLocal: BairroFaq[];
 }
 

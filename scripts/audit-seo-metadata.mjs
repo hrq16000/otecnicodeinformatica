@@ -83,6 +83,9 @@ const relatorio = {
 
 mkdirSync("reports", { recursive: true });
 writeFileSync("reports/seo-audit-preview.json", `${JSON.stringify(relatorio, null, 2)}\n`);
+// Espelho público consumido pelo painel /admin/performance-local (sem segredos).
+writeFileSync("public/seo-audit.json", `${JSON.stringify(relatorio, null, 2)}\n`);
+
 
 console.log("── audit:seo (preview/build) ──");
 console.log(`  rotas auditadas: ${CURATED_ROUTES.length}`);

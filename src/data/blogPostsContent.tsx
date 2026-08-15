@@ -11332,6 +11332,33 @@ crontab -e
           <li>Noções de hardware e manutenção preventiva</li>
         </ul>
 
+        <h2>Glossário de informática básica</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>Explicação simples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sistema operacional</td><td>Programa principal que controla o computador (Windows, Linux, macOS).</td></tr>
+            <tr><td>Arquivo</td><td>Unidade de informação salva: um documento, uma foto, uma planilha.</td></tr>
+            <tr><td>Pasta (diretório)</td><td>Caixa que agrupa arquivos para manter a organização.</td></tr>
+            <tr><td>Extensão</td><td>Final do nome do arquivo (.pdf, .docx) que indica o tipo de conteúdo.</td></tr>
+            <tr><td>Navegador</td><td>Programa usado para acessar sites (Chrome, Firefox, Edge).</td></tr>
+            <tr><td>Nuvem</td><td>Armazenamento em servidores acessados pela internet.</td></tr>
+            <tr><td>Phishing</td><td>Mensagem falsa que imita empresa conhecida para roubar dados.</td></tr>
+            <tr><td>Atalho de teclado</td><td>Combinação de teclas que executa uma ação sem usar o mouse.</td></tr>
+          </tbody>
+        </table>
+
+        <aside className="rounded-lg border border-border bg-muted/40 p-4 not-prose my-6">
+          <h2 className="text-base font-semibold m-0">Leia também</h2>
+          <ul className="mt-2 mb-0 list-disc pl-5 text-sm">
+            <li><Link to="/blog/o-que-e-informatica" className="text-accent">O que é informática</Link> — a definição completa da área e suas divisões.</li>
+            <li><Link to="/blog/como-aprender-informatica" className="text-accent">Como aprender informática</Link> — roteiro de estudo em fases, com cronograma.</li>
+            <li><Link to="/blog/computador-lento-causas-solucoes" className="text-accent">Computador lento: causas e soluções</Link> — aplicação prática do que você aprendeu sobre sistema e arquivos.</li>
+            <li><Link to="/blog/como-melhorar-sinal-wifi-em-casa" className="text-accent">Como melhorar o sinal de Wi-Fi em casa</Link> — noções de rede no dia a dia.</li>
+          </ul>
+        </aside>
+
         <h2>Referências e fontes</h2>
         <ul>
           <li><a href="https://learn.microsoft.com/pt-br/windows/" rel="nofollow noopener" target="_blank">Microsoft Learn — Windows</a> — documentação oficial sobre sistema operacional, arquivos e configurações.</li>

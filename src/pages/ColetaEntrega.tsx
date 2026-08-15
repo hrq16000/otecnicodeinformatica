@@ -70,14 +70,6 @@ const ColetaEntrega = () => {
       />
       <PageSEO title="Coleta e Entrega de Computador e Notebook em Curitiba" description="Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_BASE_URL}/servicos` },
-          { "@type": "ListItem", position: 3, name: "Coleta e Entrega", item: `${SITE_BASE_URL}/coleta-e-entrega` },
-        ],
-      })}} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",
         "@id": `${SITE_BASE_URL}/coleta-e-entrega#service`,

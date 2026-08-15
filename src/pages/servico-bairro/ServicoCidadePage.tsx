@@ -168,6 +168,14 @@ const ServicoCidadePage = () => {
               }
             </p>
 
+            {/* MICRO-RODADA LOCAL 1.2 — abertura autoral própria de cada intenção. */}
+            {local?.intro?.length ? (
+              <div className="max-w-3xl mx-auto text-left space-y-3 mb-8">
+                {local.intro.map((p, i) => (
+                  <p key={i} className="text-white/80 leading-relaxed">{p}</p>
+                ))}
+              </div>
+            ) : null}
 
             {isSemVisita && (
               <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-6 max-w-lg mx-auto">

@@ -130,22 +130,6 @@ const DiagnosticoTecnico = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title={TITLE} description={DESCRIPTION} path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: FAQ_ITEMS.map(f => ({
-          "@type": "Question", name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      })}} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "Diagnóstico Técnico", item: `${SITE_BASE_URL}/diagnostico-tecnico` },
-        ],
-      })}} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Diagnóstico Técnico" }]} />

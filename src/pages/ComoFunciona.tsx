@@ -89,20 +89,6 @@ const ComoFunciona = () => {
           }),
         }}
       />
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
-              { "@type": "ListItem", position: 2, name: "Como Funciona", item: `${SITE_BASE_URL}/como-funciona` },
-            ],
-          }),
-        }}
-      />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Como Funciona" }]} />

@@ -1,0 +1,130 @@
+name: weekly-gates
+
+# Reexecução semanal dos gates críticos das páginas liberadas
+# (manifesto/sitemap, canonical, HTML estático, JSON-LD, CTAs e interlinking).
+# Qualquer URL aprovada que saia do padrão fail-closed quebra o job.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # toda segunda, 06:00 UTC (03:00 America/Sao_Paulo)
+  workflow_dispatch:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+
+      # ── Fonte da verdade: manifesto × sitemap × rotas
+      - name: Sitemap source gate (manifesto × XML)
+        run: npm run check:sitemap-source
+      - name: Internal links gate (strict, sem alias/redirect)
+        run: npm run check:internal-links:strict
+      - name: Hierarquia local (bairros/cidades)
+        run: npm run check:local-hierarchy
+      - name: Canibalização (P0)
+        run: npm run check:cannibalization
+      - name: Política local central (Rodada 5)
+        run: npm run build && npm run check:local-index-policy
+      - name: Antidoorway local (metadata/template únicos)
+        run: npm run check:local-doorway
+      - name: Relatório de risco de doorway (CSV/HTML)
+        run: npm run report:local-doorway
+      - name: Upload dos relatórios locais
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-local-doorway
+          path: |
+            reports/local-doorway.csv
+            reports/local-coverage.csv
+            reports/local-doorway.html
+
+      # ── Governança editorial fail-closed
+      - name: Governança editorial
+        run: npm run check:editorial-governance
+
+      - name: Intenção editorial (Rodada 8E)
+        run: npm run check:content-intent
+      - name: Cluster editorial e interlinking artigo ⇄ pilar
+        run: npm run check:editorial-cluster
+      - name: Onda editorial empresarial (3O)
+        run: npm run check:editorial-wave-3o
+      - name: Inventário editorial
+        run: npm run report:editorial
+
+      # ── Padrões visuais por família de página
+      - name: Padrão visual de sintomas (3R)
+        run: npm run check:visual-wave-3r
+      - name: Padrão visual empresarial (3S)
+        run: npm run check:visual-wave-3s
+      - name: Propagação do padrão empresarial (3T)
+        run: npm run check:visual-wave-3t
+      - name: Propagação visual contextual (3U)
+        run: npm run check:visual-wave-3u
+      - name: Expansão multieletrônicos (3Y)
+        run: npm run check:multielectronics-3y
+      - name: Ficha comercial padronizada (4C)
+        run: npm run check:ficha-comercial
+
+      # ── CTAs e copy
+      - name: CTA funnel gate
+        run: npm run check:cta-funnel
+      - name: Copy proibida e claims de confiança
+        run: npm run check:copy
+      - name: NAP / WhatsApp oficial
+        run: npm run check:nap
+
+      # ── HTML estático + JSON-LD do build publicado
+      - name: Build
+        run: npm run build
+      - name: JSON-LD validation
+        run: npm run validate:jsonld
+      - name: JSON-LD das páginas P0
+        run: npm run check:jsonld-p0
+      - name: Rich results (LocalBusiness/Service/FAQPage)
+        run: npm run check:rich-results:strict
+      - name: Paridade JSON-LD × conteúdo visível
+        run: npm run check:jsonld-parity
+      - name: BreadcrumbList serviço × cidade
+        run: npm run check:breadcrumb-schema
+      - name: Markup de preço (Offer/PriceSpecification)
+        run: npm run check:price-schema
+      - name: Paridade 1:1 FAQPage × FAQ visível
+        run: npm run check:faq-parity
+      - name: Unicidade de title/description (serviço × cidade e blog)
+        run: npm run check:meta-uniqueness
+      - name: Image sitemap (geração + integridade)
+        run: npm run sitemap:images && npm run check:image-sitemap
+      - name: Licenças e créditos de imagem
+        run: npm run check:image-credits
+
+      - name: Paridade de analytics (GA4 x click_events x relatorio)
+        run: npm run check:analytics-parity
+      - name: Interlinking local (mãe ⇄ bairros/cidades)
+        run: npm run check:local-interlinking
+
+      - name: Relatório semanal consolidado (SEO + governança)
+        if: always()
+        run: npm run report:weekly-seo
+      - name: Publicar relatório como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-semanal-seo
+          path: docs/relatorios/semanal-*
+
+      - name: Alerta de regressão
+        if: failure()
+        run: echo "::error::Gate semanal falhou — uma ou mais URLs aprovadas saíram do padrão fail-closed."
+
+      - name: Teste de mutação (Stryker, break=40)
+        run: npm run test:mutation

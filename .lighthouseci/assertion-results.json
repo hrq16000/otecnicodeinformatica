@@ -1,0 +1,122 @@
+[
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/assistencia-tecnica-curitiba"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/termos-e-condicoes"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/servicos/manutencao-preventiva-empresas"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/servicos/backup-para-empresas"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/servicos/redes-e-wifi"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/bairros/batel"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/bairros/agua-verde"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interaction-to-next-paint",
+    "level": "warn",
+    "url": "http://localhost:4173/tecnico-informatica-sao-jose-pinhais"
+  }
+]

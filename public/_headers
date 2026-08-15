@@ -1,0 +1,76 @@
+# CDN cache + security headers (honored by Cloudflare Pages / Netlify-compatible hosts).
+# IMPORTANT: rules are evaluated top-to-bottom — first match wins.
+# Place SPECIFIC paths before GENERIC ones (`/*.html`, `/assets/*`, etc).
+#
+# NOTE (Prompt 12): Lovable's managed hosting currently does NOT apply this file
+# — production only emits platform headers (HSTS, Referrer-Policy, nosniff).
+# This file remains the canonical header policy and takes effect on any host
+# that honors `_headers` (Cloudflare Pages / Netlify / self-host). The CSP below
+# is intentionally REPORT-ONLY this round: it observes violations without
+# blocking. Effective anti-framing is provided by X-Frame-Options: DENY.
+
+# --- 0. Security headers applied to EVERY response ---
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  X-DNS-Prefetch-Control: on
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://wa.me https://api.whatsapp.com; img-src 'self' data: blob: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com; script-src-attr 'unsafe-inline'; connect-src 'self' https://bwyskhzxvgyvyzshxkbf.supabase.co wss://bwyskhzxvgyvyzshxkbf.supabase.co https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://td.doubleclick.net; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net; media-src 'self'; manifest-src 'self'; worker-src 'self' blob:
+
+# --- 1. Hashed immutable assets (safe forever) ---
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Garantia extra para extensões hasheadas servidas fora de /assets/*.
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# --- 2. SPECIFIC paths (must come before generic /*.html) ---
+
+# Per-city prerendered HTML — short edge cache so deploys propagate quickly,
+# longer SWR window to keep crawlers fast.
+/arrumar-pc/*
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+
+# Hashed responsive OG/hero images live under /assets/ already, but the
+# canonical (non-hashed) OG fallbacks live at the project root, e.g.
+# /og/arrumar-pc-<slug>.jpg — cache them aggressively but allow refresh.
+/og/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Favicon / manifest (specific files — won't match /*.html anyway)
+/favicon.png
+  Cache-Control: public, max-age=0, must-revalidate
+/favicon.ico
+  Cache-Control: public, max-age=0, must-revalidate
+/favicon-32.png
+  Cache-Control: public, max-age=0, must-revalidate
+/apple-touch-icon.png
+  Cache-Control: public, max-age=0, must-revalidate
+/favicon-20260624.ico
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-20260624.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-32-20260624.png
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon-20260624.png
+  Cache-Control: public, max-age=31536000, immutable
+/og-image.png
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=604800
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# --- 3. Generic HTML fallback (must-revalidate for instant deploys) ---
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

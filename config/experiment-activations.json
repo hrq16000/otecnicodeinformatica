@@ -1,0 +1,4 @@
+{
+  "descricao": "Log versionado de ativação/desativação de experimentos de CRO. Ligar um experimento exige registro aqui com readinessStatus READY, razão, actor admin e timestamp. Sem PII.",
+  "ativacoes": []
+}

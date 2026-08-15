@@ -1,0 +1,473 @@
+{
+  "_doc": "RODADA 5 — fonte única de verdade da indexação local. Toda entidade local resolve indexability/canonical/sitemap por aqui. Regra de ouro: indexability !== 'index' => sitemap false. Espelhado em scripts/lib/local-index-policy.mjs (mesmo arquivo é lido pelos gates).",
+  "entities": [
+    {
+      "path": "/",
+      "family": "HOME",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "marca + oferta geral de assistência em informática + região de atuação",
+      "reason": "Página de marca: apresenta a operação, os públicos (PF/PJ), os problemas e o fluxo de atendimento. Não é landing de cidade."
+    },
+    {
+      "path": "/areas-atendidas",
+      "family": "OUTRA_LOCAL",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "hub de cobertura: cidades prioritárias e bairros âncora",
+      "reason": "Hub de navegação local; lista apenas URLs indexáveis."
+    },
+    {
+      "path": "/assistencia-tecnica-curitiba",
+      "family": "OUTRA_LOCAL",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "assistência técnica genérica (multieletrônicos) em Curitiba",
+      "reason": "Sobreposição alta com /tecnico-informatica-curitiba. Mantida noindex nesta rodada (não é promovida sem passar o checklist); candidata a Lote Local 2 com intenção multieletrônicos separada."
+    },
+    {
+      "path": "/empresa-de-ti-curitiba",
+      "family": "OUTRA_LOCAL",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "empresa de TI / suporte PJ em Curitiba",
+      "reason": "Cluster empresarial, público PJ — não concorre com a landing PF da cidade."
+    },
+    {
+      "path": "/tecnico-informatica-curitiba",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Curitiba — cobertura, modalidades, bairros e logística da cidade",
+      "reason": "Operação real, conteúdo próprio > 550 palavras, bairros âncora vinculados."
+    },
+    {
+      "path": "/tecnico-informatica-sao-jose-pinhais",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em São José dos Pinhais",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-pinhais",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Pinhais",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-colombo",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Colombo",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-araucaria",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Araucária",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-campo-largo",
+      "family": "CIDADE",
+      "indexability": "index",
+      "sitemap": true,
+      "intent": "técnico de informática em Campo Largo",
+      "reason": "Operação real declarada e conteúdo local próprio."
+    },
+    {
+      "path": "/tecnico-informatica-fazenda-rio-grande",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso (< 130 palavras). Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-almirante-tamandare",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-piraquara",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-campo-magro",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/tecnico-informatica-quatro-barras",
+      "family": "CIDADE",
+      "indexability": "noindex",
+      "sitemap": false,
+      "intent": "—",
+      "reason": "Sem operação declarada e conteúdo raso. Rota preservada, fora do índice."
+    },
+    {
+      "path": "/servicos/formatacao-computador/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/formatacao-computador/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/formatacao",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar formatação em Curitiba escolhendo entre remoto, visita e coleta, com backup combinado antes",
+      "reason": "Rodada 5C lote 2: a decisão remoto × presencial × coleta e o backup prévio são operação local, não conteúdo do serviço-pai."
+    },
+    {
+      "path": "/servicos/remocao-virus/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/remocao-virus/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/remocao-de-virus",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar remoção de vírus em Curitiba com urgência, incluindo contenção em rede de empresa",
+      "reason": "Rodada 5C lote 2: urgência, contenção de rede e decisão remoto imediato × visita são específicas do atendimento em Curitiba."
+    },
+    {
+      "path": "/servicos/upgrade-ssd/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/upgrade-ssd/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/upgrade-ssd-ram",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar upgrade de SSD/memória em Curitiba sabendo quem fornece a peça, prazo e migração sem formatar",
+      "reason": "Rodada 5C lote 2: fornecimento de peça, tempo de máquina parada e coleta são a intenção local; a parte técnica fica no serviço-pai."
+    },
+    {
+      "path": "/servicos/conserto-notebook/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de notebook em Curitiba (coleta, visita, prazo)",
+      "reason": "Rodada 5C: logística local muda o serviço (coleta x visita x bancada). Conteúdo local próprio em src/lib/servicoCuritibaBlocos.json; pai responde 'o que é/como funciona'."
+    },
+    {
+      "path": "/servicos/conserto-pc/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de PC de mesa em Curitiba (atendimento no endereço, coleta do gabinete)",
+      "reason": "Rodada 5C: desktop tem logística distinta do notebook (técnico vai até o endereço, coleta apenas do gabinete)."
+    },
+    {
+      "path": "/servicos/redes-wifi/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar instalação/ajuste de rede e Wi-Fi em Curitiba (visita obrigatória no imóvel)",
+      "reason": "Rodada 5C: rede é 100% presencial e depende do imóvel; a intenção local é a própria execução no endereço."
+    },
+    {
+      "path": "/servicos/backup-recuperacao/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar backup e recuperação de dados em Curitiba (coleta, sigilo, devolução)",
+      "reason": "Rodada 5C: a decisão local é logística e de confiança (coleta, registro, sigilo); o pai mantém o conteúdo técnico de recuperação."
+    },
+    {
+      "path": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-tecnico-empresarial/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-tecnico-empresarial",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar suporte técnico para uma empresa em Curitiba sabendo tempo de deslocamento, rotina de visitas e como abrir chamado no dia a dia",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/manutencao-preventiva-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-preventiva-empresas",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "agendar a rotina preventiva do parque de máquinas de uma empresa em Curitiba sem parar o expediente e sabendo o que é feito em cada visita",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/backup-para-empresas/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-para-empresas/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/backup-para-empresas",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "implantar e manter a rotina de backup de uma empresa em Curitiba, com teste de restauração e responsabilidade definida sobre quem confere",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/montagem-de-pc/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/montagem-de-pc/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/montagem-de-pc",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "montar um computador em Curitiba sabendo quem compra as peças, onde a montagem acontece e como fica a garantia de cada componente",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/suporte-home-office/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/suporte-home-office/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/suporte-home-office",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "resolver o home office de quem trabalha de casa em Curitiba, com atendimento rápido para não perder o dia de trabalho",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/pc-gamer/curitiba",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/pc-gamer/curitiba",
+      "sitemap": true,
+      "parent": "/servicos/pc-gamer",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "montar, revisar ou consertar um PC gamer em Curitiba, com bancada, teste sob carga e cuidado no transporte da máquina",
+      "reason": "Rodada 5C lote 3: operação local (chamado, agendamento, bancada, coleta e garantia em Curitiba) distinta do conteúdo educacional do serviço-pai."
+    },
+    {
+      "path": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-notebook/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-notebook",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de notebook em São José dos Pinhais com coleta por rota e custo de deslocamento informado antes",
+      "reason": "Rodada 5D: rota intermunicipal, coleta combinada e triagem remota prévia são operação local, ausentes no serviço-pai e distintas da página de Curitiba."
+    },
+    {
+      "path": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/conserto-pc/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/manutencao-de-computador",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "contratar conserto de computador de mesa em São José dos Pinhais com visita agendada por rota",
+      "reason": "Rodada 5D: desktop não se desloca — a visita preparada e o transporte apenas do gabinete são a intenção local do município."
+    },
+    {
+      "path": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/redes-e-wifi",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "resolver Wi-Fi e rede em São José dos Pinhais com medição presencial no imóvel",
+      "reason": "Rodada 5D: serviço obrigatoriamente presencial, com medição no imóvel e imóveis de terreno maior — contexto local real."
+    },
+    {
+      "path": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "family": "SERVICO_CIDADE",
+      "indexability": "index",
+      "canonical": "/servicos/backup-recuperacao/sao-jose-dos-pinhais",
+      "sitemap": true,
+      "parent": "/servicos/recuperacao-de-dados",
+      "tier": "SERVICO_CIDADE_COM_INTENCAO_LOCAL",
+      "intent": "acionar backup ou recuperação de dados em São José dos Pinhais com retirada cuidadosa da mídia",
+      "reason": "Rodada 5D: instrução de parar o uso, transporte protegido da mídia e prazo de bancada para quem espera rota — logística local própria."
+    }
+  ],
+  "bairrosAncora": [
+    {
+      "slug": "cic",
+      "intent": "atendimento de informática na CIC (indústria e residencial)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "batel",
+      "intent": "atendimento de informática no Batel (escritórios e home office)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "agua-verde",
+      "intent": "atendimento de informática no Água Verde (residencial denso)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "centro",
+      "intent": "atendimento de informática no Centro (comércio e coleta)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "portao",
+      "intent": "atendimento de informática no Portão (residencial e comércio de bairro)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 1
+    },
+    {
+      "slug": "santa-felicidade",
+      "intent": "atendimento de informática em Santa Felicidade (casas amplas, comércio de bairro e Wi-Fi com alcance difícil)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "boa-vista",
+      "intent": "atendimento de informática na Boa Vista (residencial extenso e clínicas/escritórios de bairro)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "bigorrilho",
+      "intent": "atendimento de informática no Bigorrilho (prédios verticais, home office e coleta em portaria)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "cabral",
+      "intent": "atendimento de informática no Cabral (consultórios, escritórios pequenos e rede de apartamento)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 2
+    },
+    {
+      "slug": "afonso-pena",
+      "intent": "atendimento de informática no Afonso Pena, SJP (empresas do entorno do aeroporto e residências)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "cruzeiro",
+      "intent": "atendimento de informática no Cruzeiro, SJP (residencial e comércio de rua)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "costeira",
+      "intent": "atendimento de informática na Costeira, SJP (residencial próximo à divisa com Curitiba)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    },
+    {
+      "slug": "guatupe",
+      "intent": "atendimento de informática no Guatupê, SJP (misto residencial e pequenas operações)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 2
+    }
+  ],
+  "servicoBairroIndexaveis": [
+    "/servicos/formatacao-computador/cic",
+    "/servicos/formatacao-computador/batel",
+    "/servicos/formatacao-computador/agua-verde",
+    "/servicos/remocao-virus/cic",
+    "/servicos/remocao-virus/agua-verde",
+    "/servicos/conserto-pc-notebook/centro",
+    "/servicos/conserto-pc-notebook/agua-verde",
+    "/servicos/upgrade-ssd-memoria/cic",
+    "/servicos/upgrade-ssd-memoria/centro",
+    "/servicos/upgrade-ssd-memoria/agua-verde",
+    "/servicos/upgrade-ssd-memoria/portao"
+  ],
+  "loteLocal1": [
+    "/tecnico-informatica-curitiba",
+    "/tecnico-informatica-sao-jose-pinhais",
+    "/bairros/centro",
+    "/bairros/batel",
+    "/bairros/agua-verde",
+    "/bairros/cic",
+    "/bairros/portao",
+    "/servicos/formatacao-computador/curitiba",
+    "/servicos/remocao-virus/curitiba",
+    "/servicos/conserto-notebook/curitiba",
+    "/servicos/conserto-pc/curitiba",
+    "/servicos/upgrade-ssd/curitiba"
+  ],
+  "loteServicoCuritiba5c": [
+    "/servicos/conserto-notebook/curitiba",
+    "/servicos/conserto-pc/curitiba",
+    "/servicos/redes-wifi/curitiba",
+    "/servicos/backup-recuperacao/curitiba"
+  ],
+  "prefixosNaoIndexaveis": [
+    {
+      "prefix": "/arrumar-pc",
+      "indexability": "noindex",
+      "reason": "Cluster nacional herdado sem operação real — noindex permanente, sem expansão nesta rodada."
+    },
+    {
+      "prefix": "/cftv/",
+      "indexability": "noindex",
+      "reason": "Vertical adjacente: não integra a arquitetura local CORE de informática nem infla cobertura geográfica."
+    }
+  ],
+  "loteLocal2": [
+    "/bairros/santa-felicidade",
+    "/bairros/boa-vista",
+    "/bairros/bigorrilho",
+    "/bairros/cabral",
+    "/bairros/afonso-pena",
+    "/bairros/cruzeiro",
+    "/bairros/costeira",
+    "/bairros/guatupe"
+  ]
+}

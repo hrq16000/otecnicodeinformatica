@@ -1,0 +1,138 @@
+// Etapas de atendimento específicas por serviço.
+// Cada página descreve o próprio caminho técnico — nada de fluxo genérico
+// repetido em todas as URLs. Sem promessa de prazo fechado e sem preço fixo:
+// valor só aparece depois da avaliação e sempre com aprovação do cliente.
+
+export type ProcessoEtapa = { step: string; title: string; desc: string };
+
+export const PROCESSOS: Record<string, ProcessoEtapa[]> = {
+  formatacao: [
+    { step: "1", title: "Triagem do sintoma", desc: "Você descreve o que acontece com a máquina e checamos se formatar é mesmo o caminho." },
+    { step: "2", title: "Checagem do disco", desc: "Verificamos a saúde do armazenamento antes de qualquer cópia — disco com falha muda o plano." },
+    { step: "3", title: "Backup dos dados", desc: "Documentos, fotos, área de trabalho e favoritos copiados para mídia separada." },
+    { step: "4", title: "Aprovação do valor", desc: "Escopo e valor apresentados antes de apagar qualquer coisa." },
+    { step: "5", title: "Instalação limpa", desc: "Windows original, drivers do modelo, programas essenciais e inicialização enxuta." },
+    { step: "6", title: "Restauração e conferência", desc: "Arquivos de volta nas pastas originais e teste feito junto com você." },
+  ],
+  "manutencao-de-notebook": [
+    { step: "1", title: "Relato do sintoma", desc: "Marca, modelo e o que acontece: não liga, esquenta, tela, teclado ou carga." },
+    { step: "2", title: "Avaliação em bancada", desc: "Teste de energia, vídeo, temperatura e armazenamento para separar software de hardware." },
+    { step: "3", title: "Causa e alternativas", desc: "Explicamos o que foi encontrado e se o reparo compensa frente ao valor do aparelho." },
+    { step: "4", title: "Aprovação com peça definida", desc: "Peça, escopo e valor informados antes da execução — sem troca por suposição." },
+    { step: "5", title: "Reparo e remontagem", desc: "Serviço executado com desmontagem adequada ao modelo e refrigeração revisada." },
+    { step: "6", title: "Teste de uso real", desc: "Ligamos, aquecemos em carga e conferimos o sintoma original antes de devolver." },
+  ],
+  "manutencao-de-computador": [
+    { step: "1", title: "Descrição do problema", desc: "Travamento, reinício, ruído, tela azul ou lentidão: cada sintoma aponta para um teste diferente." },
+    { step: "2", title: "Teste por subsistema", desc: "Fonte, memória, armazenamento, refrigeração e placa avaliados separadamente." },
+    { step: "3", title: "Diagnóstico explicado", desc: "Dizemos qual peça está causando o problema e qual não precisa ser trocada." },
+    { step: "4", title: "Aprovação do escopo", desc: "Valor apresentado por serviço e por peça, aprovado por você antes de começar." },
+    { step: "5", title: "Execução e limpeza", desc: "Reparo feito com revisão de refrigeração, cabos e organização interna." },
+    { step: "6", title: "Validação em uso", desc: "Máquina testada ligada, sob carga e com o sintoma reproduzido antes da entrega." },
+  ],
+  "upgrade-ssd-ram": [
+    { step: "1", title: "Levantamento do equipamento", desc: "Modelo, placa, memória atual e tipo de armazenamento para conferir compatibilidade." },
+    { step: "2", title: "Confirmação do gargalo", desc: "Checamos se o problema é mesmo disco ou memória — nem toda lentidão melhora com peça." },
+    { step: "3", title: "Indicação da configuração", desc: "Capacidade e padrão adequados ao seu uso, sem empurrar peça acima do necessário." },
+    { step: "4", title: "Aprovação de peça e valor", desc: "Peça, prazo e valor apresentados antes da compra ou instalação." },
+    { step: "5", title: "Instalação ou clonagem", desc: "Sistema migrado para o SSD ou instalado do zero, com seus dados preservados." },
+    { step: "6", title: "Medição do ganho", desc: "Conferimos tempo de boot e resposta em uso para você ver a diferença real." },
+  ],
+  "remocao-de-virus": [
+    { step: "1", title: "Relato dos sinais", desc: "Pop-ups, navegador sequestrado, cobrança falsa ou arquivos com extensão estranha." },
+    { step: "2", title: "Isolamento e cópia", desc: "Primeiro protegemos os dados; só depois mexemos no que está infectado." },
+    { step: "3", title: "Identificação da infecção", desc: "Verificamos inicialização, tarefas agendadas, extensões e serviços suspeitos." },
+    { step: "4", title: "Aprovação do caminho", desc: "Limpeza ou reinstalação: explicamos o que cada opção preserva antes de decidir." },
+    { step: "5", title: "Limpeza e reconfiguração", desc: "Remoção das ameaças, navegador reconfigurado e proteção ativa novamente." },
+    { step: "6", title: "Orientação de prevenção", desc: "Mostramos como a infecção entrou para reduzir a chance de repetir." },
+  ],
+  "recuperacao-de-dados": [
+    { step: "1", title: "Descrição da perda", desc: "O que aconteceu, quais arquivos importam e se a mídia ainda é reconhecida." },
+    { step: "2", title: "Avaliação sem escrita", desc: "Mídia analisada em bancada, sem gravar nada por cima do que se quer recuperar." },
+    { step: "3", title: "Viabilidade honesta", desc: "Dizemos o que é possível recuperar e o que provavelmente não volta. Sem garantia inventada." },
+    { step: "4", title: "Aprovação do valor", desc: "Escopo e valor apresentados antes da tentativa de recuperação." },
+    { step: "5", title: "Extração dos arquivos", desc: "Cópia feita para mídia separada, preservando a origem sempre que possível." },
+    { step: "6", title: "Conferência com você", desc: "Você verifica a lista do que foi recuperado antes da entrega." },
+  ],
+  "redes-e-wifi": [
+    { step: "1", title: "Mapa do ambiente", desc: "Tamanho do imóvel, materiais das paredes, pontos mortos e quantidade de aparelhos." },
+    { step: "2", title: "Medição do sinal", desc: "Testes de cobertura, interferência de canal e velocidade real em cada ambiente." },
+    { step: "3", title: "Projeto da solução", desc: "Roteador, repetidor, malha ou cabeamento — indicado pelo problema medido, não pelo catálogo." },
+    { step: "4", title: "Aprovação de escopo", desc: "Materiais, pontos e valor apresentados antes da instalação." },
+    { step: "5", title: "Instalação e configuração", desc: "Equipamentos posicionados, canais ajustados, senhas e rede de visitantes configuradas." },
+    { step: "6", title: "Nova medição", desc: "Repetimos os testes nos pontos críticos para comprovar o ganho de cobertura." },
+  ],
+  "suporte-tecnico-empresarial": [
+    { step: "1", title: "Contato inicial", desc: "Entendemos o porte da operação, o parque de máquinas e o que mais para a equipe." },
+    { step: "2", title: "Levantamento do parque", desc: "Inventário de equipamentos, sistemas críticos e pontos de falha recorrentes." },
+    { step: "3", title: "Prioridades definidas", desc: "Separamos o que trava faturamento do que pode esperar a próxima janela." },
+    { step: "4", title: "Escopo e formato", desc: "Chamado avulso ou atendimento recorrente, com valor aprovado antes do início." },
+    { step: "5", title: "Atendimento e registro", desc: "Chamados atendidos remoto ou presencial, com registro do que foi feito." },
+    { step: "6", title: "Revisão periódica", desc: "Recorrências analisadas para eliminar a causa, não só apagar incêndio." },
+  ],
+  "manutencao-preventiva-empresas": [
+    { step: "1", title: "Diagnóstico do parque", desc: "Idade das máquinas, histórico de paradas e equipamentos mais críticos." },
+    { step: "2", title: "Definição da janela", desc: "Combinamos horários que não interrompem o expediente da equipe." },
+    { step: "3", title: "Plano preventivo", desc: "Limpeza, revisão térmica, checagem de discos, atualizações e energia." },
+    { step: "4", title: "Aprovação do ciclo", desc: "Frequência, escopo por máquina e valor aprovados antes da primeira visita." },
+    { step: "5", title: "Execução por lote", desc: "Máquinas atendidas em blocos, com identificação e registro individual." },
+    { step: "6", title: "Relatório de estado", desc: "Você recebe o que foi feito e quais equipamentos exigem substituição em breve." },
+  ],
+  "backup-para-empresas": [
+    { step: "1", title: "Mapeamento dos dados", desc: "Quais arquivos e sistemas param a empresa se sumirem hoje." },
+    { step: "2", title: "Avaliação do que existe", desc: "Conferimos se a cópia atual realmente existe e se ela restaura." },
+    { step: "3", title: "Desenho da rotina", desc: "Cópia separada do equipamento de origem, frequência e retenção definidas." },
+    { step: "4", title: "Aprovação do escopo", desc: "Volume, mídia, rotina e valor apresentados antes da implantação." },
+    { step: "5", title: "Implantação e automação", desc: "Rotina configurada, monitorada e com alerta de falha." },
+    { step: "6", title: "Teste de restauração", desc: "Backup só vale quando restaura: testamos a volta dos arquivos com você." },
+  ],
+  "suporte-home-office": [
+    { step: "1", title: "Descrição da rotina", desc: "O que você usa para trabalhar: reuniões, sistemas, impressora, internet." },
+    { step: "2", title: "Diagnóstico remoto", desc: "Primeira avaliação sem deslocamento sempre que o equipamento liga e conecta." },
+    { step: "3", title: "Causa da interrupção", desc: "Separamos falha de máquina, de rede e de configuração de aplicativo." },
+    { step: "4", title: "Aprovação do atendimento", desc: "Escopo e valor combinados antes de qualquer intervenção." },
+    { step: "5", title: "Correção e ajustes", desc: "Máquina, áudio, vídeo, rede e acessos ajustados para a sua rotina de trabalho." },
+    { step: "6", title: "Teste em situação real", desc: "Validamos numa chamada e nos sistemas que você usa no dia a dia." },
+  ],
+  "montagem-de-pc": [
+    { step: "1", title: "Objetivo de uso", desc: "Jogos, edição, estudo ou trabalho: o uso define a configuração, não o contrário." },
+    { step: "2", title: "Verificação de compatibilidade", desc: "Placa, processador, memória, fonte e gabinete conferidos antes de comprar." },
+    { step: "3", title: "Lista e orçamento", desc: "Configuração apresentada com alternativas de custo e o que dá para evoluir depois." },
+    { step: "4", title: "Aprovação da lista", desc: "Você aprova peças e valor de montagem antes da execução." },
+    { step: "5", title: "Montagem e cable management", desc: "Montagem em bancada, fluxo de ar planejado e cabos organizados." },
+    { step: "6", title: "Testes de estabilidade", desc: "Temperatura, memória e carga testadas com sistema instalado antes da entrega." },
+  ],
+  "conserto-tv": [
+    { step: "1", title: "Sintoma e modelo", desc: "Marca, modelo e o que acontece: não liga, sem imagem, sem som, listras." },
+    { step: "2", title: "Avaliação em bancada", desc: "Testes de fonte, placa principal, T-CON e backlight para localizar a origem." },
+    { step: "3", title: "Viabilidade do reparo", desc: "Dizemos quando o conserto compensa e quando o painel inviabiliza o serviço." },
+    { step: "4", title: "Aprovação com peça", desc: "Peça, prazo de reposição e valor informados antes da execução." },
+    { step: "5", title: "Reparo e montagem", desc: "Serviço executado em bancada, com cuidado no manuseio do painel." },
+    { step: "6", title: "Teste de imagem e som", desc: "Aparelho ligado por período de teste antes da devolução." },
+  ],
+  "conserto-placa": [
+    { step: "1", title: "Histórico da falha", desc: "Queda, líquido, surto de energia ou falha progressiva mudam completamente o diagnóstico." },
+    { step: "2", title: "Inspeção da placa", desc: "Análise visual, medição de tensões e checagem de trilhas e componentes." },
+    { step: "3", title: "Escopo do reparo", desc: "Explicamos o que é reparável em bancada e o que não tem viabilidade técnica." },
+    { step: "4", title: "Aprovação do serviço", desc: "Valor e limites de garantia apresentados antes de qualquer intervenção." },
+    { step: "5", title: "Reparo em bancada", desc: "Substituição de componentes e retrabalho com ferramenta adequada." },
+    { step: "6", title: "Teste sob carga", desc: "Placa testada em funcionamento antes de voltar ao equipamento." },
+  ],
+  "conserto-monitor": [
+    { step: "1", title: "Sintoma relatado", desc: "Sem imagem, piscando, escurecendo, listras ou desligando sozinho." },
+    { step: "2", title: "Teste com outra fonte", desc: "Conferimos cabo, fonte e entrada antes de abrir o aparelho." },
+    { step: "3", title: "Avaliação interna", desc: "Placa, fonte e iluminação avaliadas em bancada para isolar a causa." },
+    { step: "4", title: "Aprovação do reparo", desc: "Escopo, limites e valor apresentados antes da execução — painel danificado não é reparado." },
+    { step: "5", title: "Execução do serviço", desc: "Reparo feito em bancada com peças adequadas ao modelo." },
+    { step: "6", title: "Teste de tela", desc: "Verificação de brilho, uniformidade e estabilidade antes da entrega." },
+  ],
+  "pc-gamer": [
+    { step: "1", title: "Cenário do problema", desc: "Qual jogo, em qual resolução, o que acontece: queda de quadros, travamento, desligamento ou ruído." },
+    { step: "2", title: "Leitura de temperatura e carga", desc: "Medimos processador, placa de vídeo e armazenamento em carga real, não em teste sintético isolado." },
+    { step: "3", title: "Identificação do gargalo", desc: "Separamos limite de hardware, refrigeração saturada, fonte no limite e sistema comprometido." },
+    { step: "4", title: "Plano com prioridade", desc: "Dizemos o que resolve primeiro e o que pode esperar, com o valor aprovado antes da execução." },
+    { step: "5", title: "Execução em bancada", desc: "Limpeza, troca de pasta e almofadas térmicas, revisão de fluxo de ar e instalação das peças aprovadas." },
+    { step: "6", title: "Teste de estabilidade", desc: "Carga prolongada com acompanhamento de temperatura e estabilidade antes da devolução." },
+  ],
+};
+

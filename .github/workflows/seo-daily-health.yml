@@ -1,0 +1,67 @@
+name: SEO daily health (404, redirects, canônicos, sitemap)
+
+# Monitoramento contínuo diário do estado de indexação em produção:
+#   • 404 reais e soft-404 nas rotas curadas
+#   • redirects críticos (salto único, sem cadeia)
+#   • canônicos self-referentes e ausência de noindex nas URLs do sitemap
+#   • status dos sitemaps no Google Search Console + alerta (Slack/e-mail)
+on:
+  schedule:
+    - cron: "42 7 * * *" # diário, 07:42 UTC (04:42 America/Sao_Paulo)
+  workflow_dispatch:
+
+jobs:
+  seo-health:
+    runs-on: ubuntu-latest
+    env:
+      CHECK_BASE_URL: https://otecnicodeinformatica.com.br
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (HTML estático curado)
+        run: npm run build
+
+      - name: Sitemap derivado da fonte curada (sem duplicata/alias/noindex)
+        run: npm run check:sitemap-source
+
+      - name: Saúde de indexação em produção (canônicos, noindex, JSON-LD)
+        continue-on-error: true
+        timeout-minutes: 20
+        run: npm run check:index-health -- --base=https://otecnicodeinformatica.com.br --strict
+
+      - name: Soft-404 e 404 reais
+        continue-on-error: true
+        run: npm run check:soft404
+
+      - name: Redirects críticos
+        continue-on-error: true
+        run: npm run check:redirects:critical
+
+      - name: Status dos sitemaps no Search Console
+        continue-on-error: true
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: sc-domain:otecnicodeinformatica.com.br
+        run: npm run check:sitemap-status
+
+      - name: Alertar quando o sitemap ficar degraded/unhealthy
+        if: always()
+        continue-on-error: true
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: npm run alert:sitemap-status
+
+      - name: Guardar relatórios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-daily-health
+          path: reports/

@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-08-14T23:30:23.496Z",
+  "finishedAt": "2026-08-14T23:30:25.661Z",
+  "ok": true,
+  "total": 9,
+  "passed": 9,
+  "failed": 0,
+  "skipped": 0,
+  "gates": [
+    {
+      "id": "ads-txt",
+      "label": "ads.txt e metatag AdSense",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 77,
+      "checkedAt": "2026-08-14T23:30:23.574Z"
+    },
+    {
+      "id": "policy-jsonld",
+      "label": "JSON-LD das políticas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 91,
+      "checkedAt": "2026-08-14T23:30:23.665Z"
+    },
+    {
+      "id": "telemetry",
+      "label": "Transparência da telemetria",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 94,
+      "checkedAt": "2026-08-14T23:30:23.759Z"
+    },
+    {
+      "id": "missing-exports",
+      "label": "Exports ausentes nas rotas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 1001,
+      "checkedAt": "2026-08-14T23:30:24.760Z"
+    },
+    {
+      "id": "internal-links",
+      "label": "Links internos sem 404",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 298,
+      "checkedAt": "2026-08-14T23:30:25.058Z"
+    },
+    {
+      "id": "sitemap-source",
+      "label": "Sitemap x fonte curada",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 150,
+      "checkedAt": "2026-08-14T23:30:25.208Z"
+    },
+    {
+      "id": "aggregate-rating",
+      "label": "Ausência de aggregateRating fabricado",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 162,
+      "checkedAt": "2026-08-14T23:30:25.370Z"
+    },
+    {
+      "id": "media-assets",
+      "label": "og:image, mídia kit e assets públicos",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 166,
+      "checkedAt": "2026-08-14T23:30:25.536Z"
+    },
+    {
+      "id": "orphan-pages",
+      "label": "Páginas órfãs",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 125,
+      "checkedAt": "2026-08-14T23:30:25.661Z"
+    }
+  ]
+}

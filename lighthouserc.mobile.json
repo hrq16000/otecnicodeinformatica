@@ -1,0 +1,96 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "http://localhost:4173/",
+        "http://localhost:4173/problemas",
+        "http://localhost:4173/problemas/tela-azul",
+        "http://localhost:4173/empresas",
+        "http://localhost:4173/assistencia-tecnica-curitiba",
+        "http://localhost:4173/termos-e-condicoes",
+        "http://localhost:4173/servicos/manutencao-preventiva-empresas",
+        "http://localhost:4173/servicos/backup-para-empresas",
+        "http://localhost:4173/servicos/redes-e-wifi",
+        "http://localhost:4173/bairros/batel",
+        "http://localhost:4173/bairros/agua-verde",
+        "http://localhost:4173/tecnico-informatica-sao-jose-pinhais"
+      ],
+      "startServerCommand": "bun run preview -- --port 4173",
+      "startServerReadyPattern": "Local:",
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "mobile",
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 915,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "cpuSlowdownMultiplier": 4
+        },
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.75
+          }
+        ],
+        "categories:seo": [
+          "error",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "first-contentful-paint": [
+          "warn",
+          {
+            "maxNumericValue": 2200
+          }
+        ],
+        "largest-contentful-paint": [
+          "error",
+          {
+            "maxNumericValue": 3500
+          }
+        ],
+        "cumulative-layout-shift": [
+          "error",
+          {
+            "maxNumericValue": 0.1
+          }
+        ],
+        "interaction-to-next-paint": [
+          "warn",
+          {
+            "maxNumericValue": 200
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "server-response-time": [
+          "error",
+          {
+            "maxNumericValue": 800
+          }
+        ]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./.lighthouseci-mobile"
+    }
+  }
+}

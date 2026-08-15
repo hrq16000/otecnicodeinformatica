@@ -1,0 +1,19 @@
+{
+  "cohort": "content_cluster_formatacao_v1",
+  "observacao": "Registro operacional da Rodada 8H. Só entra PUBLISHED com published_at real e prova (URL do post ou print arquivado). Nunca editar published_at para parecer recente.",
+  "registros": [
+    { "pauta": "custo-formatacao", "canal": "gbp", "status": "READY" },
+    { "pauta": "formatar-resolve-lentidao", "canal": "gbp", "status": "READY" },
+    { "pauta": "antes-de-formatar-backup", "canal": "gbp", "status": "READY" },
+    { "pauta": "custo-formatacao", "canal": "facebook", "status": "READY" },
+    { "pauta": "formatar-resolve-lentidao", "canal": "facebook", "status": "READY" },
+    { "pauta": "antes-de-formatar-backup", "canal": "facebook", "status": "READY" },
+    { "pauta": "custo-formatacao", "canal": "instagram", "status": "READY" },
+    { "pauta": "formatar-resolve-lentidao", "canal": "instagram", "status": "READY" },
+    { "pauta": "antes-de-formatar-backup", "canal": "instagram", "status": "READY" }
+  ],
+  "offline": {
+    "status": "READY",
+    "nota": "QR gerado pelo /admin/link-builder (preset offline_qr) fica pronto para peça física. Canal NÃO ativo nesta rodada — não usar para fabricar tráfego."
+  }
+}

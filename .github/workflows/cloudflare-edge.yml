@@ -1,0 +1,92 @@
+name: Cloudflare edge (redirects 301 + 404 real)
+
+# Publica as regras de borda que a hospedagem não consegue aplicar:
+#   - aliases conhecidos → 301
+#   - URLs inexistentes → 404 real (sem fallback SPA)
+# Depois valida o contrato HTTP direto em produção.
+on:
+  workflow_dispatch:
+    inputs:
+      approve:
+        description: 'Frase de aprovação exigida pelo publicador de redirects (ex.: APROVO 612 REGRAS). Deixe vazio para publicar só o worker.'
+        required: false
+  workflow_run:
+    workflows: ["Deploy"]
+    types: [completed]
+
+concurrency:
+  group: cloudflare-edge
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (gera dist/route-manifest.json e dist/404.html)
+        run: npm run build
+
+      - name: Gates de rota antes de publicar na borda
+        run: |
+          npm run check:soft404
+          npm run check:sitemap-source
+          npm run cf:edge:test
+
+      - name: Pré-voo de zona Cloudflare (proxied e sob nosso controle)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_NAME: otecnicodeinformatica.com.br
+        run: npm run check:cf-zone -- --enforce
+
+      - name: Publicar worker de borda (301 + 404 real)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy --config cloudflare/wrangler.toml
+
+      - name: Publicar matriz de redirects da migração (opcional)
+        if: ${{ github.event.inputs.approve != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: |
+          npm run migration:export
+          node scripts/publish-cloudflare-redirects.mjs --approve="${{ github.event.inputs.approve }}"
+
+      - name: Validar contrato HTTP em produção (200 / 301 / 404)
+        run: npm run verify:prod-status
+
+      - name: Smoke de borda pós-deploy (404 real + noindex 200)
+        id: smoke_post_deploy
+        env:
+          SITE_BASE_URL: https://otecnicodeinformatica.com.br
+        run: npm run smoke:edge:post-deploy
+
+      - name: Publicar relatório do smoke de borda
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: edge-smoke-post-deploy
+          path: |
+            reports/edge-smoke-post-deploy.json
+            reports/edge-smoke-post-deploy.md
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-edge-evidence
+          path: |
+            reports/**
+            redirects/rollback/cloudflare/**
+          if-no-files-found: warn

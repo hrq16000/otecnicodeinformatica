@@ -2,11 +2,16 @@ import { describe, expect, it, vi } from "vitest";
 
 // O conteúdo editorial usa <Link> do router; nos testes de SSR puro
 // substituímos por <a>, mantendo o HTML dos headings intacto.
-vi.mock("@tanstack/react-router", () => ({
-  Link: ({ to, children, ...rest }: { to: string; children?: React.ReactNode }) => (
-    <a href={to} {...rest}>{children}</a>
-  ),
-}));
+vi.mock("@/lib/router-compat", async (importOriginal) => {
+  const mod = await importOriginal<Record<string, unknown>>();
+  return {
+    ...mod,
+    Link: ({ to, children, ...rest }: { to: string; children?: React.ReactNode }) => (
+      <a href={to} {...rest}>{children}</a>
+    ),
+  };
+});
+
 import { renderToStaticMarkup } from "react-dom/server";
 import { buildArticleToc, shouldRenderToc, slugifyHeading, nodeText } from "@/lib/articleToc";
 import { ArticleToc } from "@/components/editorial/ArticleToc";

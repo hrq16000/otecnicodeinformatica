@@ -1,4 +1,4 @@
-import { upsertCanonical } from "@/lib/canonicalUrl";
+import { PageSEO } from "@/components/PageSEO";
 import { useEffect } from "react";
 import { useParams, Link } from "@/lib/router-compat";
 import { 
@@ -38,32 +38,22 @@ const ServicoCidadePage = () => {
   // RODADA 5C: conteúdo local autoral serviço × Curitiba (fail-closed: null = template herdado).
   const local = servicoLocal(servicoSlug ?? "", cidadeSlug ?? "");
 
+  const decisao = resolveLocal(`/servicos/${servicoSlug}/${cidadeSlug}`);
+  const seoTitle = local
+    ? local.title
+    : servico && cidade
+      ? `${servico.nome} em ${cidade.nome} | Técnico a Domicílio | Atendimento Hoje`
+      : "";
+  const seoDescription = local
+    ? local.description
+    : servico && cidade
+      ? `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
+      : "";
+
   useEffect(() => {
     if (!servico || !cidade) return;
-    document.title = local
-      ? local.title
-      : `${servico.nome} em ${cidade.nome} | Técnico a Domicílio | Atendimento Hoje`;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content",
-        local
-          ? local.description
-          : `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
-      );
-    }
-    // RODADA 5: canonical e robots vêm da política local (fonte única).
-    const decisao = resolveLocal(`/servicos/${servicoSlug}/${cidadeSlug}`);
-    upsertCanonical(`${SITE_BASE_URL}${decisao.canonical}`);
-    // Serviço × cidade sem intenção local própria: autoridade fica no serviço-pai.
-    let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
-    if (!robots) {
-      robots = document.createElement("meta");
-      robots.name = "robots";
-      document.head.appendChild(robots);
-    }
-    robots.content = decisao.indexability === "index" ? "index, follow" : "noindex, follow";
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
-  }, [servico, cidade, servicoSlug, cidadeSlug, local]);
+  }, [servico, cidade, servicoSlug, cidadeSlug]);
 
   if (!servico || !cidade) return <NotFound />;
 
@@ -127,6 +117,17 @@ const ServicoCidadePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO
+        title={seoTitle}
+        description={seoDescription}
+        path={decisao.canonical}
+        noindex={decisao.indexability !== "index"}
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Serviços", path: "/servicos" },
+          { name: `${servico.nome} em ${cidade.nome}`, path: `/servicos/${servico.slug}/${cidade.slug}` },
+        ]}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <Breadcrumbs

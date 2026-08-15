@@ -1,0 +1,342 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-15T01:37:42.809Z",
+  "nationalOrLocal": "NATIONAL_INFORMATIONAL",
+  "hub": "/blog",
+  "taxonomy": [
+    {
+      "id": "informatica",
+      "topic": "Informática",
+      "parent": null,
+      "children": [
+        "fundamentos",
+        "informatica-basica",
+        "aprender-informatica",
+        "hardware",
+        "software",
+        "sistemas-operacionais",
+        "internet-redes",
+        "seguranca-digital",
+        "dados-backup",
+        "manutencao-diagnostico",
+        "empresas",
+        "carreira-formacao",
+        "glossario"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "fundamentos",
+      "topic": "Fundamentos",
+      "parent": "informatica",
+      "children": [],
+      "status": "candidate"
+    },
+    {
+      "id": "informatica-basica",
+      "topic": "Informática básica",
+      "parent": "informatica",
+      "children": [],
+      "primaryQuery": "informática básica",
+      "intent": "DEFINITION/LEARNING",
+      "ownerUrl": null,
+      "status": "candidate"
+    },
+    {
+      "id": "aprender-informatica",
+      "topic": "Como aprender informática",
+      "parent": "informatica",
+      "children": [],
+      "primaryQuery": "como aprender informática",
+      "intent": "LEARNING",
+      "ownerUrl": null,
+      "status": "candidate"
+    },
+    {
+      "id": "hardware",
+      "topic": "Hardware",
+      "parent": "informatica",
+      "children": [],
+      "status": "active_partial"
+    },
+    {
+      "id": "software",
+      "topic": "Software",
+      "parent": "informatica",
+      "children": [],
+      "status": "active_partial"
+    },
+    {
+      "id": "sistemas-operacionais",
+      "topic": "Sistemas operacionais",
+      "parent": "informatica",
+      "children": [
+        "windows",
+        "linux"
+      ],
+      "status": "active_partial"
+    },
+    {
+      "id": "windows",
+      "topic": "Windows",
+      "parent": "sistemas-operacionais",
+      "children": [],
+      "status": "active"
+    },
+    {
+      "id": "linux",
+      "topic": "Linux",
+      "parent": "sistemas-operacionais",
+      "children": [],
+      "status": "active"
+    },
+    {
+      "id": "internet-redes",
+      "topic": "Internet e redes",
+      "parent": "informatica",
+      "children": [],
+      "status": "active_partial"
+    },
+    {
+      "id": "seguranca-digital",
+      "topic": "Segurança digital",
+      "parent": "informatica",
+      "children": [],
+      "status": "active"
+    },
+    {
+      "id": "dados-backup",
+      "topic": "Dados e backup",
+      "parent": "informatica",
+      "children": [],
+      "status": "active"
+    },
+    {
+      "id": "manutencao-diagnostico",
+      "topic": "Manutenção e diagnóstico",
+      "parent": "informatica",
+      "children": [],
+      "status": "active"
+    },
+    {
+      "id": "empresas",
+      "topic": "Empresas",
+      "parent": "informatica",
+      "children": [],
+      "status": "active_partial"
+    },
+    {
+      "id": "carreira-formacao",
+      "topic": "Carreira e formação",
+      "parent": "informatica",
+      "children": [],
+      "status": "candidate"
+    },
+    {
+      "id": "glossario",
+      "topic": "Glossário e conceitos",
+      "parent": "informatica",
+      "children": [],
+      "status": "candidate"
+    }
+  ],
+  "intents": {
+    "DEFINITION": {
+      "label": "Definição",
+      "description": "Explica o que é um conceito, tecnologia ou termo"
+    },
+    "LEARNING": {
+      "label": "Aprendizado",
+      "description": "Ensina um tema do zero ou organiza um caminho de estudo"
+    },
+    "HOW_TO": {
+      "label": "Como fazer",
+      "description": "Procedimento passo a passo"
+    },
+    "DIAGNOSTIC": {
+      "label": "Diagnóstico",
+      "description": "Identifica causa de um problema"
+    },
+    "COMPARISON": {
+      "label": "Comparação",
+      "description": "Contrasta opções para ajudar na escolha"
+    },
+    "REFERENCE": {
+      "label": "Referência",
+      "description": "Consulta rápida, tabela, checklist"
+    },
+    "CAREER": {
+      "label": "Carreira",
+      "description": "Formação, mercado e profissão"
+    },
+    "COURSE": {
+      "label": "Curso",
+      "description": "Currículo ou recomendação de estudo"
+    },
+    "COMMERCIAL": {
+      "label": "Comercial",
+      "description": "Página de venda de serviço (sem local)"
+    },
+    "LOCAL_COMMERCIAL": {
+      "label": "Comercial local",
+      "description": "Página de atendimento em localidade específica"
+    }
+  },
+  "decisions": [
+    {
+      "topicId": "o-que-e-informatica",
+      "primaryIntent": "DEFINITION",
+      "ownerUrl": null,
+      "decision": "NEW_CONTENT",
+      "status": "candidate",
+      "parent": "fundamentos",
+      "related": [
+        "informatica-basica",
+        "aprender-informatica"
+      ],
+      "sourceRequirements": [
+        "definicao clara",
+        "contexto de uso",
+        "historia basica",
+        "areas da informatica"
+      ],
+      "notes": "Nenhuma URL atual responde diretamente \"o que é informática\". Os posts existentes assumem que o leitor já sabe."
+    },
+    {
+      "topicId": "informatica-basica",
+      "primaryIntent": "DEFINITION/LEARNING",
+      "ownerUrl": null,
+      "decision": "NEW_CONTENT",
+      "status": "candidate",
+      "parent": "fundamentos",
+      "related": [
+        "o-que-e-informatica",
+        "aprender-informatica"
+      ],
+      "sourceRequirements": [
+        "conteudos de informatica basica",
+        "o que se aprende",
+        "para que serve",
+        "cursos e concursos"
+      ],
+      "notes": "Volume de \"informática básica\" (~12.100) e \"informática básica curso\" (~5.400). Nenhum post atual assume esse ângulo."
+    },
+    {
+      "topicId": "como-aprender-informatica",
+      "primaryIntent": "LEARNING",
+      "ownerUrl": null,
+      "decision": "NEW_CONTENT",
+      "status": "candidate",
+      "parent": "fundamentos",
+      "related": [
+        "o-que-e-informatica",
+        "informatica-basica"
+      ],
+      "sourceRequirements": [
+        "caminho para iniciantes",
+        "estudo em casa",
+        "criancas e idosos",
+        "concursos"
+      ],
+      "notes": "Família \"como aprender informática\" é forte; nenhum post atual organiza um plano de estudo."
+    },
+    {
+      "topicId": "computador-lento-causas-solucoes",
+      "primaryIntent": "DIAGNOSTIC/HOW_TO",
+      "ownerUrl": "/blog/computador-lento-causas-solucoes",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "manutencao-diagnostico",
+      "related": [
+        "windows-11-lento-como-resolver"
+      ],
+      "notes": "Aprovado. Cluster /problemas/computador-lento pode linkar para cá como aprofundamento."
+    },
+    {
+      "topicId": "como-melhorar-sinal-wifi-em-casa",
+      "primaryIntent": "HOW_TO",
+      "ownerUrl": "/blog/como-melhorar-sinal-wifi-em-casa",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "internet-redes",
+      "related": [
+        "como-configurar-roteador-wifi-iniciantes"
+      ],
+      "notes": "Aprovado. Cluster /problemas/wifi-instavel é local; este é nacional."
+    },
+    {
+      "topicId": "quando-trocar-hd-por-ssd",
+      "primaryIntent": "COMPARISON",
+      "ownerUrl": "/blog/quando-trocar-hd-por-ssd",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "hardware",
+      "related": [
+        "como-fazer-upgrade-ssd-nvme",
+        "como-clonar-hd-para-ssd"
+      ],
+      "notes": "Aprovado."
+    },
+    {
+      "topicId": "backup-como-proteger-seus-arquivos",
+      "primaryIntent": "HOW_TO",
+      "ownerUrl": "/blog/backup-como-proteger-seus-arquivos",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "dados-backup",
+      "related": [
+        "backup-nuvem-empresas-qual-escolher"
+      ],
+      "notes": "Aprovado."
+    },
+    {
+      "topicId": "como-saber-se-pc-tem-virus-malware",
+      "primaryIntent": "DIAGNOSTIC",
+      "ownerUrl": "/blog/como-saber-se-pc-tem-virus-malware",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "seguranca-digital",
+      "related": [
+        "como-escolher-um-bom-antivirus",
+        "como-remover-virus-windows-iniciantes"
+      ],
+      "notes": "Aprovado. Programmatic dupe como-saber-se-pc-tem-virus é noindex/draft; deve ser CONSOLIDATE."
+    },
+    {
+      "topicId": "notebook-superaquecendo-o-que-fazer",
+      "primaryIntent": "DIAGNOSTIC/HOW_TO",
+      "ownerUrl": "/blog/notebook-superaquecendo-o-que-fazer",
+      "decision": "EXISTING_OWNER",
+      "status": "approved",
+      "parent": "manutencao-diagnostico",
+      "related": [
+        "como-trocar-pasta-termica-notebook",
+        "computador-lento-causas-solucoes"
+      ],
+      "notes": "Aprovado."
+    }
+  ],
+  "programmatic": {
+    "status": "under_review",
+    "risk": "MEDIUM",
+    "notes": "19 posts programáticos compartilham temas com aprovados. Recomendação: manter noindex até revisão ou canonicalizar/consolidar. Exemplos: como-saber-se-pc-tem-virus, como-clonar-hd-para-ssd-passo-a-passo, como-instalar-windows-11-do-zero-2026."
+  },
+  "localCommercial": [
+    {
+      "path": "/problemas",
+      "role": "local_diagnostic_hub",
+      "nationalOrLocal": "LOCAL_COMMERCIAL"
+    },
+    {
+      "path": "/servicos",
+      "role": "service_catalog",
+      "nationalOrLocal": "LOCAL_COMMERCIAL"
+    },
+    {
+      "path": "/atendimento",
+      "role": "conversion",
+      "nationalOrLocal": "LOCAL_COMMERCIAL"
+    }
+  ],
+  "notes": "Mapa conceitual. Nenhum conteúdo novo será publicado nesta rodada (preparação para Rodada 9B)."
+}

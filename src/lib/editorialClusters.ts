@@ -23,7 +23,8 @@ export type EditorialClusterId =
   | "suporte-remoto"
   | "ti-empresas"
   | "montagem-workstation"
-  | "custo-beneficio";
+  | "custo-beneficio"
+  | "fundamentos-informatica";
 
 export type EditorialAction =
   | "aprofundar"
@@ -143,6 +144,15 @@ export const EDITORIAL_CLUSTERS: Record<EditorialClusterId, EditorialCluster> = 
     pilarApoio: "/precos-e-politicas",
     ctaBranch: "pf",
     intencaoPilar: "decidir entre reparar e substituir com avaliação técnica",
+  },
+  "fundamentos-informatica": {
+    id: "fundamentos-informatica",
+    nome: "Fundamentos de informática",
+    pilar: "/blog",
+    pilarLabel: "Hub de guias técnicos",
+    pilarApoio: "/como-funciona",
+    ctaBranch: "pf",
+    intencaoPilar: "aprender os fundamentos de informática",
   },
 };
 
@@ -300,6 +310,29 @@ export const EDITORIAL_FIRST_WAVE: EditorialEntry[] = [
     acao: "fora-de-foco",
     consulta: "celular android lento",
     nota: "Celular fora do core. Manter noindex; avaliar transferência de marca.",
+  },
+
+  // ── Rodada 9B — pilares nacionais de autoridade editorial (fundamentos).
+  {
+    slug: "o-que-e-informatica",
+    cluster: "fundamentos-informatica",
+    acao: "aprofundar",
+    consulta: "o que é informática",
+    relacionados: ["informatica-basica", "como-aprender-informatica"],
+  },
+  {
+    slug: "informatica-basica",
+    cluster: "fundamentos-informatica",
+    acao: "aprofundar",
+    consulta: "informática básica",
+    relacionados: ["o-que-e-informatica", "como-aprender-informatica"],
+  },
+  {
+    slug: "como-aprender-informatica",
+    cluster: "fundamentos-informatica",
+    acao: "aprofundar",
+    consulta: "como aprender informática",
+    relacionados: ["o-que-e-informatica", "informatica-basica"],
   },
 ];
 

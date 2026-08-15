@@ -58,6 +58,7 @@ export type ContentNode = {
 export const PILOT_CLUSTER_ID = "formatacao-lentidao-diagnostico";
 
 export const CONTENT_INTENT_MAP: ContentNode[] = [
+  // ── Rodada 8E — cluster piloto formatação / lentidão / diagnóstico.
   {
     url: "/blog/como-formatar-pc-sem-perder-arquivos",
     intent: "informational",
@@ -115,6 +116,59 @@ export const CONTENT_INTENT_MAP: ContentNode[] = [
     novaNestaRodada: false,
     justificativa:
       "Permanece diagnóstica (política de intenção inalterada). Ganha apenas um link explicativo para o guia de formatação.",
+  },
+
+  // ── Rodada 9B — pilares nacionais de autoridade editorial em informática.
+  {
+    url: "/blog/o-que-e-informatica",
+    intent: "informational",
+    topic: "informatica-definicao",
+    queries: [
+      "o que é informática",
+      "o que significa informática",
+      "o que informática faz",
+      "informática é ciência",
+    ],
+    serviceParent: "/servicos",
+    bridgesTo: ["/blog/informatica-basica", "/blog/como-aprender-informatica", "/blog"],
+    doNotDuplicate: ["/blog/informatica-basica", "/blog/como-aprender-informatica"],
+    novaNestaRodada: true,
+    justificativa:
+      "Pilar nacional DEFINITION. Responde de forma completa o que é informática, sem promessa de atendimento nacional e sem localização forçada.",
+  },
+  {
+    url: "/blog/informatica-basica",
+    intent: "informational",
+    topic: "informatica-basica",
+    queries: [
+      "informática básica",
+      "informática básica o que é",
+      "informática básica curso",
+      "informática básica para concurso",
+    ],
+    serviceParent: "/servicos",
+    bridgesTo: ["/blog/o-que-e-informatica", "/blog/como-aprender-informatica", "/blog"],
+    doNotDuplicate: ["/blog/o-que-e-informatica", "/blog/como-aprender-informatica"],
+    novaNestaRodada: true,
+    justificativa:
+      "Pilar nacional DEFINITION/LEARNING. Explica o que se aprende em informática básica e para quem serve, sem competir com páginas de serviço local.",
+  },
+  {
+    url: "/blog/como-aprender-informatica",
+    intent: "informational",
+    topic: "aprender-informatica",
+    queries: [
+      "como aprender informática",
+      "como estudar informática",
+      "informática para iniciantes",
+      "qual curso de informática fazer",
+    ],
+    serviceParent: "/servicos",
+    bridgesTo: ["/blog/o-que-e-informatica", "/blog/informatica-basica", "/blog"],
+    doNotDuplicate: ["/blog/o-que-e-informatica", "/blog/informatica-basica"],
+    novaNestaRodada: true,
+    justificativa:
+      "Pilar nacional LEARNING/COURSE. Oferece roteiro prático para aprender informática do zero, mantendo separação entre conteúdo educacional nacional e comercial local.",
   },
 ];
 

@@ -220,6 +220,25 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Rodada 9B — pilares nacionais de autoridade editorial (capas provisórias).
+  "o-que-e-informatica": {
+    src: "/blog/o-que-e-informatica.jpg",
+    alt: "Computador, componentes de hardware e símbolos digitais representando o conceito de informática",
+    width: 1200,
+    height: 630,
+  },
+  "informatica-basica": {
+    src: "/blog/informatica-basica.jpg",
+    alt: "Mesa de estudo com notebook, caderno e materiais de aprendizado de informática básica",
+    width: 1200,
+    height: 630,
+  },
+  "como-aprender-informatica": {
+    src: "/blog/como-aprender-informatica.jpg",
+    alt: "Roteiro de aprendizado de informática com etapas de fundamentos, produtividade, aprofundamento e especialização",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

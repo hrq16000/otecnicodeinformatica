@@ -320,6 +320,35 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Formatar sem perder arquivos: o guia",
     cover: "/blog/quanto-custa-formatar-um-computador.jpg",
   },
+
+  // ── Rodada 9B — pilares nacionais de autoridade editorial (fundamentos).
+  {
+    slug: "o-que-e-informatica",
+    approvedAt: "2026-08-15",
+    pilar: "/blog",
+    pilarLabel: "Hub de guias técnicos",
+    apoio: "/blog/informatica-basica",
+    apoioLabel: "Informática básica",
+    cover: "/blog/o-que-e-informatica.jpg",
+  },
+  {
+    slug: "informatica-basica",
+    approvedAt: "2026-08-15",
+    pilar: "/blog",
+    pilarLabel: "Hub de guias técnicos",
+    apoio: "/blog/como-aprender-informatica",
+    apoioLabel: "Como aprender informática",
+    cover: "/blog/informatica-basica.jpg",
+  },
+  {
+    slug: "como-aprender-informatica",
+    approvedAt: "2026-08-15",
+    pilar: "/blog",
+    pilarLabel: "Hub de guias técnicos",
+    apoio: "/blog/o-que-e-informatica",
+    apoioLabel: "O que é informática",
+    cover: "/blog/como-aprender-informatica.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

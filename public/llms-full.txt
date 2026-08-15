@@ -168,6 +168,9 @@ dados, manutenção preventiva, escolha de equipamentos e organização de TI pa
 pequenos escritórios.
 
 - [Hub de guias técnicos](https://otecnicodeinformatica.com.br/blog)
+- [O que é informática?](https://otecnicodeinformatica.com.br/blog/o-que-e-informatica)
+- [Informática básica](https://otecnicodeinformatica.com.br/blog/informatica-basica)
+- [Como aprender informática](https://otecnicodeinformatica.com.br/blog/como-aprender-informatica)
 - [Quando trocar o HD por SSD?](https://otecnicodeinformatica.com.br/blog/quando-trocar-hd-por-ssd)
 - [Como fazer upgrade para SSD NVMe](https://otecnicodeinformatica.com.br/blog/como-fazer-upgrade-ssd-nvme)
 - [Como melhorar o sinal Wi-Fi em casa](https://otecnicodeinformatica.com.br/blog/como-melhorar-sinal-wifi-em-casa)

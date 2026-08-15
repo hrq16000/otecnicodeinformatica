@@ -28,6 +28,37 @@ export function EditorialCta({
 
   const branch: CtaBranch = cluster.ctaBranch;
 
+  const isFundamentos = cluster.id === "fundamentos-informatica";
+
+  if (isFundamentos) {
+    return (
+      <div className="not-prose mt-12 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/5 via-background to-primary/5 p-6 md:p-8">
+        <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Conteúdo educacional</p>
+        <h3 className="font-heading font-bold text-primary text-lg md:text-xl mb-2">Continue aprendendo informática</h3>
+        <p className="text-muted-foreground text-sm mb-5">
+          Os guias técnicos do portal cobrem fundamentos, hardware, redes, segurança e backup. Se preferir orientação presencial, veja como funciona o atendimento.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link
+            to="/blog"
+            data-cta-location="editorial_static"
+            className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            Ver mais guias técnicos
+          </Link>
+          <Link
+            to="/como-funciona"
+            data-editorial-pilar="/como-funciona"
+            className="inline-flex items-center justify-center gap-2 border border-border hover:border-accent/40 text-foreground font-medium px-6 py-3 rounded-xl transition-colors"
+          >
+            Como funciona o atendimento
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const rotulo =
     branch === "pj"
       ? "Falar com o suporte de TI para empresas"

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://otecnicodeinformatica.com.br/blog</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/blog/o-que-e-informatica</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/blog/informatica-basica</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/blog/como-aprender-informatica</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://otecnicodeinformatica.com.br/blog/como-instalar-windows-11-do-zero</loc><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <url><loc>https://otecnicodeinformatica.com.br/blog/como-resolver-tela-azul-windows</loc><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <url><loc>https://otecnicodeinformatica.com.br/blog/como-trocar-tela-notebook-passo-a-passo</loc><changefreq>monthly</changefreq><priority>0.55</priority></url>

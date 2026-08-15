@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-08-15T03:20:45.000Z",
+  "generatedAt": "2026-08-15T04:30:00.000Z",
   "nationalOrLocal": "NATIONAL_INFORMATIONAL",
   "hub": "/blog",
   "taxonomy": [
@@ -44,7 +44,7 @@
       "primaryQuery": "o que é informática",
       "intent": "DEFINITION",
       "ownerUrl": "/blog/o-que-e-informatica",
-      "status": "approved_for_9b"
+      "status": "published"
     },
     {
       "id": "informatica-basica",
@@ -54,7 +54,7 @@
       "primaryQuery": "informática básica",
       "intent": "DEFINITION/LEARNING",
       "ownerUrl": "/blog/informatica-basica",
-      "status": "approved_for_9b"
+      "status": "published"
     },
     {
       "id": "aprender-informatica",
@@ -64,7 +64,7 @@
       "primaryQuery": "como aprender informática",
       "intent": "LEARNING",
       "ownerUrl": "/blog/como-aprender-informatica",
-      "status": "approved_for_9b"
+      "status": "published"
     },
     {
       "id": "hardware",
@@ -201,8 +201,8 @@
       "topicId": "o-que-e-informatica",
       "primaryIntent": "DEFINITION",
       "ownerUrl": "/blog/o-que-e-informatica",
-      "decision": "NEW_CONTENT",
-      "status": "approved_for_9b",
+      "decision": "EXISTING_OWNER",
+      "status": "published",
       "parent": "fundamentos",
       "related": [
         "informatica-basica",
@@ -214,14 +214,14 @@
         "historia basica",
         "areas da informatica"
       ],
-      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/o-que-e-informatica.md"
+      "notes": "Pilar nacional publicado na Rodada 9B. Ver docs/briefings/rodada-9b/o-que-e-informatica.md"
     },
     {
       "topicId": "informatica-basica",
       "primaryIntent": "DEFINITION/LEARNING",
       "ownerUrl": "/blog/informatica-basica",
-      "decision": "NEW_CONTENT",
-      "status": "approved_for_9b",
+      "decision": "EXISTING_OWNER",
+      "status": "published",
       "parent": "fundamentos",
       "related": [
         "o-que-e-informatica",
@@ -233,14 +233,14 @@
         "para que serve",
         "cursos e concursos"
       ],
-      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/informatica-basica.md"
+      "notes": "Pilar nacional publicado na Rodada 9B. Ver docs/briefings/rodada-9b/informatica-basica.md"
     },
     {
       "topicId": "como-aprender-informatica",
       "primaryIntent": "LEARNING",
       "ownerUrl": "/blog/como-aprender-informatica",
-      "decision": "NEW_CONTENT",
-      "status": "approved_for_9b",
+      "decision": "EXISTING_OWNER",
+      "status": "published",
       "parent": "fundamentos",
       "related": [
         "o-que-e-informatica",
@@ -252,7 +252,7 @@
         "criancas e idosos",
         "concursos"
       ],
-      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/como-aprender-informatica.md"
+      "notes": "Pilar nacional publicado na Rodada 9B. Ver docs/briefings/rodada-9b/como-aprender-informatica.md"
     },
     {
       "topicId": "computador-lento-causas-solucoes",
@@ -352,5 +352,5 @@
       "nationalOrLocal": "LOCAL_COMMERCIAL"
     }
   ],
-  "notes": "Mapa de autoridade nacional. Rodada 9A concluída. Três pilares aprovados para Rodada 9B: /blog/o-que-e-informatica, /blog/informatica-basica, /blog/como-aprender-informatica. Ver briefings em docs/briefings/rodada-9b/."
+  "notes": "Mapa de autoridade nacional. Rodada 9B concluída. Três pilares publicados: /blog/o-que-e-informatica, /blog/informatica-basica, /blog/como-aprender-informatica. Ver briefings em docs/briefings/rodada-9b/."
 }

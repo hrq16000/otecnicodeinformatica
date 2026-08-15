@@ -509,6 +509,52 @@ const WAVE_8E: EditorialApproval[] = [
 ];
 
 
+// Rodada 9B — três pilares nacionais de autoridade editorial em informática.
+// Conteúdos novos, escritos do zero, sem sobreposição com páginas de sintoma
+// ou serviços locais. Escopo nacional, educacional, autoria institucional.
+// Limite total de artigos indexáveis: 35.
+const WAVE_9B: EditorialApproval[] = [
+  {
+    slug: "o-que-e-informatica",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-15",
+    approvedAt: "2026-08-15",
+    imageOrigin: "generated",
+    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
+    imageAttribution: "O Técnico de Informática",
+    notes:
+      "Pilar nacional DEFINITION escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+  },
+  {
+    slug: "informatica-basica",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-15",
+    approvedAt: "2026-08-15",
+    imageOrigin: "generated",
+    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
+    imageAttribution: "O Técnico de Informática",
+    notes:
+      "Pilar nacional DEFINITION/LEARNING escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+  },
+  {
+    slug: "como-aprender-informatica",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-15",
+    approvedAt: "2026-08-15",
+    imageOrigin: "generated",
+    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
+    imageAttribution: "O Técnico de Informática",
+    notes:
+      "Pilar nacional LEARNING/COURSE escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -550,6 +596,7 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5H.map((a) => [a.slug, a] as [string, EditorialApproval]),
   ...WAVE_5I.map((a) => [a.slug, a] as [string, EditorialApproval]),
   ...WAVE_8E.map((a) => [a.slug, a] as [string, EditorialApproval]),
+  ...WAVE_9B.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

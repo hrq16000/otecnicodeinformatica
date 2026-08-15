@@ -35,7 +35,7 @@ const note = (m) => console.log(`  ✓ ${m}`);
 console.log("── check:sitemap-source ──");
 
 // ── 1. Rotas declaradas no roteador ─────────────────────────────────────────
-const routerFiles = ["src/LegacyApp.tsx", "src/App.tsx"].filter((f) => {
+const routerFiles = ["src/LegacyApp.tsx", "src/App.tsx", "src/legacyRouteElements.tsx"].filter((f) => {
   try { statSync(join(ROOT, f)); return true; } catch { return false; }
 });
 const staticRoutes = new Set(["/"]);
@@ -62,6 +62,29 @@ for (const file of routerFiles) {
     }
   }
 }
+// Rotas file-based do TanStack Start (src/routes/*.tsx): o nome do arquivo é a
+// própria rota (pontos e sublinhados finais viram "/", $param vira dinâmico).
+for (const file of readdirSync(join(ROOT, "src/routes"))) {
+  if (!file.endsWith(".tsx") || file.startsWith("__")) continue;
+  const base = file.replace(/\.tsx$/, "");
+  if (base.startsWith("api.") || base.includes("$.")) continue;
+  const p =
+    "/" +
+    base
+      .replace(/_\./g, ".")
+      .split(".")
+      .filter((seg) => seg && seg !== "index" && !seg.startsWith("_"))
+      .join("/");
+  const norm = p.replace(/\/$/, "") || "/";
+  if (norm.includes("$")) {
+    dynamicRoutes.push(
+      new RegExp("^" + norm.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\\\$[A-Za-z0-9_]+/g, "[^/]+") + "$"),
+    );
+  } else {
+    staticRoutes.add(norm);
+  }
+}
+
 const hasRoute = (p) => staticRoutes.has(p) || dynamicRoutes.some((re) => re.test(p));
 
 // ── 2. Redirects / aliases ──────────────────────────────────────────────────

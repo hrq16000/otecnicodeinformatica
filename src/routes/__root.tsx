@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "O Técnico de Informática" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:title", content: "O Técnico de Informática" },
+      { property: "og:title", content: "O Técnico de Informática — Assistência Técnica em Curitiba" },
       {
         property: "og:description",
         content:

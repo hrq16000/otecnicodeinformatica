@@ -11,6 +11,10 @@
       "description": "Conserto de notebook em Curitiba com triagem por WhatsApp: coleta combinada, atendimento no endereço ou bancada. Visita de inspeção a partir de R$ 99,99.",
       "h1": "Conserto de notebook em Curitiba",
       "subtitulo": "Como funciona contratar o conserto do seu notebook em Curitiba: modalidades disponíveis, logística de coleta, prazos reais e o que informar na triagem.",
+      "intro": [
+        "Tela que pisca, dobradiça estalando, carcaça esquentando perto do teclado ou o aparelho desligando sozinho depois de meia hora: o notebook avisa antes de parar de vez. Como tudo fica dentro de um chassi fechado, a checagem começa pela alimentação e pela bateria, passa pela dissipação e só depois abre para inspeção interna.",
+        "Em Curitiba a triagem acontece pelo WhatsApp com foto do modelo e da etiqueta, porque peça de portátil é específica de linha. Casos de sistema resolvemos remoto no mesmo dia; casos físicos seguem para bancada com prazo informado antes de qualquer desmontagem."
+      ],
       "blocos": [
         {
           "titulo": "Como o atendimento de notebook acontece em Curitiba",
@@ -95,6 +99,10 @@
       "description": "Conserto de computador de mesa em Curitiba: atendimento no seu endereço, coleta do gabinete quando necessário e orçamento antes da execução.",
       "h1": "Conserto de PC de mesa em Curitiba",
       "subtitulo": "Contratação do conserto de computador de mesa em Curitiba: quando o técnico vai até você, quando o gabinete é recolhido e como o custo é fechado.",
+      "intro": [
+        "Computador de mesa que não dá vídeo, reinicia sob esforço ou faz barulho de ventoinha em disparada quase sempre está reclamando de fonte, memória, armazenamento ou temperatura — componentes que dá para testar por substituição sem levar nada embora.",
+        "Por isso o desktop em Curitiba costuma ser atendido no seu endereço: o técnico chega com peças de teste, mede o comportamento com monitor e periféricos ligados, e só encaminha o gabinete para bancada quando o reparo exige solda, limpeza profunda ou troca demorada."
+      ],
       "blocos": [
         {
           "titulo": "Desktop em Curitiba: o atendimento normalmente vai até você",
@@ -179,6 +187,10 @@
       "description": "Instalação e ajuste de redes e Wi-Fi em Curitiba: visita no imóvel, medição por ambiente e atendimento a escritórios. Solicite pelo WhatsApp.",
       "h1": "Redes e Wi-Fi em Curitiba",
       "subtitulo": "Serviço de rede que só existe presencialmente: como funciona a visita, o que é medido no imóvel e como pedir para residência ou escritório em Curitiba.",
+      "intro": [
+        "Sinal que cai na sala dos fundos, videochamada que congela, TV que perde o streaming à noite e velocidade contratada que nunca chega no quarto: quase nunca é o plano da operadora, é distribuição. Parede maciça, roteador escondido atrás do sofá e canal congestionado explicam a maioria dos casos.",
+        "O levantamento em Curitiba é feito com medição em cada cômodo, leitura dos canais concorrentes do prédio e teste com cabo direto no modem, para separar o que é rede interna do que é link. A partir daí decidimos entre reposicionar, trocar equipamento, cabear ou instalar malha."
+      ],
       "blocos": [
         {
           "titulo": "Rede é serviço presencial: por que a visita é obrigatória",
@@ -256,6 +268,10 @@
       "description": "Backup e recuperação de dados em Curitiba com coleta do equipamento, registro do que foi recebido e devolução combinada. Fale pelo WhatsApp.",
       "h1": "Backup e recuperação de dados em Curitiba",
       "subtitulo": "Como contratar em Curitiba: coleta do equipamento, cuidados com sigilo, prazos de avaliação e forma de devolução dos arquivos.",
+      "intro": [
+        "Arquivo apagado por engano, pasta que sumiu depois de uma queda de energia, pendrive que pede formatação ou HD externo que não monta mais. Nesse momento a decisão mais importante não é técnica, é comportamental: parar de usar a mídia. Cada nova gravação reduz o que ainda pode ser lido.",
+        "Em Curitiba o caminho é sempre o mesmo — cópia bit a bit da mídia antes de qualquer tentativa, leitura em ambiente controlado e lista do que foi efetivamente recuperado antes de cobrar. Não existe promessa de resultado, existe procedimento e transparência sobre a chance real."
+      ],
       "blocos": [
         {
           "titulo": "O primeiro passo é parar de usar o equipamento",
@@ -340,6 +356,10 @@
       "description": "Formatação em Curitiba com backup combinado antes: atendimento remoto quando a máquina liga, visita no seu endereço ou coleta. Prazo e custo definidos na triagem.",
       "h1": "Formatação de computador em Curitiba",
       "subtitulo": "Como a formatação é contratada em Curitiba: o que decide entre remoto, visita e coleta, como seus arquivos são preservados e em quanto tempo a máquina volta a funcionar.",
+      "intro": [
+        "Sistema que trava na inicialização, atualização que nunca conclui, mensagens de erro em série e um acúmulo de anos de programas instalados. Formatar resolve todos esses casos, mas só depois de conferir se o disco e a memória estão saudáveis — reinstalar sobre hardware em falha só adia o problema.",
+        "O roteiro em Curitiba começa pelo backup conferido: documentos, fotos, favoritos, licenças e contas de e-mail. Depois vem a instalação limpa, drivers do modelo, atualizações e a devolução do computador já com os programas do dia a dia funcionando, para você não recomeçar do zero."
+      ],
       "blocos": [
         {
           "titulo": "Remoto, no endereço ou coleta: o que define em Curitiba",
@@ -424,6 +444,10 @@
       "description": "Remoção de vírus em Curitiba: acesso remoto imediato quando o computador ainda liga, visita ao endereço em casos de sequestro de arquivos e orientação a empresas.",
       "h1": "Remoção de vírus em Curitiba",
       "subtitulo": "Como contratar a limpeza em Curitiba quando o problema é urgente: o que fazer nos primeiros minutos, quando o remoto resolve e quando o computador precisa ser desligado da rede.",
+      "intro": [
+        "Propaganda abrindo sozinha no navegador, página inicial trocada, extensão que reaparece depois de removida, cobrança suspeita no cartão ou aquele aviso falso de suporte com número de telefone. Infecção moderna raramente destrói o computador: ela sequestra o navegador, rouba sessão e sobrevive a reinicializações.",
+        "A limpeza em Curitiba mapeia inicialização, tarefas agendadas, perfis do navegador e credenciais expostas. Ao fim, orientamos a troca de senhas críticas e a ativação de verificação em duas etapas — sem isso, a máquina fica limpa e a conta continua invadida."
+      ],
       "blocos": [
         {
           "titulo": "Antes de contratar: o que fazer nos primeiros minutos",
@@ -508,6 +532,10 @@
       "description": "Upgrade de SSD e memória em Curitiba: conferência de compatibilidade antes da compra, migração do sistema sem reinstalar e instalação no seu endereço ou por coleta.",
       "h1": "Upgrade de SSD e memória em Curitiba",
       "subtitulo": "Contratação do upgrade em Curitiba: quem compra a peça, quanto tempo a máquina fica parada e como seus programas continuam funcionando depois da troca.",
+      "intro": [
+        "Trinta segundos para abrir uma planilha, ponteiro girando ao ligar, disco em 100% de uso no gerenciador de tarefas: em máquina com mais de quatro anos esse conjunto aponta para o disco mecânico, não para falta de memória. É o gargalo mais barato de eliminar.",
+        "Antes de vender qualquer peça, medimos o tempo de resposta do disco atual e conferimos se o gargalo é mesmo ele. Confirmado, clonamos o sistema para o SSD em Curitiba mantendo programas e arquivos no lugar, e devolvemos o disco antigo como cópia de segurança."
+      ],
       "blocos": [
         {
           "titulo": "Quem compra a peça: você ou nós",
@@ -592,6 +620,10 @@
       "description": "Suporte técnico empresarial em Curitiba: chamado por WhatsApp, atendimento remoto imediato e visita ao escritório conforme urgência.",
       "h1": "Suporte técnico empresarial em Curitiba",
       "subtitulo": "Como funciona o atendimento para empresas de Curitiba: quem abre o chamado, o que é resolvido remoto na hora e quando o técnico vai até o escritório.",
+      "intro": [
+        "Escritório com dez, vinte ou cinquenta estações não sofre com um defeito espetacular: sofre com fila de pequenos chamados que ninguém resolve. Impressora fora da rede, usuário sem acesso à pasta, e-mail travado, sistema de gestão lento no fim do mês, máquina nova para configurar.",
+        "O atendimento a empresas em Curitiba organiza isso por prioridade e canal único: quem abre o chamado, o que já foi tentado e qual o impacto para a operação. Nada é combinado por conversa paralela, e cada intervenção fica registrada para a próxima ocorrência ser mais rápida."
+      ],
       "blocos": [
         {
           "titulo": "Como a sua empresa abre um chamado",
@@ -676,6 +708,10 @@
       "description": "Preventiva de computadores para empresas em Curitiba: visitas agendadas em lotes de máquinas e relatório do que precisa de troca.",
       "h1": "Manutenção preventiva de computadores para empresas em Curitiba",
       "subtitulo": "Como a rotina preventiva é agendada em Curitiba: quantas máquinas por visita, em que horário e o que sai por escrito no fim de cada passagem.",
+      "intro": [
+        "Manutenção preventiva não é limpar computador. É reduzir a chance de parada não planejada: revisar temperatura das estações críticas, verificar saúde dos discos antes da falha, conferir se o nobreak ainda segura carga, atualizar o que precisa ser atualizado e documentar o parque.",
+        "Em Curitiba o calendário é combinado por visita periódica fora do horário de pico, com relatório do que foi verificado e do que deve ser substituído nos próximos meses. O objetivo é trocar peça com hora marcada, e não no dia em que a operação para."
+      ],
       "blocos": [
         {
           "titulo": "Como a visita é agendada sem parar o escritório",
@@ -760,6 +796,10 @@
       "description": "Backup para empresas em Curitiba: implantação da rotina no local, cópia fora do escritório e teste de restauração periódico para você saber que o backup funciona.",
       "h1": "Backup para empresas em Curitiba",
       "subtitulo": "Implantação e acompanhamento da rotina de backup em escritórios de Curitiba, com teste de restauração real e alguém responsável por conferir se rodou.",
+      "intro": [
+        "Para uma empresa, perder dados raramente significa perder um arquivo: significa perder faturamento, histórico fiscal, base de clientes e o próprio sistema de gestão. Cópia manual em pendrive, feita quando alguém lembra, não é rotina de backup — é sorte com prazo de validade.",
+        "A rotina que montamos em Curitiba define o que é crítico, com que frequência é copiado, para onde vai a segunda cópia fora do escritório e quem confere. E, principalmente, testa a restauração: backup que nunca foi restaurado ainda não provou que existe."
+      ],
       "blocos": [
         {
           "titulo": "Backup que ninguém confere não é backup",
@@ -844,6 +884,10 @@
       "description": "Montagem de computador em Curitiba: conferência da lista de peças antes da compra, montagem em bancada com testes e orientação sobre garantia de cada componente.",
       "h1": "Montagem de computador em Curitiba",
       "subtitulo": "Quem compra as peças, onde a máquina é montada e como funciona a garantia dos componentes quando a montagem é feita em Curitiba.",
+      "intro": [
+        "Montar um computador começa muito antes da chave de fenda: é decidir a configuração pelo uso real, conferir se placa-mãe, memória, fonte e gabinete conversam entre si e dimensionar o que sobra para um upgrade futuro. Peça incompatível comprada em promoção é o prejuízo mais comum.",
+        "Com a lista aprovada, vem a montagem física com organização de cabos, ajuste de BIOS/UEFI, instalação do sistema e testes de estabilidade antes da entrega em Curitiba. Serve tanto para máquina nova quanto para quem já tem peças compradas e não quer arriscar a montagem."
+      ],
       "blocos": [
         {
           "titulo": "Conferência da lista antes de qualquer compra",
@@ -928,6 +972,10 @@
       "description": "Suporte para home office em Curitiba: acesso remoto imediato para reunião que não abre, VPN, impressora e internet instável, com visita quando o problema é físico.",
       "h1": "Suporte para home office em Curitiba",
       "subtitulo": "Quem trabalha de casa não pode esperar. Veja como é o atendimento em Curitiba para resolver o posto de trabalho no mesmo dia.",
+      "intro": [
+        "Reunião que começa em dez minutos e a câmera não aparece na lista. VPN da empresa que recusa a conexão. Impressora que sumiu da rede bem no dia do relatório. Quem trabalha de casa não precisa de diagnóstico bonito: precisa voltar a produzir dentro do expediente.",
+        "Por isso o atendimento em Curitiba abre por acesso remoto nos primeiros minutos, resolve o que dá para resolver ali — microfone, headset, credencial, sincronização de arquivos, aplicativo corporativo — e agenda visita só quando o problema é físico, na rede ou no próprio equipamento."
+      ],
       "blocos": [
         {
           "titulo": "Um dia parado custa mais que o chamado",
@@ -1012,6 +1060,10 @@
       "description": "PC gamer em Curitiba: montagem em bancada com teste sob carga, revisão térmica de máquina que está travando e coleta com transporte cuidadoso da sua torre.",
       "h1": "PC gamer em Curitiba: montagem, revisão e manutenção",
       "subtitulo": "Onde a máquina é montada ou revisada em Curitiba, como funciona o transporte da torre e o que é testado antes de devolver.",
+      "intro": [
+        "Queda de quadros no meio da partida, temperatura de GPU subindo até o jogo fechar, travamento com tela preta e ventoinha acelerada, ou fonte subdimensionada depois de uma troca de placa de vídeo. Máquina de jogo falha sob carga, e é exatamente sob carga que ela precisa ser testada.",
+        "Em Curitiba o trabalho passa por medir temperatura e clock em estresse, revisar refrigeração e pasta térmica, conferir folga da fonte, avaliar memória e armazenamento e indicar qual upgrade muda o desempenho de verdade. Vale para máquina nova a montar e para torre que já vinha rodando."
+      ],
       "blocos": [
         {
           "titulo": "Montagem, revisão ou reparo",

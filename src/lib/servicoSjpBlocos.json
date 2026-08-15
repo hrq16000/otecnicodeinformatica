@@ -17,6 +17,10 @@
       "description": "Conserto de notebook em São José dos Pinhais: triagem no WhatsApp, coleta combinada por rota do dia e bancada. Deslocamento e prazo informados antes.",
       "h1": "Conserto de notebook em São José dos Pinhais",
       "subtitulo": "Como funciona contratar o conserto do seu notebook em São José dos Pinhais: rota de coleta, janela de atendimento, custo de deslocamento e o que resolvemos antes de sair do lugar.",
+      "intro": [
+        "Notebook com defeito em São José dos Pinhais quase sempre chega com a mesma dúvida: precisa deslocar alguém ou dá para resolver sem sair de casa? Como o portátil é transportável, boa parte dos casos entra em coleta combinada — carcaça, bateria, conector de energia e tela pedem bancada, não mesa de cliente.",
+        "A triagem separa o que é sistema, e sai remoto no mesmo dia, do que é físico, que entra na rota de retirada da região. Você recebe a janela de coleta, o prazo estimado e o custo de deslocamento antes de autorizar qualquer coisa."
+      ],
       "blocos": [
         {
           "titulo": "Rota do dia: por que o agendamento em São José dos Pinhais funciona diferente",
@@ -103,6 +107,10 @@
       "description": "Conserto de computador de mesa em São José dos Pinhais com visita agendada por rota, diagnóstico no local e transporte do gabinete só quando necessário.",
       "h1": "Conserto de PC em São José dos Pinhais",
       "subtitulo": "Computador de mesa não é equipamento de carregar: veja como a visita é agendada em São José dos Pinhais, quando o gabinete precisa sair e como fica o transporte.",
+      "intro": [
+        "O desktop no município segue lógica oposta à do portátil: monitor, cabos, estabilizador e periféricos formam uma instalação inteira, e desmontar tudo para transportar costuma custar mais do que levar o técnico até o local uma única vez.",
+        "Por isso a visita agendada é o caminho padrão em São José dos Pinhais, com diagnóstico do gabinete na sua mesa, teste de fonte, memória e armazenamento e substituição de componente já na mesma ida. O gabinete só viaja quando o reparo exige bancada, e isso é dito antes."
+      ],
       "blocos": [
         {
           "titulo": "Por que o desktop muda a logística no município",
@@ -189,6 +197,10 @@
       "description": "Correção de Wi-Fi e rede em São José dos Pinhais: medição de sinal no imóvel, ajuste de roteador e cabeamento com visita agendada por rota.",
       "h1": "Wi-Fi e rede em São José dos Pinhais",
       "subtitulo": "Rede não se conserta à distância: veja como é feita a medição no imóvel, o que muda em casas maiores e terrenos amplos do município e como agendar.",
+      "intro": [
+        "Casa térrea grande, sobrado com laje ou galpão comercial: em São José dos Pinhais a queixa mais frequente não é internet lenta, é internet que não chega ao outro lado do imóvel. Um roteador único no ponto de entrada da operadora não cobre planta espalhada.",
+        "O trabalho começa medindo sinal ambiente por ambiente e verificando o link direto no modem. Com isso definimos se a solução é reposicionar, passar cabo até um segundo ponto, instalar sistema malha ou apenas separar as faixas — sem trocar equipamento por precaução."
+      ],
       "blocos": [
         {
           "titulo": "Rede é serviço presencial — e isso define o agendamento",
@@ -275,6 +287,10 @@
       "description": "Backup e recuperação de dados em São José dos Pinhais: coleta cuidadosa da mídia, avaliação em bancada e prazo informado antes de qualquer tentativa.",
       "h1": "Backup e recuperação de dados em São José dos Pinhais",
       "subtitulo": "O que fazer primeiro, como a mídia é retirada e transportada com segurança e por que esse serviço é o único em que pedimos para você não tentar nada antes.",
+      "intro": [
+        "Mídia com dados perdidos em São José dos Pinhais é caso de logística delicada: quanto menos o disco for ligado e desligado, maior a chance de leitura. O primeiro pedido na triagem é sempre desligar o equipamento e não tentar programas de recuperação baixados às pressas.",
+        "Combinamos a retirada da mídia pela rota da região, fazemos a imagem em ambiente controlado e enviamos a lista do que foi efetivamente lido antes de qualquer cobrança de recuperação. Sem imagem legível, não há serviço a cobrar — e isso é dito de saída."
+      ],
       "blocos": [
         {
           "titulo": "A primeira orientação é parar de usar o equipamento",

@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { Suspense, useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, useMemo, type ReactNode } from "react";
 import {
   createRootRouteWithContext,
   HeadContent,

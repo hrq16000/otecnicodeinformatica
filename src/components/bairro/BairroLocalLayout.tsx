@@ -232,6 +232,24 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                 </ul>
               </div>
             ) : null}
+            {data.problemasRelacionados?.length ? (
+              <div className="mt-8 rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-semibold text-foreground">
+                  Sintomas mais relatados {data.nomeLocativo}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {data.problemasRelacionados.map((p) => (
+                    <li key={p.to}>
+                      <Link to={p.to} className="font-semibold text-accent hover:underline">
+                        {p.label}
+                      </Link>
+                      <p className="text-sm text-muted-foreground">{p.desc}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
             <div className="mt-6">
               <Link to="/servicos" className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
                 Ver todos os serviços <ArrowRight className="h-4 w-4" />

@@ -20,8 +20,10 @@ import type { TocHeading } from "@/lib/articleToc";
 /** Observa os headings e devolve o id ativo. Client-only por construção. */
 const useScrollSpy = (ids: string[]): string | null => {
   const [ativo, setAtivo] = useState<string | null>(null);
+  const chave = ids.join(",");
 
   useEffect(() => {
+    const ids = chave ? chave.split(",") : [];
     if (!ids.length || typeof IntersectionObserver === "undefined") return;
     const visiveis = new Map<string, number>();
 
@@ -46,7 +48,7 @@ const useScrollSpy = (ids: string[]): string | null => {
       .filter((el): el is HTMLElement => Boolean(el));
     alvos.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, [ids]);
+  }, [chave]);
 
   return ativo;
 };
@@ -72,7 +74,7 @@ const CopiarLinkSecao = ({ id, texto }: { id: string; texto: string }) => {
       type="button"
       onClick={copiar}
       aria-label={`Copiar link da seção ${texto}`}
-      className="article-toc__copy inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      className="article-toc__copy inline-flex h-11 w-11 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
       {copiado ? (
         <Check className="h-3.5 w-3.5" aria-hidden="true" />

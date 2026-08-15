@@ -1895,3 +1895,25 @@ html[data-reduced-motion="true"] *::after {
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   ÍNDICE DO ARTIGO (Rodada 9B.1)
+   Mobile: recolhível via <details> nativo. Desktop: sempre aberto,
+   sem summary. Puro CSS — nada de estado no cliente, nada de
+   divergência SSR/hydration.
+   ══════════════════════════════════════════════════════════════════ */
+.article-toc__list { display: none; }
+.article-toc[open] .article-toc__list { display: block; }
+.article-toc__summary::-webkit-details-marker { display: none; }
+.article-toc__summary::after {
+  content: "▾";
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+.article-toc[open] .article-toc__summary::after { content: "▴"; }
+
+@media (min-width: 768px) {
+  .article-toc__summary { display: none; }
+  .article-toc__list { display: block; }
+}

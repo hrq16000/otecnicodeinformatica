@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 /**
  * Smoke de rotas: importa TODOS os módulos de página do app.
  * Objetivo: falhar no CI quando um identificador usado no topo do módulo
- * não existe (ex.: `Navigate` não importado do react-router-dom), que em
+ * não existe (ex.: `Navigate` não importado do @/lib/router-compat), que em
  * produção aparece como ReferenceError em runtime na navegação.
  *
  * Não renderiza a árvore inteira (custo alto e dependente de DOM/rede);

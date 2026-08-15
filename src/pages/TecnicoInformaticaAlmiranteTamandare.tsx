@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { CityServiceSchema } from "@/components/CityServiceSchema";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";

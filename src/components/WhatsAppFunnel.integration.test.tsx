@@ -1,6 +1,7 @@
+import "@testing-library/jest-dom/vitest";
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { act, render, screen, cleanup, waitFor, within, fireEvent } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "@/lib/router-compat";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 
 // Mock Supabase para o funil não bater na rede.

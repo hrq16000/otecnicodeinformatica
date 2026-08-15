@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "@/lib/router-compat";
 import { Helmet } from "react-helmet";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -245,7 +245,7 @@ const AdminReviews = () => {
       author_name: form.author_name!,
       author_photo_url: form.author_photo_url || null,
       rating: Number(form.rating),
-      comment: form.comment || null,
+      comment: form.comment || "",
       service_slug: form.service_slug || null,
       city: form.city || null,
       neighborhood: form.neighborhood || null,
@@ -253,7 +253,7 @@ const AdminReviews = () => {
       google_review_url: form.google_review_url || null,
       verified: !!form.verified,
       published: !!form.published,
-      review_date: form.review_date || null,
+      review_date: form.review_date || undefined,
       client_phone: form.client_phone ? form.client_phone.replace(/\D/g, "") : null,
       service_closed_at: form.service_closed_at || null,
     };

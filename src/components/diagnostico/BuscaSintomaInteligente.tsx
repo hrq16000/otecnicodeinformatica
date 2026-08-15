@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Search, HelpCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router-compat";
 import {
   resolverComAmbiguidade,
   sugerir,

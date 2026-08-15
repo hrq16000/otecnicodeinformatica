@@ -21,14 +21,14 @@ export const Progress = ({ value, label, className }: ProgressProps) => {
       {(label || determinado) && (
         <div className="mb-1.5 flex items-center justify-between text-xs text-muted-foreground">
           <span>{label ?? "Progresso"}</span>
-          {determinado && <span>{Math.round(pct)}%</span>}
+          {determinado && <span>{Math.round(pct ?? 0)}%</span>}
         </div>
       )}
       <div
         role="progressbar"
         aria-valuemin={determinado ? 0 : undefined}
         aria-valuemax={determinado ? 100 : undefined}
-        aria-valuenow={determinado ? Math.round(pct) : undefined}
+        aria-valuenow={determinado ? Math.round(pct ?? 0) : undefined}
         aria-label={label ?? (determinado ? "Progresso" : "Carregando")}
         className={cn(
           "h-1.5 w-full overflow-hidden rounded-full bg-muted",

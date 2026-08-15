@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { Star, ShieldCheck, MessageCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
@@ -118,7 +118,7 @@ const Depoimentos = () => {
     const msg = encodeURIComponent(
       "Olá! Vi os depoimentos no site e quero um diagnóstico do meu equipamento.",
     );
-    window.open(`https://wa.me/${siteConfig.phoneE164.replace(/\D/g, "")}?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${(siteConfig.phoneE164 ?? "").replace(/\D/g, "")}?text=${msg}`, "_blank");
   };
 
   return (

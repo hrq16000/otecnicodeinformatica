@@ -7,7 +7,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle, Smartphone, Shield, Clock, CheckCircle,

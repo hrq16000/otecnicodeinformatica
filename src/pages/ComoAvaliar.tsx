@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { Star, MessageCircle, CheckCircle2, ShieldCheck } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
@@ -43,7 +43,7 @@ const ComoAvaliar = () => {
     const msg = encodeURIComponent(
       "Olá! Fui atendido e quero o link para registrar minha avaliação.",
     );
-    window.open(`https://wa.me/${siteConfig.phoneE164.replace(/\D/g, "")}?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${(siteConfig.phoneE164 ?? "").replace(/\D/g, "")}?text=${msg}`, "_blank");
   };
 
   return (

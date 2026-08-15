@@ -1,0 +1,14 @@
+{
+  "functions": [
+    {"name": "aggregate-rating", "classification": "unknown/external", "signal": "no src/ callers; called by CI gate scripts/check-aggregate-rating.mjs via fixed URL", "outcome": "left"},
+    {"name": "health", "classification": "unknown/external", "signal": "no src/ callers; probed by scripts/smoke-edge-routes.mjs and CI via fixed URL", "outcome": "left"},
+    {"name": "indexnow-ping", "classification": "cron/CI target", "signal": "called from src/lib/indexNow.ts AND from scripts/indexnow-ping.mjs (post-deploy CI); uses INDEXNOW_KEY secret", "outcome": "left"},
+    {"name": "og-preview", "classification": "unknown/external", "signal": "no src/ callers; validated by CI edge-route smoke tests via fixed URL; uses FB_APP_ACCESS_TOKEN secret", "outcome": "left"},
+    {"name": "og-validate-cities", "classification": "unknown/external", "signal": "no src/ callers; CI validation target via fixed URL", "outcome": "left"},
+    {"name": "ors-route", "classification": "internal with backend secret", "signal": "called from src/components/CoverageMapSection.tsx; depends on ORS_API_KEY secret provisioned on the backend runtime only", "outcome": "left"},
+    {"name": "os-codigo", "classification": "internal with privileged secret", "signal": "called from src/components/os/ConsultaOsPorCelular.tsx; uses SUPABASE_SERVICE_ROLE_KEY (not re-provisionable here)", "outcome": "left"},
+    {"name": "os-consulta", "classification": "internal with privileged secret", "signal": "called from src/components/os/ConsultaOsPorCelular.tsx; uses SUPABASE_SERVICE_ROLE_KEY (not re-provisionable here)", "outcome": "left"},
+    {"name": "os-stream", "classification": "custom response (stream) with privileged secret", "signal": "called from src/hooks/useOsLiveUpdates.ts; streaming response + SUPABASE_SERVICE_ROLE_KEY", "outcome": "left"},
+    {"name": "telemetry-maintenance", "classification": "cron target", "signal": "no src/ callers; maintenance/expurgo job (retenção 90d/24m) invoked on a schedule via fixed URL", "outcome": "left"}
+  ]
+}

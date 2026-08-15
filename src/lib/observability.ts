@@ -30,7 +30,7 @@ const hex = (n: number) =>
 /** Trace da sessão (W3C trace context) — correlaciona erro, funil e vitals. */
 let traceId = "";
 export const getTraceId = () => {
-  if (!traceId) traceId = typeof crypto !== "undefined" && crypto.getRandomValues ? hex(16) : "0".repeat(32);
+  if (!traceId) traceId = typeof crypto !== "undefined" && typeof crypto.getRandomValues === "function" ? hex(16) : "0".repeat(32);
   return traceId;
 };
 

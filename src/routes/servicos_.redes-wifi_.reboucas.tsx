@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { legacyRouteElements } from "@/legacyRouteElements";
 
+const RouteComponent = legacyRouteElements["/servicos/redes-wifi/reboucas"];
+
 export const Route = createFileRoute("/servicos_/redes-wifi_/reboucas")({
-  component: legacyRouteElements["/servicos/redes-wifi/reboucas"],
+  component: RouteComponent,
 });

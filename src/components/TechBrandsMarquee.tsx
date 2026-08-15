@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { brandsData } from "@/lib/brandsData";
 
 const animations = [
@@ -27,7 +27,7 @@ export const TechBrandsMarquee = () => {
     { slug: string; name: string; logoPath: string; color: string; anim: string; key: number }[]
   >([]);
   const keyRef = useRef(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>();
+  const intervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   const generate = useCallback(() => {
     const shuffled = shuffle(brandsData).slice(0, 8);

@@ -20,8 +20,10 @@
  * Fail-closed e bloqueante.
  */
 import { readFileSync, existsSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { resolve } from "node:path";
 import { BAIRROS_ANCORA_META, resolveLocal } from "./lib/local-index-policy.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const dist = process.argv[2] || "dist";
 const erros = [];
@@ -40,12 +42,12 @@ const PROIBIDO = [
   /sla de/i,
 ];
 
-const html = (p) => {
-  for (const f of [join(dist, `${p.replace(/^\//, "")}/index.html`), join(dist, `${p.replace(/^\//, "")}.html`)]) {
-    if (existsSync(f)) return readFileSync(f, "utf8");
-  }
-  return null;
-};
+// Harness SSR: renderiza (ou reaproveita) o HTML real das rotas locais.
+await prepararSsr(rotasLocais(), { dist });
+abortarSeBloqueado("check-local-neighborhood-intent");
+
+const html = (p) => htmlDaRota(p, dist);
+
 
 // URLs presentes nos sitemaps gerados.
 const sitemap = new Set();

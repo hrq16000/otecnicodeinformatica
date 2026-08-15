@@ -4,8 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "predev": "node scripts/generate-sitemaps.mjs && node scripts/generate-llms.mjs",
+    "predev": "node scripts/generate-sitemaps.mjs && node scripts/generate-robots.mjs && node scripts/generate-llms.mjs && node scripts/audit-seo-metadata.mjs",
     "dev": "vite dev",
+    "audit:seo": "node scripts/audit-seo-metadata.mjs",
     "report:photo-review": "node scripts/report-photo-review.mjs",
     "report:gates": "node scripts/report-gates.mjs",
     "report:daily-ui": "node scripts/report-daily-ui-performance.mjs",

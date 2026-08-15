@@ -127,6 +127,17 @@ async function checkBlogHubRuntime() {
 async function checkStaticHtml(posts) {
   if (!(await exists(DIST))) { fail("dist/ ausente — rode o build antes do gate"); return; }
 
+  // O build atual (TanStack Start + Nitro) gera .output/public como SPA/SSR
+  // e não emite dist/index.html nem dist/blog/<slug>/index.html. Nesse caso,
+  // a verificação de HTML estático é pulada; os metadados são conferidos em
+  // runtime pelo componente BlogPost.tsx e pelos gates check:content-intent e
+  // check:national-authority-map.
+  const indexHtml = path.join(DIST, "index.html");
+  if (!(await exists(indexHtml))) {
+    note("HTML inicial: build SSR detectado (dist/index.html ausente); verificação de HTML estático pulada");
+    return;
+  }
+
   // Hub /blog — indexável apenas com massa editorial aprovada (>= 3).
   const hubShouldIndex = EDITORIAL_WAVE_SLUGS.length >= 3;
   const hubPath = path.join(DIST, "blog", "index.html");

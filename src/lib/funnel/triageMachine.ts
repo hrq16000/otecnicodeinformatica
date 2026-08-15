@@ -29,7 +29,7 @@ import {
   ROUTE_MIN_PRICE,
   ROUTE_PRAZO,
   TRIAGE_VERSION,
-  BRAND_NAME,
+  getTriageBrandName,
   getEquipment,
   type CustomerType,
   type EquipmentConfig,
@@ -663,7 +663,7 @@ export function buildWhatsAppMessage(
       }),
     );
   }
-  lines.push(`Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
+  lines.push(`Concluí a triagem obrigatória pelo site ${getTriageBrandName()}.`);
   lines.push("");
   for (const r of rows) {
     if (r.label === "Observação adicional") continue; // vai por último

@@ -13,14 +13,15 @@
 import { siteConfig, absoluteUrl, BRAND_LOGO_PATH } from "@/lib/siteConfig";
 import { BUSINESS_HOURS } from "@/lib/config/contact";
 
-export const OPENING_HOURS = BUSINESS_HOURS.map((h) => ({
-  "@type": "OpeningHoursSpecification",
-  dayOfWeek: h.days,
-  opens: h.opens,
-  closes: h.closes,
-}));
+export const OPENING_HOURS = () =>
+  BUSINESS_HOURS.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  }));
 
-export const NAP = {
+export const NAP = () => ({
   name: siteConfig.brandName,
   legalName: siteConfig.legalName,
   address: {
@@ -30,12 +31,13 @@ export const NAP = {
     addressCountry: siteConfig.country,
   },
   telephone: siteConfig.phoneE164,
-} as const;
+});
 
-export const AREA_SERVED = siteConfig.serviceArea.map((name) => ({
-  "@type": "City" as const,
-  name,
-}));
+export const AREA_SERVED = () =>
+  siteConfig.serviceArea.map((name) => ({
+    "@type": "City" as const,
+    name,
+  }));
 
 export interface LocalBusinessOptions {
   /** Path da página (para @id único por rota). */
@@ -53,6 +55,9 @@ export interface LocalBusinessOptions {
 export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
   const path = opts.path ?? "/";
   const url = absoluteUrl(path);
+  const nap = NAP();
+  const areaServed = opts.areaServed ?? AREA_SERVED();
+  const openingHours = OPENING_HOURS();
 
   const isHome = path === "/";
   const schema: Record<string, unknown> = {
@@ -63,7 +68,7 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     // a organização por parentOrganization (nunca duplica o mesmo @id).
     "@id": isHome ? `${siteConfig.baseUrl}/#localbusiness` : `${url}#localbusiness`,
     parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` },
-    name: NAP.name,
+    name: nap.name,
     alternateName: siteConfig.alternateNames,
     description:
       opts.description ?? siteConfig.defaultDescription,
@@ -71,8 +76,8 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     mainEntityOfPage: url,
     image: siteConfig.defaultOgImage,
     logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
-    telephone: NAP.telephone,
-    address: NAP.address,
+    telephone: nap.telephone,
+    address: nap.address,
     ...(siteConfig.geo
       ? {
           geo: {
@@ -82,8 +87,8 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
           },
         }
       : {}),
-    areaServed: opts.areaServed ?? AREA_SERVED,
-    ...(OPENING_HOURS.length ? { openingHoursSpecification: OPENING_HOURS } : {}),
+    areaServed,
+    ...(openingHours.length ? { openingHoursSpecification: openingHours } : {}),
     priceRange: `${siteConfig.minPriceLabel}+`,
     currenciesAccepted: "BRL",
     paymentAccepted: "PIX, Cartão de Crédito, Cartão de Débito, Dinheiro, Transferência Bancária",
@@ -112,7 +117,7 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
           name: s.name,
           ...(s.url ? { url: absoluteUrl(s.url) } : {}),
           provider: { "@id": `${siteConfig.baseUrl}/#organization` },
-          areaServed: opts.areaServed ?? AREA_SERVED,
+          areaServed,
         },
       })),
     };

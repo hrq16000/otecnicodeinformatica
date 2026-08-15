@@ -1,8 +1,6 @@
+import { useMemo } from "react";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/organizationJsonLd";
-
-const organizationSchema = buildOrganizationSchema();
-const websiteSchema = buildWebSiteSchema();
 
 /**
  * Identidade institucional do documento (Organization + WebSite).
@@ -14,7 +12,12 @@ const websiteSchema = buildWebSiteSchema();
  * entre prerender estático e cliente.
  */
 export const InstitutionalJsonLd = () => {
+  const organizationSchema = useMemo(() => buildOrganizationSchema(), []);
+  const websiteSchema = useMemo(() => buildWebSiteSchema(), []);
+
   useJsonLdSlot(SCHEMA_SLOTS.organization, organizationSchema, SLOT_PRIORITY.global);
   useJsonLdSlot(SCHEMA_SLOTS.website, websiteSchema, SLOT_PRIORITY.global);
   return null;
 };
+
+export default InstitutionalJsonLd;

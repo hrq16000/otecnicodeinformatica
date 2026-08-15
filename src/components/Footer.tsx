@@ -1,6 +1,7 @@
 import { siteConfig, whatsappLink, BRAND_LOGO_PATH } from "@/lib/siteConfig";
 import { brandConfig } from "@/lib/config";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { useMemo } from "react";
 
 const trackFooterWhatsApp = (location: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
@@ -8,7 +9,6 @@ const trackFooterWhatsApp = (location: string) =>
 // Download do mídia kit medido separadamente do CTA principal da /anuncie.
 const trackFileDownload = (fileName: string, location: string) =>
   import("@/lib/analytics").then((m) => m.trackFileDownload(fileName, location));
-
 
 const linkClass = "text-sm text-white/75 transition-colors hover:text-white";
 
@@ -65,58 +65,57 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
   },
 ];
 
-
-// JSON-LD LocalBusiness — sem aggregateRating/review inventado. Telefone só aqui e em wa.me.
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
-  "@id": `${siteConfig.baseUrl}/#localbusiness`,
-  name: siteConfig.brandName,
-  ...(siteConfig.legalName ? { legalName: siteConfig.legalName } : {}),
-  foundingDate: siteConfig.foundedYear,
-  description: siteConfig.defaultDescription,
-  image: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
-  logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
-  url: siteConfig.baseUrl,
-  telephone: siteConfig.phoneE164,
-  priceRange: "$$",
-  currenciesAccepted: "BRL",
-  paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: siteConfig.primaryCity,
-    addressRegion: siteConfig.region,
-    addressCountry: siteConfig.country,
-  },
-  // Coordenadas só entram no schema quando forem da operação real (env).
-  ...(siteConfig.geo
-    ? { geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng } }
-    : {}),
-  areaServed: siteConfig.serviceArea
-    .filter((c) => c !== "Região Metropolitana de Curitiba")
-    .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phoneE164,
-      contactType: "customer support",
-      areaServed: "BR",
-      availableLanguage: ["Portuguese", "pt-BR"],
-      ...(siteConfig.whatsappConfigured ? { url: whatsappLink() } : {}),
-    },
-  ],
-  ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
-};
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // JSON-LD LocalBusiness — sem aggregateRating/review inventado. Telefone só aqui e em wa.me.
+  const localBusinessSchema = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
+      "@id": `${siteConfig.baseUrl}/#localbusiness`,
+      name: siteConfig.brandName,
+      ...(siteConfig.legalName ? { legalName: siteConfig.legalName } : {}),
+      foundingDate: siteConfig.foundedYear,
+      description: siteConfig.defaultDescription,
+      image: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
+      logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
+      url: siteConfig.baseUrl,
+      telephone: siteConfig.phoneE164,
+      priceRange: "$$",
+      currenciesAccepted: "BRL",
+      paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.primaryCity,
+        addressRegion: siteConfig.region,
+        addressCountry: siteConfig.country,
+      },
+      ...(siteConfig.geo
+        ? { geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng } }
+        : {}),
+      areaServed: siteConfig.serviceArea
+        .filter((c) => c !== "Região Metropolitana de Curitiba")
+        .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: siteConfig.phoneE164,
+          contactType: "customer support",
+          areaServed: "BR",
+          availableLanguage: ["Portuguese", "pt-BR"],
+          ...(siteConfig.whatsappConfigured ? { url: whatsappLink() } : {}),
+        },
+      ],
+      ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
+    }),
+    []
+  );
 
   // LocalBusiness institucional: slot global, cedido a schemas de rota mais específicos.
   useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.global);
   // Organization/WebSite vivem em <InstitutionalJsonLd /> na raiz do app,
   // garantindo a entidade única mesmo em rotas sem rodapé.
-
-
 
   return (
     <footer className="bg-[hsl(var(--hero-bg))] text-white">
@@ -169,7 +168,6 @@ export const Footer = () => {
                     </li>
                   );
                 })}
-
               </ul>
             </nav>
           ))}
@@ -182,7 +180,6 @@ export const Footer = () => {
           ) : null}
         </div>
       </div>
-
     </footer>
   );
 };

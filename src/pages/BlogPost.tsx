@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams, Link, Navigate } from "@/lib/router-compat";
 import { Helmet } from "react-helmet";
+import { useLoaderData } from "@tanstack/react-router";
 import { useCanonical } from "@/lib/canonicalUrl";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
@@ -16,6 +17,7 @@ import { getEditorialCover } from "@/lib/blogEditorialCovers";
 import { getCategoryCover } from "@/lib/categoryCovers";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
+import { blogPostsContentBase } from "@/data/blogPostsContent";
 import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
 import { EditorialCta, EditorialRelatedLinks } from "@/components/editorial/EditorialCta";
@@ -28,24 +30,9 @@ import {
 import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 import NotFound from "./NotFound";
 
-
-// blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)
-// and is loaded on demand to keep the BlogPost route bundle small.
 type PostsMap = Record<string, BlogPostContent>;
 
-let cachedPosts: PostsMap | null = null;
-let inflight: Promise<PostsMap> | null = null;
-
-const loadBlogPostsContent = (): Promise<PostsMap> => {
-  if (cachedPosts) return Promise.resolve(cachedPosts);
-  if (inflight) return inflight;
-  inflight = import("@/data/blogPostsContent").then((m) => {
-    cachedPosts = { ...m.blogPostsContentBase, ...programmaticPosts } as PostsMap;
-    inflight = null;
-    return cachedPosts;
-  });
-  return inflight;
-};
+const posts: PostsMap = { ...blogPostsContentBase, ...programmaticPosts };
 
 // Indexabilidade é decidida EXCLUSIVAMENTE pelo registro editorial
 // fail-closed (src/lib/blogEditorialRegistry.ts). Categoria, data,
@@ -54,20 +41,15 @@ const loadBlogPostsContent = (): Promise<PostsMap> => {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [posts, setPosts] = useState<PostsMap | null>(cachedPosts);
+  const loaderData = useLoaderData({ from: "/blog_/$slug", strict: false });
+
+  // O loader retorna apenas metadados leves (não serializa JSX).
+  // O conteúdo completo vem do mapa de posts importado estaticamente,
+  // garantindo que o SSR renderize o artigo sem depender de importação dinâmica.
+  const loaderPost = loaderData?.post ?? null;
+  const post = loaderPost ?? (slug ? posts[slug] : null);
 
   useCanonical(`${SITE_BASE_URL}/blog/${slug}`);
-
-  useEffect(() => {
-    let cancelled = false;
-    if (!posts) {
-      loadBlogPostsContent().then((p) => { if (!cancelled) setPosts(p); }).catch(() => {});
-    }
-    return () => { cancelled = true; };
-  }, [posts]);
-
-  const post = slug && posts ? posts[slug] : null;
-
 
   useEffect(() => {
     if (post) {
@@ -227,14 +209,7 @@ const BlogPost = () => {
     };
   }, [post, slug, heroImage, wordCount]);
 
-  // Wait for the content chunk before deciding to redirect.
-  if (!posts) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="h-8 w-8 rounded-full border-2 border-accent border-t-transparent animate-spin" aria-label="Carregando artigo" />
-      </div>
-    );
-  }
+  // Se o slug não existir, devolve 404.
   if (!post) {
     return <NotFound />;
   }

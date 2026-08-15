@@ -18,8 +18,10 @@
 import { siteConfig } from "@/lib/siteConfig";
 
 // ⚙️ CONFIGURÁVEL — número por projeto (aqui vem do siteConfig do portal).
-export const WHATSAPP_NUMBER = siteConfig.whatsappNumber;
-export const BRAND_NAME = siteConfig.brandName;
+// Usamos getters para não ler siteConfig durante a avaliação do módulo
+// (evita dependência circular no SSR).
+export const getTriageWhatsappNumber = () => siteConfig.whatsappNumber;
+export const getTriageBrandName = () => siteConfig.brandName;
 
 /** Bump SEMPRE que regras/termos/estrutura mudarem (invalida estado antigo). */
 export const TRIAGE_VERSION = "6.0";

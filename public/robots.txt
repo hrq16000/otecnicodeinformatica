@@ -158,4 +158,3 @@ Sitemap: https://otecnicodeinformatica.com.br/sitemap-problemas.xml
 Sitemap: https://otecnicodeinformatica.com.br/sitemap-equipamentos.xml
 Sitemap: https://otecnicodeinformatica.com.br/sitemap-solucoes.xml
 Sitemap: https://otecnicodeinformatica.com.br/sitemap-editorial.xml
-Sitemap: https://otecnicodeinformatica.com.br/sitemap-images.xml

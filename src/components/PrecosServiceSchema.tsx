@@ -30,7 +30,7 @@ export const PrecosServiceSchema = ({ path = "/precos-e-politicas" }: { path?: s
       category: "Assistência Técnica de Informática",
       url,
       provider: { "@id": `${siteConfig.baseUrl}/#organization` },
-      areaServed: AREA_SERVED,
+      areaServed: AREA_SERVED(),
       termsOfService: url,
       offers: MODALIDADES.map((m) => {
         const price = parseValor(m.valorLabel);

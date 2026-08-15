@@ -40,18 +40,30 @@ export interface EditorialApproval {
 // Autoria institucional temporária. Enquanto não houver autor pessoal
 // real e verificado, a autoria é a própria entidade oficial.
 // Todos os dados vêm de siteConfig — nunca duplicar manualmente.
+// Usamos getters para não ler siteConfig durante a avaliação do módulo
+// (evita dependência circular no SSR).
 export const INSTITUTIONAL_AUTHOR = {
   id: "org:tecnico-em-curitiba",
   type: "organization" as EditorialAuthorType,
-  name: siteConfig.brandName,
-  url: siteConfig.baseUrl,
+  get name() {
+    return siteConfig.brandName;
+  },
+  get url() {
+    return siteConfig.baseUrl;
+  },
 } as const;
 
 // Publisher institucional oficial (alinhado à entidade da marca).
 export const EDITORIAL_PUBLISHER = {
-  name: siteConfig.brandName,
-  url: siteConfig.baseUrl,
-  logo: `${siteConfig.baseUrl}/logo.png`,
+  get name() {
+    return siteConfig.brandName;
+  },
+  get url() {
+    return siteConfig.baseUrl;
+  },
+  get logo() {
+    return `${siteConfig.baseUrl}/logo.png`;
+  },
 } as const;
 
 // ─────────────────────────────────────────────────────────────

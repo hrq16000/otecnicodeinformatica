@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "@/lib/router-compat";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
@@ -47,7 +47,6 @@ const DESCRIPTION =
 
 const whatsappMessage =
   "Quero avaliar as necessidades de informática da minha empresa em Curitiba.";
-const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const servicos = [
   {
@@ -113,108 +112,116 @@ const relacionados = [
   { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
 ];
 
-const faqs = [
-  {
-    question: "O que faz uma empresa de TI em Curitiba?",
-    answer:
-      "Cuida da parte de tecnologia do seu negócio: manutenção de computadores e notebooks, rede e Wi-Fi, servidores locais, impressoras, backup de dados e segurança. O objetivo é manter a operação funcionando com o mínimo de paradas.",
-  },
-  {
-    question: "Vocês atendem suporte de TI recorrente ou só emergência?",
-    answer:
-      "Os dois. Atendemos chamados pontuais quando algo para de funcionar e também manutenção preventiva recorrente sob consulta, que costuma sair mais barato do que resolver tudo no modo emergência.",
-  },
-  {
-    question: "Atendem empresas de qual porte?",
-    answer:
-      "Trabalhamos com autônomos, escritórios, comércios e pequenas e médias empresas de Curitiba e região metropolitana. O escopo é adequado ao número de máquinas e à complexidade da rede.",
-  },
-  {
-    question: "Como funciona o valor do atendimento do suporte de TI?",
-    answer:
-      "Começa com uma avaliação para entender o ambiente e a demanda. A partir daí apresentamos o valor do atendimento, que só é executado após a sua aprovação. O diagnóstico começa a partir de " +
-      siteConfig.minPriceLabel + ".",
-  },
-  {
-    question: "Vocês atendem no local da empresa?",
-    answer:
-      "Sim, atendemos presencialmente em Curitiba e região, e também remotamente para ajustes que não exigem visita. Reparos de bancada podem usar coleta e entrega.",
-  },
-  {
-    question: "O suporte pode ser avulso?",
-    answer:
-      "Pode. Muitas empresas começam com um chamado único — uma máquina parada, um usuário sem acesso, a impressora fora da rede — e só depois avaliam um acompanhamento recorrente. Não exigimos vínculo para atender.",
-  },
-  {
-    question: "Vocês atendem computadores de funcionários?",
-    answer:
-      "Sim, desde que sejam os equipamentos usados no trabalho e que a empresa autorize o atendimento. Organizamos por lote e prioridade para que a operação não pare inteira durante o serviço.",
-  },
-  {
-    question: "Redes e Wi-Fi fazem parte do atendimento?",
-    answer:
-      "Fazem. Instabilidade, cobertura irregular, compartilhamento e impressoras em rede são tratados na página de redes e Wi-Fi, que detalha o levantamento do ambiente e os limites do que conseguimos executar.",
-  },
-  {
-    question: "Como funciona o diagnóstico?",
-    answer:
-      "Começa pela triagem, com a descrição do que está acontecendo, quais máquinas e desde quando. Em seguida avaliamos o ambiente ou o equipamento, explicamos o que foi encontrado e apresentamos o valor. Nada é executado sem a sua autorização.",
-  },
-  {
-    question: "Quais informações devo registrar antes de pedir suporte?",
-    answer:
-      "Equipamento e usuário afetados, horário aproximado do início do problema, mensagem de erro, programa envolvido, alteração recente, impacto na operação, quantas pessoas estão paradas, se o acesso remoto é possível, se existe backup recente, quem autoriza alterações e o contato do fornecedor do sistema quando o problema for dele. Senhas e códigos de autenticação não devem ser enviados por mensagem.",
-  },
-  {
-    question: "Vocês atendem escritórios de diferentes segmentos?",
-    answer:
-      "Sim, atendemos escritórios, recepções, comércios e profissionais autônomos de segmentos variados em Curitiba e região. O que avaliamos é o contexto operacional — quantas estações, quais arquivos não podem parar e quais sistemas externos estão envolvidos —, e não uma especialização setorial. Não prometemos conformidade regulatória nem suporte especializado a plataformas de um setor específico.",
-  },
-  {
-    question: "Vocês prestam suporte a qualquer sistema empresarial?",
-    answer:
-      "Não. Atuamos na camada do computador, da rede e do acesso: instalar, conectar, corrigir sessão, ajustar permissão, impressora ou navegador. O funcionamento interno de sistemas mantidos por terceiros — contábil, judicial, prontuário, ERP, CRM, certificado digital, e-mail corporativo — é responsabilidade do fornecedor da plataforma. Registramos a constatação por escrito para a empresa acionar quem mantém o sistema.",
-  },
-  {
-    question: "Há emissão de nota fiscal?",
-    answer: NOTA_FISCAL.servicoLabel,
-  },
-];
-
-const hubSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Service",
-      "name": "Soluções de TI para empresas em Curitiba",
-      "serviceType": "Soluções e infraestrutura de informática para empresas",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": siteConfig.brandName,
-        "telephone": siteConfig.phoneE164,
-        "areaServed": siteConfig.serviceArea.map((name) => ({ "@type": "Place", name })),
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Curitiba",
-          "addressRegion": "PR",
-          "addressCountry": "BR",
-        },
-      },
-      "areaServed": { "@type": "City", "name": "Curitiba" },
-      "url": `${siteConfig.baseUrl}${PATH}`,
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": faqs.map((f) => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
-      })),
-    },
-  ],
-};
-
 const EmpresaDeTiCuritiba = () => {
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  const faqs = useMemo(
+    () => [
+      {
+        question: "O que faz uma empresa de TI em Curitiba?",
+        answer:
+          "Cuida da parte de tecnologia do seu negócio: manutenção de computadores e notebooks, rede e Wi-Fi, servidores locais, impressoras, backup de dados e segurança. O objetivo é manter a operação funcionando com o mínimo de paradas.",
+      },
+      {
+        question: "Vocês atendem suporte de TI recorrente ou só emergência?",
+        answer:
+          "Os dois. Atendemos chamados pontuais quando algo para de funcionar e também manutenção preventiva recorrente sob consulta, que costuma sair mais barato do que resolver tudo no modo emergência.",
+      },
+      {
+        question: "Atendem empresas de qual porte?",
+        answer:
+          "Trabalhamos com autônomos, escritórios, comércios e pequenas e médias empresas de Curitiba e região metropolitana. O escopo é adequado ao número de máquinas e à complexidade da rede.",
+      },
+      {
+        question: "Como funciona o valor do atendimento do suporte de TI?",
+        answer:
+          "Começa com uma avaliação para entender o ambiente e a demanda. A partir daí apresentamos o valor do atendimento, que só é executado após a sua aprovação. O diagnóstico começa a partir de " +
+          siteConfig.minPriceLabel + ".",
+      },
+      {
+        question: "Vocês atendem no local da empresa?",
+        answer:
+          "Sim, atendemos presencialmente em Curitiba e região, e também remotamente para ajustes que não exigem visita. Reparos de bancada podem usar coleta e entrega.",
+      },
+      {
+        question: "O suporte pode ser avulso?",
+        answer:
+          "Pode. Muitas empresas começam com um chamado único — uma máquina parada, um usuário sem acesso, a impressora fora da rede — e só depois avaliam um acompanhamento recorrente. Não exigimos vínculo para atender.",
+      },
+      {
+        question: "Vocês atendem computadores de funcionários?",
+        answer:
+          "Sim, desde que sejam os equipamentos usados no trabalho e que a empresa autorize o atendimento. Organizamos por lote e prioridade para que a operação não pare inteira durante o serviço.",
+      },
+      {
+        question: "Redes e Wi-Fi fazem parte do atendimento?",
+        answer:
+          "Fazem. Instabilidade, cobertura irregular, compartilhamento e impressoras em rede são tratados na página de redes e Wi-Fi, que detalha o levantamento do ambiente e os limites do que conseguimos executar.",
+      },
+      {
+        question: "Como funciona o diagnóstico?",
+        answer:
+          "Começa pela triagem, com a descrição do que está acontecendo, quais máquinas e desde quando. Em seguida avaliamos o ambiente ou o equipamento, explicamos o que foi encontrado e apresentamos o valor. Nada é executado sem a sua autorização.",
+      },
+      {
+        question: "Quais informações devo registrar antes de pedir suporte?",
+        answer:
+          "Equipamento e usuário afetados, horário aproximado do início do problema, mensagem de erro, programa envolvido, alteração recente, impacto na operação, quantas pessoas estão paradas, se o acesso remoto é possível, se existe backup recente, quem autoriza alterações e o contato do fornecedor do sistema quando o problema for dele. Senhas e códigos de autenticação não devem ser enviados por mensagem.",
+      },
+      {
+        question: "Vocês atendem escritórios de diferentes segmentos?",
+        answer:
+          "Sim, atendemos escritórios, recepções, comércios e profissionais autônomos de segmentos variados em Curitiba e região. O que avaliamos é o contexto operacional — quantas estações, quais arquivos não podem parar e quais sistemas externos estão envolvidos —, e não uma especialização setorial. Não prometemos conformidade regulatória nem suporte especializado a plataformas de um setor específico.",
+      },
+      {
+        question: "Vocês prestam suporte a qualquer sistema empresarial?",
+        answer:
+          "Não. Atuamos na camada do computador, da rede e do acesso: instalar, conectar, corrigir sessão, ajustar permissão, impressora ou navegador. O funcionamento interno de sistemas mantidos por terceiros — contábil, judicial, prontuário, ERP, CRM, certificado digital, e-mail corporativo — é responsabilidade do fornecedor da plataforma. Registramos a constatação por escrito para a empresa acionar quem mantém o sistema.",
+      },
+      {
+        question: "Há emissão de nota fiscal?",
+        answer: NOTA_FISCAL.servicoLabel,
+      },
+    ],
+    []
+  );
+
+  const hubSchema = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "name": "Soluções de TI para empresas em Curitiba",
+          "serviceType": "Soluções e infraestrutura de informática para empresas",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": siteConfig.brandName,
+            "telephone": siteConfig.phoneE164,
+            "areaServed": siteConfig.serviceArea.map((name) => ({ "@type": "Place", name })),
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Curitiba",
+              "addressRegion": "PR",
+              "addressCountry": "BR",
+            },
+          },
+          "areaServed": { "@type": "City", "name": "Curitiba" },
+          "url": `${siteConfig.baseUrl}${PATH}`,
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((f) => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+          })),
+        },
+      ],
+    }),
+    [faqs]
+  );
+
   useJsonLdSlot(SCHEMA_SLOTS.service, hubSchema, SLOT_PRIORITY.page);
 
   useEffect(() => {

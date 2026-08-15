@@ -50,7 +50,7 @@ import {
   CUSTOMER_TYPE_OPTIONS,
   RECURRING_NOTICE,
   URGENCY_OPTIONS,
-  WHATSAPP_NUMBER,
+  getTriageWhatsappNumber,
   STORAGE_KEY,
   getEquipment,
   type CustomerType,
@@ -702,7 +702,7 @@ export const WhatsAppFunnel = () => {
         trackFunnelBlocked("insert_failed", answers.equipment);
       }
 
-      const url = new URL(`https://wa.me/${WHATSAPP_NUMBER}`);
+      const url = new URL(`https://wa.me/${getTriageWhatsappNumber()}`);
       url.searchParams.set("text", finalMessage);
       appendUtms(url);
 

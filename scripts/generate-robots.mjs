@@ -76,7 +76,6 @@ export function buildRobots() {
     `Sitemap: ${BASE_URL}/sitemap-index.xml`,
     `Sitemap: ${BASE_URL}/sitemap.xml`,
     ...ACTIVE_SITEMAPS.map(([nome]) => `Sitemap: ${BASE_URL}/${nome}`),
-    `Sitemap: ${BASE_URL}/sitemap-images.xml`,
     "",
   );
 

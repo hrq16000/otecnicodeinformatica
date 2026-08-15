@@ -33,3 +33,31 @@ export function exportarJson(nome: string, dados: unknown): void {
     `${nome}-${new Date().toISOString().slice(0, 10)}.json`,
   );
 }
+
+/**
+ * Exportação em PDF via diálogo de impressão do navegador (sem dependência
+ * extra). Clona a seção do relatório numa janela limpa e dispara o print.
+ */
+export function exportarPdf(elementoId: string, titulo: string): void {
+  const el = document.getElementById(elementoId);
+  if (!el) return;
+  const janela = window.open("", "_blank", "width=1024,height=768");
+  if (!janela) return;
+  const estilos = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
+    .map((n) => n.outerHTML)
+    .join("");
+  janela.document.write(
+    `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>${titulo}</title>${estilos}` +
+      `<style>body{padding:24px;background:#fff}@page{margin:12mm}</style></head><body>` +
+      `<h1 style="font-size:20px;margin-bottom:4px">${titulo}</h1>` +
+      `<p style="font-size:12px;color:#555">Gerado em ${new Date().toLocaleString("pt-BR")}</p>` +
+      el.innerHTML +
+      `</body></html>`,
+  );
+  janela.document.close();
+  janela.focus();
+  janela.setTimeout(() => {
+    janela.print();
+    janela.close();
+  }, 400);
+}

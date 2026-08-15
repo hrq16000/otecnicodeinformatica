@@ -413,6 +413,38 @@
       "cidadeSlug": "sao-jose-dos-pinhais",
       "parent": "/tecnico-informatica-sao-jose-pinhais",
       "lote": 2
+    },
+    {
+      "slug": "xaxim",
+      "intent": "atendimento de informática no Xaxim (residencial de uso diário: disco, formatação e Wi-Fi)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 3
+    },
+    {
+      "slug": "sitio-cercado",
+      "intent": "atendimento de informática no Sítio Cercado (residencial extenso + comércio de rua)",
+      "cidade": "Curitiba",
+      "cidadeSlug": "curitiba",
+      "parent": "/tecnico-informatica-curitiba",
+      "lote": 3
+    },
+    {
+      "slug": "aviacao",
+      "intent": "suporte de informática no bairro Aviação (perfil comercial/logístico com impacto de parada)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 3
+    },
+    {
+      "slug": "ouro-fino-sjp",
+      "intent": "conserto de notebook e PC no Ouro Fino (residencial, preservação de dados)",
+      "cidade": "São José dos Pinhais",
+      "cidadeSlug": "sao-jose-dos-pinhais",
+      "parent": "/tecnico-informatica-sao-jose-pinhais",
+      "lote": 3
     }
   ],
   "servicoBairroIndexaveis": [
@@ -469,5 +501,11 @@
     "/bairros/cruzeiro",
     "/bairros/costeira",
     "/bairros/guatupe"
+  ],
+  "loteLocal3": [
+    "/bairros/xaxim",
+    "/bairros/sitio-cercado",
+    "/bairros/aviacao",
+    "/bairros/ouro-fino-sjp"
   ]
 }

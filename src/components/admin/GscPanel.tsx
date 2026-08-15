@@ -175,9 +175,22 @@ const GscPanel = () => {
                 >
                   Exportar páginas (CSV)
                 </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="ml-2"
+                  onClick={() => exportarPdf("relatorio-seo-local", "Performance SEO local — Search Console")}
+                >
+                  Exportar relatório (PDF)
+                </Button>
               </div>
             )}
           </Card>
+
+          {paginaSel && (
+            <GscUrlDrilldown pagina={paginaSel} dias={dias} onFechar={() => setPaginaSel(null)} />
+          )}
+
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <Card className="p-4">

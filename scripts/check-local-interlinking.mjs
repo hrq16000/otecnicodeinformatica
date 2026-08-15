@@ -17,6 +17,8 @@
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
 const ROUTER = "src/LegacyApp.tsx";
@@ -72,6 +74,9 @@ for (const f of SITEMAPS) {
   }
 }
 notes.push(`páginas locais indexáveis: ${localPaths.length}`);
+
+await prepararSsr(rotasLocais({ incluirSitemap: true }), { dist: DIST });
+abortarSeBloqueado("check-local-interlinking");
 
 const IGNORE = /\.(png|jpe?g|webp|svg|css|js|json|xml|txt|ico|woff2?)$/i;
 

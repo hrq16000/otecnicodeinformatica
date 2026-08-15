@@ -24,6 +24,8 @@ import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ENTIDADES } from "./lib/local-index-policy.mjs";
 import { TODAS_PAGINAS_LOCAIS, servicoCuritibaPorPath } from "./lib/servico-curitiba.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const DIST = join(process.cwd(), "dist");
 const MIN_PALAVRAS = 550;

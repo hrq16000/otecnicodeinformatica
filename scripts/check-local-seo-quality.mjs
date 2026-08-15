@@ -17,6 +17,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { LOCAIS_DECLARADOS, LOCAIS_INDEXAVEIS } from "./lib/local-inventory.mjs";
 import { CURATED_PATHS, BASE_URL } from "./lib/curated-urls.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const ROOT = process.argv[2] || "dist";
 /**

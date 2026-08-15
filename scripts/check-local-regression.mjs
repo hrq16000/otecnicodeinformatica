@@ -16,6 +16,8 @@ import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
+import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.mjs";
+import { rotasLocais } from "./lib/local-routes.mjs";
 
 const args = process.argv.slice(2);
 const DIST = args.find((a) => !a.startsWith("--")) || "dist";

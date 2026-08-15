@@ -157,10 +157,14 @@ export function useJsonLdSlot(
   const owner = `${slot}:${useId()}`;
   const serialized = schema ? JSON.stringify(schema) : "";
 
-  // SSR: registra no coletor da requisição para que o HTML já saia com JSON-LD.
+  // Registra no coletor da renderização para que o HTML (SSR) já saia com
+  // JSON-LD; no cliente o mesmo registro mantém a hidratação consistente.
   const collector = useJsonLdCollector();
-  if (typeof document === "undefined" && collector && schema) {
-    collector.entries.push({ slot, schema, priority });
+  if (collector && schema) {
+    const jaRegistrado = collector.entries.some(
+      (e) => e.slot === slot && e.serialized === serialized,
+    );
+    if (!jaRegistrado) collector.entries.push({ slot, schema, priority, serialized });
   }
 
   useEffect(() => {

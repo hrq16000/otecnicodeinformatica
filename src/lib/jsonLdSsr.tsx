@@ -18,6 +18,7 @@ export interface JsonLdCollectorEntry {
   slot: string;
   schema: Record<string, unknown>;
   priority: number;
+  serialized: string;
 }
 
 export interface JsonLdCollector {
@@ -52,7 +53,7 @@ export function JsonLdSsrSink() {
           key={entry.slot}
           type="application/ld+json"
           data-schema-key={entry.slot}
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(entry.schema) }}
+          dangerouslySetInnerHTML={{ __html: entry.serialized }}
         />
       ))}
     </>

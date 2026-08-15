@@ -11097,6 +11097,16 @@ crontab -e
           <li>Aplicação em praticamente todos os setores da sociedade</li>
         </ul>
 
+        <aside className="rounded-lg border border-border bg-muted/40 p-4 not-prose my-6">
+          <h2 className="text-base font-semibold m-0">Leia também</h2>
+          <ul className="mt-2 mb-0 list-disc pl-5 text-sm">
+            <li><Link to="/blog/informatica-basica" className="text-accent">Informática básica</Link> — o que se aprende no primeiro nível e por onde começar.</li>
+            <li><Link to="/blog/como-aprender-informatica" className="text-accent">Como aprender informática</Link> — roteiro de estudo em quatro fases.</li>
+            <li><Link to="/blog/seguranca-digital-empresas-guia-2024" className="text-accent">Segurança digital para empresas</Link> — como os conceitos de segurança aparecem no ambiente profissional.</li>
+            <li><Link to="/blog/computador-lento-causas-solucoes" className="text-accent">Computador lento: causas e soluções</Link> — hardware e software explicados na prática.</li>
+          </ul>
+        </aside>
+
         <h2>Referências e fontes</h2>
         <ul>
           <li><a href="https://learn.microsoft.com/pt-br/" rel="nofollow noopener" target="_blank">Microsoft Learn</a> — documentação oficial sobre sistemas operacionais, redes e conceitos de computação.</li>

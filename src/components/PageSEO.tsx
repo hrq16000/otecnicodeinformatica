@@ -60,6 +60,27 @@ export const PageSEO = ({
   }, [breadcrumbs, url]);
   useJsonLdSlot(SCHEMA_SLOTS.breadcrumb, breadcrumbSchema, SLOT_PRIORITY.page);
 
+  // WebPage base de toda rota: garante a entidade no HTML do SSR mesmo quando
+  // a página só declara Service/FAQ. Prioridade `component` para que páginas
+  // com WebPage próprio (prioridade `page`) continuem vencendo.
+  const webPageSchema = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: title,
+      description,
+      inLanguage: "pt-BR",
+      isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website`, name: SITE_NAME },
+      ...(breadcrumbs && breadcrumbs.length > 0
+        ? { breadcrumb: { "@id": `${url}#breadcrumb` } }
+        : {}),
+    }),
+    [url, title, description, breadcrumbs],
+  );
+  useJsonLdSlot(SCHEMA_SLOTS.webPage, webPageSchema, SLOT_PRIORITY.component);
+
   return (
     <>
       <title>{title}</title>

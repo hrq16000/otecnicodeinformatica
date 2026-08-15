@@ -253,7 +253,7 @@ const AdminReviews = () => {
       google_review_url: form.google_review_url || null,
       verified: !!form.verified,
       published: !!form.published,
-      review_date: form.review_date || null,
+      review_date: form.review_date || undefined,
       client_phone: form.client_phone ? form.client_phone.replace(/\D/g, "") : null,
       service_closed_at: form.service_closed_at || null,
     };

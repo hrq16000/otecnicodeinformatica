@@ -6,7 +6,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getGscSnapshot, type GscSnapshot } from "@/lib/gsc.functions";
-import { exportarCsv } from "@/lib/exportarRelatorio";
+import { exportarCsv, exportarPdf } from "@/lib/exportarRelatorio";
+import GscUrlDrilldown from "@/components/admin/GscUrlDrilldown";
+
 
 /**
  * SEARCH CONSOLE (performance real do site) + alertas da auditoria de SEO.
@@ -45,6 +47,8 @@ const GscPanel = () => {
   const [snap, setSnap] = useState<GscSnapshot | null>(null);
   const [auditoria, setAuditoria] = useState<Auditoria | null>(null);
   const [loading, setLoading] = useState(false);
+  const [paginaSel, setPaginaSel] = useState<string | null>(null);
+
 
   const carregar = useCallback(
     async (periodo: number) => {
@@ -89,7 +93,8 @@ const GscPanel = () => {
   const consultas = useMemo(() => (snap?.consultas ?? []).slice(0, 25), [snap]);
 
   return (
-    <section className="mt-10">
+    <section className="mt-10" id="relatorio-seo-local">
+
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="font-heading text-lg font-semibold text-foreground">
@@ -170,9 +175,22 @@ const GscPanel = () => {
                 >
                   Exportar páginas (CSV)
                 </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="ml-2"
+                  onClick={() => exportarPdf("relatorio-seo-local", "Performance SEO local — Search Console")}
+                >
+                  Exportar relatório (PDF)
+                </Button>
               </div>
             )}
           </Card>
+
+          {paginaSel && (
+            <GscUrlDrilldown pagina={paginaSel} dias={dias} onFechar={() => setPaginaSel(null)} />
+          )}
+
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <Card className="p-4">
@@ -181,15 +199,23 @@ const GscPanel = () => {
               </h3>
               <ul className="mt-3 space-y-2 text-sm">
                 {paginas.map((p) => (
-                  <li key={p.chave} className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="max-w-[60%] truncate text-foreground" title={p.chave}>
-                      {p.chave}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {p.impressions} impr · {p.clicks} cl · pos {p.position.toFixed(1)}
-                    </span>
+                  <li key={p.chave}>
+                    <button
+                      type="button"
+                      onClick={() => setPaginaSel(p.chave === paginaSel ? null : p.chave)}
+                      className="flex w-full flex-wrap items-center justify-between gap-2 rounded-md px-1 py-1 text-left transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      aria-pressed={p.chave === paginaSel}
+                    >
+                      <span className="max-w-[60%] truncate text-foreground" title={p.chave}>
+                        {p.chave}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {p.impressions} impr · {p.clicks} cl · pos {p.position.toFixed(1)}
+                      </span>
+                    </button>
                   </li>
                 ))}
+
                 {!paginas.length && (
                   <li className="text-muted-foreground">{snap.status === "OK" ? "NO_DATA" : snap.status}</li>
                 )}

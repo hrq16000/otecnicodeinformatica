@@ -174,3 +174,111 @@ export const getGscSnapshot = createServerFn({ method: "GET" })
       return vazio("UNKNOWN", `falha ao consultar o Search Console: ${(e as Error).message}`);
     }
   });
+
+/**
+ * DRILL-DOWN POR URL — período atual vs. período imediatamente anterior.
+ * Gera alerta quando há queda brusca (>=30% em cliques ou impressões, ou
+ * perda de 3+ posições) com volume mínimo para não alarmar com ruído.
+ */
+export type GscMetricas = { clicks: number; impressions: number; ctr: number; position: number };
+
+export type GscUrlDetalhe = {
+  status: GscStatus;
+  motivo?: string;
+  pagina: string;
+  periodo: { inicio: string; fim: string } | null;
+  anterior: { inicio: string; fim: string } | null;
+  atual: GscMetricas | null;
+  previa: GscMetricas | null;
+  consultas: GscLinha[];
+  alertas: string[];
+  geradoEm: string;
+};
+
+export const getGscUrlDetalhe = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const d = (data ?? {}) as { pagina?: string; dias?: number };
+    const dias = Number(d.dias);
+    return { pagina: String(d.pagina ?? "").slice(0, 500), dias: [7, 28, 90].includes(dias) ? dias : 28 };
+  })
+  .handler(async ({ data }): Promise<GscUrlDetalhe> => {
+    const { gscHeaders, resolverPropriedade, consultarAnalytics, diaOffset, agregar } = await import(
+      "@/lib/gsc.server"
+    );
+    const base: GscUrlDetalhe = {
+      status: "UNKNOWN",
+      pagina: data.pagina,
+      periodo: null,
+      anterior: null,
+      atual: null,
+      previa: null,
+      consultas: [],
+      alertas: [],
+      geradoEm: new Date().toISOString(),
+    };
+    if (!data.pagina) return { ...base, motivo: "URL não informada" };
+
+    const creds = gscHeaders();
+    if (!creds) return { ...base, motivo: "Search Console não conectado neste ambiente" };
+
+    try {
+      const prop = await resolverPropriedade(creds.headers, process.env["VITE_SITE_DOMAIN"] || "otecnicodeinformatica.com.br");
+      if ("erro" in prop) return { ...base, motivo: prop.erro };
+
+      const fim = diaOffset(2);
+      const inicio = diaOffset(data.dias + 2);
+      const fimPrev = diaOffset(data.dias + 3);
+      const inicioPrev = diaOffset(data.dias * 2 + 3);
+      const filtro = {
+        dimensionFilterGroups: [
+          { filters: [{ dimension: "page", operator: "equals", expression: data.pagina }] },
+        ],
+      };
+
+      const [atualRows, previaRows, queryRows] = await Promise.all([
+        consultarAnalytics(creds.headers, prop.siteUrl, { startDate: inicio, endDate: fim, dimensions: ["page"], rowLimit: 1, ...filtro }),
+        consultarAnalytics(creds.headers, prop.siteUrl, { startDate: inicioPrev, endDate: fimPrev, dimensions: ["page"], rowLimit: 1, ...filtro }),
+        consultarAnalytics(creds.headers, prop.siteUrl, { startDate: inicio, endDate: fim, dimensions: ["query"], rowLimit: 25, ...filtro }),
+      ]);
+
+      if (!atualRows.length && !previaRows.length) {
+        return { ...base, status: "NO_DATA", motivo: "sem linhas para esta URL no período", periodo: { inicio, fim }, anterior: { inicio: inicioPrev, fim: fimPrev } };
+      }
+
+      const atual = atualRows.length ? agregar(atualRows) : null;
+      const previa = previaRows.length ? agregar(previaRows) : null;
+      const alertas: string[] = [];
+      if (atual && previa) {
+        const queda = (a: number, b: number) => (b > 0 ? (b - a) / b : 0);
+        if (previa.clicks >= 5 && queda(atual.clicks, previa.clicks) >= 0.3) {
+          alertas.push(`Cliques caíram ${(queda(atual.clicks, previa.clicks) * 100).toFixed(0)}% (${previa.clicks} → ${atual.clicks}).`);
+        }
+        if (previa.impressions >= 50 && queda(atual.impressions, previa.impressions) >= 0.3) {
+          alertas.push(`Impressões caíram ${(queda(atual.impressions, previa.impressions) * 100).toFixed(0)}% (${previa.impressions} → ${atual.impressions}).`);
+        }
+        if (atual.position - previa.position >= 3) {
+          alertas.push(`Posição média piorou ${(atual.position - previa.position).toFixed(1)} posições (${previa.position.toFixed(1)} → ${atual.position.toFixed(1)}).`);
+        }
+      }
+
+      return {
+        ...base,
+        status: "OK",
+        periodo: { inicio, fim },
+        anterior: { inicio: inicioPrev, fim: fimPrev },
+        atual,
+        previa,
+        consultas: queryRows.map((r) => ({
+          chave: r.keys.join(" · "),
+          clicks: r.clicks ?? 0,
+          impressions: r.impressions ?? 0,
+          ctr: r.ctr ?? 0,
+          position: r.position ?? 0,
+        })),
+        alertas,
+      };
+    } catch (e) {
+      return { ...base, motivo: `falha ao consultar o Search Console: ${(e as Error).message}` };
+    }
+  });

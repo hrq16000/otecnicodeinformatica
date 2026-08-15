@@ -79,6 +79,7 @@ export const LOTE_LOCAL_1 = data.loteLocal1 as string[];
 
 /** Lote 2 de bairros âncora (Rodada 5E) — rotas já existentes, promovidas. */
 export const LOTE_LOCAL_2 = data.loteLocal2 as string[];
+export const LOTE_LOCAL_3 = (data as { loteLocal3?: string[] }).loteLocal3 ?? [];
 
 /** Metadados do bairro âncora (cidade-pai, intenção, lote). */
 export function bairroAncora(slug: string): BairroAncora | undefined {

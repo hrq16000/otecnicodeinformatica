@@ -8,6 +8,8 @@
 
 import { SERVICOS_CANONICOS } from "@/lib/cidadesData";
 import { BAIRROS_LOTE_2 } from "@/lib/bairrosLote2";
+import { BAIRROS_LOTE_3 } from "@/lib/bairrosLote3";
+
 
 export interface BairroFaq {
   question: string;
@@ -50,7 +52,10 @@ export interface BairroLocalData {
    * para elas quando a intenção local for semanticamente melhor que o pai global.
    */
   servicosCidade?: { to: string; label: string; desc: string }[];
+  /** Páginas de sintoma (/problemas/*) contextualmente pertinentes ao bairro */
+  problemasRelacionados?: { to: string; label: string; desc: string }[];
   /** FAQ local visível (espelhada em FAQPage) — distinta entre bairros */
+
   faqLocal: BairroFaq[];
 }
 
@@ -365,5 +370,9 @@ export const BAIRROS: Record<string, BairroLocalData> = {
 
 // RODADA 5E — Lote 2 de bairros âncora (Curitiba + São José dos Pinhais).
 Object.assign(BAIRROS, BAIRROS_LOTE_2);
+
+// MICRO-RODADA LOCAL 1 — Lote 3 de bairros âncora (rotas já existentes).
+Object.assign(BAIRROS, BAIRROS_LOTE_3);
+
 
 export const BAIRRO_LIST = Object.values(BAIRROS);

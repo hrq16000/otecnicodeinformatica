@@ -23,7 +23,7 @@ const TITLE_HARD_MAX = 70;
 const DESC_MIN = 70;
 const DESC_MAX = 160;
 const DESC_HARD_MAX = 170;
-const OG_PATH = "/og-tecnico-informatica.jpg";
+const OG_PATH = (process.env.VITE_BRAND_OG_IMAGE || "/og-image.png").trim();
 
 const erros = [];
 const avisos = [];

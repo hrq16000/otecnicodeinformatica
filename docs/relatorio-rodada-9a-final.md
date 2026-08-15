@@ -148,30 +148,28 @@ Política para Rodada 9B:
 ## 19. Sitemap
 
 - `sitemap-index.xml` referencia 8 sitemaps.
-- `sitemap-editorial.xml` contém 33 URLs.
-- **Problema:** 7 URLs do sitemap editorial não estão no registro de aprovação atual:
-  - quando-trocar-hd-por-ssd
-  - como-saber-se-pc-tem-virus-malware
-  - backup-como-proteger-seus-arquivos
-  - como-melhorar-sinal-wifi-em-casa
-  - notebook-superaquecendo-o-que-fazer
-  - organizacao-de-ti-para-pequenos-escritorios
-  - como-escolher-uma-workstation
+- `sitemap-editorial.xml` foi corrigido e agora contém **26 URLs**, todas alinhadas com o registro de aprovação editorial.
+- As 7 URLs removidas do sitemap editorial (por não estarem mais no registro ativo de aprovação) foram:
+  - `quando-trocar-hd-por-ssd`
+  - `como-saber-se-pc-tem-virus-malware`
+  - `backup-como-proteger-seus-arquivos`
+  - `como-melhorar-sinal-wifi-em-casa`
+  - `notebook-superaquecendo-o-que-fazer`
+  - `organizacao-de-ti-para-pequenos-escritorios`
+  - `como-escolher-uma-workstation`
 
-  Esses slugs estão em `FIRST_WAVE_SLUGS` mas aparentemente foram removidos do array de aprovação ativa. Isso precisa ser corrigido na Rodada 9B (reaprovar ou remover do sitemap).
+Decisão: removidas do sitemap até serem reaprobadas explicitamente na Rodada 9B ou posterior.
 
 ## 20. llms.txt
 
-- Está 100% focado em atendimento local (Curitiba/RM).
-- Não menciona /blog nem conteúdo editorial nacional.
-- Não faz claims exagerados ("maior referência", "líder nacional").
-- Inclui sitemap e link para llms-full.txt.
+- ✅ Corrigido: adicionada seção "Conteúdo educacional nacional" com o hub /blog e exemplos de guias técnicos aprovados.
+- Continua focado em atendimento local (Curitiba/RM).
+- Não faz claims exagerados.
 
 ## 21. llms-full.txt
 
-- Versão completa, também local-comercial.
-- Zero links para /blog/.
-- Precisa ser expandido na Rodada 9B com seção "Conteúdo educacional" apontando para os pilares nacionais.
+- ✅ Corrigido: adicionada seção detalhada "Conteúdo educacional nacional" descrevendo os tópicos cobertos e listando guias técnicos aprovados.
+- Agora representa corretamente as duas camadas: conteúdo nacional/educacional + operação comercial local.
 
 ## 22. robots/crawlers
 

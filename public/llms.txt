@@ -97,6 +97,20 @@ cobramos execução que não tenha sido aprovada.
 - [Impressora não imprime: causas e o que checar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/impressora-nao-imprime)
 - [Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/teclado-notebook-nao-funciona)
 
+## Conteúdo educacional nacional
+
+O portal também publica guias técnicos em português (Brasil) sobre informática,
+sistemas operacionais, hardware, redes, segurança e backup. Esse conteúdo é
+nacional e educacional, sem informações de atendimento local.
+
+- [Hub de guias técnicos](https://otecnicodeinformatica.com.br/blog)
+- [Quando trocar o HD por SSD?](https://otecnicodeinformatica.com.br/blog/quando-trocar-hd-por-ssd)
+- [Como melhorar o sinal Wi-Fi em casa](https://otecnicodeinformatica.com.br/blog/como-melhorar-sinal-wifi-em-casa)
+- [Backup: como proteger seus arquivos](https://otecnicodeinformatica.com.br/blog/backup-como-proteger-seus-arquivos)
+- [Computador lento: causas e soluções](https://otecnicodeinformatica.com.br/blog/computador-lento-causas-solucoes)
+- [Como instalar o Windows 11 do zero](https://otecnicodeinformatica.com.br/blog/como-instalar-windows-11-do-zero)
+- [Notebook não liga: o que fazer](https://otecnicodeinformatica.com.br/blog/notebook-nao-liga-o-que-fazer)
+
 ## Páginas institucionais e de política
 
 - [Anuncie e Patrocine | Mídia Kit do Técnico de Informática](https://otecnicodeinformatica.com.br/anuncie)

@@ -23,7 +23,7 @@ import { CLUSTER_SOLUCOES_ROUTES } from "./lib/cluster-solucoes-static.mjs";
 const BASE_ROUTES = [
   {
     "path": "/",
-    "title": "O Técnico de Informática | Assistência Técnica e Suporte Local",
+    "title": "O Técnico de Informática | Assistência Técnica em Curitiba",
     "description": "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp."
   },
   {

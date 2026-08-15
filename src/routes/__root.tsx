@@ -65,7 +65,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { title: "O Técnico de Informática | Assistência Técnica e Suporte Local" },
+      { title: "O Técnico de Informática | Assistência Técnica em Curitiba" },
       {
         name: "description",
         content:
@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "O Técnico de Informática" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:title", content: "O Técnico de Informática" },
+      { property: "og:title", content: "O Técnico de Informática — Assistência Técnica em Curitiba" },
       {
         property: "og:description",
         content:

@@ -41,13 +41,14 @@ const posts: PostsMap = { ...blogPostsContentBase, ...programmaticPosts };
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const loaderData = useLoaderData({ from: "/blog_/$slug", strict: false });
+  const loaderData = useLoaderData({ strict: false }) as { post?: Partial<BlogPostContent> } | undefined;
 
   // O loader retorna apenas metadados leves (não serializa JSX).
   // O conteúdo completo vem do mapa de posts importado estaticamente,
   // garantindo que o SSR renderize o artigo sem depender de importação dinâmica.
-  const loaderPost = loaderData?.post ?? null;
-  const post = loaderPost ?? (slug ? posts[slug] : null);
+  const staticPost = slug ? posts[slug] : null;
+  const post = (staticPost ??
+    (loaderData?.post ? (loaderData.post as BlogPostContent) : null)) as BlogPostContent | null;
 
   useCanonical(`${SITE_BASE_URL}/blog/${slug}`);
 

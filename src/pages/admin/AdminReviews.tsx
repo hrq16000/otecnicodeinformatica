@@ -245,7 +245,7 @@ const AdminReviews = () => {
       author_name: form.author_name!,
       author_photo_url: form.author_photo_url || null,
       rating: Number(form.rating),
-      comment: form.comment || null,
+      comment: form.comment || "",
       service_slug: form.service_slug || null,
       city: form.city || null,
       neighborhood: form.neighborhood || null,

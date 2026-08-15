@@ -313,7 +313,11 @@ const AdminPerformanceLocal = () => {
             {!linhas.length && <p className="text-sm text-muted-foreground">Sem rotas para recomendar ainda.</p>}
           </div>
         </section>
+
+        <GscPanel />
+        <SegmentacaoGeoPanel />
       </main>
+
     </div>
   );
 };

@@ -369,4 +369,8 @@ export const BAIRROS: Record<string, BairroLocalData> = {
 // RODADA 5E — Lote 2 de bairros âncora (Curitiba + São José dos Pinhais).
 Object.assign(BAIRROS, BAIRROS_LOTE_2);
 
+// MICRO-RODADA LOCAL 1 — Lote 3 de bairros âncora (rotas já existentes).
+Object.assign(BAIRROS, BAIRROS_LOTE_3);
+
+
 export const BAIRRO_LIST = Object.values(BAIRROS);

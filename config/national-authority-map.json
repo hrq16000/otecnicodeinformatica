@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-08-15T01:37:42.809Z",
+  "generatedAt": "2026-08-15T03:20:45.000Z",
   "nationalOrLocal": "NATIONAL_INFORMATIONAL",
   "hub": "/blog",
   "taxonomy": [
@@ -29,28 +29,42 @@
       "id": "fundamentos",
       "topic": "Fundamentos",
       "parent": "informatica",
+      "children": [
+        "o-que-e-informatica",
+        "informatica-basica",
+        "aprender-informatica"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "o-que-e-informatica",
+      "topic": "O que é informática",
+      "parent": "fundamentos",
       "children": [],
-      "status": "candidate"
+      "primaryQuery": "o que é informática",
+      "intent": "DEFINITION",
+      "ownerUrl": "/blog/o-que-e-informatica",
+      "status": "approved_for_9b"
     },
     {
       "id": "informatica-basica",
       "topic": "Informática básica",
-      "parent": "informatica",
+      "parent": "fundamentos",
       "children": [],
       "primaryQuery": "informática básica",
       "intent": "DEFINITION/LEARNING",
-      "ownerUrl": null,
-      "status": "candidate"
+      "ownerUrl": "/blog/informatica-basica",
+      "status": "approved_for_9b"
     },
     {
       "id": "aprender-informatica",
       "topic": "Como aprender informática",
-      "parent": "informatica",
+      "parent": "fundamentos",
       "children": [],
       "primaryQuery": "como aprender informática",
       "intent": "LEARNING",
-      "ownerUrl": null,
-      "status": "candidate"
+      "ownerUrl": "/blog/como-aprender-informatica",
+      "status": "approved_for_9b"
     },
     {
       "id": "hardware",
@@ -186,9 +200,9 @@
     {
       "topicId": "o-que-e-informatica",
       "primaryIntent": "DEFINITION",
-      "ownerUrl": null,
+      "ownerUrl": "/blog/o-que-e-informatica",
       "decision": "NEW_CONTENT",
-      "status": "candidate",
+      "status": "approved_for_9b",
       "parent": "fundamentos",
       "related": [
         "informatica-basica",
@@ -200,14 +214,14 @@
         "historia basica",
         "areas da informatica"
       ],
-      "notes": "Nenhuma URL atual responde diretamente \"o que é informática\". Os posts existentes assumem que o leitor já sabe."
+      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/o-que-e-informatica.md"
     },
     {
       "topicId": "informatica-basica",
       "primaryIntent": "DEFINITION/LEARNING",
-      "ownerUrl": null,
+      "ownerUrl": "/blog/informatica-basica",
       "decision": "NEW_CONTENT",
-      "status": "candidate",
+      "status": "approved_for_9b",
       "parent": "fundamentos",
       "related": [
         "o-que-e-informatica",
@@ -219,14 +233,14 @@
         "para que serve",
         "cursos e concursos"
       ],
-      "notes": "Volume de \"informática básica\" (~12.100) e \"informática básica curso\" (~5.400). Nenhum post atual assume esse ângulo."
+      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/informatica-basica.md"
     },
     {
       "topicId": "como-aprender-informatica",
       "primaryIntent": "LEARNING",
-      "ownerUrl": null,
+      "ownerUrl": "/blog/como-aprender-informatica",
       "decision": "NEW_CONTENT",
-      "status": "candidate",
+      "status": "approved_for_9b",
       "parent": "fundamentos",
       "related": [
         "o-que-e-informatica",
@@ -238,7 +252,7 @@
         "criancas e idosos",
         "concursos"
       ],
-      "notes": "Família \"como aprender informática\" é forte; nenhum post atual organiza um plano de estudo."
+      "notes": "Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/como-aprender-informatica.md"
     },
     {
       "topicId": "computador-lento-causas-solucoes",
@@ -338,5 +352,5 @@
       "nationalOrLocal": "LOCAL_COMMERCIAL"
     }
   ],
-  "notes": "Mapa conceitual. Nenhum conteúdo novo será publicado nesta rodada (preparação para Rodada 9B)."
+  "notes": "Mapa de autoridade nacional. Rodada 9A concluída. Três pilares aprovados para Rodada 9B: /blog/o-que-e-informatica, /blog/informatica-basica, /blog/como-aprender-informatica. Ver briefings em docs/briefings/rodada-9b/."
 }

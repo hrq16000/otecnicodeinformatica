@@ -1,7 +1,7 @@
 # Mapa de Autoridade Nacional — otecnicodeinformatica.com.br
 
 **Versão:** 1.0.0
-**Gerado em:** 2026-08-15T01:37:42.809Z
+**Gerado em:** 2026-08-15T03:20:45.000Z
 **Hub editorial:** /blog
 **Escopo nacional:** NATIONAL_INFORMATIONAL
 
@@ -10,9 +10,10 @@
 | ID | Tópico | Pai | Filhos | Status |
 |---|---|---|---|---|
 | informatica | Informática | - | fundamentos, informatica-basica, aprender-informatica, hardware, software, sistemas-operacionais, internet-redes, seguranca-digital, dados-backup, manutencao-diagnostico, empresas, carreira-formacao, glossario | active |
-| fundamentos | Fundamentos | informatica | - | candidate |
-| informatica-basica | Informática básica | informatica | - | candidate |
-| aprender-informatica | Como aprender informática | informatica | - | candidate |
+| fundamentos | Fundamentos | informatica | o-que-e-informatica, informatica-basica, aprender-informatica | active |
+| o-que-e-informatica | O que é informática | fundamentos | - | approved_for_9b |
+| informatica-basica | Informática básica | fundamentos | - | approved_for_9b |
+| aprender-informatica | Como aprender informática | fundamentos | - | approved_for_9b |
 | hardware | Hardware | informatica | - | active_partial |
 | software | Software | informatica | - | active_partial |
 | sistemas-operacionais | Sistemas operacionais | informatica | windows, linux | active_partial |
@@ -45,9 +46,9 @@
 
 | Tópico | Intenção principal | Owner URL | Decisão | Status | Pai | Notas |
 |---|---|---|---|---|---|---|
-| o-que-e-informatica | DEFINITION | NOVO | NEW_CONTENT | candidate | fundamentos | Nenhuma URL atual responde diretamente "o que é informática". Os posts existentes assumem que o leitor já sabe. |
-| informatica-basica | DEFINITION/LEARNING | NOVO | NEW_CONTENT | candidate | fundamentos | Volume de "informática básica" (~12.100) e "informática básica curso" (~5.400). Nenhum post atual assume esse ângulo. |
-| como-aprender-informatica | LEARNING | NOVO | NEW_CONTENT | candidate | fundamentos | Família "como aprender informática" é forte; nenhum post atual organiza um plano de estudo. |
+| o-que-e-informatica | DEFINITION | /blog/o-que-e-informatica | NEW_CONTENT | approved_for_9b | fundamentos | Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/o-que-e-informatica.md |
+| informatica-basica | DEFINITION/LEARNING | /blog/informatica-basica | NEW_CONTENT | approved_for_9b | fundamentos | Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/informatica-basica.md |
+| como-aprender-informatica | LEARNING | /blog/como-aprender-informatica | NEW_CONTENT | approved_for_9b | fundamentos | Briefing aprovado para Rodada 9B. Ver docs/briefings/rodada-9b/como-aprender-informatica.md |
 | computador-lento-causas-solucoes | DIAGNOSTIC/HOW_TO | /blog/computador-lento-causas-solucoes | EXISTING_OWNER | approved | manutencao-diagnostico | Aprovado. Cluster /problemas/computador-lento pode linkar para cá como aprofundamento. |
 | como-melhorar-sinal-wifi-em-casa | HOW_TO | /blog/como-melhorar-sinal-wifi-em-casa | EXISTING_OWNER | approved | internet-redes | Aprovado. Cluster /problemas/wifi-instavel é local; este é nacional. |
 | quando-trocar-hd-por-ssd | COMPARISON | /blog/quando-trocar-hd-por-ssd | EXISTING_OWNER | approved | hardware | Aprovado. |
@@ -67,6 +68,14 @@ Risco: MEDIUM.
 | /problemas | local_diagnostic_hub | LOCAL_COMMERCIAL |
 | /servicos | service_catalog | LOCAL_COMMERCIAL |
 | /atendimento | conversion | LOCAL_COMMERCIAL |
+
+## Rodada 9B — Pilares aprovados
+
+1. **/blog/o-que-e-informatica** — DEFINITION
+2. **/blog/informatica-basica** — DEFINITION/LEARNING
+3. **/blog/como-aprender-informatica** — LEARNING
+
+Briefings disponíveis em `docs/briefings/rodada-9b/`.
 
 ---
 Nota: este mapa é a fonte central de decisões da autoridade nacional. Não criar páginas sem uma decisão aqui registrada.

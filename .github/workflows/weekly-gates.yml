@@ -34,9 +34,9 @@ jobs:
       - name: Canibalização (P0)
         run: npm run check:cannibalization
       - name: Política local central (Rodada 5)
-        run: npm run build && npm run check:local-index-policy
+        run: node scripts/with-ssr-server.mjs npm run check:local-index-policy
       - name: Antidoorway local (metadata/template únicos)
-        run: npm run check:local-doorway
+        run: node scripts/with-ssr-server.mjs npm run check:local-doorway
       - name: Relatório de risco de doorway (CSV/HTML)
         run: npm run report:local-doorway
       - name: Upload dos relatórios locais
@@ -110,7 +110,7 @@ jobs:
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity
       - name: Interlinking local (mãe ⇄ bairros/cidades)
-        run: npm run check:local-interlinking
+        run: node scripts/with-ssr-server.mjs npm run check:local-interlinking
 
       - name: Relatório semanal consolidado (SEO + governança)
         if: always()

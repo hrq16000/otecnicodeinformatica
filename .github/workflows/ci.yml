@@ -104,7 +104,7 @@ jobs:
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity
       - name: Interlinking local gate (mãe ⇄ bairros/cidades)
-        run: npm run check:local-interlinking
+        run: node scripts/with-ssr-server.mjs npm run check:local-interlinking
       - name: E-E-A-T coverage gate
         run: npm run check:eeat
       # Gate de indexação: serve o build e valida status, content-type,

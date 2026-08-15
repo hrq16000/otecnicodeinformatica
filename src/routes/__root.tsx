@@ -17,7 +17,6 @@ import { GeoAutoDetect } from "@/components/GeoAutoDetect";
 import { InstitutionalJsonLd } from "@/components/InstitutionalJsonLd";
 import {
   JsonLdCollectorContext,
-  JsonLdSsrSink,
   createJsonLdCollector,
 } from "@/lib/jsonLdSsr";
 import { PageViewTracker } from "@/components/PageViewTracker";
@@ -177,8 +176,6 @@ function RootComponent() {
             <RouteTransition routeKey={pathname}>
               <Suspense fallback={<RouteLoader />}>
                 <Outlet />
-                {/* Sink renderizado após o Outlet: já enxerga os slots da rota. */}
-                <JsonLdSsrSink />
               </Suspense>
             </RouteTransition>
           </JsonLdCollectorContext.Provider>

@@ -1931,3 +1931,13 @@ html[data-reduced-motion="true"] *::after {
   .prose table th,
   .prose table td { white-space: normal; min-width: 8rem; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   ÂNCORAS DO ÍNDICE — respeito estrito a prefers-reduced-motion.
+   O seletor global `html[...] *` não alcança o próprio <html>, então
+   o scroll-behavior precisa ser desligado explicitamente aqui.
+   ══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+html[data-reduced-motion="true"] { scroll-behavior: auto !important; }

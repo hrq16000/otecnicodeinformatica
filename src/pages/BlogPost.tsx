@@ -336,7 +336,8 @@ const BlogPost = () => {
               </AspectRatio>
             </div>
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
-              {post.content}
+              {toc.render && <ArticleToc headings={toc.headings} />}
+              {toc.content}
 
               {post.category === "CFTV" && (
                 <div className="not-prose mt-12 bg-primary/5 rounded-xl p-6 border border-primary/10">

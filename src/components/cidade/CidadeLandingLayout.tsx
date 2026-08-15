@@ -46,6 +46,12 @@ export const CidadeLandingLayout = ({ data }: { data: CidadeData }) => {
     description: data.metaDescription,
     url: absoluteUrl(path),
     telephone: siteConfig.phoneE164,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: data.cidade,
+      addressRegion: siteConfig.region,
+      addressCountry: siteConfig.country,
+    },
     areaServed: {
       "@type": "City",
       name: data.areaName,

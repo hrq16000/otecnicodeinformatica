@@ -76,7 +76,15 @@ export function useLocation() {
 // ---------- useParams ----------
 
 export function useParams<T extends Record<string, string | undefined> = Record<string, string | undefined>>(): T {
-  return tsParams({ strict: false } as never) as T;
+  const raw = tsParams({ strict: false } as never) as Record<string, string | undefined>;
+  // Rotas não aninhadas usam segmentos como `$servico_`; o parâmetro chega com
+  // o sublinhado final e quebrava páginas que leem `servico`. Expomos as duas
+  // grafias para manter compatibilidade com o código legado.
+  const normalized: Record<string, string | undefined> = { ...raw };
+  for (const [key, value] of Object.entries(raw)) {
+    if (key.endsWith("_")) normalized[key.slice(0, -1)] = value;
+  }
+  return normalized as T;
 }
 
 

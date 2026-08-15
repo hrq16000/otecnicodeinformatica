@@ -35,6 +35,8 @@ export interface ServicoCuritibaPagina {
   description: string;
   h1: string;
   subtitulo: string;
+  /** MICRO-RODADA LOCAL 1.2 — abertura autoral (primeira dobra) por intenção. */
+  intro?: string[];
   blocos: BlocoLocal[];
   faq: FaqLocal[];
   interlinks: string[];

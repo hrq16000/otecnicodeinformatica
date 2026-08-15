@@ -47,6 +47,8 @@ const GscPanel = () => {
   const [snap, setSnap] = useState<GscSnapshot | null>(null);
   const [auditoria, setAuditoria] = useState<Auditoria | null>(null);
   const [loading, setLoading] = useState(false);
+  const [paginaSel, setPaginaSel] = useState<string | null>(null);
+
 
   const carregar = useCallback(
     async (periodo: number) => {

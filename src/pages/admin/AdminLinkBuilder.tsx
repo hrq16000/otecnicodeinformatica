@@ -82,7 +82,7 @@ const AdminLinkBuilder = () => {
 
   const copiar = async () => {
     if (!resultado.ok) return;
-    await navigator.clipboard.writeText(resultado.url);
+    await navigator.clipboard.writeText(resultado.url ?? "");
     toast.success("Link copiado");
   };
 

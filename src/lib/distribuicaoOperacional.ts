@@ -68,7 +68,7 @@ export function matrizOperacional(base?: string): LinhaDistribuicao[] {
       tema: l.pauta.tema,
       landing: l.pauta.landing,
       intent: l.pauta.intent,
-      url: l.ok ? l.url : null,
+      url: l.ok ? (l.url ?? null) : null,
       status: l.ok ? status : "BLOCKED",
       publishedAt: reg?.published_at ?? null,
       motivo: l.ok ? motivo : (l.erro ?? "Link inválido."),

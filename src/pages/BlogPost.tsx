@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, Link, Navigate } from "@/lib/router-compat";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "@tanstack/react-router";
@@ -28,6 +28,8 @@ import {
   EDITORIAL_PUBLISHER,
 } from "@/lib/blogEditorialRegistry";
 import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
+import { buildArticleToc, shouldRenderToc } from "@/lib/articleToc";
+import { ArticleToc } from "@/components/editorial/ArticleToc";
 import NotFound from "./NotFound";
 
 type PostsMap = Record<string, BlogPostContent>;
@@ -98,6 +100,14 @@ const BlogPost = () => {
   const heroImageOg = withOgVersion(heroImage);
 
   // Compute word count from content (rough estimate via readTime)
+  // Índice do artigo: derivado dos headings reais durante o render
+  // (determinístico, idêntico no SSR e no cliente).
+  const toc = useMemo(() => {
+    if (!post?.content) return { content: post?.content ?? null, headings: [], render: false };
+    const r = buildArticleToc(post.content);
+    return { ...r, render: shouldRenderToc(r.headings) };
+  }, [post]);
+
   const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
 
   // Structured data governado pelo registro editorial fail-closed.
@@ -336,7 +346,8 @@ const BlogPost = () => {
               </AspectRatio>
             </div>
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
-              {post.content}
+              {toc.render && <ArticleToc headings={toc.headings} />}
+              {toc.content}
 
               {post.category === "CFTV" && (
                 <div className="not-prose mt-12 bg-primary/5 rounded-xl p-6 border border-primary/10">

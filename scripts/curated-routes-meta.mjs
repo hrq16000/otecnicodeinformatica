@@ -126,7 +126,7 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/conserto-monitor",
     "title": "Conserto de Monitor em Curitiba | Bancada, Coleta e Entrega",
-    "description": "Conserto de monitor em Curitiba: avaliação em bancada, reparo de fonte, placa e backlight quando viável, coleta e entrega. Não fazemos troca de painel — critério informado antes."
+    "description": "Conserto de monitor em Curitiba: avaliação em bancada, reparo de fonte, placa e backlight quando viável, coleta e entrega."
   },
   {
     "path": "/servicos/pc-gamer",
@@ -359,7 +359,7 @@ const BASE_ROUTES = [
   {
     "path": "/como-funciona",
     "title": "Como Funciona o Atendimento | O Técnico de Informática",
-    "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
+    "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia.",
     "blocos": [
       {
         "titulo": "1. Triagem inicial pelo WhatsApp",

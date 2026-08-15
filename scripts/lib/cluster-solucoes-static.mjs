@@ -8,7 +8,7 @@
 export const CLUSTER_SOLUCOES_ROUTES = [
   {
     "path": "/solucoes",
-    "title": "Soluções técnicas: diagnóstico, formatação, SSD, backup e dados | O Técnico de Informática",
+    "title": "Soluções técnicas: diagnóstico, formatação, SSD, backup e dados",
     "description": "Entre pelo procedimento: diagnóstico, formatação, troca por SSD, backup e recuperação de dados. Cada página mostra etapas reais, o que evitar e a modalidade indicada.",
     "h1": "Escolha o procedimento e veja como ele é executado",
     "subtitulo": "Sintoma parecido nem sempre pede o mesmo serviço: cada página descreve o procedimento pela ordem real de execução, o que evitar antes e a modalidade indicada.",
@@ -55,7 +55,7 @@ export const CLUSTER_SOLUCOES_ROUTES = [
   },
   {
     "path": "/solucoes/diagnostico",
-    "title": "Diagnóstico técnico de computador e notebook | O Técnico de Informática",
+    "title": "Diagnóstico técnico de computador e notebook",
     "description": "Diagnóstico técnico que separa software, energia, armazenamento e temperatura antes de indicar peça. Veja as etapas, o que é medido e como o orçamento é apresentado.",
     "h1": "Diagnóstico técnico: descobrir a causa antes de trocar qualquer peça",
     "subtitulo": "Diagnóstico não é abrir o equipamento e olhar. É uma sequência de testes que elimina hipóteses na ordem certa — energia, armazenamento, memória, temperatura e sistema — até sobrar a causa real. Sem essa etapa, qualquer orçamento é chute, e chute custa peça trocada à toa.",
@@ -113,8 +113,8 @@ export const CLUSTER_SOLUCOES_ROUTES = [
   },
   {
     "path": "/solucoes/formatacao",
-    "title": "Formatação e reinstalação de Windows com backup | O Técnico de Informática",
-    "description": "Formatação feita na ordem correta: backup conferido, sistema limpo, drivers corretos e programas de trabalho restaurados. Veja etapas, riscos e quando formatar não resolve.",
+    "title": "Formatação e reinstalação de Windows com backup",
+    "description": "Formatação feita na ordem correta: backup conferido, sistema limpo, drivers corretos e programas de trabalho restaurados.",
     "h1": "Formatação e reinstalação de sistema sem perder o que importa",
     "subtitulo": "Formatar resolve sistema corrompido, infecção persistente e acúmulo de anos de instalação — mas não conserta disco em falha nem memória defeituosa. Por isso a formatação só entra depois do diagnóstico, e sempre com backup conferido antes de qualquer apagamento.",
     "blocos": [

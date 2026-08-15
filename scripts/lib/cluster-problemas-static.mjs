@@ -8,9 +8,9 @@
 export const CLUSTER_PROBLEMAS_ROUTES = [
   {
     path: "/problemas",
-    title: "Problemas comuns de computador, rede e dados | O Técnico de Informática",
+    title: "Problemas comuns de computador, rede e dados",
     description:
-      "Entre pelo sintoma: computador lento, notebook que não liga, Wi-Fi caindo, tela azul ou arquivos apagados. Cada página explica causas, o que checar e o atendimento indicado.",
+      "Entre pelo sintoma: computador lento, notebook que não liga, Wi-Fi caindo, tela azul ou arquivos apagados.",
     h1: "Comece pelo que está acontecendo",
     subtitulo:
       "Você não precisa saber o nome técnico da falha: escolha o sintoma mais parecido com o seu caso e veja causas, checagens e modalidade indicada.",
@@ -40,7 +40,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/wifi-instavel",
-    title: "Wi-Fi caindo ou lento: causas e o que checar | O Técnico de Informática",
+    title: "Wi-Fi caindo ou lento: causas e o que checar",
     description:
       "Wi-Fi que cai, fica lento em alguns cômodos ou desconecta sozinho quase nunca é problema do plano. Veja as causas reais, o que testar antes e quando chamar técnico.",
     h1: "Wi-Fi caindo ou lento em parte da casa ou do escritório",
@@ -72,7 +72,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/tela-azul",
-    title: "Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática",
+    title: "Tela azul no Windows: causas, o que anotar e como resolver",
     description:
       "Tela azul travando o computador? O código do erro aponta a origem: memória, driver, disco ou energia. Veja o que anotar antes de reiniciar e quando o reparo compensa.",
     h1: "Tela azul no Windows: o que o erro está dizendo",
@@ -104,9 +104,9 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/arquivos-apagados",
-    title: "Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática",
+    title: "Arquivos apagados ou HD que não abre: primeiros passos",
     description:
-      "Apagou arquivos, formatou por engano ou o HD parou de abrir? O que você faz na primeira hora define a chance de recuperação. Veja o que evitar e como funciona a avaliação.",
+      "Apagou arquivos, formatou por engano ou o HD parou de abrir? O que você faz na primeira hora define a chance de recuperação.",
     h1: "Arquivos apagados ou disco que não abre: o que fazer agora",
     subtitulo:
       "Arquivo apagado costuma continuar no disco até ser sobrescrito — por isso a primeira hora vale mais que qualquer programa de recuperação.",
@@ -136,7 +136,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/computador-desliga-sozinho",
-    title: "Computador desliga sozinho: causas e o que checar | O Técnico de Informática",
+    title: "Computador desliga sozinho: causas e o que checar",
     description:
       "Desligamento súbito quase sempre é temperatura, fonte ou alimentação — raramente vírus. Veja como identificar a causa, o que testar antes e quando parar de usar.",
     h1: "Computador desligando sozinho ou reiniciando do nada",
@@ -200,9 +200,9 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/hd-fazendo-barulho",
-    title: "HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática",
+    title: "HD fazendo barulho: clique, estalo e risco de perder dados",
     description:
-      "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente. Entenda cada ruído, o que fazer imediatamente e o que destrói a chance de recuperar os arquivos.",
+      "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente.",
     h1: "HD fazendo barulho: clique, estalo ou zumbido no disco",
     subtitulo:
       "Ruído novo no disco muda a ordem das prioridades: antes de qualquer reparo vem a cópia dos dados.",
@@ -232,7 +232,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/notebook-molhado",
-    title: "Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática",
+    title: "Notebook molhado com água ou café: o que fazer agora",
     description:
       "Derramou líquido no notebook? Os primeiros minutos decidem o custo do reparo. Veja o que desligar, o que nunca fazer (arroz e secador) e quando o caso é de bancada.",
     h1: "Notebook molhado: o que fazer nos primeiros minutos",
@@ -264,7 +264,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/computador-nao-da-imagem",
-    title: "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
+    title: "Computador liga e não dá imagem: causas e o que testar",
     description:
       "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
     h1: "Computador liga mas não aparece imagem no monitor",
@@ -296,7 +296,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/cheiro-de-queimado",
-    title: "Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática",
+    title: "Cheiro de queimado no computador: o que fazer imediatamente",
     description:
       "Cheiro de queimado vindo do gabinete, da fonte ou do carregador é sinal elétrico e urgente. Veja o que desligar agora, o que nunca fazer e como o diagnóstico é conduzido.",
     h1: "Cheiro de queimado no computador, fonte ou carregador",
@@ -328,9 +328,9 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/windows-nao-inicia",
-    title: "Windows não inicia: causas, o que anotar e como resolver | O Técnico de Informática",
+    title: "Windows não inicia: causas, o que anotar e como resolver",
     description:
-      "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização. Veja o que checar.",
+      "Windows que trava no logotipo, entra em reparo automático ou reinicia em loop tem causas separáveis: inicialização, disco, sistema de arquivos ou atualização.",
     h1: "Windows não inicia: para em logotipo, reinicia em loop ou pede reparo",
     subtitulo:
       "O hardware costuma estar vivo: o que falhou está entre a partida do disco e a carga do sistema.",
@@ -360,9 +360,9 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/computador-esquentando",
-    title: "Computador esquentando muito: causas e o que fazer | O Técnico de Informática",
+    title: "Computador esquentando muito: causas e o que fazer",
     description:
-      "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico. Veja as causas, o que medir antes e qual manutenção resolve.",
+      "Ventoinha acelerada, base do notebook quente e queda de desempenho em jogos ou vídeo indicam problema térmico.",
     h1: "Computador ou notebook esquentando demais",
     subtitulo:
       "Todo equipamento aquece: o problema começa quando o próprio processador reduz a velocidade para se proteger.",
@@ -392,9 +392,9 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/impressora-nao-imprime",
-    title: "Impressora não imprime: causas e o que checar | O Técnico de Informática",
+    title: "Impressora não imprime: causas e o que checar",
     description:
-      "Documento fica na fila, a impressora aparece offline ou sai página em branco? Veja o que separa falha de rede, driver e cabeça de impressão — e o que testar antes de chamar técnico.",
+      "Documento fica na fila, a impressora aparece offline ou sai página em branco?",
     h1: "Impressora não imprime mesmo aparecendo conectada",
     subtitulo:
       "Na maior parte dos casos o equipamento está bom: o que falha é o caminho entre o computador e ele.",
@@ -424,7 +424,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
   },
   {
     path: "/problemas/teclado-notebook-nao-funciona",
-    title: "Teclado do notebook não funciona: causas e o que testar | O Técnico de Informática",
+    title: "Teclado do notebook não funciona: causas e o que testar",
     description:
       "Teclas que não respondem, letra repetida ou teclado morto depois de líquido? Veja como separar falha de software, flat solto e dano físico antes de trocar a peça.",
     h1: "Teclado do notebook não funciona ou falha algumas teclas",

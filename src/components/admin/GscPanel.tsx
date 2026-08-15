@@ -6,7 +6,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getGscSnapshot, type GscSnapshot } from "@/lib/gsc.functions";
-import { exportarCsv } from "@/lib/exportarRelatorio";
+import { exportarCsv, exportarPdf } from "@/lib/exportarRelatorio";
+import GscUrlDrilldown from "@/components/admin/GscUrlDrilldown";
+
 
 /**
  * SEARCH CONSOLE (performance real do site) + alertas da auditoria de SEO.

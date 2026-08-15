@@ -533,11 +533,12 @@ const WAVE_9B: EditorialApproval[] = [
     authorId: INSTITUTIONAL_AUTHOR.id,
     reviewedAt: "2026-08-15",
     approvedAt: "2026-08-15",
-    imageOrigin: "generated",
-    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
-    imageAttribution: "O Técnico de Informática",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 2.0",
+    imageAttribution:
+      "Foto: 褒忠國中 雲端網 (Wikimedia Commons), CC BY 2.0 — https://commons.wikimedia.org/wiki/File:Acer_desktop_computers_in_computer_classroom_of_Baozhong_Junior_High_School_20121009.jpg",
     notes:
-      "Pilar nacional DEFINITION escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+      "Pilar nacional DEFINITION escrito do zero na Rodada 9B; capa é fotografia real licenciada (CC BY 2.0), sem IA.",
   },
   {
     slug: "informatica-basica",
@@ -546,11 +547,12 @@ const WAVE_9B: EditorialApproval[] = [
     authorId: INSTITUTIONAL_AUTHOR.id,
     reviewedAt: "2026-08-15",
     approvedAt: "2026-08-15",
-    imageOrigin: "generated",
-    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
-    imageAttribution: "O Técnico de Informática",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 2.0",
+    imageAttribution:
+      "Foto: woodleywonderworks (Wikimedia Commons), CC BY 2.0 — https://commons.wikimedia.org/wiki/File:Student_on_computer.jpg",
     notes:
-      "Pilar nacional DEFINITION/LEARNING escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+      "Pilar nacional DEFINITION/LEARNING escrito do zero na Rodada 9B; capa é fotografia real licenciada (CC BY 2.0), sem IA.",
   },
   {
     slug: "como-aprender-informatica",
@@ -559,11 +561,12 @@ const WAVE_9B: EditorialApproval[] = [
     authorId: INSTITUTIONAL_AUTHOR.id,
     reviewedAt: "2026-08-15",
     approvedAt: "2026-08-15",
-    imageOrigin: "generated",
-    imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
-    imageAttribution: "O Técnico de Informática",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 2.0",
+    imageAttribution:
+      "Foto: Michael Surran (Wikimedia Commons), CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Students_working_on_class_assignment_in_computer_lab.jpg",
     notes:
-      "Pilar nacional LEARNING/COURSE escrito do zero na Rodada 9B; capa provisória gerada, a ser substituída por fotografia real licenciada antes da próxima rodada.",
+      "Pilar nacional LEARNING/COURSE escrito do zero na Rodada 9B; capa é fotografia real licenciada (CC BY-SA 2.0), sem IA.",
   },
 ];
 

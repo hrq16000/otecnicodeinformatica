@@ -59,6 +59,90 @@ const CATEGORY_EXTRA: Record<string, FAQItem[]> = {
 // categoria (que contêm valores comerciais).
 // ─────────────────────────────────────────────────────────────
 const PILOT_FAQ: Record<string, FAQItem[]> = {
+  // ── Rodada 9B — pilares nacionais (conteúdo educacional, sem preço,
+  // sem localidade e sem promessa comercial).
+  "o-que-e-informatica": [
+    {
+      q: "Informática e computação são a mesma coisa?",
+      a: "Não exatamente. Computação enfatiza a base científica — algoritmos, teoria e construção de sistemas. Informática é usada com mais frequência para o campo aplicado: usar, configurar, manter e ensinar tecnologia. Na prática, os dois termos têm fronteiras variáveis conforme o contexto.",
+    },
+    {
+      q: "Quem trabalha com informática faz o quê?",
+      a: "Depende da trilha. Suporte atende usuários e resolve problemas de hardware, software e rede; infraestrutura cuida de servidores e backups; desenvolvimento escreve software; segurança protege sistemas e dados; a área de dados organiza e interpreta informação. Todas partem dos mesmos fundamentos.",
+    },
+    {
+      q: "Informática básica ensina o quê?",
+      a: "Ensina o uso seguro e produtivo do computador: sistema operacional, arquivos e pastas, internet, e-mail, editor de texto, planilhas, impressão, segurança digital e backup. Programação não faz parte desse escopo.",
+    },
+    {
+      q: "Preciso saber programação para entender informática?",
+      a: "Não. Programação é uma das áreas da informática, não o requisito de entrada. É possível dominar hardware, redes, suporte e segurança sem escrever código, embora noções de lógica ajudem em qualquer trilha.",
+    },
+    {
+      q: "Qual é a diferença entre informática e tecnologia?",
+      a: "Tecnologia é qualquer aplicação de conhecimento para resolver problemas, incluindo áreas sem relação com computadores. Informática é o recorte que trata do processamento automático da informação. Toda informática é tecnologia; nem toda tecnologia é informática.",
+    },
+  ],
+
+  "informatica-basica": [
+    {
+      q: "Informática básica dá emprego?",
+      a: "Costuma ser pré-requisito e não especialização. Somada a outra competência — administração, atendimento, vendas — amplia as possibilidades. Para cargos técnicos é necessário aprofundar em suporte, redes, segurança ou desenvolvimento.",
+    },
+    {
+      q: "Preciso saber inglês para aprender informática básica?",
+      a: "Não. Todos os conceitos fundamentais podem ser aprendidos em português. O inglês ajuda depois, para ler documentação oficial e termos técnicos, mas não é obrigatório no nível básico.",
+    },
+    {
+      q: "Curso presencial ou on-line de informática básica?",
+      a: "Os dois funcionam. O presencial oferece acompanhamento próximo e correção imediata; o on-line é mais flexível. Quem ainda tem insegurança com o equipamento tende a avançar mais rápido com acompanhamento presencial.",
+    },
+    {
+      q: "Informática básica inclui programação?",
+      a: "Não. O escopo básico pode explicar o que é programação, mas não ensina a programar. Quem quer seguir por esse caminho procura conteúdos específicos de lógica e linguagens.",
+    },
+    {
+      q: "Quanto tempo leva para aprender informática básica?",
+      a: "Com prática regular, algumas semanas costumam bastar para autonomia no uso cotidiano. O tempo varia com a frequência de estudo e com a familiaridade prévia com o equipamento; não existe prazo único.",
+    },
+    {
+      q: "O que colocar no currículo?",
+      a: "Descreva o que você sabe executar, não um rótulo genérico. Exemplos: edição de documentos, planilhas com fórmulas simples, e-mail corporativo, organização de arquivos, videoconferência e uso de serviços de nuvem.",
+    },
+  ],
+
+  "como-aprender-informatica": [
+    {
+      q: "Posso aprender informática sozinho?",
+      a: "Sim. A área tem documentação oficial gratuita e permite praticar no próprio computador. Estudar sozinho exige mais disciplina e um roteiro claro — sem isso, é comum pular fundamentos e travar mais adiante.",
+    },
+    {
+      q: "Preciso de um computador potente para começar?",
+      a: "Não. Qualquer computador que ligue, abra o navegador e um editor de texto permite cobrir todas as fases iniciais. Equipamento mais potente só se torna relevante em trilhas específicas, como edição de vídeo ou virtualização.",
+    },
+    {
+      q: "Inglês é obrigatório para aprender informática?",
+      a: "Não para começar. Há material oficial em português suficiente para os fundamentos. O inglês passa a fazer diferença em documentação técnica avançada e certificações.",
+    },
+    {
+      q: "Qual curso fazer primeiro?",
+      a: "O que cobrir fundamentos: uso do sistema operacional, arquivos, internet, e-mail, texto e planilha. Especializações fazem sentido depois que essa base está firme.",
+    },
+    {
+      q: "Quanto tempo demora para aprender informática?",
+      a: "Para uso cotidiano com autonomia, algumas semanas de prática regular costumam bastar. Para atuação profissional, o aprendizado é contínuo. Promessas de domínio total em prazo fixo não se sustentam.",
+    },
+    {
+      q: "É tarde para começar?",
+      a: "Não existe idade limite para aprender a usar tecnologia. O que muda é o método: mais repetição, anotações e foco no uso real que interessa a cada pessoa.",
+    },
+    {
+      q: "Preciso aprender programação?",
+      a: "Só se a trilha escolhida exigir. Suporte, infraestrutura, redes e segurança funcionam com pouca ou nenhuma programação, ainda que automação básica seja um diferencial crescente.",
+    },
+  ],
+
+
   // ── Cluster piloto de formatação (Rodada 8E/8F) ──────────────
   // O guia informacional responde "como fazer sem perder nada".
   // Nenhuma pergunta aqui repete as do guia comercial de custo.

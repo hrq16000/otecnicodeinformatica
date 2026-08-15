@@ -9,6 +9,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminRoles } from "@/hooks/useAdminRoles";
 import { exportarCsv, exportarJson } from "@/lib/exportarRelatorio";
+import GscPanel from "@/components/admin/GscPanel";
+import SegmentacaoGeoPanel from "@/components/admin/SegmentacaoGeoPanel";
+
 
 /**
  * PERFORMANCE LOCAL POR ROTA DE PROBLEMA (Onda 30 + tendências da Onda 31).

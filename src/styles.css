@@ -1917,3 +1917,17 @@ html[data-reduced-motion="true"] *::after {
   .article-toc__summary { display: none; }
   .article-toc__list { display: block; }
 }
+
+/* Tabelas editoriais: rolagem horizontal em telas pequenas, sem corte
+   e sem fonte microscópica (Rodada 9B.1 — Fase 14). */
+@media (max-width: 640px) {
+  .prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.9rem;
+  }
+  .prose table th,
+  .prose table td { white-space: normal; min-width: 8rem; }
+}

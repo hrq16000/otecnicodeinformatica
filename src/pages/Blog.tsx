@@ -44,6 +44,13 @@ const INSTITUTIONAL_LINKS = [
   { to: "/contato", label: "Contato", icon: MessageCircle, desc: "Fale conosco ou solicite uma correção editorial." },
 ];
 
+/** Pilares nacionais de fundamentos (Rodada 9B) — exibidos só se aprovados. */
+const FUNDAMENTOS = [
+  { slug: "o-que-e-informatica", label: "O que é informática", desc: "Definição, escopo e diferença para computação e TI." },
+  { slug: "informatica-basica", label: "Informática básica", desc: "O que se aprende no primeiro nível e por onde começar." },
+  { slug: "como-aprender-informatica", label: "Como aprender informática", desc: "Roteiro de estudo em quatro fases, com cronograma." },
+];
+
 const Blog = () => {
   const approvedSlugs = getApprovedSlugs();
   const hasApproved = approvedSlugs.length > 0;
@@ -167,6 +174,31 @@ const Blog = () => {
             ) : (
               <AnimatedSection>
                 <div className="max-w-4xl mx-auto">
+                  {/* Fundamentos: porta de entrada dos três pilares nacionais (9B). */}
+                  {FUNDAMENTOS.some((f) => approvedSlugs.includes(f.slug)) && (
+                    <div className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+                      <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground">
+                        Fundamentos de informática
+                      </h2>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Comece por aqui se você quer entender a área antes de resolver um problema específico.
+                      </p>
+                      <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                        {FUNDAMENTOS.filter((f) => approvedSlugs.includes(f.slug)).map((f) => (
+                          <li key={f.slug}>
+                            <Link
+                              to={`/blog/${f.slug}`}
+                              className="block h-full rounded-xl border border-border p-4 hover:border-accent/40 transition-colors"
+                            >
+                              <span className="block font-semibold text-foreground">{f.label}</span>
+                              <span className="mt-1 block text-sm text-muted-foreground">{f.desc}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center">
                     Guias publicados
                   </h2>

@@ -97,6 +97,36 @@ cobramos execução que não tenha sido aprovada.
 - [Impressora não imprime: causas e o que checar](https://otecnicodeinformatica.com.br/problemas/impressora-nao-imprime)
 - [Teclado do notebook não funciona: causas e o que testar](https://otecnicodeinformatica.com.br/problemas/teclado-notebook-nao-funciona)
 
+## Guias editoriais
+
+- [como-instalar-windows-11-do-zero](https://otecnicodeinformatica.com.br/blog/como-instalar-windows-11-do-zero)
+- [como-resolver-tela-azul-windows](https://otecnicodeinformatica.com.br/blog/como-resolver-tela-azul-windows)
+- [como-trocar-tela-notebook-passo-a-passo](https://otecnicodeinformatica.com.br/blog/como-trocar-tela-notebook-passo-a-passo)
+- [notebook-nao-liga-o-que-fazer](https://otecnicodeinformatica.com.br/blog/notebook-nao-liga-o-que-fazer)
+- [computador-lento-causas-solucoes](https://otecnicodeinformatica.com.br/blog/computador-lento-causas-solucoes)
+- [como-recuperar-dados-hd-com-defeito](https://otecnicodeinformatica.com.br/blog/como-recuperar-dados-hd-com-defeito)
+- [como-fazer-upgrade-ssd-nvme](https://otecnicodeinformatica.com.br/blog/como-fazer-upgrade-ssd-nvme)
+- [como-configurar-roteador-wifi-iniciantes](https://otecnicodeinformatica.com.br/blog/como-configurar-roteador-wifi-iniciantes)
+- [como-saber-quem-esta-usando-meu-wifi](https://otecnicodeinformatica.com.br/blog/como-saber-quem-esta-usando-meu-wifi)
+- [como-escolher-um-bom-antivirus](https://otecnicodeinformatica.com.br/blog/como-escolher-um-bom-antivirus)
+- [como-proteger-computador-golpes-internet](https://otecnicodeinformatica.com.br/blog/como-proteger-computador-golpes-internet)
+- [como-limpar-notebook-por-dentro](https://otecnicodeinformatica.com.br/blog/como-limpar-notebook-por-dentro)
+- [como-trocar-pasta-termica-notebook](https://otecnicodeinformatica.com.br/blog/como-trocar-pasta-termica-notebook)
+- [como-clonar-hd-para-ssd](https://otecnicodeinformatica.com.br/blog/como-clonar-hd-para-ssd)
+- [como-instalar-segundo-ssd-notebook](https://otecnicodeinformatica.com.br/blog/como-instalar-segundo-ssd-notebook)
+- [ransomware-como-proteger-empresa](https://otecnicodeinformatica.com.br/blog/ransomware-como-proteger-empresa)
+- [backup-nuvem-empresas-qual-escolher](https://otecnicodeinformatica.com.br/blog/backup-nuvem-empresas-qual-escolher)
+- [como-instalar-impressora-windows-passo-a-passo](https://otecnicodeinformatica.com.br/blog/como-instalar-impressora-windows-passo-a-passo)
+- [como-conectar-wifi-tv-nao-conecta](https://otecnicodeinformatica.com.br/blog/como-conectar-wifi-tv-nao-conecta)
+- [como-testar-fonte-de-alimentacao-pc](https://otecnicodeinformatica.com.br/blog/como-testar-fonte-de-alimentacao-pc)
+- [como-diagnosticar-placa-mae-defeituosa](https://otecnicodeinformatica.com.br/blog/como-diagnosticar-placa-mae-defeituosa)
+- [windows-11-lento-como-resolver](https://otecnicodeinformatica.com.br/blog/windows-11-lento-como-resolver)
+- [como-remover-virus-windows-iniciantes](https://otecnicodeinformatica.com.br/blog/como-remover-virus-windows-iniciantes)
+- [como-formatar-pc-sem-perder-arquivos](https://otecnicodeinformatica.com.br/blog/como-formatar-pc-sem-perder-arquivos)
+- [o-que-e-informatica](https://otecnicodeinformatica.com.br/blog/o-que-e-informatica)
+- [informatica-basica](https://otecnicodeinformatica.com.br/blog/informatica-basica)
+- [como-aprender-informatica](https://otecnicodeinformatica.com.br/blog/como-aprender-informatica)
+
 ## Páginas institucionais e de política
 
 - [Anuncie e Patrocine | Mídia Kit do Técnico de Informática](https://otecnicodeinformatica.com.br/anuncie)

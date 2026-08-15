@@ -8,7 +8,7 @@
  *
  * Uso: node scripts/generate-llms.mjs
  */
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
@@ -41,6 +41,25 @@ const institucionais = pick(
     !p.startsWith("/problemas") &&
     !p.startsWith("/tecnico-informatica-"),
 );
+
+/**
+ * Guias editoriais nacionais aprovados (fail-closed): lidos do registro
+ * editorial, nunca escritos à mão. Só entra o que está `approved`.
+ */
+const editoriais = (() => {
+  try {
+    const reg = readFileSync(resolve("src/lib/blogEditorialRegistry.ts"), "utf8");
+    const out = [];
+    for (const m of reg.matchAll(/slug:\s*"([a-z0-9-]+)",([\s\S]{0,600}?)\n  \},/g)) {
+      if (!m[2].includes('status: "approved"')) continue;
+      const t = m[2].match(/title:\s*"([^"]+)"/);
+      out.push({ path: `/blog/${m[1]}`, title: t ? t[1] : m[1] });
+    }
+    return out;
+  } catch {
+    return [];
+  }
+})();
 
 const list = (arr) => arr.map((r) => `- [${r.title}](${abs(r.path)})`).join("\n");
 
@@ -114,6 +133,10 @@ ${list(bairros)}
 ## Problemas comuns
 
 ${list(problemas)}
+
+## Guias editoriais
+
+${editoriais.length ? list(editoriais) : "- (nenhum guia aprovado no registro editorial)"}
 
 ## Páginas institucionais e de política
 

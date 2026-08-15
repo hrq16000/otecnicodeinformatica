@@ -147,7 +147,7 @@ export async function prepararSsr(rotas, opcoes = {}) {
   const dist = opcoes.dist || estado.dist;
   estado.dist = dist;
   const alvo = [...new Set((rotas ?? []).map(normalizar))].sort();
-  const manifesto = lerManifesto(dist);
+  const manifesto = process.env.SSR_FORCE_REFRESH ? { geradoEm: 0, base: null, rotas: {} } : lerManifesto(dist);
   estado.manifesto = manifesto;
 
   const pendentes = alvo.filter((r) => {
@@ -195,6 +195,11 @@ export async function prepararSsr(rotas, opcoes = {}) {
     }
   }
 
+  // Se a fonte mudou enquanto renderizávamos (HMR em andamento), os snapshots
+  // podem conter conteúdo antigo: marcamos como inválidos para forçar novo render.
+  if (assinaturaFonte() !== ASSINATURA) {
+    for (const r of pendentes) if (manifesto.rotas[r]) manifesto.rotas[r].assinatura = -1;
+  }
   manifesto.geradoEm = Date.now();
   gravarManifesto(dist, manifesto);
   copiarEstaticos(dist);

@@ -1,7 +1,6 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
-import { upsertCanonical } from "@/lib/canonicalUrl";
 import { BRAND_NAME, BRAND_OG_PATH, SITE_BASE_URL } from "@/lib/siteConfig";
 import { INDEXING_ENABLED, robotsContent } from "@/lib/indexingPolicy";
 
@@ -9,7 +8,6 @@ const SITE_NAME = BRAND_NAME;
 // Vazio quando não há domínio configurado → URLs relativas, nunca o domínio herdado.
 const BASE_URL = SITE_BASE_URL;
 const DEFAULT_OG_IMAGE = `${SITE_BASE_URL}${BRAND_OG_PATH}`;
-
 
 interface BreadcrumbItem {
   name: string;
@@ -26,6 +24,12 @@ interface PageSEOProps {
   breadcrumbs?: BreadcrumbItem[];
 }
 
+/**
+ * Metadados da rota renderizados em JSX (React 19 içar para o <head>), o que
+ * garante presença no HTML do SSR — crawlers não dependem mais de JS.
+ * O `__root` não declara title/description/robots/og:title/og:description
+ * justamente para não duplicar o que esta camada emite por página.
+ */
 export const PageSEO = ({
   title,
   description,
@@ -35,44 +39,8 @@ export const PageSEO = ({
   noindex = false,
   breadcrumbs,
 }: PageSEOProps) => {
-
   const url = `${BASE_URL}${path}`;
   const versionedOg = withOgVersion(ogImage);
-
-  useEffect(() => {
-    document.title = title;
-    const upsertMeta = (selector: string, attrs: Record<string, string>) => {
-      let el = document.head.querySelector<HTMLMetaElement>(selector);
-      if (!el) {
-        el = document.createElement("meta");
-        document.head.appendChild(el);
-      }
-      Object.entries(attrs).forEach(([key, value]) => el!.setAttribute(key, value));
-    };
-
-    upsertMeta('meta[name="description"]', { name: "description", content: description });
-    upsertMeta('meta[property="og:type"]', { property: "og:type", content: ogType });
-    upsertMeta('meta[property="og:url"]', { property: "og:url", content: url });
-    upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: SITE_NAME });
-    upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: "pt_BR" });
-    upsertMeta('meta[property="og:title"]', { property: "og:title", content: title });
-    upsertMeta('meta[property="og:description"]', { property: "og:description", content: description });
-    upsertMeta('meta[property="og:image"]', { property: "og:image", content: versionedOg });
-    upsertMeta('meta[property="og:image:secure_url"]', { property: "og:image:secure_url", content: versionedOg });
-    upsertMeta('meta[property="og:image:width"]', { property: "og:image:width", content: "1200" });
-    upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: "630" });
-    upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
-    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
-    upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
-    upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: versionedOg });
-    // Canonical só é emitido quando existe domínio próprio publicável.
-    if (INDEXING_ENABLED) upsertCanonical(url);
-    upsertMeta('meta[name="robots"]', {
-      name: "robots",
-      content: robotsContent(noindex),
-    });
-
-  }, [description, noindex, ogType, title, url, versionedOg]);
 
   // BreadcrumbList: slot único e determinístico (chave estável `breadcrumb`).
   const breadcrumbSchema = useMemo(() => {
@@ -91,5 +59,35 @@ export const PageSEO = ({
   }, [breadcrumbs, url]);
   useJsonLdSlot(SCHEMA_SLOTS.breadcrumb, breadcrumbSchema, SLOT_PRIORITY.page);
 
-  return null;
+  return (
+    <>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content={robotsContent(noindex)} />
+      {INDEXING_ENABLED && url ? (
+        <link rel="canonical" href={url} data-canonical-owner="managed" />
+      ) : null}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={versionedOg} />
+      <meta property="og:image:secure_url" content={versionedOg} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={versionedOg} />
+      {breadcrumbSchema ? (
+        <script
+          type="application/ld+json"
+          data-schema-key={SCHEMA_SLOTS.breadcrumb}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      ) : null}
+    </>
+  );
 };

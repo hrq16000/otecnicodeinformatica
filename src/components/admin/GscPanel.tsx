@@ -93,7 +93,8 @@ const GscPanel = () => {
   const consultas = useMemo(() => (snap?.consultas ?? []).slice(0, 25), [snap]);
 
   return (
-    <section className="mt-10">
+    <section className="mt-10" id="relatorio-seo-local">
+
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="font-heading text-lg font-semibold text-foreground">

@@ -82,9 +82,18 @@ for (const slug of SLUGS) {
   // 7. coorte
   if (!cohort.includes(`"${slug}"`)) fail(`${slug}: fora da coorte national_foundations_9b`);
 
+  // 8. blocos editoriais obrigatórios (refinamento 9B)
+  if (!/<h2[^>]*>Leia também<\/h2>/.test(corpo)) fail(`${slug}: sem bloco "Leia também"`);
+  if (!/Glossário/.test(corpo)) fail(`${slug}: sem glossário de termos`);
+  if (!/<h2>Referências e fontes<\/h2>/.test(corpo)) fail(`${slug}: sem "Referências e fontes"`);
+  const externas = [...corpo.matchAll(/href="https?:\/\//g)].length;
+  if (externas < 3) fail(`${slug}: só ${externas} fonte(s) externa(s) citada(s) (mínimo 3)`);
+  if (/href="https?:\/\/[^"]+"(?![^>]*rel="[^"]*nofollow)/.test(corpo))
+    fail(`${slug}: link externo sem rel="nofollow noopener"`);
+
   const palavras = corpo.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
   if (palavras < 900) fail(`${slug}: conteúdo raso (${palavras} palavras)`);
-  note(`${slug}: ${palavras} palavras, capa licenciada, FAQ própria`);
+  note(`${slug}: ${palavras} palavras, capa licenciada, FAQ própria, glossário + ${externas} fontes`);
 }
 
 console.log("── check:national-foundation-pillars ──");

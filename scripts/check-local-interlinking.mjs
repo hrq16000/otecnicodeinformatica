@@ -21,7 +21,7 @@ import { prepararSsr, htmlDaRota, abortarSeBloqueado } from "./lib/ssr-harness.m
 import { rotasLocais } from "./lib/local-routes.mjs";
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
-const ROUTER = "src/LegacyApp.tsx";
+const ROUTER = "src/legacyRouteElements.tsx";
 const MOTHER = "/tecnico-informatica-curitiba";
 const BASE = BASE_URL;
 const SITEMAPS = ["public/sitemap-bairros.xml", "public/sitemap-regioes.xml"];
@@ -35,13 +35,16 @@ if (!existsSync(DIST)) {
 }
 
 // ── rotas do router ───────────────────────────────────────────────────────
+// Pós-migração TanStack: o mapa de rotas vive em src/legacyRouteElements.tsx
+// (chaves de path) e em src/routes/*.tsx (file-based). Ambos são consultados.
 const router = readFileSync(ROUTER, "utf8");
 const canonicalRoutes = new Set();
 const redirectRoutes = new Set();
-for (const m of router.matchAll(/<Route\s+path="([^"]+)"\s+element=\{([^}]*)\}/g)) {
-  const [, path, element] = m;
-  if (/<Navigate\b/.test(element)) redirectRoutes.add(path);
-  else canonicalRoutes.add(path);
+for (const m of router.matchAll(/"(\/[^"]*)":\s*/g)) canonicalRoutes.add(m[1]);
+for (const f of readdirSync("src/routes")) {
+  if (!f.endsWith(".tsx") || f.startsWith("__")) continue;
+  const rota = "/" + f.replace(/\.tsx$/, "").replace(/_\./g, "/").replace(/\./g, "/").replace(/\/index$/, "").replace(/^\//, "");
+  canonicalRoutes.add(rota.replace(/\/$/, "") || "/");
 }
 const dynamicRoutes = [...canonicalRoutes].filter((r) => r.includes(":"));
 const isCanonical = (p) =>

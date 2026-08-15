@@ -68,7 +68,7 @@ for (const entry of LOCAIS_DECLARADOS) {
   const robots = attr(html, /<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i).toLowerCase();
   const noindex = robots.includes("noindex");
   const canonical = attr(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i);
-  const title = attr(html, /<title>([\s\S]*?)<\/title>/i);
+  const title = attr(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   const desc = attr(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
   const h1s = [...html.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)].map((m) =>
     m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(),

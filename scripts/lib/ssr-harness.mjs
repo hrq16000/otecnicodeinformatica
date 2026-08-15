@@ -22,7 +22,7 @@
  *   - Nenhuma lista de rotas é mantida aqui: quem chama informa as rotas, que
  *     vêm sempre das policies/sitemaps reais (FASE 5).
  */
-import { readFileSync, existsSync, mkdirSync, writeFileSync, copyFileSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, copyFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 
 export const REASONS = {
@@ -78,8 +78,35 @@ function gravarManifesto(dist, manifesto) {
   writeFileSync(caminhoManifesto(dist), `${JSON.stringify(manifesto, null, 2)}\n`);
 }
 
+/**
+ * Assinatura da fonte: maior mtime das pastas que produzem HTML. Quando o
+ * código muda, snapshots anteriores viram inválidos mesmo dentro do TTL —
+ * sem isso o gate valida conteúdo velho (falso verde).
+ */
+function assinaturaFonte() {
+  let maior = 0;
+  const visitar = (dir) => {
+    if (!existsSync(dir)) return;
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const f = join(dir, e.name);
+      if (e.isDirectory()) visitar(f);
+      else if (/\.(tsx?|json|css)$/.test(e.name)) {
+        const m = statSync(f).mtimeMs;
+        if (m > maior) maior = m;
+      }
+    }
+  };
+  for (const dir of ["src", "public"]) visitar(dir);
+  return Math.round(maior);
+}
+
+const ASSINATURA = assinaturaFonte();
+
+/** Atributos injetados pelo dev server não existem em produção. */
+const limparRuidoDev = (html) => html.replace(/\sdata-tsd-source="[^"]*"/g, "");
+
 const fresco = (entrada) =>
-  Boolean(entrada) && entrada.status === 200 && Date.now() - (entrada.renderizadoEm ?? 0) < TTL_MS;
+  Boolean(entrada) && entrada.status === 200 && entrada.assinatura === ASSINATURA && Date.now() - (entrada.renderizadoEm ?? 0) < TTL_MS;
 
 async function descobrirBase() {
   if (estado.base !== null) return estado.base;
@@ -108,7 +135,7 @@ async function renderizar(base, rota) {
     headers: { "user-agent": "ssr-harness/1.0" },
     signal: AbortSignal.timeout(20000),
   });
-  const html = await res.text();
+  const html = limparRuidoDev(await res.text());
   return { status: res.status, html };
 }
 
@@ -159,10 +186,10 @@ export async function prepararSsr(rotas, opcoes = {}) {
         const destino = arquivoDaRota(dist, r.rota);
         mkdirSync(dirname(destino), { recursive: true });
         writeFileSync(destino, r.html);
-        manifesto.rotas[r.rota] = { status: 200, renderizadoEm: Date.now(), bytes: r.html.length };
+        manifesto.rotas[r.rota] = { status: 200, renderizadoEm: Date.now(), assinatura: ASSINATURA, bytes: r.html.length };
         estado.renderizadas++;
       } else {
-        manifesto.rotas[r.rota] = { status: r.status, renderizadoEm: Date.now(), erro: r.erro ?? null };
+        manifesto.rotas[r.rota] = { status: r.status, renderizadoEm: Date.now(), assinatura: ASSINATURA, erro: r.erro ?? null };
         estado.falhas.push(`${r.rota} → HTTP ${r.status}`);
       }
     }

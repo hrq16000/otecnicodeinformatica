@@ -60,7 +60,7 @@ const sitemapUrls = () => {
 };
 
 const tag = (src, re) => src.match(re)?.[1]?.trim() ?? "";
-const titleOf = (src) => tag(src, /<title>([\s\S]*?)<\/title>/i);
+const titleOf = (src) => tag(src, /<title[^>]*>([\s\S]*?)<\/title>/i);
 const h1Of = (src) => tag(src, /<h1[^>]*>([\s\S]*?)<\/h1>/i).replace(/<[^>]+>/g, " ").trim();
 const canonicalOf = (src) => tag(src, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i);
 const robotsOf = (src) => tag(src, /<meta[^>]+name="robots"[^>]+content="([^"]+)"/i);

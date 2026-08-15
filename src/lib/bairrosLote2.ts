@@ -18,7 +18,7 @@ export const BAIRROS_LOTE_2: Record<string, BairroLocalData> = {
     areaName: "Santa Felicidade, Curitiba",
     metaTitle: "Técnico de Informática em Santa Felicidade | Curitiba",
     metaDescription:
-      "Atendimento de informática em Santa Felicidade, Curitiba: Wi-Fi que não cobre a casa inteira, manutenção de computador, formatação e suporte ao comércio da região. Triagem pelo WhatsApp.",
+      "Informática em Santa Felicidade, Curitiba: Wi-Fi que não cobre a casa toda, manutenção de computador, formatação e suporte ao comércio. Triagem pelo WhatsApp.",
     h1: "Atendimento de informática em Santa Felicidade – Curitiba",
     subtitulo:
       "Terrenos e casas maiores mudam o projeto de rede: aqui a conversa começa pelo alcance do Wi-Fi e pelo que realmente precisa de visita.",
@@ -104,7 +104,7 @@ export const BAIRROS_LOTE_2: Record<string, BairroLocalData> = {
     areaName: "Boa Vista, Curitiba",
     metaTitle: "Técnico de Informática na Boa Vista | Curitiba",
     metaDescription:
-      "Assistência de informática na Boa Vista, Curitiba: manutenção de computador, formatação, remoção de vírus e suporte a consultórios e escritórios do bairro. Diagnóstico antes do valor.",
+      "Informática na Boa Vista, Curitiba: manutenção de computador, formatação, remoção de vírus e suporte a consultórios e escritórios. Diagnóstico antes do valor.",
     h1: "Atendimento de informática na Boa Vista – Curitiba",
     subtitulo:
       "Região residencial extensa, com consultórios e escritórios pequenos misturados às ruas de casas. A triagem define se o caso é remoto, visita ou bancada.",
@@ -281,7 +281,7 @@ export const BAIRROS_LOTE_2: Record<string, BairroLocalData> = {
     areaName: "Cabral, Curitiba",
     metaTitle: "Técnico de Informática no Cabral | Curitiba",
     metaDescription:
-      "Atendimento de informática no Cabral, Curitiba: suporte a consultórios e escritórios, manutenção de computador, backup e rede de apartamento. Triagem e orçamento pelo WhatsApp.",
+      "Informática no Cabral, Curitiba: suporte a consultórios e escritórios, manutenção de computador, backup e rede de apartamento. Orçamento pelo WhatsApp.",
     h1: "Atendimento de informática no Cabral – Curitiba",
     subtitulo:
       "Consultórios, escritórios pequenos e residências no mesmo quarteirão — a triagem separa o que é urgência de trabalho do que pode esperar.",
@@ -367,7 +367,7 @@ export const BAIRROS_LOTE_2: Record<string, BairroLocalData> = {
     areaName: "Afonso Pena, São José dos Pinhais",
     metaTitle: "Técnico de Informática no Afonso Pena | São José dos Pinhais",
     metaDescription:
-      "Informática no Afonso Pena, São José dos Pinhais: suporte a empresas do entorno do aeroporto, manutenção de computador, rede e backup. Atendimento combinado pelo WhatsApp.",
+      "Informática no Afonso Pena, São José dos Pinhais: suporte a empresas perto do aeroporto, manutenção de computador, rede e backup. Combine pelo WhatsApp.",
     h1: "Atendimento de informática no Afonso Pena – São José dos Pinhais",
     subtitulo:
       "Região com forte presença de empresas e serviços ligados ao aeroporto, somada a ruas residenciais — o atendimento é planejado por janela de agenda.",

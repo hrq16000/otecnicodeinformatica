@@ -8,7 +8,7 @@
 export const CLUSTER_EQUIPAMENTOS_ROUTES = [
   {
     "path": "/equipamentos",
-    "title": "Equipamentos atendidos: notebook, PC, impressora e roteador | O Técnico de Informática",
+    "title": "Equipamentos atendidos: notebook, PC, impressora e roteador",
     "description": "Entre pelo equipamento: notebook, desktop, impressora ou roteador. Cada página mostra os sintomas mais comuns, o que é verificado na avaliação e a modalidade indicada.",
     "h1": "Escolha o equipamento e veja o que costuma acontecer",
     "subtitulo": "O mesmo sintoma tem causas diferentes em cada aparelho: veja os problemas frequentes por equipamento, o que é verificado na avaliação e qual modalidade resolve.",

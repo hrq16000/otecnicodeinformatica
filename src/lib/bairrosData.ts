@@ -8,6 +8,8 @@
 
 import { SERVICOS_CANONICOS } from "@/lib/cidadesData";
 import { BAIRROS_LOTE_2 } from "@/lib/bairrosLote2";
+import { BAIRROS_LOTE_3 } from "@/lib/bairrosLote3";
+
 
 export interface BairroFaq {
   question: string;

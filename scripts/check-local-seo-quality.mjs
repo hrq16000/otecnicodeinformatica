@@ -56,7 +56,12 @@ let checked = 0;
 for (const entry of LOCAIS_DECLARADOS) {
   const html = htmlFor(entry.path);
   if (!html) {
-    skipped.push(entry.path);
+    // Fail-closed (FASE 20): rota indexável sem HTML renderizado é falha, não skip.
+    if (LOCAIS_INDEXAVEIS.includes(entry.path)) {
+      errors.push(`${entry.path}: FAIL_ROUTE_NOT_RENDERED — indexável sem HTML SSR verificável`);
+    } else {
+      skipped.push(entry.path);
+    }
     continue;
   }
   const indexavel = LOCAIS_INDEXAVEIS.includes(entry.path);
@@ -116,5 +121,5 @@ warnings.forEach((w) => console.warn(`  ! ${w}`));
 console.log(
   `[local-seo-quality] OK — ${checked} rota(s) locais verificadas ` +
     `(${LOCAIS_INDEXAVEIS.length} indexáveis).` +
-    (skipped.length ? ` Sem HTML em ${ROOT}: ${skipped.length}.` : ""),
+    (skipped.length ? ` SKIPPED_NON_INDEXABLE (sem HTML SSR): ${skipped.length}.` : ""),
 );

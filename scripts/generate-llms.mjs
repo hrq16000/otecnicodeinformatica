@@ -49,11 +49,18 @@ const institucionais = pick(
 const editoriais = (() => {
   try {
     const reg = readFileSync(resolve("src/lib/blogEditorialRegistry.ts"), "utf8");
+    const conteudo = readFileSync(resolve("src/data/blogPostsContent.tsx"), "utf8");
+    const titulo = (slug) => {
+      const i = conteudo.indexOf(`"${slug}": {`);
+      if (i === -1) return null;
+      const m = conteudo.slice(i, i + 400).match(/title:\s*"([^"]+)"/);
+      return m ? m[1] : null;
+    };
     const out = [];
     for (const m of reg.matchAll(/slug:\s*"([a-z0-9-]+)",([\s\S]{0,600}?)\n  \},/g)) {
       if (!m[2].includes('status: "approved"')) continue;
       const t = m[2].match(/title:\s*"([^"]+)"/);
-      out.push({ path: `/blog/${m[1]}`, title: t ? t[1] : m[1] });
+      out.push({ path: `/blog/${m[1]}`, title: titulo(m[1]) ?? (t ? t[1] : m[1]) });
     }
     return out;
   } catch {

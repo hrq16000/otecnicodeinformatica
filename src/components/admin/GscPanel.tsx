@@ -183,15 +183,23 @@ const GscPanel = () => {
               </h3>
               <ul className="mt-3 space-y-2 text-sm">
                 {paginas.map((p) => (
-                  <li key={p.chave} className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="max-w-[60%] truncate text-foreground" title={p.chave}>
-                      {p.chave}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {p.impressions} impr · {p.clicks} cl · pos {p.position.toFixed(1)}
-                    </span>
+                  <li key={p.chave}>
+                    <button
+                      type="button"
+                      onClick={() => setPaginaSel(p.chave === paginaSel ? null : p.chave)}
+                      className="flex w-full flex-wrap items-center justify-between gap-2 rounded-md px-1 py-1 text-left transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      aria-pressed={p.chave === paginaSel}
+                    >
+                      <span className="max-w-[60%] truncate text-foreground" title={p.chave}>
+                        {p.chave}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {p.impressions} impr · {p.clicks} cl · pos {p.position.toFixed(1)}
+                      </span>
+                    </button>
                   </li>
                 ))}
+
                 {!paginas.length && (
                   <li className="text-muted-foreground">{snap.status === "OK" ? "NO_DATA" : snap.status}</li>
                 )}

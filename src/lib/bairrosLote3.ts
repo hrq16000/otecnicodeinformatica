@@ -140,7 +140,7 @@ export const BAIRROS_LOTE_3: Record<string, BairroLocalData> = {
     faqLocal: [
       { question: "Atendem o comércio do Sítio Cercado?", answer: "Sim. Damos suporte ao computador de balcão, à impressora e à rede de pequenos comércios, com foco em reduzir o tempo de parada. A janela de atendimento é combinada na triagem." },
       { question: "Apaguei arquivos importantes. Ainda dá para recuperar?", answer: "Depende do que aconteceu depois. Pare de usar o equipamento imediatamente: cada gravação nova reduz a chance de recuperação. A tentativa é feita em bancada e não tem garantia de resultado — isso é dito antes, não depois." },
-      { question: "Preciso levar o equipamento até vocês?", answer: "Não. Quando o caso é de bancada, agendamos coleta e devolvemos no mesmo endereço. Não existe balcão de loja no bairro, e não anunciamos endereço que não temos." },
+      { question: "Preciso levar o equipamento até vocês?", answer: "Não. Quando o caso é de bancada, agendamos coleta e devolvemos no mesmo endereço. Não mantemos ponto de atendimento fixo nessa região, e não anunciamos endereço que não temos." },
       { question: "Vocês configuram o PC compartilhado da loja?", answer: "Sim. Criamos contas separadas, ajustamos permissões e organizamos o que cada usuário pode instalar. É a medida que mais reduz reincidência em máquina usada por várias pessoas." },
       { question: "Como sei o valor antes de aprovar?", answer: "O valor é apresentado após a avaliação técnica, com o que foi encontrado explicado em linguagem clara. A partir de R$ 99,99 quando aplicável; peças e deslocamento, quando houver, entram informados separadamente." },
     ],

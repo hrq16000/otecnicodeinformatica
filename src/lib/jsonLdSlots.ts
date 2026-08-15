@@ -20,6 +20,7 @@
  */
 import { useEffect, useId } from "react";
 import { validateSchema } from "@/lib/schemaValidation";
+import { useJsonLdCollector } from "@/lib/jsonLdSsr";
 
 export const SCHEMA_SLOTS = {
   organization: "organization",
@@ -64,10 +65,12 @@ const registry = new Map<SchemaSlot, SlotEntry[]>();
 const staticSnapshot = new Map<SchemaSlot, string>();
 let seqCounter = 0;
 
+// O nó pode ter vindo do SSR dentro do <body> (JSON-LD renderizado em JSX);
+// procuramos no documento inteiro para adotá-lo em vez de duplicar.
 const nodeFor = (slot: SchemaSlot) =>
   typeof document === "undefined"
     ? null
-    : document.head.querySelector<HTMLScriptElement>(`script[data-schema-key="${slot}"]`);
+    : document.querySelector<HTMLScriptElement>(`script[data-schema-key="${slot}"]`);
 
 /** Nó estático do prerender ainda não adotado (marcado no build). */
 const adoptStaticNode = (slot: SchemaSlot) => {
@@ -153,6 +156,17 @@ export function useJsonLdSlot(
 ) {
   const owner = `${slot}:${useId()}`;
   const serialized = schema ? JSON.stringify(schema) : "";
+
+  // Registra no coletor da renderização para que o HTML (SSR) já saia com
+  // JSON-LD; no cliente o mesmo registro mantém a hidratação consistente.
+  const collector = useJsonLdCollector();
+  if (collector && schema) {
+    const jaRegistrado = collector.entries.some(
+      (e) => e.slot === slot && e.serialized === serialized,
+    );
+    if (!jaRegistrado) collector.entries.push({ slot, schema, priority, serialized });
+  }
+
   useEffect(() => {
     if (!serialized) {
       releaseJsonLdSlot(slot, owner);

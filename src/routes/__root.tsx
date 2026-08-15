@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { Suspense, useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, useMemo, type ReactNode } from "react";
 import {
   createRootRouteWithContext,
   HeadContent,
@@ -15,6 +15,10 @@ import { AppErrorBoundary } from "@/components/AppErrorBoundary";
 import { MotionProvider } from "@/components/MotionProvider";
 import { GeoAutoDetect } from "@/components/GeoAutoDetect";
 import { InstitutionalJsonLd } from "@/components/InstitutionalJsonLd";
+import {
+  JsonLdCollectorContext,
+  createJsonLdCollector,
+} from "@/lib/jsonLdSsr";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { RouteTransition } from "@/components/motion/RouteTransition";
 import { RouteLoader } from "@/components/RouteLoader";
@@ -65,12 +69,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { title: "O Técnico de Informática | Assistência Técnica em Curitiba" },
-      {
-        name: "description",
-        content:
-          "Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.",
-      },
+      // title/description/robots/og:title/og:description/twitter:* de página
+      // são emitidos por <PageSEO> (SSR via React 19). Manter defaults aqui
+      // duplicaria as tags no <head> e o crawler leria a versão genérica.
       { "http-equiv": "x-dns-prefetch-control", content: "on" },
       { name: "theme-color", content: "#0b2733" },
       { name: "mobile-web-app-capable", content: "yes" },
@@ -80,10 +81,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "keywords",
         content:
           "técnico de informática curitiba, assistência técnica informática curitiba, conserto de computador curitiba, formatação curitiba, remover vírus curitiba, suporte técnico curitiba, técnico notebook curitiba, manutenção de computador curitiba, técnico de informática são josé dos pinhais, assistência técnica são josé dos pinhais, técnico de informática araucária, técnico de informática campo largo, técnico de informática pinhais, atendimento a domicílio informática, conserto pc domicílio curitiba",
-      },
-      {
-        name: "robots",
-        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       },
       { name: "google-adsense-account", content: "ca-pub-3762170279587706" },
       { name: "author", content: "O Técnico de Informática" },
@@ -95,33 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "format-detection", content: "telephone=no" },
       { name: "msapplication-TileColor", content: "#0b2733" },
       { name: "application-name", content: "O Técnico de Informática" },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "O Técnico de Informática" },
-      { property: "og:locale", content: "pt_BR" },
-      { property: "og:title", content: "O Técnico de Informática — Assistência Técnica em Curitiba" },
-      {
-        property: "og:description",
-        content:
-          "Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.",
-      },
-      { property: "og:image", content: "https://otecnicodeinformatica.com.br/og-image.png" },
-      {
-        property: "og:image:secure_url",
-        content: "https://otecnicodeinformatica.com.br/og-image.png",
-      },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "O Técnico de Informática" },
       { property: "og:image:type", content: "image/png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "O Técnico de Informática" },
-      {
-        name: "twitter:description",
-        content:
-          "Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.",
-      },
-      { name: "twitter:image", content: "https://otecnicodeinformatica.com.br/og-image.png" },
-      { name: "twitter:image:alt", content: "O Técnico de Informática" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -178,6 +150,8 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // Coletor por renderização (SSR); no cliente os slots seguem via efeito.
+  const jsonLdCollector = useMemo(() => createJsonLdCollector(), [pathname]);
 
   // ported from main.tsx — observabilidade, indexing policy, analytics, cache-bust
   useEffect(() => {
@@ -198,11 +172,13 @@ function RootComponent() {
           <GeoAutoDetect />
           <InstitutionalJsonLd />
           <PageViewTracker path={pathname} />
-          <RouteTransition routeKey={pathname}>
-            <Suspense fallback={<RouteLoader />}>
-              <Outlet />
-            </Suspense>
-          </RouteTransition>
+          <JsonLdCollectorContext.Provider value={jsonLdCollector}>
+            <RouteTransition routeKey={pathname}>
+              <Suspense fallback={<RouteLoader />}>
+                <Outlet />
+              </Suspense>
+            </RouteTransition>
+          </JsonLdCollectorContext.Provider>
           <WhatsAppFunnel />
           <WhatsAppFloat />
           <ConsentBanner />

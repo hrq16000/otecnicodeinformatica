@@ -25,6 +25,27 @@ export const SERVICOS: ServicoData[] = [
 
   { slug: "suporte-empresas", nome: "Suporte Técnico para Empresas" },
   { slug: "atendimento-remoto", nome: "Atendimento Remoto" },
+
+  // Serviços com bloco autoral em servicoCuritibaBlocos.json que ainda não
+  // existiam aqui: as URLs promovidas na política caíam em NotFound.
+  { slug: "montagem-de-pc", nome: "Montagem de PC", servicoSlugExistente: "montagem-de-pc" },
+  { slug: "pc-gamer", nome: "PC Gamer", servicoSlugExistente: "pc-gamer" },
+  { slug: "suporte-home-office", nome: "Suporte para Home Office", servicoSlugExistente: "suporte-home-office" },
+  {
+    slug: "suporte-tecnico-empresarial",
+    nome: "Suporte Técnico Empresarial",
+    servicoSlugExistente: "suporte-tecnico-empresarial",
+  },
+  {
+    slug: "manutencao-preventiva-empresas",
+    nome: "Manutenção Preventiva para Empresas",
+    servicoSlugExistente: "manutencao-preventiva-empresas",
+  },
+  {
+    slug: "backup-para-empresas",
+    nome: "Backup para Empresas",
+    servicoSlugExistente: "backup-para-empresas",
+  },
 ];
 
 export const CIDADES: CidadeData[] = [

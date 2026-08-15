@@ -41,9 +41,12 @@ describe("localIndexPolicy — Lote Local 1", () => {
       expect(isNoindex(`/bairros/${slug}`)).toBe(false);
       expect(resolveLocal(`/bairros/${slug}`).sitemap).toBe(true);
     }
+    // Xaxim foi promovido na Micro-Rodada Local 1 (conteúdo próprio).
+    expect(isNoindex("/bairros/xaxim")).toBe(false);
+    expect(resolveLocal("/bairros/xaxim").sitemap).toBe(true);
     // Bairro sem conteúdo próprio segue fora do índice.
-    expect(isNoindex("/bairros/xaxim")).toBe(true);
-    expect(resolveLocal("/bairros/xaxim").sitemap).toBe(false);
+    expect(isNoindex("/bairros/bacacheri")).toBe(true);
+    expect(resolveLocal("/bairros/bacacheri").sitemap).toBe(false);
   });
 
   it("canonicaliza serviço × cidade sem intenção local para o serviço-pai real", () => {

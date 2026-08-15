@@ -18,13 +18,13 @@ interface State {
  * recuperação amigável ("Reiniciar triagem").
  */
 export class TriageErrorBoundary extends Component<Props, State> {
-  state: State = { hasError: false };
+  override state: State = { hasError: false };
 
   static getDerivedStateFromError(): State {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
+  override componentDidCatch(error: Error, info: ErrorInfo) {
     // Log de desenvolvimento sem dados sensíveis do cliente.
     console.error("[triage] render error:", error.message, info.componentStack?.slice(0, 300));
   }
@@ -34,7 +34,7 @@ export class TriageErrorBoundary extends Component<Props, State> {
     this.setState({ hasError: false });
   };
 
-  render() {
+  override render() {
     if (!this.state.hasError) return this.props.children;
     return (
       <div className="flex flex-col items-center gap-3 py-8 text-center">

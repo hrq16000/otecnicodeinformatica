@@ -118,7 +118,7 @@ const Depoimentos = () => {
     const msg = encodeURIComponent(
       "Olá! Vi os depoimentos no site e quero um diagnóstico do meu equipamento.",
     );
-    window.open(`https://wa.me/${siteConfig.phoneE164.replace(/\D/g, "")}?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${(siteConfig.phoneE164 ?? "").replace(/\D/g, "")}?text=${msg}`, "_blank");
   };
 
   return (

@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom/vitest";
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { act, render, screen, cleanup, waitFor, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "@/lib/router-compat";

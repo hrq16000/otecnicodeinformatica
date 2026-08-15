@@ -101,7 +101,7 @@ function montarRelatorio(rows: Evento[], dim: DimensaoId, dias: number): Relator
         CTA: c.cta.size,
         Triagem: c.triagem.size,
         WhatsApp: c.whatsapp.size,
-        "WA/sessão %": taxa === undefined ? "—" : Math.round(taxa * 100),
+        "WA/sessão %": taxa == null ? "—" : Math.round(taxa * 100),
         Amostra: c.sessoes.size >= 50 ? "actionable" : c.sessoes.size >= 15 ? "learning" : "insufficient_data",
       };
     });

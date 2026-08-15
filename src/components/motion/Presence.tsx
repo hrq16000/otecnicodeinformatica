@@ -19,7 +19,7 @@ export const Presence = ({ show, children, className }: PresenceProps) => {
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(show);
   const [leaving, setLeaving] = useState(false);
-  const timer = useRef<number>();
+  const timer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     window.clearTimeout(timer.current);

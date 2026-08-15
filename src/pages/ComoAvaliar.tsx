@@ -43,7 +43,7 @@ const ComoAvaliar = () => {
     const msg = encodeURIComponent(
       "Olá! Fui atendido e quero o link para registrar minha avaliação.",
     );
-    window.open(`https://wa.me/${siteConfig.phoneE164.replace(/\D/g, "")}?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${(siteConfig.phoneE164 ?? "").replace(/\D/g, "")}?text=${msg}`, "_blank");
   };
 
   return (

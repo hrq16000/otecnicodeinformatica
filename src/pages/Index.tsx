@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { upsertCanonical } from "@/lib/canonicalUrl";
+import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroTriagem } from "@/components/home/HeroTriagem";
@@ -24,18 +24,8 @@ const SectionFallback = ({ height = "480px" }: { height?: string }) => (
 );
 
 const Index = () => {
+  // Metadados da home agora saem no HTML do SSR (PageSEO em JSX), não em efeito.
   useEffect(() => {
-    document.title = siteConfig.homeTitle;
-    const setMeta = (selector: string, attr: string, value: string) => {
-      const el = document.querySelector<HTMLMetaElement>(selector);
-      if (el) el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', "content", siteConfig.homeDescription);
-    upsertCanonical(`${siteConfig.baseUrl}/`);
-    setMeta('meta[property="og:url"]', "content", `${siteConfig.baseUrl}/`);
-    setMeta('meta[property="og:title"]', "content", siteConfig.homeTitle);
-    setMeta('meta[property="og:description"]', "content", siteConfig.homeDescription);
-
     // ONDA 5M — pré-carrega os chunks abaixo da dobra em tempo ocioso.
     // Sem isso, o bloco lazy só baixa quando já está visível e a troca
     // esqueleto → conteúdo real acontece na tela (CLS alto e intermitente).
@@ -61,6 +51,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title={siteConfig.homeTitle} description={siteConfig.homeDescription} path="/" />
       <JsonLdSchema />
       <FastHeader />
       <div aria-hidden="true" className="h-[var(--site-header-space)]" />

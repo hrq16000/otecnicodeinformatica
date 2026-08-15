@@ -190,7 +190,7 @@ export function calcularReadiness(params: {
     params.experimento ?? EXPERIMENTOS_CRO.find((e) => e.id === politica.experimentId) ?? EXPERIMENTOS_CRO[0];
   const gatesVermelhos = (params.gatesVermelhos ?? []).filter((g) => politica.gatesObrigatorios.includes(g));
 
-  const noEscopo = params.eventos.filter((e) => e.session_id && exp && norm(e.path) === norm(e.path) && exp.rotas.map(norm).includes(norm(e.path)));
+  const noEscopo = params.eventos.filter((e) => e.session_id && exp && exp.rotas.map(norm).includes(norm(e.path)));
   const elegiveis = noEscopo.filter((e) => !isQaEvent(e));
   const sessoes = new Set(elegiveis.map((e) => e.session_id as string));
   const sessoesQa = new Set(noEscopo.filter((e) => isQaEvent(e)).map((e) => e.session_id as string));

@@ -1,4 +1,12 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+// O conteúdo editorial usa <Link> do router; nos testes de SSR puro
+// substituímos por <a>, mantendo o HTML dos headings intacto.
+vi.mock("@tanstack/react-router", () => ({
+  Link: ({ to, children, ...rest }: { to: string; children?: React.ReactNode }) => (
+    <a href={to} {...rest}>{children}</a>
+  ),
+}));
 import { renderToStaticMarkup } from "react-dom/server";
 import { buildArticleToc, shouldRenderToc, slugifyHeading, nodeText } from "@/lib/articleToc";
 import { ArticleToc } from "@/components/editorial/ArticleToc";
@@ -8,7 +16,7 @@ const PILARES = ["o-que-e-informatica", "informatica-basica", "como-aprender-inf
 
 describe("TOC dos artigos (Rodada 9B.1)", () => {
   it("slug é determinístico, ASCII e sem acento", () => {
-    expect(slugifyHeading("Informática, computação e TI")).toBe("informatica-computacao-ti");
+    expect(slugifyHeading("Informática, computação e TI")).toBe("informatica-computacao-e-ti");
     expect(slugifyHeading("Glossário essencial de informática")).toBe("glossario-essencial-de-informatica");
     expect(slugifyHeading("Informática, computação e TI")).toBe(slugifyHeading("Informática, computação e TI"));
   });

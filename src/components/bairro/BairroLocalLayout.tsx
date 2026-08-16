@@ -19,6 +19,8 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES_ATENDIMENTO } from "@/lib/cidadesData";
 import { servicoByPath, type BairroLocalData } from "@/lib/bairrosData";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { BairroFotos } from "@/components/bairro/BairroFotos";
+import { fotoTecnicaDoBairro, galeriaDoBairro } from "@/lib/galeriaBairro";
 
 const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] motion-surface hover:shadow-[0_18px_40px_-12px_hsl(var(--accent)/0.55)]";
@@ -43,8 +45,83 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
     .map((to) => servicoByPath(to))
     .filter((s): s is NonNullable<ReturnType<typeof servicoByPath>> => Boolean(s));
 
-  // FASE 31 — a página de bairro NÃO cria LocalBusiness/filial própria:
-  // emite WebPage (+ BreadcrumbList do PageSEO e FAQPage abaixo).
+  // Imagem principal da página: atendimento real quando existir; caso
+  // contrário, foto técnica licenciada. Nunca imagem de IA, nunca placeholder.
+  const galeria = galeriaDoBairro(data.slug);
+  const fotoTecnica = fotoTecnicaDoBairro(data.servicosPrioritarios);
+  const imagemPrincipal = galeria[0]
+    ? {
+        url: absoluteUrl(galeria[0].src),
+        alt: galeria[0].alt,
+        width: galeria[0].width,
+        height: galeria[0].height,
+        credito: null as null | { autor: string; licenca: string; licencaUrl: string },
+      }
+    : fotoTecnica
+      ? {
+          url: absoluteUrl(fotoTecnica.src),
+          alt: fotoTecnica.alt,
+          width: fotoTecnica.width,
+          height: fotoTecnica.height,
+          credito: {
+            autor: fotoTecnica.autor,
+            licenca: fotoTecnica.licenca,
+            licencaUrl: fotoTecnica.licencaUrl,
+          },
+        }
+      : null;
+
+  const imageObject = imagemPrincipal
+    ? {
+        "@type": "ImageObject",
+        "@id": `${absoluteUrl(path)}#primaryimage`,
+        url: imagemPrincipal.url,
+        contentUrl: imagemPrincipal.url,
+        width: imagemPrincipal.width,
+        height: imagemPrincipal.height,
+        caption: imagemPrincipal.alt,
+        ...(imagemPrincipal.credito
+          ? {
+              creditText: imagemPrincipal.credito.autor,
+              license: imagemPrincipal.credito.licencaUrl,
+              acquireLicensePage: absoluteUrl("/creditos-de-imagens"),
+            }
+          : {}),
+      }
+    : null;
+
+  /**
+   * LocalBusiness da página de bairro: mesma entidade do site (mesmo NAP), com
+   * `areaServed` restrito ao bairro. Não declara endereço/filial no bairro —
+   * o endereço permanece o da operação, como nas landings de cidade.
+   */
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ComputerRepairService"],
+    "@id": `${absoluteUrl(path)}#localbusiness`,
+    name: `${siteConfig.brandName} — ${data.nome}, ${cidade}`,
+    description: data.metaDescription,
+    url: absoluteUrl(path),
+    telephone: siteConfig.phoneE164,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: cidade,
+      addressRegion: siteConfig.region,
+      addressCountry: siteConfig.country,
+    },
+    areaServed: {
+      "@type": "Place",
+      name: data.areaName,
+      containedInPlace: {
+        "@type": "City",
+        name: cidade,
+        containedInPlace: { "@type": "State", name: "Paraná" },
+      },
+    },
+    ...(imageObject ? { image: imagemPrincipal!.url } : {}),
+    priceRange: "$$",
+  };
+
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -56,6 +133,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
     inLanguage: "pt-BR",
     isPartOf: { "@id": `${siteConfig.baseUrl}/#website` },
     about: { "@type": "Place", name: data.areaName },
+    ...(imageObject ? { primaryImageOfPage: imageObject, image: imageObject } : {}),
     publisher: { "@id": `${siteConfig.baseUrl}/#organization` },
   };
 
@@ -70,6 +148,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
     })),
   };
 
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.page);
   useJsonLdSlot(SCHEMA_SLOTS.webPage, webPageSchema, SLOT_PRIORITY.page);
   useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.page);
 
@@ -129,6 +208,12 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
             </div>
           </div>
         </section>
+
+        <BairroFotos
+          slug={data.slug}
+          nome={data.nome}
+          servicosPrioritarios={data.servicosPrioritarios}
+        />
 
         {/* Introdução local + operação */}
         <section className="py-12 md:py-16">

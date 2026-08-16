@@ -87,14 +87,6 @@ const localFaqs = [
   },
 ];
 
-const atSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Técnico de Informática em Almirante Tamandaré",
-  "description": "Assistência técnica de computadores em Almirante Tamandaré PR. Atendimento a domicílio. Formatação, conserto, upgrade.",
-  "areaServed": { "@type": "City", "name": "Almirante Tamandaré", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "$$",
-};
 
 const TecnicoInformaticaAlmiranteTamandare = () => {
   useEffect(() => {
@@ -112,7 +104,6 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
     <div className="min-h-screen bg-background">
       <PageSEO noindex title="Técnico de Informática em Almirante Tamandaré | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-almirante-tamandare" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Almirante Tamandaré", path: "/tecnico-informatica-almirante-tamandare" }]} />
       <CityServiceSchema city={"Almirante Tamandaré"} citySameAs={"https://pt.wikipedia.org/wiki/Almirante_Tamandar%C3%A9"} path={"/tecnico-informatica-almirante-tamandare"} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(atSchema) }} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Almirante Tamandaré" }]} />

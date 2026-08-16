@@ -9,6 +9,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { CIDADE_LIST, CURITIBA_BAIRROS, MODALIDADES_ATENDIMENTO } from "@/lib/cidadesData";
 import { CIDADES_RMC_NOMES } from "@/lib/bairrosSelect";
+import { BAIRROS_DIRECTORY_POR_CIDADE, bairroHref } from "@/lib/bairrosDirectory";
+
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const PATH = "/areas-atendidas";

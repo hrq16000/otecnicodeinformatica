@@ -55,6 +55,12 @@ export interface BairroLocalData {
   servicosCidade?: { to: string; label: string; desc: string }[];
   /** Páginas de sintoma (/problemas/*) contextualmente pertinentes ao bairro */
   problemasRelacionados?: { to: string; label: string; desc: string }[];
+  /**
+   * Ponte editorial (Micro-Rodada Discovery 1): uma frase de continuidade real
+   * ao fim da logística local, com um único link contextual para a página
+   * serviço × bairro correspondente. Não é bloco de links: é texto corrido.
+   */
+  ponteLocal?: { antes: string; to: string; anchor: string; depois: string };
   /** FAQ local visível (espelhada em FAQPage) — distinta entre bairros */
 
   faqLocal: BairroFaq[];
@@ -151,6 +157,12 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Boa parte dos chamados da região se resolve sem visita. Máquina que liga, conecta na internet e apenas está lenta ou com conflito de dock e vídeo é tratada por acesso remoto, com o usuário acompanhando a tela e sem sair do escritório. Quando a bancada é inevitável — tela, teclado, fonte ou armazenamento — a coleta é feita no próprio prédio, no horário comercial, e a devolução é combinada para não coincidir com reunião ou fechamento.",
       "Em atendimento corporativo no Batel, a máquina costuma ter perfil de domínio, VPN e políticas de segurança da empresa. Nada é alterado nessas configurações sem autorização de quem administra o ambiente: quando o ajuste depende de credencial administrativa do cliente, o passo é documentado e devolvido para aprovação em vez de contornado.",
     ],
+    ponteLocal: {
+      antes: "Quando o caminho escolhido é reinstalar o sistema em vez de ajustar o que já existe, o passo a passo do backup, das licenças e do tempo de parada está descrito em ",
+      to: "/servicos/formatacao-computador/batel",
+      anchor: "formatação de computador no Batel",
+      depois: ".",
+    },
     introducaoLocal: [
       "O Batel reúne muita gente que trabalha em casa e depende do computador o tempo todo. Por isso, os pedidos mais comuns na região envolvem notebook lento ou esquentando, necessidade de formatação com backup e Wi-Fi estável o suficiente para reuniões online.",
       "O atendimento começa por triagem no WhatsApp. A partir da descrição do problema, orientamos os primeiros passos e definimos se o caso pode ser resolvido no local, de forma remota ou se precisa seguir para bancada — sempre com diagnóstico antes de informar o valor.",
@@ -271,6 +283,12 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "O perfil de chamado também é próprio da região: microempresa, escritório de serviços, comércio de rua e consultório com um ou dois computadores que sustentam a operação inteira, muitas vezes com sistema de gestão, impressora fiscal e leitor conectados ao mesmo aparelho. Antes de qualquer formatação, verificamos licenças, integrações e a existência de cópia dos dados — em máquina de comércio, perder a configuração do sistema costuma custar mais caro que a peça.",
       "Em máquina de comércio no Centro, antes de qualquer intervenção verificamos se existe certificado digital, sistema fiscal ou integração com maquininha instalada no aparelho. Esses itens exigem cuidado específico na reinstalação e, quando reconfigurá-los depende do fornecedor do sistema, isso é informado no orçamento para que a parada seja programada.",
     ],
+    ponteLocal: {
+      antes: "Quando o chamado é reparo do próprio aparelho e não configuração do ambiente, os prazos, a coleta e o que é avaliado na bancada estão detalhados em ",
+      to: "/servicos/conserto-pc-notebook/centro",
+      anchor: "conserto de PC e notebook no Centro",
+      depois: ".",
+    },
     introducaoLocal: [
       "O Centro de Curitiba tem ritmo comercial: lojas, escritórios de advocacia e contabilidade, imobiliárias e consultórios que não podem ficar com o computador parado no meio do expediente. Os chamados mais comuns envolvem PC de balcão travando, lentidão com sistemas e planilhas e rede instável afetando o atendimento.",
       "Como cada hora parada pesa no comércio, priorizamos triagem rápida pelo WhatsApp e diagnóstico objetivo. A partir daí, indicamos se o caso é resolvido no local, de forma remota ou por coleta — sempre com valor aprovado antes da execução.",

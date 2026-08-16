@@ -23,6 +23,12 @@ export type ClusterProblema = {
   modalidades: { titulo: string; desc: string }[];
   faq: ClusterFaq[];
   relacionados: { to: string; titulo: string; desc: string }[];
+  /**
+   * Ponte editorial (Micro-Rodada Discovery 1): frase de continuidade logo após
+   * o resumo, com um único link contextual para o conteúdo que aprofunda o
+   * mesmo assunto. Texto corrido — não é bloco de links.
+   */
+  ponteEditorial?: { antes: string; to: string; anchor: string; depois: string };
   foto?: string;           // slug em fotosLicenciadas
 };
 
@@ -144,6 +150,12 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       "Tela azul não é um defeito — é o sistema interrompendo tudo porque encontrou uma falha que não conseguia contornar com segurança. O código exibido e o momento em que ela aparece são as duas informações que direcionam o diagnóstico, e as duas costumam ser perdidas quando o equipamento é reiniciado às pressas.",
     waMessage:
       "Olá! Vim da página sobre tela azul no Windows. Meu computador está travando com tela azul e preciso de diagnóstico.",
+    ponteEditorial: {
+      antes: "Se você conseguiu anotar o código do erro e quer entender o que ele indica antes de decidir o próximo passo, o roteiro completo de leitura desse código está em ",
+      to: "/blog/como-resolver-tela-azul-windows",
+      anchor: "como interpretar e resolver a tela azul do Windows",
+      depois: ".",
+    },
     sintomas: [
       {
         titulo: "Tela azul aleatória, sem padrão de uso",
@@ -1241,6 +1253,12 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       "Impressora que não imprime raramente está quebrada. Na maior parte dos atendimentos o equipamento imprime perfeitamente quando testado sozinho: o que falha é o caminho entre o computador e ele — fila travada, endereço de rede que mudou, driver duplicado ou porta apontando para o lugar errado.",
     waMessage:
       "Olá! Vim da página sobre impressora que não imprime. Quero ajuda para colocar minha impressora para funcionar.",
+    ponteEditorial: {
+      antes: "Se o objetivo é entender antes o próprio aparelho — quais falhas são típicas de jato de tinta, laser e multifuncional de rede —, reunimos isso em ",
+      to: "/equipamentos/impressora",
+      anchor: "problemas mais frequentes em impressoras",
+      depois: ".",
+    },
     sintomas: [
       {
         titulo: "O documento entra na fila e não sai",

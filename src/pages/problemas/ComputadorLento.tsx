@@ -276,6 +276,14 @@ const ComputadorLento = () => {
             Por isso a triagem pergunta quando a lentidão aparece e o que está aberto no momento. Ela orienta a
             modalidade de atendimento, mas a causa só é confirmada com o equipamento avaliado.
           </p>
+          <p className="mt-3 text-muted-foreground">
+            Em máquina de mesa esse mapa muda um pouco, porque fonte, ventilação e disco secundário entram na conta.
+            Reunimos o que costuma falhar nesse tipo de equipamento em{" "}
+            <Link to="/equipamentos/desktop" className="font-medium text-accent hover:underline">
+              problemas comuns em computadores desktop
+            </Link>
+            .
+          </p>
         </section>
 
         <div className="mb-12">

@@ -163,6 +163,18 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                     {data.logisticaLocal.map((par, i) => (
                       <p key={i}>{par}</p>
                     ))}
+                    {data.ponteLocal ? (
+                      <p>
+                        {data.ponteLocal.antes}
+                        <Link
+                          to={data.ponteLocal.to}
+                          className="font-semibold text-accent underline-offset-4 hover:underline"
+                        >
+                          {data.ponteLocal.anchor}
+                        </Link>
+                        {data.ponteLocal.depois}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               ) : null}

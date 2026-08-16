@@ -98,6 +98,41 @@ for (const path of rotasBairro) {
     erros.push(`${path}: WebPage.url (${webpage.url}) não corresponde à rota`);
   }
 
+  // LocalBusiness (rich result local): mesma entidade do site, areaServed no bairro.
+  const [negocio] = tipos("LocalBusiness");
+  if (!negocio) erros.push(`${path}: LocalBusiness ausente`);
+  else {
+    if (!String(negocio.url ?? "").endsWith(path)) {
+      erros.push(`${path}: LocalBusiness.url (${negocio.url}) não corresponde à rota`);
+    }
+    for (const campo of ["name", "telephone", "address", "areaServed"]) {
+      if (!negocio[campo]) erros.push(`${path}: LocalBusiness sem ${campo}`);
+    }
+    const area = negocio.areaServed;
+    const areaNome = Array.isArray(area) ? area[0]?.name : area?.name;
+    if (!areaNome) erros.push(`${path}: LocalBusiness.areaServed sem name`);
+    if (negocio.aggregateRating || negocio.review) {
+      erros.push(`${path}: LocalBusiness com rating/review — proibido (nunca inventar avaliação)`);
+    }
+    if (negocio.address?.streetAddress) {
+      erros.push(`${path}: LocalBusiness com endereço de rua no bairro (filial inexistente)`);
+    }
+  }
+
+  // Imagem principal indexável (ImageObject com URL absoluta e dimensões).
+  const imagem = webpage?.primaryImageOfPage;
+  if (!imagem) erros.push(`${path}: WebPage sem primaryImageOfPage (página sem foto real)`);
+  else {
+    const url = imagem.contentUrl ?? imagem.url;
+    if (!/^https:\/\//.test(String(url))) erros.push(`${path}: primaryImageOfPage sem URL absoluta`);
+    if (!imagem.width || !imagem.height) erros.push(`${path}: primaryImageOfPage sem width/height`);
+    if (!imagem.caption) erros.push(`${path}: primaryImageOfPage sem caption`);
+    const arquivo = String(url).split("/").slice(3).join("/");
+    if (!html.includes(`/${arquivo}`.replace("//", "/"))) {
+      erros.push(`${path}: imagem do schema (${arquivo}) não aparece no HTML da página`);
+    }
+  }
+
   // Canonical self-referente
   const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1];
   if (!canonical || !canonical.endsWith(path)) {
@@ -115,4 +150,6 @@ if (erros.length) {
   for (const e of erros) console.error(`   ${e}`);
   process.exit(1);
 }
-console.log("\n✓ breadcrumb, FAQPage e WebPage válidos em todas as rotas de bairro indexáveis.");
+console.log(
+  "\n✓ BreadcrumbList, FAQPage, WebPage, LocalBusiness e imagem principal válidos em todas as rotas de bairro indexáveis.",
+);

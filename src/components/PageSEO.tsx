@@ -3,7 +3,6 @@ import { withOgVersion } from "@/lib/ogCacheBust";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { BRAND_NAME, BRAND_OG_PATH, SITE_BASE_URL } from "@/lib/siteConfig";
 import { INDEXING_ENABLED, robotsContent } from "@/lib/indexingPolicy";
-import { JsonLdSsrSink } from "@/lib/jsonLdSsr";
 
 const SITE_NAME = BRAND_NAME;
 // Vazio quando não há domínio configurado → URLs relativas, nunca o domínio herdado.
@@ -103,8 +102,6 @@ export const PageSEO = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={versionedOg} />
-      {/* SSR: emite os slots já registrados pela página/layout envolvente. */}
-      <JsonLdSsrSink />
     </>
   );
 };

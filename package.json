@@ -237,6 +237,10 @@
     "check:robots": "node scripts/check-robots.mjs dist",
     "check:local-index-policy": "node scripts/check-local-index-policy.mjs dist",
     "check:local-doorway": "node scripts/check-local-doorway.mjs dist",
+    "check:local-intro-similarity": "node scripts/check-intro-similarity.mjs dist",
+    "check:local-schema": "node scripts/check-bairros-schema.mjs dist",
+    "report:local-seo-diff": "node scripts/report-local-seo-diff.mjs dist",
+    "report:gsc-local": "node scripts/gsc-local-status.mjs",
     "check:local-service-intent": "node scripts/check-local-service-intent.mjs",
     "check:local-neighborhood-intent": "node scripts/check-local-neighborhood-intent.mjs dist",
     "report:local-gates": "node scripts/generate-local-gates-report.mjs dist",
@@ -271,7 +275,7 @@
     "check:national-foundation-pillars": "node scripts/check-national-foundation-pillars.mjs",
     "ssr:with-server": "node scripts/with-ssr-server.mjs",
     "gates:local": "node scripts/with-ssr-server.mjs npm run check:local-all",
-    "check:local-all": "npm run check:local-index-policy && npm run check:local-doorway && npm run check:local-neighborhood-intent && npm run check:local-service-intent && npm run check:local-interlinking && npm run check:local-seo-quality && npm run check:local-regression"
+    "check:local-all": "npm run check:local-index-policy && npm run check:local-doorway && npm run check:local-neighborhood-intent && npm run check:local-service-intent && npm run check:local-interlinking && npm run check:local-seo-quality && npm run check:local-intro-similarity && npm run check:local-schema && npm run check:local-regression"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

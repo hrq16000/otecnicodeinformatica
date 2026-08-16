@@ -90,6 +90,7 @@ import { Route as AdminExperimentoWaRouteImport } from './routes/admin_.experime
 import { Route as AdminFotosRouteImport } from './routes/admin_.fotos'
 import { Route as AdminFunnelRouteImport } from './routes/admin_.funnel'
 import { Route as AdminGatesLocaisRouteImport } from './routes/admin_.gates-locais'
+import { Route as AdminInventarioBairrosRouteImport } from './routes/admin_.inventario-bairros'
 import { Route as AdminLinkBuilderRouteImport } from './routes/admin_.link-builder'
 import { Route as AdminLoginRouteImport } from './routes/admin_.login'
 import { Route as AdminOperacaoRouteImport } from './routes/admin_.operacao'
@@ -871,6 +872,11 @@ const AdminFunnelRoute = AdminFunnelRouteImport.update({
 const AdminGatesLocaisRoute = AdminGatesLocaisRouteImport.update({
   id: '/admin_/gates-locais',
   path: '/admin/gates-locais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminInventarioBairrosRoute = AdminInventarioBairrosRouteImport.update({
+  id: '/admin_/inventario-bairros',
+  path: '/admin/inventario-bairros',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLinkBuilderRoute = AdminLinkBuilderRouteImport.update({
@@ -2895,6 +2901,7 @@ export interface FileRoutesByFullPath {
   '/admin/fotos': typeof AdminFotosRoute
   '/admin/funnel': typeof AdminFunnelRoute
   '/admin/gates-locais': typeof AdminGatesLocaisRoute
+  '/admin/inventario-bairros': typeof AdminInventarioBairrosRoute
   '/admin/link-builder': typeof AdminLinkBuilderRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/operacao': typeof AdminOperacaoRoute
@@ -3337,6 +3344,7 @@ export interface FileRoutesByTo {
   '/admin/fotos': typeof AdminFotosRoute
   '/admin/funnel': typeof AdminFunnelRoute
   '/admin/gates-locais': typeof AdminGatesLocaisRoute
+  '/admin/inventario-bairros': typeof AdminInventarioBairrosRoute
   '/admin/link-builder': typeof AdminLinkBuilderRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/operacao': typeof AdminOperacaoRoute
@@ -3780,6 +3788,7 @@ export interface FileRoutesById {
   '/admin_/fotos': typeof AdminFotosRoute
   '/admin_/funnel': typeof AdminFunnelRoute
   '/admin_/gates-locais': typeof AdminGatesLocaisRoute
+  '/admin_/inventario-bairros': typeof AdminInventarioBairrosRoute
   '/admin_/link-builder': typeof AdminLinkBuilderRoute
   '/admin_/login': typeof AdminLoginRoute
   '/admin_/operacao': typeof AdminOperacaoRoute
@@ -4224,6 +4233,7 @@ export interface FileRouteTypes {
     | '/admin/fotos'
     | '/admin/funnel'
     | '/admin/gates-locais'
+    | '/admin/inventario-bairros'
     | '/admin/link-builder'
     | '/admin/login'
     | '/admin/operacao'
@@ -4666,6 +4676,7 @@ export interface FileRouteTypes {
     | '/admin/fotos'
     | '/admin/funnel'
     | '/admin/gates-locais'
+    | '/admin/inventario-bairros'
     | '/admin/link-builder'
     | '/admin/login'
     | '/admin/operacao'
@@ -5108,6 +5119,7 @@ export interface FileRouteTypes {
     | '/admin_/fotos'
     | '/admin_/funnel'
     | '/admin_/gates-locais'
+    | '/admin_/inventario-bairros'
     | '/admin_/link-builder'
     | '/admin_/login'
     | '/admin_/operacao'
@@ -5551,6 +5563,7 @@ export interface RootRouteChildren {
   AdminFotosRoute: typeof AdminFotosRoute
   AdminFunnelRoute: typeof AdminFunnelRoute
   AdminGatesLocaisRoute: typeof AdminGatesLocaisRoute
+  AdminInventarioBairrosRoute: typeof AdminInventarioBairrosRoute
   AdminLinkBuilderRoute: typeof AdminLinkBuilderRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminOperacaoRoute: typeof AdminOperacaoRoute
@@ -6479,6 +6492,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/gates-locais'
       fullPath: '/admin/gates-locais'
       preLoaderRoute: typeof AdminGatesLocaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/inventario-bairros': {
+      id: '/admin_/inventario-bairros'
+      path: '/admin/inventario-bairros'
+      fullPath: '/admin/inventario-bairros'
+      preLoaderRoute: typeof AdminInventarioBairrosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin_/link-builder': {
@@ -9082,6 +9102,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminFotosRoute: AdminFotosRoute,
   AdminFunnelRoute: AdminFunnelRoute,
   AdminGatesLocaisRoute: AdminGatesLocaisRoute,
+  AdminInventarioBairrosRoute: AdminInventarioBairrosRoute,
   AdminLinkBuilderRoute: AdminLinkBuilderRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminOperacaoRoute: AdminOperacaoRoute,

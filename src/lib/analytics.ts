@@ -337,3 +337,30 @@ export const trackPageView = (pagePath: string, pageTitle: string) => {
 
 };
 
+
+/**
+ * ÍNDICE DO ARTIGO (TOC) — engajamento por heading.
+ *
+ * `action` distingue a navegação pelo índice do compartilhamento de seção,
+ * permitindo mapear quais tópicos puxam leitura e quais são copiados/enviados.
+ */
+export const trackTocInteraction = (
+  action: 'navigate' | 'copy_link',
+  headingId: string,
+  headingText: string,
+  position: number,
+) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', action === 'navigate' ? 'toc_click' : 'toc_copy_link', {
+    event_category: 'engagement',
+    event_label: `${normalizeTrackingLabel(headingId)}_${action}`,
+    toc_heading_id: headingId,
+    toc_heading_text: headingText.slice(0, 100),
+    toc_position: position,
+    click_location: 'article_toc',
+    page_path: window.location.pathname,
+    route_type: routeTypeFromPath(window.location.pathname),
+    ...getDeviceContext(),
+    ...getUtmContext(),
+  });
+};

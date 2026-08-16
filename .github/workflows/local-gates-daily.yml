@@ -1,0 +1,60 @@
+name: Gates locais diários (SSR real)
+
+# Execução agendada de TODOS os checks locais contra o SSR real, mais os gates
+# novos da Micro-Rodada Local 1.2/2: similaridade de introdução (fail-closed) e
+# schema das rotas /bairros/*. Também roda em pull_request para bloquear merge.
+on:
+  schedule:
+    - cron: "10 6 * * *" # diário, 06:10 UTC (03:10 America/Sao_Paulo)
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gates-locais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (SSR + sitemaps)
+        run: npm run build
+        env:
+          VITE_SITE_DOMAIN: ${{ secrets.VITE_SITE_DOMAIN }}
+          VITE_WHATSAPP_NUMBER: ${{ secrets.VITE_WHATSAPP_NUMBER }}
+
+      - name: Auditoria de metadados
+        run: npm run audit:seo
+
+      - name: Todos os gates locais (SSR real, bloqueante)
+        run: npm run gates:local
+
+      - name: Diff de SEO local (evidência)
+        if: always()
+        run: node scripts/with-ssr-server.mjs npm run report:local-seo-diff
+
+      - name: Status de indexação (Search Console)
+        if: always()
+        continue-on-error: true
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: sc-domain:otecnicodeinformatica.com.br
+        run: npm run report:gsc-local
+
+      - name: Acessibilidade do índice (TOC)
+        if: always()
+        continue-on-error: true
+        run: npx playwright install --with-deps chromium && npx playwright test e2e/a11y-toc.spec.ts
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gates-locais-diarios
+          path: |
+            reports/
+            public/gsc-local-status.json

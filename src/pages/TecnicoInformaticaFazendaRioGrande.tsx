@@ -87,14 +87,6 @@ const localFaqs = [
   },
 ];
 
-const frgSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Técnico de Informática em Fazenda Rio Grande",
-  "description": "Assistência técnica de computadores em Fazenda Rio Grande PR. Formatação, conserto, upgrade, redes. Atendimento a domicílio.",
-  "areaServed": { "@type": "City", "name": "Fazenda Rio Grande", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "$$",
-};
 
 const TecnicoInformaticaFazendaRioGrande = () => {
   useEffect(() => {
@@ -112,7 +104,6 @@ const TecnicoInformaticaFazendaRioGrande = () => {
     <div className="min-h-screen bg-background">
       <PageSEO noindex title="Técnico de Informática em Fazenda Rio Grande | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Fazenda Rio Grande PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-fazenda-rio-grande" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Fazenda Rio Grande", path: "/tecnico-informatica-fazenda-rio-grande" }]} />
       <CityServiceSchema city={"Fazenda Rio Grande"} citySameAs={"https://pt.wikipedia.org/wiki/Fazenda_Rio_Grande"} path={"/tecnico-informatica-fazenda-rio-grande"} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(frgSchema) }} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Fazenda Rio Grande" }]} />

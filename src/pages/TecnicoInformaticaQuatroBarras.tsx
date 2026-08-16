@@ -49,13 +49,6 @@ const localFaqs = [
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços que exigem bancada, coletamos e devolvemos no seu endereço." },
 ];
 
-const schema = {
-  "@context": "https://schema.org", "@type": "LocalBusiness",
-  "name": "Técnico de Informática em Quatro Barras",
-  "description": "Assistência técnica em Quatro Barras PR. Atendimento a domicílio.",
-  "areaServed": { "@type": "City", "name": "Quatro Barras", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "$$",
-};
 
 const TecnicoInformaticaQuatroBarras = () => {
   useEffect(() => {
@@ -69,7 +62,6 @@ const TecnicoInformaticaQuatroBarras = () => {
     <div className="min-h-screen bg-background">
       <PageSEO noindex title="Técnico de Informática em Quatro Barras PR | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-quatro-barras" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Quatro Barras", path: "/tecnico-informatica-quatro-barras" }]} />
       <CityServiceSchema city={"Quatro Barras"} citySameAs={"https://pt.wikipedia.org/wiki/Quatro_Barras"} path={"/tecnico-informatica-quatro-barras"} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Quatro Barras" }]} />

@@ -17,6 +17,7 @@ import { GeoAutoDetect } from "@/components/GeoAutoDetect";
 import { InstitutionalJsonLd } from "@/components/InstitutionalJsonLd";
 import {
   JsonLdCollectorContext,
+  JsonLdSsrSink,
   createJsonLdCollector,
 } from "@/lib/jsonLdSsr";
 import { PageViewTracker } from "@/components/PageViewTracker";
@@ -170,14 +171,19 @@ function RootComponent() {
         <MotionProvider>
           <ScrollToTop />
           <GeoAutoDetect />
-          <InstitutionalJsonLd />
           <PageViewTracker path={pathname} />
           <JsonLdCollectorContext.Provider value={jsonLdCollector}>
+            {/* Institucional dentro do provider: seus slots precisam entrar no
+                coletor do SSR junto com os da rota. */}
+            <InstitutionalJsonLd />
             <RouteTransition routeKey={pathname}>
               <Suspense fallback={<RouteLoader />}>
                 <Outlet />
               </Suspense>
             </RouteTransition>
+            {/* Sink ÚNICO do site: emite no HTML servido todos os slots
+                registrados acima (institucionais + da rota). */}
+            <JsonLdSsrSink />
           </JsonLdCollectorContext.Provider>
           <WhatsAppFunnel />
           <WhatsAppFloat />

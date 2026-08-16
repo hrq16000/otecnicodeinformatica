@@ -80,7 +80,7 @@ const ColetaEntrega = () => {
           { "@type": "City", name: "Curitiba" },
           { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
         ],
-        provider: { "@id": `${SITE_BASE_URL}/#localbusiness` },
+        provider: { "@id": `${SITE_BASE_URL}/#organization` },
         offers: {
           "@type": "Offer",
           priceCurrency: "BRL",

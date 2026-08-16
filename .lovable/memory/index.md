@@ -59,3 +59,4 @@
 - [Rodada 8D — aquisição orgânica](mem://features/rodada-8d-aquisicao-organica) — QR no link builder, bloco Aquisição real no /admin/conversao, reports/acquisition-performance.{json,md} e E2E GBP→WhatsApp.
 
 - [Rodada 8F — discovery e distribuição](mem://features/rodada-8f-discovery-distribuicao) — Coorte content_cluster_formatacao_v1, gate check:content-discovery (profundidade ≤3), links do cluster em curated-static-body e distribuição PRONTO_PARA_PUBLICAR.
+- [JSON-LD no SSR — sink único](mem://features/jsonld-ssr-sink-unico) — Slots + coletor, um sink no __root, @id único e universo de rotas dos gates.

@@ -1,151 +1,205 @@
 #!/usr/bin/env node
 /**
- * Gate contra componentes órfãos (escopo: páginas comerciais P0).
+ * ============================================================================
+ * GATE DE PÁGINAS ÓRFÃS — stack TanStack Start (roteamento por arquivo)
+ * ============================================================================
+ * A versão anterior exigia que todo componente de `src/pages/` fosse importado
+ * em `src/App.tsx` / `src/LegacyApp.tsx`. Depois da migração isso virou ruído:
+ * 71 "órfãos" que na verdade são montados por arquivos em `src/routes/**` ou
+ * são componentes reutilizados por templates data-driven.
  *
- * Detecta, dentro de src/pages (raiz), src/pages/servicos e src/App.tsx /
- * src/LegacyApp.tsx:
- *   1. componente de página sem import em nenhum roteador;
- *   2. import (lazy ou estático) declarado e nunca usado em <Route>;
- *   3. rota P0 que apenas redireciona enquanto existe componente de página
- *      dedicado ao mesmo objetivo (conteúdo ficaria inalcançável);
- *   4. duas implementações distintas montadas no mesmo slug canônico.
+ * Contrato atual (defeito real, sem exceção por pathname):
+ *   FAIL_MISSING_ROUTE       URL curada/indexável sem arquivo de rota.
+ *   FAIL_BROKEN_MOUNT        rota importa módulo de página inexistente.
+ *   FAIL_DUPLICATE_MOUNT     duas rotas indexáveis montando o mesmo módulo.
  *
- * Relata: arquivo, símbolo, rota provável, motivo e componente canônico esperado.
- * Fora de escopo nesta rodada: varredura genérica de todos os componentes.
+ * Classificações informativas (contadas, nunca silenciosas):
+ *   SKIPPED_NON_ROUTE_COMPONENT  componente de página usado só por template.
+ *   SKIPPED_PRIVATE              rotas /admin, /ads, /api.
+ *
+ * Fail-closed: sem `src/routes`, falha com UNKNOWN_ROUTES_DIR_MISSING.
  */
-import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
+import { readdirSync, statSync } from "node:fs";
+import { join, relative, sep } from "node:path";
+import { CURATED_PATHS } from "./lib/curated-urls.mjs";
+import { readRouteUniverse, isPrivatePath, normalizePath, REASONS } from "./lib/tanstack-routes.mjs";
 
-const ROUTERS = ["src/LegacyApp.tsx", "src/App.tsx"].filter(existsSync);
-const SCOPE_DIRS = ["src/pages", "src/pages/servicos"];
-
-/** Rotas comerciais P0 desta rodada — precisam de componente próprio montado. */
-const P0_ROUTES = {
-  "/": "src/pages/Index.tsx",
-  "/tecnico-informatica-curitiba": "src/pages/TecnicoInformaticaCuritiba.tsx",
-  "/atendimento-domicilio": "src/pages/AtendimentoDomicilio.tsx",
-  "/empresa-de-ti-curitiba": "src/pages/EmpresaDeTiCuritiba.tsx",
-};
-
-/** Páginas montadas indiretamente (templates data-driven, admin, ads, etc). */
-const NOT_ROUTE_COMPONENTS = [
-  "src/pages/admin/",
-  "src/pages/ads/",
-  "src/pages/bairros/",
-  "src/pages/servico-bairro/",
-  "src/pages/arrumar-pc/",
-  "src/pages/cftv/",
-  "src/pages/hubs/",
-];
-
-const routerSrc = ROUTERS.map((f) => readFileSync(f, "utf8")).join("\n");
-const failures = [];
-const notices = [];
-
-function listPages(dir) {
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .map((e) => join(dir, e))
-    .filter((p) => statSync(p).isFile() && p.endsWith(".tsx"));
+const ROOT = process.cwd();
+const universe = readRouteUniverse(ROOT);
+if (!universe.ok) {
+  console.error(`✖ [${universe.reason}] src/routes ausente — gate não pode concluir.`);
+  process.exit(1);
 }
 
-const pages = [...new Set(SCOPE_DIRS.flatMap(listPages))].filter(
-  (p) => !NOT_ROUTE_COMPONENTS.some((skip) => p.startsWith(skip)),
-);
+// arquivo de rota → padrão de URL (fonte: universo derivado de src/routes).
+const patternPorArquivo = new Map();
+for (const pattern of universe.patterns) {
+  const f = universe.routeFileFor(pattern);
+  if (f && !patternPorArquivo.has(f)) patternPorArquivo.set(f, pattern);
+}
+const filePattern = (rel) => patternPorArquivo.get(rel);
 
-// 1) Componente de página sem import em nenhum roteador.
-for (const file of pages) {
-  const importPath = file.replace(/^src\//, "").replace(/\.tsx$/, "");
-  const short = importPath.replace(/^pages\//, "");
-  const referenced =
-    routerSrc.includes(`/${short}"`) ||
-    routerSrc.includes(`/${short}'`) ||
-    routerSrc.includes(`@/${importPath}`) ||
-    routerSrc.includes(`./${importPath}`);
-  if (!referenced) {
+const failures = [];
+const info = { naoRota: [], privadas: 0 };
+
+// ── 1. URL curada precisa de rota real ───────────────────────────────────────
+for (const p of CURATED_PATHS) {
+  const path = normalizePath(p);
+  if (isPrivatePath(path)) {
+    info.privadas += 1;
+    continue;
+  }
+  if (!universe.isKnownRoute(path)) {
     failures.push({
-      file,
-      symbol: short.split("/").pop(),
-      route: "(nenhuma)",
-      reason: "componente de página sem import em src/App.tsx ou src/LegacyApp.tsx",
-      expected: "montar na rota canônica ou remover o arquivo",
+      reason: "FAIL_MISSING_ROUTE",
+      alvo: path,
+      motivo: "URL indexável no sitemap curado sem arquivo de rota em src/routes",
+      esperado: `src/routes${path.replace(/\//g, ".").replace(/^\./, "/")}.tsx`,
     });
   }
 }
 
-// 2) Imports declarados e nunca usados como elemento de rota.
-for (const routerFile of ROUTERS) {
-  const src = readFileSync(routerFile, "utf8");
-  const imports = [
-    ...src.matchAll(/(?:const|import)\s+(\w+)\s*=\s*lazy\(/g),
-    ...src.matchAll(/^import\s+(\w+)\s+from\s+["']\.\/pages\//gm),
-  ].map((m) => m[1]);
-  for (const sym of new Set(imports)) {
-    const used = new RegExp(`<${sym}[\\s/>]`).test(src);
-    if (!used) {
+// ── 2. Montagens declaradas nas rotas ────────────────────────────────────────
+// As rotas montam páginas de duas formas:
+//   a) import direto de `@/pages/...` dentro do arquivo de rota;
+//   b) indireção pelo mapa `src/legacyRouteElements.tsx` (`legacyRouteElements["/x"]`),
+//      que associa cada path a um elemento (às vezes template data-driven com props).
+const LEGACY_MAP_FILE = "src/legacyRouteElements.tsx";
+const legacySrc = existsSync(join(ROOT, LEGACY_MAP_FILE)) ? readFileSync(join(ROOT, LEGACY_MAP_FILE), "utf8") : "";
+
+/** símbolo → módulo (`const X = lazy(() => import("./pages/X"))` ou import estático). */
+const simboloParaModulo = new Map();
+for (const m of legacySrc.matchAll(/const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']\.\/(pages\/[^"']+)["']\)/g))
+  simboloParaModulo.set(m[1], `@/${m[2]}`);
+for (const m of legacySrc.matchAll(/import\s+(\w+)\s+from\s+["']\.\/(pages\/[^"']+)["']/g))
+  simboloParaModulo.set(m[1], `@/${m[2]}`);
+
+/** path → { elemento (identidade textual), símbolo } */
+const legacyPorPath = new Map();
+for (const m of legacySrc.matchAll(/"(\/[^"]*)":\s*\(\)\s*=>\s*(<[^\n]+?),?\s*$/gm)) {
+  const elemento = m[2].replace(/,$/, "").trim();
+  const simbolo = elemento.match(/^<(\w+)/)?.[1];
+  legacyPorPath.set(normalizePath(m[1]), { elemento, simbolo });
+}
+
+const mounts = new Map(); // módulo → [{rota, identidade}]
+const registrar = (mod, rota, identidade) => {
+  if (!mounts.has(mod)) mounts.set(mod, []);
+  mounts.get(mod).push({ rota, identidade });
+};
+
+for (const file of universe.files) {
+  const rel = relative(ROOT, file).split(sep).join("/");
+  const src = readFileSync(file, "utf8");
+  const pattern = filePattern(rel);
+
+  const modulos = new Set();
+  for (const m of src.matchAll(/from\s+["'](@\/pages\/[^"']+)["']/g)) modulos.add(m[1]);
+  for (const m of src.matchAll(/import\(\s*["'](@\/pages\/[^"']+)["']\s*\)/g)) modulos.add(m[1]);
+
+  for (const mod of modulos) {
+    const disco = mod.replace(/^@\//, "src/");
+    const existe = [".tsx", ".ts", "/index.tsx"].some((ext) => existsSync(join(ROOT, `${disco}${ext}`)));
+    if (!existe) {
       failures.push({
-        file: routerFile,
-        symbol: sym,
-        route: "(import sem <Route>)",
-        reason: "import lazy/estático declarado e nunca renderizado",
-        expected: "usar em uma <Route> ou remover o import",
+        reason: "FAIL_BROKEN_MOUNT",
+        alvo: rel,
+        motivo: `rota importa módulo inexistente: ${mod}`,
+        esperado: `criar ${disco}.tsx ou remover o import`,
+      });
+      continue;
+    }
+    registrar(mod, pattern ?? rel, mod);
+  }
+
+  // Indireção pelo mapa legado.
+  const chave = src.match(/legacyRouteElements\[\s*["']([^"']+)["']\s*\]/)?.[1];
+  if (chave) {
+    const alvo = legacyPorPath.get(normalizePath(chave));
+    if (!alvo) {
+      failures.push({
+        reason: "FAIL_BROKEN_MOUNT",
+        alvo: rel,
+        motivo: `rota referencia legacyRouteElements["${chave}"], chave inexistente no mapa`,
+        esperado: `declarar "${chave}" em ${LEGACY_MAP_FILE} ou montar um componente próprio`,
+      });
+    } else {
+      const mod = alvo.simbolo ? simboloParaModulo.get(alvo.simbolo) : null;
+      if (mod) registrar(mod, pattern ?? rel, alvo.elemento);
+    }
+  }
+}
+
+// ── 3. Mesma implementação em dois slugs indexáveis (conteúdo duplicado) ─────
+const curado = new Set(CURATED_PATHS.map(normalizePath));
+/**
+ * Template data-driven: o módulo deriva o conteúdo da própria rota
+ * (`useParams` / `useLocation` / `useRouterState`). Montá-lo em vários slugs
+ * produz páginas diferentes — não é duplicata.
+ */
+const ehTemplateDeRota = (mod) => {
+  const disco = mod.replace(/^@\//, "src/");
+  const arquivo = [".tsx", ".ts", "/index.tsx"].map((ext) => join(ROOT, `${disco}${ext}`)).find(existsSync);
+  if (!arquivo) return false;
+  return /useParams|useRouterState|useLocation|location\.pathname/.test(readFileSync(arquivo, "utf8"));
+};
+
+for (const [mod, usos] of mounts) {
+  if (ehTemplateDeRota(mod)) continue;
+  const porIdentidade = new Map();
+  for (const uso of usos) {
+    if (!uso.rota?.startsWith("/") || !curado.has(normalizePath(uso.rota))) continue;
+    // Templates data-driven (mesmo módulo, props diferentes) NÃO são duplicata:
+    // a identidade inclui as props do elemento.
+    const chave = uso.identidade;
+    if (!porIdentidade.has(chave)) porIdentidade.set(chave, new Set());
+    porIdentidade.get(chave).add(normalizePath(uso.rota));
+  }
+  for (const [identidade, rotas] of porIdentidade) {
+    if (rotas.size > 1) {
+      failures.push({
+        reason: "FAIL_DUPLICATE_MOUNT",
+        alvo: `${mod} → ${identidade}`,
+        motivo: `mesma implementação montada em ${[...rotas].join(" e ")}`,
+        esperado: "uma implementação por slug canônico (ou canonical/301 entre eles)",
       });
     }
   }
 }
 
-// 3) Rota P0 que redireciona apesar de existir componente dedicado + 4) slug duplicado.
-for (const [route, expected] of Object.entries(P0_ROUTES)) {
-  const routeRe = new RegExp(`path="${route.replace(/\//g, "\\/")}"[^>]*element=\\{([^}]+)\\}`, "g");
-  const matches = [...routerSrc.matchAll(routeRe)].map((m) => m[1].trim());
-  if (matches.length === 0) continue;
-  const redirecting = matches.filter((m) => m.includes("Navigate"));
-  if (redirecting.length && existsSync(expected)) {
-    failures.push({
-      file: expected,
-      symbol: route,
-      route,
-      reason: "rota P0 redireciona enquanto existe componente de página dedicado",
-      expected,
-    });
+
+// ── 4. Componentes de página não montados por rota (informativo) ─────────────
+function listarPaginas(dir) {
+  if (!existsSync(dir)) return [];
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) out.push(...listarPaginas(full));
+    else if (entry.endsWith(".tsx")) out.push(full);
   }
-  const components = [...new Set(matches.filter((m) => !m.includes("Navigate")))];
-  if (components.length > 1) {
-    failures.push({
-      file: ROUTERS[0],
-      symbol: components.join(" / "),
-      route,
-      reason: "duas implementações montadas no mesmo slug canônico",
-      expected,
-    });
-  }
+  return out;
+}
+const montados = new Set([...mounts.keys()].map((m) => m.replace(/^@\//, "src/")));
+for (const file of listarPaginas(join(ROOT, "src/pages"))) {
+  const rel = relative(ROOT, file).split(sep).join("/");
+  const semExt = rel.replace(/\.tsx$/, "");
+  if (montados.has(semExt) || montados.has(semExt.replace(/\/index$/, ""))) continue;
+  info.naoRota.push(rel);
 }
 
-// 5) Conteúdo P0 precisa viver no componente canônico (não em reexport genérico).
-const localPage = P0_ROUTES["/tecnico-informatica-curitiba"];
-if (existsSync(localPage)) {
-  const src = readFileSync(localPage, "utf8");
-  if (/CidadeLandingLayout/.test(src) && src.split(/\r?\n/).length < 40) {
-    failures.push({
-      file: localPage,
-      symbol: "TecnicoInformaticaCuritiba",
-      route: "/tecnico-informatica-curitiba",
-      reason: "página P0 é apenas reexport do template genérico de cidade (sem conteúdo próprio)",
-      expected: "componente próprio com conteúdo editorial exclusivo",
-    });
-  }
-}
-
-console.log(`[orphan-gate] escopo: ${pages.length} página(s) + ${ROUTERS.length} roteador(es)`);
-for (const n of notices) console.log(`  \u2139 ${n}`);
+// ── 5. Saída ─────────────────────────────────────────────────────────────────
+console.log("── Páginas órfãs (universo TanStack) ──");
+console.log(`Rotas por arquivo: ${universe.patterns.length} | URLs curadas: ${CURATED_PATHS.length}`);
+console.log(
+  `SKIPPED_NON_ROUTE_COMPONENT: ${info.naoRota.length} componente(s) | SKIPPED_PRIVATE: ${info.privadas}`,
+);
 
 if (failures.length) {
-  console.error(`\n[orphan-gate] FALHOU — ${failures.length} problema(s):`);
+  console.error(`\n✖ ${failures.length} defeito(s) real(is):`);
   for (const f of failures) {
-    console.error(
-      `  \u2717 ${f.file}\n      símbolo: ${f.symbol}\n      rota: ${f.route}\n      motivo: ${f.reason}\n      esperado: ${f.expected}`,
-    );
+    console.error(`  ✗ [${f.reason}] ${f.alvo}\n      motivo: ${f.motivo}\n      esperado: ${f.esperado}`);
   }
   process.exit(1);
 }
-console.log("[orphan-gate] OK — nenhum componente órfão nas páginas comerciais \u2714");
+console.log("✔ Nenhuma URL indexável sem rota, montagem quebrada ou slug duplicado.");

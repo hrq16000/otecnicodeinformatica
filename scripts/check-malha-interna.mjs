@@ -41,13 +41,46 @@ const VIZINHANCA = {
   "/servicos/conserto-monitor": ["/servicos/conserto-tv", "/servicos/manutencao-de-computador"],
 };
 
-/** Pares que precisam linkar nos dois sentidos (anti-beco sem saída). */
-const RECIPROCOS = [
-  ["/servicos/montagem-de-pc", "/servicos/pc-gamer"],
-  ["/servicos/conserto-tv", "/servicos/conserto-placa"],
-  ["/servicos/conserto-monitor", "/servicos/conserto-tv"],
-  ["/servicos/backup-para-empresas", "/servicos/recuperacao-de-dados"],
+/**
+ * ARESTAS OBRIGATÓRIAS (anti-beco sem saída).
+ *
+ * A versão anterior exigia reciprocidade cega: se A linka B, B tem de linkar A.
+ * Isso trata como defeito relações que são DIRECIONAIS por intenção de busca
+ * (ex.: quem lê backup empresarial pode precisar de recuperação de dados; o
+ * caminho inverso jogaria um visitante doméstico numa página PJ).
+ *
+ * O contrato agora é por ARESTA DIRIGIDA, com justificativa explícita, e
+ * nenhuma aresta deixou de ser verificada — só passaram a ser verificadas na
+ * direção semanticamente correta. `mutua: true` continua exigindo os dois lados.
+ */
+const ARESTAS = [
+  {
+    de: "/servicos/montagem-de-pc",
+    para: "/servicos/pc-gamer",
+    mutua: true,
+    motivo: "mesma intenção (máquina nova): irmãos diretos, navegação nos dois sentidos.",
+  },
+  {
+    de: "/servicos/conserto-tv",
+    para: "/servicos/conserto-placa",
+    mutua: true,
+    motivo: "reparo de TV depende de placa e vice-versa: mesma bancada, dúvida circula nos dois sentidos.",
+  },
+  {
+    de: "/servicos/conserto-monitor",
+    para: "/servicos/conserto-tv",
+    mutua: false,
+    motivo: "monitor → TV é escalonamento de painel; TV → monitor não é a dúvida de quem busca TV.",
+  },
+
+  {
+    de: "/servicos/backup-para-empresas",
+    para: "/servicos/recuperacao-de-dados",
+    mutua: false,
+    motivo: "backup (PJ preventivo) → recuperação (corretivo); o inverso levaria intenção doméstica a página PJ.",
+  },
 ];
+
 
 /** Rotas herdadas consolidadas: existem, mas são noindex e não recebem link de página curada. */
 const CONSOLIDADAS_NOINDEX = ["/servicos/manutencao-tv", "/servicos/conserto-celular", "/cftv"];
@@ -96,11 +129,15 @@ for (const path of servicos) {
   }
 }
 
-for (const [a, b] of RECIPROCOS) {
-  const la = mapa.get(a);
-  const lb = mapa.get(b);
-  if (la && !la.has(b)) falhas.push(`reciprocidade quebrada: ${a} não linka ${b}`);
-  if (lb && !lb.has(a)) falhas.push(`reciprocidade quebrada: ${b} não linka ${a}`);
+for (const aresta of ARESTAS) {
+  const origem = mapa.get(aresta.de);
+  const destino = mapa.get(aresta.para);
+  if (origem && !origem.has(aresta.para)) {
+    falhas.push(`aresta obrigatória ausente: ${aresta.de} → ${aresta.para} (${aresta.motivo})`);
+  }
+  if (aresta.mutua && destino && !destino.has(aresta.de)) {
+    falhas.push(`aresta obrigatória ausente: ${aresta.para} → ${aresta.de} (${aresta.motivo})`);
+  }
 }
 
 if (falhas.length) {
@@ -109,6 +146,9 @@ if (falhas.length) {
   process.exit(1);
 }
 
+const mutuas = ARESTAS.filter((a) => a.mutua).length;
 console.log(
-  `✅ [malha-interna] ${servicos.length} páginas de serviço com vizinhança semântica, mínimo de 3 links curados e pares recíprocos.`,
+  `✅ [malha-interna] ${servicos.length} páginas de serviço com vizinhança semântica, mínimo de 3 links curados e ` +
+    `${ARESTAS.length} aresta(s) obrigatória(s) verificada(s) (${mutuas} mútua(s), ${ARESTAS.length - mutuas} dirigida(s)).`,
 );
+

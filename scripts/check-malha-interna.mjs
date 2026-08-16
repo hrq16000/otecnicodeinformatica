@@ -129,11 +129,15 @@ for (const path of servicos) {
   }
 }
 
-for (const [a, b] of RECIPROCOS) {
-  const la = mapa.get(a);
-  const lb = mapa.get(b);
-  if (la && !la.has(b)) falhas.push(`reciprocidade quebrada: ${a} não linka ${b}`);
-  if (lb && !lb.has(a)) falhas.push(`reciprocidade quebrada: ${b} não linka ${a}`);
+for (const aresta of ARESTAS) {
+  const origem = mapa.get(aresta.de);
+  const destino = mapa.get(aresta.para);
+  if (origem && !origem.has(aresta.para)) {
+    falhas.push(`aresta obrigatória ausente: ${aresta.de} → ${aresta.para} (${aresta.motivo})`);
+  }
+  if (aresta.mutua && destino && !destino.has(aresta.de)) {
+    falhas.push(`aresta obrigatória ausente: ${aresta.para} → ${aresta.de} (${aresta.motivo})`);
+  }
 }
 
 if (falhas.length) {
@@ -142,6 +146,9 @@ if (falhas.length) {
   process.exit(1);
 }
 
+const mutuas = ARESTAS.filter((a) => a.mutua).length;
 console.log(
-  `✅ [malha-interna] ${servicos.length} páginas de serviço com vizinhança semântica, mínimo de 3 links curados e pares recíprocos.`,
+  `✅ [malha-interna] ${servicos.length} páginas de serviço com vizinhança semântica, mínimo de 3 links curados e ` +
+    `${ARESTAS.length} aresta(s) obrigatória(s) verificada(s) (${mutuas} mútua(s), ${ARESTAS.length - mutuas} dirigida(s)).`,
 );
+

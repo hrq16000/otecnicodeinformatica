@@ -111,114 +111,91 @@ const BlogPost = () => {
   const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
 
   // Structured data governado pelo registro editorial fail-closed.
-  // - Artigo NÃO aprovado: emite apenas WebPage + BreadcrumbList (sem
-  //   BlogPosting/Article/TechArticle, sem autor pessoal, sem prova de
-  //   revisão). Não é tratado como conteúdo publicado.
-  // - Artigo aprovado (futuro): emite BlogPosting completo com autoria
-  //   institucional/verificada e data real registrada.
-  useEffect(() => {
-    if (!post || !slug) return;
-    const existingSchemas = document.querySelectorAll('script[data-blog-schema="true"]');
-    existingSchemas.forEach(s => s.remove());
+  // - Artigo NÃO aprovado: WebPage + BreadcrumbList (sem BlogPosting/Article/
+  //   TechArticle, sem autor pessoal). Não é conteúdo publicado.
+  // - Artigo aprovado: BlogPosting/Article/TechArticle completo.
+  //
+  // Camada correta: os schemas são construídos DURANTE O RENDER e registrados
+  // nos slots (`useJsonLdSlot`), que alimentam o coletor do SSR. A versão
+  // anterior injetava <script> no document dentro de um useEffect — invisível
+  // para o HTML servido, deixando todo o blog sem dado estruturado no SSR.
+  const canonicalUrl = `${SITE_BASE_URL}/blog/${slug}`;
+  const approval = slug ? getEditorialApproval(slug) : null;
+  const approvedSchema = slug ? isEditorialApproved(slug) : false;
 
-    const canonicalUrl = `${SITE_BASE_URL}/blog/${slug}`;
-    const approval = getEditorialApproval(slug);
-    const approved = isEditorialApproved(slug);
-
-    const breadcrumbSchema = {
+  const breadcrumbSchema = useMemo(() => {
+    if (!post || !slug) return null;
+    return {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Início", "item": `${SITE_BASE_URL}/` },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_BASE_URL}/blog` },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
-      ]
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_BASE_URL}/blog` },
+        { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+      ],
     };
+  }, [post, slug, canonicalUrl]);
+  useJsonLdSlot(SCHEMA_SLOTS.breadcrumb, breadcrumbSchema, SLOT_PRIORITY.page);
 
-    const schemas: Record<string, unknown>[] = [breadcrumbSchema];
-
-    if (approved && approval) {
-      // Autoria institucional oficial (sem Person fictício / cargo inventado).
-      const author = {
+  const articleSchema = useMemo(() => {
+    if (!post || !slug || !approvedSchema || !approval) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": ["BlogPosting", "Article", "TechArticle"],
+      "@id": `${canonicalUrl}#article`,
+      headline: post.title.length > 110 ? `${post.title.substring(0, 107)}...` : post.title,
+      name: post.title,
+      description: post.excerpt,
+      datePublished: `${post.date}T08:00:00-03:00`,
+      // dateModified reflete a revisão material registrada; nunca gerada no build.
+      dateModified: `${(approval.reviewedAt ?? post.date).slice(0, 10)}T08:00:00-03:00`,
+      image: [
+        { "@type": "ImageObject", url: heroImage, width: 1600, height: 900 },
+        { "@type": "ImageObject", url: heroImage, width: 1200, height: 1200 },
+        { "@type": "ImageObject", url: heroImage, width: 1200, height: 675 },
+      ],
+      thumbnailUrl: heroImage,
+      author: {
         "@type": "Organization",
-        "name": INSTITUTIONAL_AUTHOR.name,
-        "url": INSTITUTIONAL_AUTHOR.url,
-      };
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": ["BlogPosting", "Article", "TechArticle"],
-        "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
-        "name": post.title,
-        "description": post.excerpt,
-        "datePublished": `${post.date}T08:00:00-03:00`,
-        // dateModified reflete a revisão material registrada; nunca gerada no build.
-        "dateModified": `${(approval.reviewedAt ?? post.date).slice(0, 10)}T08:00:00-03:00`,
-        "image": [
-          { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
-          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
-          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
-        ],
-        "thumbnailUrl": heroImage,
-        "author": author,
-        "publisher": {
-          "@type": "Organization",
-          "name": EDITORIAL_PUBLISHER.name,
-          "url": EDITORIAL_PUBLISHER.url,
-          "logo": {
-            "@type": "ImageObject",
-            "url": EDITORIAL_PUBLISHER.logo,
-            "width": 600,
-            "height": 60
-          }
-        },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-        "url": canonicalUrl,
-        "inLanguage": "pt-BR",
-        "isAccessibleForFree": true,
-        "isPartOf": {
-          "@type": "Blog",
-          "name": "Blog O Técnico de Informática",
-          "url": `${SITE_BASE_URL}/blog`
-        },
-        "about": { "@type": "Thing", "name": post.category },
-        "wordCount": wordCount,
-        "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
-        "articleSection": post.category,
-      });
-    } else {
-      // Rascunho / em preparação: somente WebPage institucional mínimo.
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": post.title,
-        "description": post.excerpt,
-        "url": canonicalUrl,
-        "inLanguage": "pt-BR",
-        "isPartOf": {
-          "@type": "WebSite",
-          "name": EDITORIAL_PUBLISHER.name,
-          "url": EDITORIAL_PUBLISHER.url,
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": EDITORIAL_PUBLISHER.name,
-          "url": EDITORIAL_PUBLISHER.url,
-        },
-      });
-    }
-
-    schemas.forEach(schema => {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.setAttribute('data-blog-schema', 'true');
-      script.text = JSON.stringify(schema);
-      document.head.appendChild(script);
-    });
-
-    return () => {
-      document.querySelectorAll('script[data-blog-schema="true"]').forEach(s => s.remove());
+        name: INSTITUTIONAL_AUTHOR.name,
+        url: INSTITUTIONAL_AUTHOR.url,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: EDITORIAL_PUBLISHER.name,
+        url: EDITORIAL_PUBLISHER.url,
+        logo: { "@type": "ImageObject", url: EDITORIAL_PUBLISHER.logo, width: 600, height: 60 },
+      },
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+      url: canonicalUrl,
+      inLanguage: "pt-BR",
+      isAccessibleForFree: true,
+      isPartOf: { "@type": "Blog", name: "Blog O Técnico de Informática", url: `${SITE_BASE_URL}/blog` },
+      about: { "@type": "Thing", name: post.category },
+      wordCount,
+      timeRequired: `PT${parseInt(post.readTime) || 10}M`,
+      articleSection: post.category,
     };
-  }, [post, slug, heroImage, wordCount]);
+  }, [post, slug, approvedSchema, approval, canonicalUrl, heroImage, wordCount]);
+  useJsonLdSlot(SCHEMA_SLOTS.article, articleSchema, SLOT_PRIORITY.page);
+
+  const webPageSchema = useMemo(() => {
+    if (!post || !slug || approvedSchema) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      name: post.title,
+      description: post.excerpt,
+      url: canonicalUrl,
+      inLanguage: "pt-BR",
+      isPartOf: { "@type": "WebSite", name: EDITORIAL_PUBLISHER.name, url: EDITORIAL_PUBLISHER.url },
+      publisher: { "@type": "Organization", name: EDITORIAL_PUBLISHER.name, url: EDITORIAL_PUBLISHER.url },
+    };
+  }, [post, slug, approvedSchema, canonicalUrl]);
+  useJsonLdSlot(SCHEMA_SLOTS.webPage, webPageSchema, SLOT_PRIORITY.page);
+
 
   // Se o slug não existir, devolve 404.
   if (!post) {

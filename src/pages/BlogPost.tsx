@@ -366,6 +366,8 @@ const BlogPost = () => {
         <CTASection />
       </main>
       <Footer />
+      {/* Emite no HTML do SSR os slots registrados por esta página e filhos. */}
+      <JsonLdSsrSink />
     </div>
   );
 };

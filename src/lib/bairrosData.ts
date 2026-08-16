@@ -55,6 +55,12 @@ export interface BairroLocalData {
   servicosCidade?: { to: string; label: string; desc: string }[];
   /** Páginas de sintoma (/problemas/*) contextualmente pertinentes ao bairro */
   problemasRelacionados?: { to: string; label: string; desc: string }[];
+  /**
+   * Ponte editorial (Micro-Rodada Discovery 1): uma frase de continuidade real
+   * ao fim da logística local, com um único link contextual para a página
+   * serviço × bairro correspondente. Não é bloco de links: é texto corrido.
+   */
+  ponteLocal?: { antes: string; to: string; anchor: string; depois: string };
   /** FAQ local visível (espelhada em FAQPage) — distinta entre bairros */
 
   faqLocal: BairroFaq[];

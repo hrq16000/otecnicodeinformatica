@@ -62,6 +62,7 @@ const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
 const AdminVitals = lazy(() => import("./pages/admin/AdminVitals"));
 const AdminAuditoriaLocal = lazy(() => import("./pages/admin/AdminAuditoriaLocal"));
 const AdminGatesLocais = lazy(() => import("./pages/admin/AdminGatesLocais"));
+const AdminInventarioBairros = lazy(() => import("./pages/admin/AdminInventarioBairros"));
 const AdminUiPerformance = lazy(() => import("./pages/admin/AdminUiPerformance"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminCasos = lazy(() => import("./pages/admin/AdminCasos"));
@@ -936,6 +937,7 @@ export const legacyRouteElements: Record<string, () => React.ReactElement> = {
   "/admin/vitals": () => <AdminVitals />,
   "/admin/auditoria-local": () => <AdminAuditoriaLocal />,
   "/admin/gates-locais": () => <AdminGatesLocais />,
+  "/admin/inventario-bairros": () => <AdminInventarioBairros />,
   "/admin/ui-performance": () => <AdminUiPerformance />,
   "/admin/dashboard": () => <AdminDashboard />,
   "/admin/casos": () => <AdminCasos />,

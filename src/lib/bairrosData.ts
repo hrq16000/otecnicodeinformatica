@@ -157,6 +157,12 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Boa parte dos chamados da região se resolve sem visita. Máquina que liga, conecta na internet e apenas está lenta ou com conflito de dock e vídeo é tratada por acesso remoto, com o usuário acompanhando a tela e sem sair do escritório. Quando a bancada é inevitável — tela, teclado, fonte ou armazenamento — a coleta é feita no próprio prédio, no horário comercial, e a devolução é combinada para não coincidir com reunião ou fechamento.",
       "Em atendimento corporativo no Batel, a máquina costuma ter perfil de domínio, VPN e políticas de segurança da empresa. Nada é alterado nessas configurações sem autorização de quem administra o ambiente: quando o ajuste depende de credencial administrativa do cliente, o passo é documentado e devolvido para aprovação em vez de contornado.",
     ],
+    ponteLocal: {
+      antes: "Quando o caminho escolhido é reinstalar o sistema em vez de ajustar o que já existe, o passo a passo do backup, das licenças e do tempo de parada está descrito em ",
+      to: "/servicos/formatacao-computador/batel",
+      anchor: "formatação de computador no Batel",
+      depois: ".",
+    },
     introducaoLocal: [
       "O Batel reúne muita gente que trabalha em casa e depende do computador o tempo todo. Por isso, os pedidos mais comuns na região envolvem notebook lento ou esquentando, necessidade de formatação com backup e Wi-Fi estável o suficiente para reuniões online.",
       "O atendimento começa por triagem no WhatsApp. A partir da descrição do problema, orientamos os primeiros passos e definimos se o caso pode ser resolvido no local, de forma remota ou se precisa seguir para bancada — sempre com diagnóstico antes de informar o valor.",

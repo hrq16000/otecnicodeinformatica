@@ -227,6 +227,18 @@ const ClusterProblemaPage = () => {
           {dados.titulo}
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{dados.resumo}</p>
+        {dados.ponteEditorial ? (
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            {dados.ponteEditorial.antes}
+            <Link
+              to={dados.ponteEditorial.to}
+              className="font-semibold text-accent underline-offset-4 hover:underline"
+            >
+              {dados.ponteEditorial.anchor}
+            </Link>
+            {dados.ponteEditorial.depois}
+          </p>
+        ) : null}
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild size="lg">

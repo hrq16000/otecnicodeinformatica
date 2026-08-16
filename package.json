@@ -279,7 +279,7 @@
     "check:national-foundation-pillars": "node scripts/check-national-foundation-pillars.mjs",
     "ssr:with-server": "node scripts/with-ssr-server.mjs",
     "gates:local": "node scripts/with-ssr-server.mjs npm run check:local-all",
-    "check:local-all": "npm run check:local-index-policy && npm run check:local-doorway && npm run check:local-neighborhood-intent && npm run check:local-service-intent && npm run check:local-interlinking && npm run check:local-seo-quality && npm run check:local-intro-similarity && npm run check:local-schema && npm run check:local-regression"
+    "check:local-all": "npm run check:local-index-policy && npm run check:local-doorway && npm run check:local-neighborhood-intent && npm run check:local-service-intent && npm run check:local-interlinking && npm run check:local-seo-quality && npm run check:local-intro-similarity && npm run check:local-schema && npm run check:bairros-galeria && npm run check:local-regression"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

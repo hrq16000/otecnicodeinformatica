@@ -37,13 +37,15 @@ export const BairroFotos = ({
           visíveis nas telas ou etiquetas.
         </p>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {galeria.map((item) => (
+          {galeria.map((item, i) => (
             <figure key={item.src} className="overflow-hidden rounded-xl border border-border/60 bg-card">
               <SmartImage
                 src={item.src}
                 alt={item.alt}
                 width={item.width}
                 height={item.height}
+                priority={i === 0}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 wrapperClassName="aspect-[4/3] overflow-hidden"
                 className="h-full w-full object-cover"
               />
@@ -67,6 +69,8 @@ export const BairroFotos = ({
             alt={foto.alt}
             width={foto.width}
             height={foto.height}
+            priority
+            sizes="(min-width: 768px) 55vw, 100vw"
             wrapperClassName="aspect-[16/10] overflow-hidden"
             className="h-full w-full object-cover"
           />

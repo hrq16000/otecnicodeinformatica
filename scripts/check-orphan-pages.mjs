@@ -53,13 +53,43 @@ for (const p of CURATED_PATHS) {
 }
 
 // ── 2. Montagens declaradas nas rotas ────────────────────────────────────────
-const mounts = new Map(); // módulo → [rotas]
+// As rotas montam páginas de duas formas:
+//   a) import direto de `@/pages/...` dentro do arquivo de rota;
+//   b) indireção pelo mapa `src/legacyRouteElements.tsx` (`legacyRouteElements["/x"]`),
+//      que associa cada path a um elemento (às vezes template data-driven com props).
+const LEGACY_MAP_FILE = "src/legacyRouteElements.tsx";
+const legacySrc = existsSync(join(ROOT, LEGACY_MAP_FILE)) ? readFileSync(join(ROOT, LEGACY_MAP_FILE), "utf8") : "";
+
+/** símbolo → módulo (`const X = lazy(() => import("./pages/X"))` ou import estático). */
+const simboloParaModulo = new Map();
+for (const m of legacySrc.matchAll(/const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(["']\.\/(pages\/[^"']+)["']\)/g))
+  simboloParaModulo.set(m[1], `@/${m[2]}`);
+for (const m of legacySrc.matchAll(/import\s+(\w+)\s+from\s+["']\.\/(pages\/[^"']+)["']/g))
+  simboloParaModulo.set(m[1], `@/${m[2]}`);
+
+/** path → { elemento (identidade textual), símbolo } */
+const legacyPorPath = new Map();
+for (const m of legacySrc.matchAll(/"(\/[^"]*)":\s*\(\)\s*=>\s*(<[^\n]+?),?\s*$/gm)) {
+  const elemento = m[2].replace(/,$/, "").trim();
+  const simbolo = elemento.match(/^<(\w+)/)?.[1];
+  legacyPorPath.set(normalizePath(m[1]), { elemento, simbolo });
+}
+
+const mounts = new Map(); // módulo → [{rota, identidade}]
+const registrar = (mod, rota, identidade) => {
+  if (!mounts.has(mod)) mounts.set(mod, []);
+  mounts.get(mod).push({ rota, identidade });
+};
+
 for (const file of universe.files) {
   const rel = relative(ROOT, file).split(sep).join("/");
   const src = readFileSync(file, "utf8");
+  const pattern = filePattern(rel);
+
   const modulos = new Set();
   for (const m of src.matchAll(/from\s+["'](@\/pages\/[^"']+)["']/g)) modulos.add(m[1]);
   for (const m of src.matchAll(/import\(\s*["'](@\/pages\/[^"']+)["']\s*\)/g)) modulos.add(m[1]);
+
   for (const mod of modulos) {
     const disco = mod.replace(/^@\//, "src/");
     const existe = [".tsx", ".ts", "/index.tsx"].some((ext) => existsSync(join(ROOT, `${disco}${ext}`)));
@@ -72,29 +102,51 @@ for (const file of universe.files) {
       });
       continue;
     }
-    if (!mounts.has(mod)) mounts.set(mod, []);
-    mounts.get(mod).push(rel);
+    registrar(mod, pattern ?? rel, mod);
+  }
+
+  // Indireção pelo mapa legado.
+  const chave = src.match(/legacyRouteElements\[\s*["']([^"']+)["']\s*\]/)?.[1];
+  if (chave) {
+    const alvo = legacyPorPath.get(normalizePath(chave));
+    if (!alvo) {
+      failures.push({
+        reason: "FAIL_BROKEN_MOUNT",
+        alvo: rel,
+        motivo: `rota referencia legacyRouteElements["${chave}"], chave inexistente no mapa`,
+        esperado: `declarar "${chave}" em ${LEGACY_MAP_FILE} ou montar um componente próprio`,
+      });
+    } else {
+      const mod = alvo.simbolo ? simboloParaModulo.get(alvo.simbolo) : null;
+      if (mod) registrar(mod, pattern ?? rel, alvo.elemento);
+    }
   }
 }
 
-// ── 3. Módulo montado por duas rotas indexáveis (conteúdo duplicado) ─────────
+// ── 3. Mesma implementação em dois slugs indexáveis (conteúdo duplicado) ─────
 const curado = new Set(CURATED_PATHS.map(normalizePath));
-const rotaDoArquivo = new Map();
-for (const pattern of universe.patterns) {
-  const f = universe.routeFileFor(pattern);
-  if (f) rotaDoArquivo.set(f, pattern);
-}
-for (const [mod, arquivos] of mounts) {
-  const indexaveis = arquivos.map((f) => rotaDoArquivo.get(f)).filter((p) => p && curado.has(p));
-  if (new Set(indexaveis).size > 1) {
-    failures.push({
-      reason: "FAIL_DUPLICATE_MOUNT",
-      alvo: mod,
-      motivo: `mesmo componente montado em ${[...new Set(indexaveis)].join(" e ")}`,
-      esperado: "uma implementação por slug canônico (ou canonical/301 entre eles)",
-    });
+for (const [mod, usos] of mounts) {
+  const porIdentidade = new Map();
+  for (const uso of usos) {
+    if (!uso.rota?.startsWith("/") || !curado.has(normalizePath(uso.rota))) continue;
+    // Templates data-driven (mesmo módulo, props diferentes) NÃO são duplicata:
+    // a identidade inclui as props do elemento.
+    const chave = uso.identidade;
+    if (!porIdentidade.has(chave)) porIdentidade.set(chave, new Set());
+    porIdentidade.get(chave).add(normalizePath(uso.rota));
+  }
+  for (const [identidade, rotas] of porIdentidade) {
+    if (rotas.size > 1) {
+      failures.push({
+        reason: "FAIL_DUPLICATE_MOUNT",
+        alvo: `${mod} → ${identidade}`,
+        motivo: `mesma implementação montada em ${[...rotas].join(" e ")}`,
+        esperado: "uma implementação por slug canônico (ou canonical/301 entre eles)",
+      });
+    }
   }
 }
+
 
 // ── 4. Componentes de página não montados por rota (informativo) ─────────────
 function listarPaginas(dir) {

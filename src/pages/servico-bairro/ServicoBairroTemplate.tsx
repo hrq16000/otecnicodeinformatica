@@ -108,26 +108,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
   // Preço numérico normalizado (aceita "R$ 99,99" ou "R$ 299,99")
   const priceNumeric = data.precoBase.replace(/[^\d,]/g, "").replace(",", ".");
 
-  // ── LocalBusiness: definido globalmente (slot `local-business`); aqui só
-  //    mantemos a forma para documentação de referência do @id usado abaixo.
-  const _localBusinessRefDoc = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${CANONICAL_BASE}/#localbusiness`,
-    name: "O Técnico de Informática",
-    url: CANONICAL_BASE,
-    telephone: WA_PHONE_E164,
-    areaServed: [
-      { "@type": "Place", name: `${data.bairro}, ${data.cidade}` },
-      { "@type": "City", name: data.cidade },
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: data.cidade,
-      addressRegion: "PR",
-      addressCountry: "BR",
-    },
-  };
+  // ── LocalBusiness: entidade institucional emitida uma única vez pelo slot
+  //    global (`local-business`). Esta página apenas a referencia por @id.
+
 
   // ── Service — canonical/@id self-referente na URL da página
   const serviceLd = {

@@ -133,7 +133,20 @@ for (const file of universe.files) {
 
 // ── 3. Mesma implementação em dois slugs indexáveis (conteúdo duplicado) ─────
 const curado = new Set(CURATED_PATHS.map(normalizePath));
+/**
+ * Template data-driven: o módulo deriva o conteúdo da própria rota
+ * (`useParams` / `useLocation` / `useRouterState`). Montá-lo em vários slugs
+ * produz páginas diferentes — não é duplicata.
+ */
+const ehTemplateDeRota = (mod) => {
+  const disco = mod.replace(/^@\//, "src/");
+  const arquivo = [".tsx", ".ts", "/index.tsx"].map((ext) => join(ROOT, `${disco}${ext}`)).find(existsSync);
+  if (!arquivo) return false;
+  return /useParams|useRouterState|useLocation|location\.pathname/.test(readFileSync(arquivo, "utf8"));
+};
+
 for (const [mod, usos] of mounts) {
+  if (ehTemplateDeRota(mod)) continue;
   const porIdentidade = new Map();
   for (const uso of usos) {
     if (!uso.rota?.startsWith("/") || !curado.has(normalizePath(uso.rota))) continue;

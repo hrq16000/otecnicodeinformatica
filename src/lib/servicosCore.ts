@@ -1406,6 +1406,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
 
     relacionados: [
+      { label: "Montagem de PC Gamer", to: "/servicos/pc-gamer" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
       { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },

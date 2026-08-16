@@ -32,6 +32,14 @@ if (!universe.ok) {
   process.exit(1);
 }
 
+// arquivo de rota → padrão de URL (fonte: universo derivado de src/routes).
+const patternPorArquivo = new Map();
+for (const pattern of universe.patterns) {
+  const f = universe.routeFileFor(pattern);
+  if (f && !patternPorArquivo.has(f)) patternPorArquivo.set(f, pattern);
+}
+const filePattern = (rel) => patternPorArquivo.get(rel);
+
 const failures = [];
 const info = { naoRota: [], privadas: 0 };
 

@@ -71,7 +71,9 @@ export const PageSEO = ({
       name: title,
       description,
       inLanguage: "pt-BR",
-      isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website`, name: SITE_NAME },
+      // Referência pura ao nó WebSite global (definir @type/name aqui
+      // criaria uma segunda definição do mesmo @id).
+      isPartOf: { "@id": `${BASE_URL}/#website` },
       ...(breadcrumbs && breadcrumbs.length > 0
         ? { breadcrumb: { "@id": `${url}#breadcrumb` } }
         : {}),

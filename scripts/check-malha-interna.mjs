@@ -61,11 +61,18 @@ const ARESTAS = [
     motivo: "mesma intenção (máquina nova): irmãos diretos, navegação nos dois sentidos.",
   },
   {
+    de: "/servicos/conserto-tv",
+    para: "/servicos/conserto-placa",
+    mutua: true,
+    motivo: "reparo de TV depende de placa e vice-versa: mesma bancada, dúvida circula nos dois sentidos.",
+  },
+  {
     de: "/servicos/conserto-monitor",
     para: "/servicos/conserto-tv",
     mutua: false,
     motivo: "monitor → TV é escalonamento de painel; TV → monitor não é a dúvida de quem busca TV.",
   },
+
   {
     de: "/servicos/backup-para-empresas",
     para: "/servicos/recuperacao-de-dados",

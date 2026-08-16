@@ -33,10 +33,19 @@ const norm = (href) => {
 const html = new Map();
 async function fetchPath(p) {
   if (html.has(p)) return html.get(p);
-  const res = await fetch(`${BASE_URL}${p === "/" ? "/" : p}`, {
-    headers: { "user-agent": "otecnicodeinformatica-discovery-graph/1.0" },
-  });
-  const body = res.ok ? await res.text() : "";
+  let body = "";
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      const res = await fetch(`${BASE_URL}${p === "/" ? "/" : p}`, {
+        headers: { "user-agent": "otecnicodeinformatica-discovery-graph/1.0" },
+        signal: AbortSignal.timeout(30000),
+      });
+      body = res.ok ? await res.text() : "";
+      break;
+    } catch {
+      await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+    }
+  }
   html.set(p, body);
   return body;
 }
@@ -48,7 +57,7 @@ const inbound = new Map(CURATED_PATHS.map((p) => [p, new Set()]));
 const depth = new Map([["/", 0]]);
 const queue = ["/"];
 const seen = new Set(["/"]);
-const CONCURRENCY = 8;
+const CONCURRENCY = 4;
 
 while (queue.length) {
   const layer = queue.splice(0, queue.length);

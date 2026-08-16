@@ -1,151 +1,132 @@
 #!/usr/bin/env node
 /**
- * Gate contra componentes órfãos (escopo: páginas comerciais P0).
+ * ============================================================================
+ * GATE DE PÁGINAS ÓRFÃS — stack TanStack Start (roteamento por arquivo)
+ * ============================================================================
+ * A versão anterior exigia que todo componente de `src/pages/` fosse importado
+ * em `src/App.tsx` / `src/LegacyApp.tsx`. Depois da migração isso virou ruído:
+ * 71 "órfãos" que na verdade são montados por arquivos em `src/routes/**` ou
+ * são componentes reutilizados por templates data-driven.
  *
- * Detecta, dentro de src/pages (raiz), src/pages/servicos e src/App.tsx /
- * src/LegacyApp.tsx:
- *   1. componente de página sem import em nenhum roteador;
- *   2. import (lazy ou estático) declarado e nunca usado em <Route>;
- *   3. rota P0 que apenas redireciona enquanto existe componente de página
- *      dedicado ao mesmo objetivo (conteúdo ficaria inalcançável);
- *   4. duas implementações distintas montadas no mesmo slug canônico.
+ * Contrato atual (defeito real, sem exceção por pathname):
+ *   FAIL_MISSING_ROUTE       URL curada/indexável sem arquivo de rota.
+ *   FAIL_BROKEN_MOUNT        rota importa módulo de página inexistente.
+ *   FAIL_DUPLICATE_MOUNT     duas rotas indexáveis montando o mesmo módulo.
  *
- * Relata: arquivo, símbolo, rota provável, motivo e componente canônico esperado.
- * Fora de escopo nesta rodada: varredura genérica de todos os componentes.
+ * Classificações informativas (contadas, nunca silenciosas):
+ *   SKIPPED_NON_ROUTE_COMPONENT  componente de página usado só por template.
+ *   SKIPPED_PRIVATE              rotas /admin, /ads, /api.
+ *
+ * Fail-closed: sem `src/routes`, falha com UNKNOWN_ROUTES_DIR_MISSING.
  */
-import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
+import { readdirSync, statSync } from "node:fs";
+import { join, relative, sep } from "node:path";
+import { CURATED_PATHS } from "./lib/curated-urls.mjs";
+import { readRouteUniverse, isPrivatePath, normalizePath, REASONS } from "./lib/tanstack-routes.mjs";
 
-const ROUTERS = ["src/LegacyApp.tsx", "src/App.tsx"].filter(existsSync);
-const SCOPE_DIRS = ["src/pages", "src/pages/servicos"];
-
-/** Rotas comerciais P0 desta rodada — precisam de componente próprio montado. */
-const P0_ROUTES = {
-  "/": "src/pages/Index.tsx",
-  "/tecnico-informatica-curitiba": "src/pages/TecnicoInformaticaCuritiba.tsx",
-  "/atendimento-domicilio": "src/pages/AtendimentoDomicilio.tsx",
-  "/empresa-de-ti-curitiba": "src/pages/EmpresaDeTiCuritiba.tsx",
-};
-
-/** Páginas montadas indiretamente (templates data-driven, admin, ads, etc). */
-const NOT_ROUTE_COMPONENTS = [
-  "src/pages/admin/",
-  "src/pages/ads/",
-  "src/pages/bairros/",
-  "src/pages/servico-bairro/",
-  "src/pages/arrumar-pc/",
-  "src/pages/cftv/",
-  "src/pages/hubs/",
-];
-
-const routerSrc = ROUTERS.map((f) => readFileSync(f, "utf8")).join("\n");
-const failures = [];
-const notices = [];
-
-function listPages(dir) {
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .map((e) => join(dir, e))
-    .filter((p) => statSync(p).isFile() && p.endsWith(".tsx"));
+const ROOT = process.cwd();
+const universe = readRouteUniverse(ROOT);
+if (!universe.ok) {
+  console.error(`✖ [${universe.reason}] src/routes ausente — gate não pode concluir.`);
+  process.exit(1);
 }
 
-const pages = [...new Set(SCOPE_DIRS.flatMap(listPages))].filter(
-  (p) => !NOT_ROUTE_COMPONENTS.some((skip) => p.startsWith(skip)),
+const failures = [];
+const info = { naoRota: [], privadas: 0 };
+
+// ── 1. URL curada precisa de rota real ───────────────────────────────────────
+for (const p of CURATED_PATHS) {
+  const path = normalizePath(p);
+  if (isPrivatePath(path)) {
+    info.privadas += 1;
+    continue;
+  }
+  if (!universe.isKnownRoute(path)) {
+    failures.push({
+      reason: "FAIL_MISSING_ROUTE",
+      alvo: path,
+      motivo: "URL indexável no sitemap curado sem arquivo de rota em src/routes",
+      esperado: `src/routes${path.replace(/\//g, ".").replace(/^\./, "/")}.tsx`,
+    });
+  }
+}
+
+// ── 2. Montagens declaradas nas rotas ────────────────────────────────────────
+const mounts = new Map(); // módulo → [rotas]
+for (const file of universe.files) {
+  const rel = relative(ROOT, file).split(sep).join("/");
+  const src = readFileSync(file, "utf8");
+  const modulos = new Set();
+  for (const m of src.matchAll(/from\s+["'](@\/pages\/[^"']+)["']/g)) modulos.add(m[1]);
+  for (const m of src.matchAll(/import\(\s*["'](@\/pages\/[^"']+)["']\s*\)/g)) modulos.add(m[1]);
+  for (const mod of modulos) {
+    const disco = mod.replace(/^@\//, "src/");
+    const existe = [".tsx", ".ts", "/index.tsx"].some((ext) => existsSync(join(ROOT, `${disco}${ext}`)));
+    if (!existe) {
+      failures.push({
+        reason: "FAIL_BROKEN_MOUNT",
+        alvo: rel,
+        motivo: `rota importa módulo inexistente: ${mod}`,
+        esperado: `criar ${disco}.tsx ou remover o import`,
+      });
+      continue;
+    }
+    if (!mounts.has(mod)) mounts.set(mod, []);
+    mounts.get(mod).push(rel);
+  }
+}
+
+// ── 3. Módulo montado por duas rotas indexáveis (conteúdo duplicado) ─────────
+const curado = new Set(CURATED_PATHS.map(normalizePath));
+const rotaDoArquivo = new Map();
+for (const pattern of universe.patterns) {
+  const f = universe.routeFileFor(pattern);
+  if (f) rotaDoArquivo.set(f, pattern);
+}
+for (const [mod, arquivos] of mounts) {
+  const indexaveis = arquivos.map((f) => rotaDoArquivo.get(f)).filter((p) => p && curado.has(p));
+  if (new Set(indexaveis).size > 1) {
+    failures.push({
+      reason: "FAIL_DUPLICATE_MOUNT",
+      alvo: mod,
+      motivo: `mesmo componente montado em ${[...new Set(indexaveis)].join(" e ")}`,
+      esperado: "uma implementação por slug canônico (ou canonical/301 entre eles)",
+    });
+  }
+}
+
+// ── 4. Componentes de página não montados por rota (informativo) ─────────────
+function listarPaginas(dir) {
+  if (!existsSync(dir)) return [];
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) out.push(...listarPaginas(full));
+    else if (entry.endsWith(".tsx")) out.push(full);
+  }
+  return out;
+}
+const montados = new Set([...mounts.keys()].map((m) => m.replace(/^@\//, "src/")));
+for (const file of listarPaginas(join(ROOT, "src/pages"))) {
+  const rel = relative(ROOT, file).split(sep).join("/");
+  const semExt = rel.replace(/\.tsx$/, "");
+  if (montados.has(semExt) || montados.has(semExt.replace(/\/index$/, ""))) continue;
+  info.naoRota.push(rel);
+}
+
+// ── 5. Saída ─────────────────────────────────────────────────────────────────
+console.log("── Páginas órfãs (universo TanStack) ──");
+console.log(`Rotas por arquivo: ${universe.patterns.length} | URLs curadas: ${CURATED_PATHS.length}`);
+console.log(
+  `SKIPPED_NON_ROUTE_COMPONENT: ${info.naoRota.length} componente(s) | SKIPPED_PRIVATE: ${info.privadas}`,
 );
 
-// 1) Componente de página sem import em nenhum roteador.
-for (const file of pages) {
-  const importPath = file.replace(/^src\//, "").replace(/\.tsx$/, "");
-  const short = importPath.replace(/^pages\//, "");
-  const referenced =
-    routerSrc.includes(`/${short}"`) ||
-    routerSrc.includes(`/${short}'`) ||
-    routerSrc.includes(`@/${importPath}`) ||
-    routerSrc.includes(`./${importPath}`);
-  if (!referenced) {
-    failures.push({
-      file,
-      symbol: short.split("/").pop(),
-      route: "(nenhuma)",
-      reason: "componente de página sem import em src/App.tsx ou src/LegacyApp.tsx",
-      expected: "montar na rota canônica ou remover o arquivo",
-    });
-  }
-}
-
-// 2) Imports declarados e nunca usados como elemento de rota.
-for (const routerFile of ROUTERS) {
-  const src = readFileSync(routerFile, "utf8");
-  const imports = [
-    ...src.matchAll(/(?:const|import)\s+(\w+)\s*=\s*lazy\(/g),
-    ...src.matchAll(/^import\s+(\w+)\s+from\s+["']\.\/pages\//gm),
-  ].map((m) => m[1]);
-  for (const sym of new Set(imports)) {
-    const used = new RegExp(`<${sym}[\\s/>]`).test(src);
-    if (!used) {
-      failures.push({
-        file: routerFile,
-        symbol: sym,
-        route: "(import sem <Route>)",
-        reason: "import lazy/estático declarado e nunca renderizado",
-        expected: "usar em uma <Route> ou remover o import",
-      });
-    }
-  }
-}
-
-// 3) Rota P0 que redireciona apesar de existir componente dedicado + 4) slug duplicado.
-for (const [route, expected] of Object.entries(P0_ROUTES)) {
-  const routeRe = new RegExp(`path="${route.replace(/\//g, "\\/")}"[^>]*element=\\{([^}]+)\\}`, "g");
-  const matches = [...routerSrc.matchAll(routeRe)].map((m) => m[1].trim());
-  if (matches.length === 0) continue;
-  const redirecting = matches.filter((m) => m.includes("Navigate"));
-  if (redirecting.length && existsSync(expected)) {
-    failures.push({
-      file: expected,
-      symbol: route,
-      route,
-      reason: "rota P0 redireciona enquanto existe componente de página dedicado",
-      expected,
-    });
-  }
-  const components = [...new Set(matches.filter((m) => !m.includes("Navigate")))];
-  if (components.length > 1) {
-    failures.push({
-      file: ROUTERS[0],
-      symbol: components.join(" / "),
-      route,
-      reason: "duas implementações montadas no mesmo slug canônico",
-      expected,
-    });
-  }
-}
-
-// 5) Conteúdo P0 precisa viver no componente canônico (não em reexport genérico).
-const localPage = P0_ROUTES["/tecnico-informatica-curitiba"];
-if (existsSync(localPage)) {
-  const src = readFileSync(localPage, "utf8");
-  if (/CidadeLandingLayout/.test(src) && src.split(/\r?\n/).length < 40) {
-    failures.push({
-      file: localPage,
-      symbol: "TecnicoInformaticaCuritiba",
-      route: "/tecnico-informatica-curitiba",
-      reason: "página P0 é apenas reexport do template genérico de cidade (sem conteúdo próprio)",
-      expected: "componente próprio com conteúdo editorial exclusivo",
-    });
-  }
-}
-
-console.log(`[orphan-gate] escopo: ${pages.length} página(s) + ${ROUTERS.length} roteador(es)`);
-for (const n of notices) console.log(`  \u2139 ${n}`);
-
 if (failures.length) {
-  console.error(`\n[orphan-gate] FALHOU — ${failures.length} problema(s):`);
+  console.error(`\n✖ ${failures.length} defeito(s) real(is):`);
   for (const f of failures) {
-    console.error(
-      `  \u2717 ${f.file}\n      símbolo: ${f.symbol}\n      rota: ${f.route}\n      motivo: ${f.reason}\n      esperado: ${f.expected}`,
-    );
+    console.error(`  ✗ [${f.reason}] ${f.alvo}\n      motivo: ${f.motivo}\n      esperado: ${f.esperado}`);
   }
   process.exit(1);
 }
-console.log("[orphan-gate] OK — nenhum componente órfão nas páginas comerciais \u2714");
+console.log("✔ Nenhuma URL indexável sem rota, montagem quebrada ou slug duplicado.");

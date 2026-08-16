@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-// @ts-expect-error — módulo .mjs de build, sem tipos
+// módulo .mjs compartilhado pelos gates (sem tipos próprios)
 import {
   filenameToRoutePattern,
   patternToRegex,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T20:41:57.422Z",
+  "generatedAt": "2026-08-16T02:06:30.380Z",
   "resumo": {
     "total": 162,
     "orfas": 0,
@@ -26,7 +26,7 @@
     {
       "url": "/problemas/arquivos-apagados",
       "sitemap": true,
-      "links": 8,
+      "links": 12,
       "clickDepth": 2,
       "searchStatus": "UNKNOWN"
     },
@@ -131,7 +131,7 @@
     {
       "url": "/problemas/cheiro-de-queimado",
       "sitemap": true,
-      "links": 3,
+      "links": 5,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -166,7 +166,7 @@
     {
       "url": "/problemas/computador-desliga-sozinho",
       "sitemap": true,
-      "links": 5,
+      "links": 7,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -180,14 +180,14 @@
     {
       "url": "/problemas/computador-esquentando",
       "sitemap": true,
-      "links": 6,
+      "links": 10,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
     {
       "url": "/problemas/computador-lento",
       "sitemap": true,
-      "links": 27,
+      "links": 37,
       "clickDepth": 2,
       "searchStatus": "UNKNOWN"
     },
@@ -222,7 +222,7 @@
     {
       "url": "/problemas/computador-nao-da-imagem",
       "sitemap": true,
-      "links": 5,
+      "links": 7,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -432,7 +432,7 @@
     {
       "url": "/problemas/hd-fazendo-barulho",
       "sitemap": true,
-      "links": 5,
+      "links": 9,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -460,7 +460,7 @@
     {
       "url": "/problemas/impressora-nao-imprime",
       "sitemap": true,
-      "links": 3,
+      "links": 7,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -586,14 +586,14 @@
     {
       "url": "/problemas/notebook-molhado",
       "sitemap": true,
-      "links": 3,
+      "links": 5,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
     {
       "url": "/problemas/notebook-nao-carrega",
       "sitemap": true,
-      "links": 4,
+      "links": 7,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -614,7 +614,7 @@
     {
       "url": "/problemas/notebook-nao-liga",
       "sitemap": true,
-      "links": 22,
+      "links": 24,
       "clickDepth": 2,
       "searchStatus": "UNKNOWN"
     },
@@ -964,7 +964,7 @@
     {
       "url": "/problemas/teclado-notebook-nao-funciona",
       "sitemap": true,
-      "links": 4,
+      "links": 6,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },
@@ -985,7 +985,7 @@
     {
       "url": "/problemas/tela-azul",
       "sitemap": true,
-      "links": 10,
+      "links": 12,
       "clickDepth": 2,
       "searchStatus": "UNKNOWN"
     },
@@ -1118,7 +1118,7 @@
     {
       "url": "/problemas/wifi-instavel",
       "sitemap": true,
-      "links": 11,
+      "links": 15,
       "clickDepth": 2,
       "searchStatus": "UNKNOWN"
     },
@@ -1132,7 +1132,7 @@
     {
       "url": "/problemas/windows-nao-inicia",
       "sitemap": true,
-      "links": 4,
+      "links": 8,
       "clickDepth": null,
       "searchStatus": "UNKNOWN"
     },

@@ -108,8 +108,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
   // Preço numérico normalizado (aceita "R$ 99,99" ou "R$ 299,99")
   const priceNumeric = data.precoBase.replace(/[^\d,]/g, "").replace(",", ".");
 
-  // ── LocalBusiness (referenciável por @id em outros schemas)
-  const localBusinessLd = {
+  // ── LocalBusiness: definido globalmente (slot `local-business`); aqui só
+  //    mantemos a forma para documentação de referência do @id usado abaixo.
+  const _localBusinessRefDoc = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${CANONICAL_BASE}/#localbusiness`,
@@ -164,7 +165,10 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
 
   const jsonLdGraph = {
     "@context": "https://schema.org",
-    "@graph": [localBusinessLd, serviceLd, ...(faqLd ? [faqLd] : [])],
+    // LocalBusiness NÃO entra aqui: a entidade institucional já é emitida
+    // uma única vez pelo slot global (`local-business`). Duplicar o mesmo @id
+    // quebra o grafo. O Service apenas referencia esse @id em `provider`.
+    "@graph": [serviceLd, ...(faqLd ? [faqLd] : [])],
   };
 
 

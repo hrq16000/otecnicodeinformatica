@@ -41,13 +41,39 @@ const VIZINHANCA = {
   "/servicos/conserto-monitor": ["/servicos/conserto-tv", "/servicos/manutencao-de-computador"],
 };
 
-/** Pares que precisam linkar nos dois sentidos (anti-beco sem saída). */
-const RECIPROCOS = [
-  ["/servicos/montagem-de-pc", "/servicos/pc-gamer"],
-  ["/servicos/conserto-tv", "/servicos/conserto-placa"],
-  ["/servicos/conserto-monitor", "/servicos/conserto-tv"],
-  ["/servicos/backup-para-empresas", "/servicos/recuperacao-de-dados"],
+/**
+ * ARESTAS OBRIGATÓRIAS (anti-beco sem saída).
+ *
+ * A versão anterior exigia reciprocidade cega: se A linka B, B tem de linkar A.
+ * Isso trata como defeito relações que são DIRECIONAIS por intenção de busca
+ * (ex.: quem lê backup empresarial pode precisar de recuperação de dados; o
+ * caminho inverso jogaria um visitante doméstico numa página PJ).
+ *
+ * O contrato agora é por ARESTA DIRIGIDA, com justificativa explícita, e
+ * nenhuma aresta deixou de ser verificada — só passaram a ser verificadas na
+ * direção semanticamente correta. `mutua: true` continua exigindo os dois lados.
+ */
+const ARESTAS = [
+  {
+    de: "/servicos/montagem-de-pc",
+    para: "/servicos/pc-gamer",
+    mutua: true,
+    motivo: "mesma intenção (máquina nova): irmãos diretos, navegação nos dois sentidos.",
+  },
+  {
+    de: "/servicos/conserto-monitor",
+    para: "/servicos/conserto-tv",
+    mutua: false,
+    motivo: "monitor → TV é escalonamento de painel; TV → monitor não é a dúvida de quem busca TV.",
+  },
+  {
+    de: "/servicos/backup-para-empresas",
+    para: "/servicos/recuperacao-de-dados",
+    mutua: false,
+    motivo: "backup (PJ preventivo) → recuperação (corretivo); o inverso levaria intenção doméstica a página PJ.",
+  },
 ];
+
 
 /** Rotas herdadas consolidadas: existem, mas são noindex e não recebem link de página curada. */
 const CONSOLIDADAS_NOINDEX = ["/servicos/manutencao-tv", "/servicos/conserto-celular", "/cftv"];

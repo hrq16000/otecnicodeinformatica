@@ -246,6 +246,8 @@
     "report:local-gates": "node scripts/generate-local-gates-report.mjs dist",
     "report:rodada-5e": "node scripts/report-rodada-5e.mjs",
     "check:local-regression": "node scripts/check-local-regression.mjs dist --strict",
+    "report:indexation-microlot-1": "node scripts/with-ssr-server.mjs node scripts/diagnose-indexation-microlot-1.mjs --invalidar",
+
     "check:local-regression:alert": "node scripts/check-local-regression.mjs dist --alert",
     "report:local-doorway": "node scripts/report-local-doorway.mjs dist",
     "lh:local": "lhci autorun --config=lighthouserc.local.json",

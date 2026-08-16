@@ -9,6 +9,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { CIDADE_LIST, CURITIBA_BAIRROS, MODALIDADES_ATENDIMENTO } from "@/lib/cidadesData";
 import { CIDADES_RMC_NOMES } from "@/lib/bairrosSelect";
+import { BAIRROS_DIRECTORY_POR_CIDADE, bairroHref } from "@/lib/bairrosDirectory";
+
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const PATH = "/areas-atendidas";
@@ -248,8 +250,38 @@ const AreasAtendidas = () => {
               Bairros destacados possuem página local própria com detalhes de operação. Os demais são
               atendidos normalmente, apenas não têm página dedicada.
             </p>
+
+            <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+              <h3 className="text-lg font-heading font-bold text-foreground">
+                Todas as páginas locais por bairro
+              </h3>
+              <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
+                Cada página abaixo descreve como o atendimento funciona naquele bairro: acesso, logística,
+                modalidade mais indicada e os chamados mais comuns. Não há loja física em nenhum deles.
+              </p>
+              {BAIRROS_DIRECTORY_POR_CIDADE.map((grupo) => (
+                <div key={grupo.cidade} className="mt-5">
+                  <h4 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                    {grupo.cidade}
+                  </h4>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {grupo.itens.map((b) => (
+                      <li key={b.slug}>
+                        <Link
+                          to={bairroHref(b.slug)}
+                          className="inline-flex min-h-9 items-center rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                        >
+                          {b.nome}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
+
 
         <section className="border-t border-border/60 bg-secondary/30 py-12 md:py-16">
           <div className="container mx-auto">

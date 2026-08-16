@@ -23,6 +23,12 @@ export type ClusterProblema = {
   modalidades: { titulo: string; desc: string }[];
   faq: ClusterFaq[];
   relacionados: { to: string; titulo: string; desc: string }[];
+  /**
+   * Ponte editorial (Micro-Rodada Discovery 1): frase de continuidade logo após
+   * o resumo, com um único link contextual para o conteúdo que aprofunda o
+   * mesmo assunto. Texto corrido — não é bloco de links.
+   */
+  ponteEditorial?: { antes: string; to: string; anchor: string; depois: string };
   foto?: string;           // slug em fotosLicenciadas
 };
 

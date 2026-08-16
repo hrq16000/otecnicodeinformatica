@@ -54,13 +54,6 @@ const localFaqs = [
   { question: "Atendem empresas em Piraquara?", answer: "Sim. Suporte para escritórios, comércios e pequenas empresas com manutenção de rede, backup e suporte contínuo." },
 ];
 
-const schema = {
-  "@context": "https://schema.org", "@type": "LocalBusiness",
-  "name": "Técnico de Informática em Piraquara",
-  "description": "Assistência técnica de computadores em Piraquara PR. Atendimento a domicílio.",
-  "areaServed": { "@type": "City", "name": "Piraquara", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "$$",
-};
 
 const TecnicoInformaticaPiraquara = () => {
   useEffect(() => {
@@ -74,7 +67,6 @@ const TecnicoInformaticaPiraquara = () => {
     <div className="min-h-screen bg-background">
       <PageSEO noindex title="Técnico de Informática em Piraquara PR | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-piraquara" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Piraquara", path: "/tecnico-informatica-piraquara" }]} />
       <CityServiceSchema city={"Piraquara"} citySameAs={"https://pt.wikipedia.org/wiki/Piraquara"} path={"/tecnico-informatica-piraquara"} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Piraquara" }]} />

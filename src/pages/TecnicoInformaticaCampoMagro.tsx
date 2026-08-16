@@ -49,13 +49,6 @@ const localFaqs = [
   { question: "Atendem na zona rural?", answer: "Sim, desde que haja acesso por via pavimentada. Consulte pelo WhatsApp para confirmar cobertura no seu endereço." },
 ];
 
-const schema = {
-  "@context": "https://schema.org", "@type": "LocalBusiness",
-  "name": "Técnico de Informática em Campo Magro",
-  "description": "Assistência técnica em Campo Magro PR. Atendimento a domicílio.",
-  "areaServed": { "@type": "City", "name": "Campo Magro", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "$$",
-};
 
 const TecnicoInformaticaCampoMagro = () => {
   useEffect(() => {
@@ -69,7 +62,6 @@ const TecnicoInformaticaCampoMagro = () => {
     <div className="min-h-screen bg-background">
       <PageSEO noindex title="Técnico de Informática em Campo Magro PR | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-campo-magro" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Campo Magro", path: "/tecnico-informatica-campo-magro" }]} />
       <CityServiceSchema city={"Campo Magro"} citySameAs={"https://pt.wikipedia.org/wiki/Campo_Magro"} path={"/tecnico-informatica-campo-magro"} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Campo Magro" }]} />

@@ -33,6 +33,7 @@
 - [Onda 5E — cluster armazenamento](mem://features/onda-5e-editorial-armazenamento) — Teto de 22 artigos, clonagem e segundo SSD reescritos, capas reais e pilar upgrade-ssd-ram.
 - [Onda 5D — cluster refrigeração](mem://features/onda-5d-editorial-refrigeracao) — Teto de 20 artigos, limpeza interna e pasta térmica reescritas, parser WAVE_5D obrigatório nos gates.
 - [Onda 5I — software e desempenho](mem://features/onda-5i-editorial-software) — Teto de 30 artigos, Windows 11 lento e remoção de vírus reescritos, pilares formatacao e remocao-de-virus.
+- [Micro-Rodada Indexação 1.1](mem://features/microrodada-indexacao-1-1) — Deploy 16/08/2026 encerrou a divergência noindex dos 4 bairros; baseline GSC pós-deploy e regra de observação sem ação.
 - [Onda 21 — WhatsApp e triagem em /problemas](mem://features/problemas-wa-templates-onda21) — Mensagens pré-preenchidas, UTM por rota/seção/rolagem e FAQs com links internos.
 - [Onda 23 — painel A/B e FAQ depth](mem://features/problemas-ab-painel-onda23) — /admin/experimento-wa (msg_a × msg_b por sintoma), variante estável por dispositivo, faq_section_depth e gate E2E dos CTAs.
 - [Onda 24 — sintomas urgentes /problemas](mem://features/cluster-problemas-onda-24) — hd-fazendo-barulho e notebook-molhado indexáveis, espelho estático obrigatório e herdadas *-curitiba seguem noindex.

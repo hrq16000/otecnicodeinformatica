@@ -1,0 +1,51 @@
+{
+  "geradoEm": "2026-08-16T00:44:13.699Z",
+  "site": "sc-domain:otecnicodeinformatica.com.br",
+  "disponivel": true,
+  "rotas": [
+    {
+      "slug": "boqueirao",
+      "path": "/bairros/boqueirao",
+      "url": "https://otecnicodeinformatica.com.br/bairros/boqueirao",
+      "status": "NO_DATA",
+      "coverageState": "O Google não reconhece o URL",
+      "ultimoCrawl": null,
+      "canonicalGoogle": null,
+      "canonicalDeclarado": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "slug": "cajuru",
+      "path": "/bairros/cajuru",
+      "url": "https://otecnicodeinformatica.com.br/bairros/cajuru",
+      "status": "NO_DATA",
+      "coverageState": "O Google não reconhece o URL",
+      "ultimoCrawl": null,
+      "canonicalGoogle": null,
+      "canonicalDeclarado": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "slug": "pinheirinho",
+      "path": "/bairros/pinheirinho",
+      "url": "https://otecnicodeinformatica.com.br/bairros/pinheirinho",
+      "status": "NO_DATA",
+      "coverageState": "O Google não reconhece o URL",
+      "ultimoCrawl": null,
+      "canonicalGoogle": null,
+      "canonicalDeclarado": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "slug": "cidade-jardim-sjp",
+      "path": "/bairros/cidade-jardim-sjp",
+      "url": "https://otecnicodeinformatica.com.br/bairros/cidade-jardim-sjp",
+      "status": "NO_DATA",
+      "coverageState": "O Google não reconhece o URL",
+      "ultimoCrawl": null,
+      "canonicalGoogle": null,
+      "canonicalDeclarado": null,
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    }
+  ]
+}

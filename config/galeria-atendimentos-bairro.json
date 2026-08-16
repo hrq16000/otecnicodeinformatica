@@ -1,0 +1,4 @@
+{
+  "_doc": "Galeria de ATENDIMENTOS REAIS por bairro. Fail-closed por decisão de projeto: enquanto não houver fotografia própria do atendimento (com autorização do cliente e sem dado pessoal visível), o array fica vazio e NENHUMA galeria é renderizada. Proibido: imagem gerada por IA, banco de imagens genérico apresentado como atendimento próprio, foto de terceiros sem licença. Cada item exige: bairroSlug, src (arquivo em public/atendimentos/), alt descritivo do que aparece, legenda técnica, data (AAAA-MM) e autorizacao ('cliente' | 'equipamento-proprio'). O gate check:bairros-galeria valida esses campos e derruba o build se algo for declarado sem arquivo correspondente.",
+  "itens": []
+}
